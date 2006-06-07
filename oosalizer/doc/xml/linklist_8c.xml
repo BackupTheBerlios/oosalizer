@@ -1,0 +1,1056 @@
+<?xml version='1.0' encoding='iso-8859-1' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.4.6">
+  <compounddef id="linklist_8c" kind="file">
+    <compoundname>linklist.c</compoundname>
+    <includes local="no">time.h</includes>
+    <includes local="no">stdio.h</includes>
+    <includes local="no">stdlib.h</includes>
+    <includes local="no">string.h</includes>
+    <includes local="no">unistd.h</includes>
+    <includes local="no">ctype.h</includes>
+    <includes local="no">sys/utsname.h</includes>
+    <includes local="no">sys/times.h</includes>
+    <includes local="no">sys/types.h</includes>
+    <includes refid="webalizer_8h" local="yes">webalizer.h</includes>
+    <includes refid="lang_8h" local="yes">lang.h</includes>
+    <includes refid="linklist_8h" local="yes">linklist.h</includes>
+    <incdepgraph>
+      <node id="238">
+        <label>sys/times.h</label>
+      </node>
+      <node id="233">
+        <label>stdlib.h</label>
+      </node>
+      <node id="239">
+        <label>sys/types.h</label>
+      </node>
+      <node id="234">
+        <label>string.h</label>
+      </node>
+      <node id="235">
+        <label>unistd.h</label>
+      </node>
+      <node id="241">
+        <label>lang.h</label>
+        <link refid="lang_8h"/>
+      </node>
+      <node id="231">
+        <label>time.h</label>
+      </node>
+      <node id="240">
+        <label>webalizer.h</label>
+        <link refid="webalizer_8h"/>
+      </node>
+      <node id="230">
+        <label>oosalizer/linklist.c</label>
+        <link refid="linklist.c"/>
+        <childnode refid="231" relation="include">
+        </childnode>
+        <childnode refid="232" relation="include">
+        </childnode>
+        <childnode refid="233" relation="include">
+        </childnode>
+        <childnode refid="234" relation="include">
+        </childnode>
+        <childnode refid="235" relation="include">
+        </childnode>
+        <childnode refid="236" relation="include">
+        </childnode>
+        <childnode refid="237" relation="include">
+        </childnode>
+        <childnode refid="238" relation="include">
+        </childnode>
+        <childnode refid="239" relation="include">
+        </childnode>
+        <childnode refid="240" relation="include">
+        </childnode>
+        <childnode refid="241" relation="include">
+        </childnode>
+        <childnode refid="242" relation="include">
+        </childnode>
+      </node>
+      <node id="242">
+        <label>linklist.h</label>
+        <link refid="linklist_8h"/>
+      </node>
+      <node id="236">
+        <label>ctype.h</label>
+      </node>
+      <node id="232">
+        <label>stdio.h</label>
+      </node>
+      <node id="237">
+        <label>sys/utsname.h</label>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="linklist_8c_103df76d1f70664d745ca8de2864e39b3" prot="public" static="no">
+        <name>CLK_TCK</name>
+        <initializer>_SC_CLK_TCK</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/linklist.c" line="59" bodyfile="/home/r23/oosalizer/linklist.c" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="linklist_8c_12818014b7feb4f6db3a0884d0c7caf0f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structnlist" kindref="compound">NLISTPTR</ref></type>
+        <definition>NLISTPTR new_nlist</definition>
+        <argsstring>(char *)</argsstring>
+        <name>new_nlist</name>
+        <param>
+          <type>char *</type>
+          <defname>str</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/linklist.c" line="68" bodyfile="/home/r23/oosalizer/linklist.c" bodystart="111" bodyend="123"/>
+        <references refid="lang_8h_1a2ee47975118e6f57ce4a10d1baeef26">msg_big_one</references>
+        <references refid="structnlist_16e5fbb2f12a2799e60611dbda92c6f38" compoundref="linklist_8h" startline="5">nlist::next</references>
+        <references refid="structnlist_1272774fb3950796b85497317de3dd85a" compoundref="linklist_8h" startline="4">nlist::string</references>
+        <references refid="webalizer_8c_10b2caeb4b6f130be43e5a2f0267dd453" compoundref="webalizer_8c" startline="108">verbose</references>
+        <referencedby refid="linklist_8h_15ff4c7ffc3201d64048a6921c866c937" compoundref="linklist_8c" startline="129" endline="144">add_nlist</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="linklist_8c_1949ae6c82d1c88d8407757f05724d8af" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void del_nlist</definition>
+        <argsstring>(NLISTPTR *)</argsstring>
+        <name>del_nlist</name>
+        <param>
+          <type><ref refid="structnlist" kindref="compound">NLISTPTR</ref> *</type>
+          <defname>list</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/linklist.c" line="69" bodyfile="/home/r23/oosalizer/linklist.c" bodystart="150" bodyend="161"/>
+        <references refid="structnlist_16e5fbb2f12a2799e60611dbda92c6f38" compoundref="linklist_8h" startline="5">nlist::next</references>
+      </memberdef>
+      <memberdef kind="function" id="linklist_8c_1efe1a363b71eccafc7f2c8e31f8f2b05" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structglist" kindref="compound">GLISTPTR</ref></type>
+        <definition>GLISTPTR new_glist</definition>
+        <argsstring>(char *, char *)</argsstring>
+        <name>new_glist</name>
+        <param>
+          <type>char *</type>
+          <defname>str</defname>
+        </param>
+        <param>
+          <type>char *</type>
+          <defname>name</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/linklist.c" line="71" bodyfile="/home/r23/oosalizer/linklist.c" bodystart="167" bodyend="184"/>
+        <references refid="lang_8h_1a2ee47975118e6f57ce4a10d1baeef26">msg_big_one</references>
+        <references refid="structglist_1d3ebdbe9d3d9448d753a3aa95d232455" compoundref="linklist_8h" startline="9">glist::name</references>
+        <references refid="structglist_1fcbd6d229e8a0ea95ed0532927a3bf85" compoundref="linklist_8h" startline="10">glist::next</references>
+        <references refid="structglist_136312d3b785bc51f116bd01aa2a3cf20" compoundref="linklist_8h" startline="8">glist::string</references>
+        <references refid="webalizer_8c_10b2caeb4b6f130be43e5a2f0267dd453" compoundref="webalizer_8c" startline="108">verbose</references>
+        <referencedby refid="linklist_8h_1a17a4a0e1bebcb1f19644843920ef3ea" compoundref="linklist_8c" startline="190" endline="220">add_glist</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="linklist_8c_12db320536d6c5a8726da8e8e627af50c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void del_glist</definition>
+        <argsstring>(GLISTPTR *)</argsstring>
+        <name>del_glist</name>
+        <param>
+          <type><ref refid="structglist" kindref="compound">GLISTPTR</ref> *</type>
+          <defname>list</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/linklist.c" line="72" bodyfile="/home/r23/oosalizer/linklist.c" bodystart="226" bodyend="237"/>
+        <references refid="structglist_1fcbd6d229e8a0ea95ed0532927a3bf85" compoundref="linklist_8h" startline="10">glist::next</references>
+      </memberdef>
+      <memberdef kind="function" id="linklist_8c_199ef4b81dcab23e1497ea7d5afdeceeb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int isinstr</definition>
+        <argsstring>(char *, char *)</argsstring>
+        <name>isinstr</name>
+        <param>
+          <type>char *</type>
+          <defname>str</defname>
+        </param>
+        <param>
+          <type>char *</type>
+          <defname>cp</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/linklist.c" line="74" bodyfile="/home/r23/oosalizer/linklist.c" bodystart="277" bodyend="308"/>
+        <referencedby refid="linklist_8h_104dff50c01cd9572b6a3d9dfbdb7cc07" compoundref="linklist_8c" startline="260" endline="271">isinglist</referencedby>
+        <referencedby refid="linklist_8h_13568dfb8e887fc7a6c38ca8f900c721c" compoundref="linklist_8c" startline="243" endline="254">isinlist</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="linklist_8c_18839d62523e9b12655cca004617bbe77" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int add_nlist</definition>
+        <argsstring>(char *str, NLISTPTR *list)</argsstring>
+        <name>add_nlist</name>
+        <param>
+          <type>char *</type>
+          <declname>str</declname>
+        </param>
+        <param>
+          <type><ref refid="structnlist" kindref="compound">NLISTPTR</ref> *</type>
+          <declname>list</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/linklist.c" line="130" bodyfile="/home/r23/oosalizer/linklist.c" bodystart="129" bodyend="144"/>
+        <references refid="linklist_8c_12818014b7feb4f6db3a0884d0c7caf0f" compoundref="linklist_8c" startline="111" endline="123">new_nlist</references>
+        <references refid="structnlist_16e5fbb2f12a2799e60611dbda92c6f38" compoundref="linklist_8h" startline="5">nlist::next</references>
+        <referencedby refid="webalizer_8c_10ddf1224851353fc92bfbff6f499fa97" compoundref="webalizer_8c" startline="232" endline="1437">main</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="linklist_8c_17a76399c20af4803b0efcc757733039d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int add_glist</definition>
+        <argsstring>(char *str, GLISTPTR *list)</argsstring>
+        <name>add_glist</name>
+        <param>
+          <type>char *</type>
+          <declname>str</declname>
+        </param>
+        <param>
+          <type><ref refid="structglist" kindref="compound">GLISTPTR</ref> *</type>
+          <declname>list</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/linklist.c" line="191" bodyfile="/home/r23/oosalizer/linklist.c" bodystart="190" bodyend="220"/>
+        <references refid="linklist_8c_1efe1a363b71eccafc7f2c8e31f8f2b05" compoundref="linklist_8c" startline="167" endline="184">new_glist</references>
+        <references refid="structglist_1fcbd6d229e8a0ea95ed0532927a3bf85" compoundref="linklist_8h" startline="10">glist::next</references>
+      </memberdef>
+      <memberdef kind="function" id="linklist_8c_129bda5ebb6dd2f9b19d8f9519eaf94ff" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>char *</type>
+        <definition>char* isinlist</definition>
+        <argsstring>(NLISTPTR list, char *str)</argsstring>
+        <name>isinlist</name>
+        <param>
+          <type><ref refid="structnlist" kindref="compound">NLISTPTR</ref></type>
+          <declname>list</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>str</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/linklist.c" line="244" bodyfile="/home/r23/oosalizer/linklist.c" bodystart="243" bodyend="254"/>
+        <references refid="linklist_8c_199ef4b81dcab23e1497ea7d5afdeceeb" compoundref="linklist_8c" startline="277" endline="308">isinstr</references>
+        <references refid="structnlist_16e5fbb2f12a2799e60611dbda92c6f38" compoundref="linklist_8h" startline="5">nlist::next</references>
+        <references refid="structnlist_1272774fb3950796b85497317de3dd85a" compoundref="linklist_8h" startline="4">nlist::string</references>
+        <referencedby refid="webalizer_8h_1cd1966893702ec0520fb7a743275a2e0" compoundref="webalizer_8c" startline="1802" endline="1810">ispage</referencedby>
+        <referencedby refid="webalizer_8c_10ddf1224851353fc92bfbff6f499fa97" compoundref="webalizer_8c" startline="232" endline="1437">main</referencedby>
+        <referencedby refid="hashtab_8h_14d9f66275e1a624931142f32f046dd13" compoundref="hashtab_8c" startline="590" endline="639">put_anode</referencedby>
+        <referencedby refid="hashtab_8h_1fe9c0e49a4926c7cba71b7f8db5db8cd" compoundref="hashtab_8c" startline="155" endline="277">put_hnode</referencedby>
+        <referencedby refid="hashtab_8h_162c7ecc5b3ae3851f5400e30734b8e9e" compoundref="hashtab_8c" startline="811" endline="912">put_inode</referencedby>
+        <referencedby refid="hashtab_8h_1cba57da4379852348b455ce6e86ef96b" compoundref="hashtab_8c" startline="471" endline="523">put_rnode</referencedby>
+        <referencedby refid="hashtab_8h_196366abcaec7b7275725bb40618976ab" compoundref="hashtab_8c" startline="344" endline="404">put_unode</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="linklist_8c_170d3ef92faca75f6392ba919975ffe47" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>char *</type>
+        <definition>char* isinglist</definition>
+        <argsstring>(GLISTPTR list, char *str)</argsstring>
+        <name>isinglist</name>
+        <param>
+          <type><ref refid="structglist" kindref="compound">GLISTPTR</ref></type>
+          <declname>list</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>str</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/linklist.c" line="261" bodyfile="/home/r23/oosalizer/linklist.c" bodystart="260" bodyend="271"/>
+        <references refid="linklist_8c_199ef4b81dcab23e1497ea7d5afdeceeb" compoundref="linklist_8c" startline="277" endline="308">isinstr</references>
+        <references refid="structglist_1d3ebdbe9d3d9448d753a3aa95d232455" compoundref="linklist_8h" startline="9">glist::name</references>
+        <references refid="structglist_1fcbd6d229e8a0ea95ed0532927a3bf85" compoundref="linklist_8h" startline="10">glist::next</references>
+        <references refid="structglist_136312d3b785bc51f116bd01aa2a3cf20" compoundref="linklist_8h" startline="8">glist::string</references>
+        <referencedby refid="webalizer_8c_12b1002ec17d1cd1e6901514b8b6de058" compoundref="webalizer_8c" startline="1883" endline="1936">srch_string</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="linklist_8c_1cda3597076ed2d11c457ee98bb89caa7" prot="public" static="no" mutable="no">
+        <type><ref refid="structglist" kindref="compound">GLISTPTR</ref></type>
+        <definition>GLISTPTR group_sites</definition>
+        <argsstring></argsstring>
+        <name>group_sites</name>
+        <initializer> NULL</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/linklist.c" line="77" bodyfile="/home/r23/oosalizer/linklist.c" bodystart="77" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="linklist_8c_12b91bf4fd34380ee9673b57513dbff01" prot="public" static="no" mutable="no">
+        <type><ref refid="structglist" kindref="compound">GLISTPTR</ref></type>
+        <definition>GLISTPTR group_urls</definition>
+        <argsstring></argsstring>
+        <name>group_urls</name>
+        <initializer> NULL</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/linklist.c" line="78" bodyfile="/home/r23/oosalizer/linklist.c" bodystart="78" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="linklist_8c_173820e36830211218e9c911bc6ea6273" prot="public" static="no" mutable="no">
+        <type><ref refid="structglist" kindref="compound">GLISTPTR</ref></type>
+        <definition>GLISTPTR group_refs</definition>
+        <argsstring></argsstring>
+        <name>group_refs</name>
+        <initializer> NULL</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/linklist.c" line="79" bodyfile="/home/r23/oosalizer/linklist.c" bodystart="79" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="linklist_8c_12acbebab9914d67a3cea0f3716324fe2" prot="public" static="no" mutable="no">
+        <type><ref refid="structglist" kindref="compound">GLISTPTR</ref></type>
+        <definition>GLISTPTR group_agents</definition>
+        <argsstring></argsstring>
+        <name>group_agents</name>
+        <initializer> NULL</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/linklist.c" line="80" bodyfile="/home/r23/oosalizer/linklist.c" bodystart="80" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="linklist_8c_15589f953a1673e7a2f3891d321794340" prot="public" static="no" mutable="no">
+        <type><ref refid="structglist" kindref="compound">GLISTPTR</ref></type>
+        <definition>GLISTPTR group_users</definition>
+        <argsstring></argsstring>
+        <name>group_users</name>
+        <initializer> NULL</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/linklist.c" line="81" bodyfile="/home/r23/oosalizer/linklist.c" bodystart="81" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="linklist_8c_196bde86b735761b0b2b03d057d7bddfd" prot="public" static="no" mutable="no">
+        <type><ref refid="structnlist" kindref="compound">NLISTPTR</ref></type>
+        <definition>NLISTPTR hidden_sites</definition>
+        <argsstring></argsstring>
+        <name>hidden_sites</name>
+        <initializer> NULL</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/linklist.c" line="82" bodyfile="/home/r23/oosalizer/linklist.c" bodystart="82" bodyend="-1"/>
+        <referencedby refid="webalizer_8c_10ddf1224851353fc92bfbff6f499fa97" compoundref="webalizer_8c" startline="232" endline="1437">main</referencedby>
+        <referencedby refid="hashtab_8h_1fe9c0e49a4926c7cba71b7f8db5db8cd" compoundref="hashtab_8c" startline="155" endline="277">put_hnode</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="linklist_8c_1fb86638f144a8726901b06185e2415af" prot="public" static="no" mutable="no">
+        <type><ref refid="structnlist" kindref="compound">NLISTPTR</ref></type>
+        <definition>NLISTPTR hidden_urls</definition>
+        <argsstring></argsstring>
+        <name>hidden_urls</name>
+        <initializer> NULL</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/linklist.c" line="83" bodyfile="/home/r23/oosalizer/linklist.c" bodystart="83" bodyend="-1"/>
+        <referencedby refid="webalizer_8c_10ddf1224851353fc92bfbff6f499fa97" compoundref="webalizer_8c" startline="232" endline="1437">main</referencedby>
+        <referencedby refid="hashtab_8h_196366abcaec7b7275725bb40618976ab" compoundref="hashtab_8c" startline="344" endline="404">put_unode</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="linklist_8c_17f8ec975eaff8227a3e09efb17d3e064" prot="public" static="no" mutable="no">
+        <type><ref refid="structnlist" kindref="compound">NLISTPTR</ref></type>
+        <definition>NLISTPTR hidden_refs</definition>
+        <argsstring></argsstring>
+        <name>hidden_refs</name>
+        <initializer> NULL</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/linklist.c" line="84" bodyfile="/home/r23/oosalizer/linklist.c" bodystart="84" bodyend="-1"/>
+        <referencedby refid="webalizer_8c_10ddf1224851353fc92bfbff6f499fa97" compoundref="webalizer_8c" startline="232" endline="1437">main</referencedby>
+        <referencedby refid="hashtab_8h_1cba57da4379852348b455ce6e86ef96b" compoundref="hashtab_8c" startline="471" endline="523">put_rnode</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="linklist_8c_189feb23799329906fbd4a3d47a303027" prot="public" static="no" mutable="no">
+        <type><ref refid="structnlist" kindref="compound">NLISTPTR</ref></type>
+        <definition>NLISTPTR hidden_agents</definition>
+        <argsstring></argsstring>
+        <name>hidden_agents</name>
+        <initializer> NULL</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/linklist.c" line="85" bodyfile="/home/r23/oosalizer/linklist.c" bodystart="85" bodyend="-1"/>
+        <referencedby refid="webalizer_8c_10ddf1224851353fc92bfbff6f499fa97" compoundref="webalizer_8c" startline="232" endline="1437">main</referencedby>
+        <referencedby refid="hashtab_8h_14d9f66275e1a624931142f32f046dd13" compoundref="hashtab_8c" startline="590" endline="639">put_anode</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="linklist_8c_1c328ffff94e0ce5d57817ee1197767aa" prot="public" static="no" mutable="no">
+        <type><ref refid="structnlist" kindref="compound">NLISTPTR</ref></type>
+        <definition>NLISTPTR hidden_users</definition>
+        <argsstring></argsstring>
+        <name>hidden_users</name>
+        <initializer> NULL</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/linklist.c" line="86" bodyfile="/home/r23/oosalizer/linklist.c" bodystart="86" bodyend="-1"/>
+        <referencedby refid="hashtab_8h_162c7ecc5b3ae3851f5400e30734b8e9e" compoundref="hashtab_8c" startline="811" endline="912">put_inode</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="linklist_8c_19df089ae5b8931353b2e79b9a33c70e6" prot="public" static="no" mutable="no">
+        <type><ref refid="structnlist" kindref="compound">NLISTPTR</ref></type>
+        <definition>NLISTPTR ignored_sites</definition>
+        <argsstring></argsstring>
+        <name>ignored_sites</name>
+        <initializer> NULL</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/linklist.c" line="87" bodyfile="/home/r23/oosalizer/linklist.c" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="linklist_8c_19a30b4cfe3e814caad5864bf70683264" prot="public" static="no" mutable="no">
+        <type><ref refid="structnlist" kindref="compound">NLISTPTR</ref></type>
+        <definition>NLISTPTR ignored_urls</definition>
+        <argsstring></argsstring>
+        <name>ignored_urls</name>
+        <initializer> NULL</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/linklist.c" line="88" bodyfile="/home/r23/oosalizer/linklist.c" bodystart="88" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="linklist_8c_1761639dc29cca53d524007b9fb4a6e65" prot="public" static="no" mutable="no">
+        <type><ref refid="structnlist" kindref="compound">NLISTPTR</ref></type>
+        <definition>NLISTPTR ignored_refs</definition>
+        <argsstring></argsstring>
+        <name>ignored_refs</name>
+        <initializer> NULL</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/linklist.c" line="89" bodyfile="/home/r23/oosalizer/linklist.c" bodystart="89" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="linklist_8c_160013ce10d008e9eb74a4b6f28959729" prot="public" static="no" mutable="no">
+        <type><ref refid="structnlist" kindref="compound">NLISTPTR</ref></type>
+        <definition>NLISTPTR ignored_agents</definition>
+        <argsstring></argsstring>
+        <name>ignored_agents</name>
+        <initializer> NULL</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/linklist.c" line="90" bodyfile="/home/r23/oosalizer/linklist.c" bodystart="90" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="linklist_8c_1c61949a50def3ceeaf32f93f01d1ea16" prot="public" static="no" mutable="no">
+        <type><ref refid="structnlist" kindref="compound">NLISTPTR</ref></type>
+        <definition>NLISTPTR ignored_users</definition>
+        <argsstring></argsstring>
+        <name>ignored_users</name>
+        <initializer> NULL</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/linklist.c" line="91" bodyfile="/home/r23/oosalizer/linklist.c" bodystart="91" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="linklist_8c_154c446a5497d9c6f94704e50f3ab099f" prot="public" static="no" mutable="no">
+        <type><ref refid="structnlist" kindref="compound">NLISTPTR</ref></type>
+        <definition>NLISTPTR include_sites</definition>
+        <argsstring></argsstring>
+        <name>include_sites</name>
+        <initializer> NULL</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/linklist.c" line="92" bodyfile="/home/r23/oosalizer/linklist.c" bodystart="92" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="linklist_8c_110e92b92241988092187d4a28d95d057" prot="public" static="no" mutable="no">
+        <type><ref refid="structnlist" kindref="compound">NLISTPTR</ref></type>
+        <definition>NLISTPTR include_urls</definition>
+        <argsstring></argsstring>
+        <name>include_urls</name>
+        <initializer> NULL</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/linklist.c" line="93" bodyfile="/home/r23/oosalizer/linklist.c" bodystart="93" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="linklist_8c_172e046ed2702acb3b3cc2aa444f861b0" prot="public" static="no" mutable="no">
+        <type><ref refid="structnlist" kindref="compound">NLISTPTR</ref></type>
+        <definition>NLISTPTR include_refs</definition>
+        <argsstring></argsstring>
+        <name>include_refs</name>
+        <initializer> NULL</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/linklist.c" line="94" bodyfile="/home/r23/oosalizer/linklist.c" bodystart="94" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="linklist_8c_129034f7c35846ae0399bd7b358be1d94" prot="public" static="no" mutable="no">
+        <type><ref refid="structnlist" kindref="compound">NLISTPTR</ref></type>
+        <definition>NLISTPTR include_agents</definition>
+        <argsstring></argsstring>
+        <name>include_agents</name>
+        <initializer> NULL</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/linklist.c" line="95" bodyfile="/home/r23/oosalizer/linklist.c" bodystart="95" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="linklist_8c_14301d92f7f72fdda0af03033d967155b" prot="public" static="no" mutable="no">
+        <type><ref refid="structnlist" kindref="compound">NLISTPTR</ref></type>
+        <definition>NLISTPTR include_users</definition>
+        <argsstring></argsstring>
+        <name>include_users</name>
+        <initializer> NULL</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/linklist.c" line="96" bodyfile="/home/r23/oosalizer/linklist.c" bodystart="96" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="linklist_8c_1a35b4fc28f26c83f77336185f9aa7175" prot="public" static="no" mutable="no">
+        <type><ref refid="structnlist" kindref="compound">NLISTPTR</ref></type>
+        <definition>NLISTPTR index_alias</definition>
+        <argsstring></argsstring>
+        <name>index_alias</name>
+        <initializer> NULL</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/linklist.c" line="97" bodyfile="/home/r23/oosalizer/linklist.c" bodystart="97" bodyend="-1"/>
+        <referencedby refid="webalizer_8c_10ddf1224851353fc92bfbff6f499fa97" compoundref="webalizer_8c" startline="232" endline="1437">main</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="linklist_8c_1cea32428cfbcce0e252dd3613586d0f3" prot="public" static="no" mutable="no">
+        <type><ref refid="structnlist" kindref="compound">NLISTPTR</ref></type>
+        <definition>NLISTPTR html_pre</definition>
+        <argsstring></argsstring>
+        <name>html_pre</name>
+        <initializer> NULL</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/linklist.c" line="98" bodyfile="/home/r23/oosalizer/linklist.c" bodystart="98" bodyend="-1"/>
+        <referencedby refid="output_8c_10bc1fdaca7513c4813773bef5529008e" compoundref="output_8c" startline="148" endline="254">write_html_head</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="linklist_8c_11811e9595e278ef4ac307d06cd3a4eed" prot="public" static="no" mutable="no">
+        <type><ref refid="structnlist" kindref="compound">NLISTPTR</ref></type>
+        <definition>NLISTPTR html_head</definition>
+        <argsstring></argsstring>
+        <name>html_head</name>
+        <initializer> NULL</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/linklist.c" line="99" bodyfile="/home/r23/oosalizer/linklist.c" bodystart="99" bodyend="-1"/>
+        <referencedby refid="output_8c_10bc1fdaca7513c4813773bef5529008e" compoundref="output_8c" startline="148" endline="254">write_html_head</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="linklist_8c_14bb0bd1db8f0b3cc89d509d8c5daddde" prot="public" static="no" mutable="no">
+        <type><ref refid="structnlist" kindref="compound">NLISTPTR</ref></type>
+        <definition>NLISTPTR html_body</definition>
+        <argsstring></argsstring>
+        <name>html_body</name>
+        <initializer> NULL</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/linklist.c" line="100" bodyfile="/home/r23/oosalizer/linklist.c" bodystart="100" bodyend="-1"/>
+        <referencedby refid="output_8c_10bc1fdaca7513c4813773bef5529008e" compoundref="output_8c" startline="148" endline="254">write_html_head</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="linklist_8c_1fd6de839e46d75632279853537235e7c" prot="public" static="no" mutable="no">
+        <type><ref refid="structnlist" kindref="compound">NLISTPTR</ref></type>
+        <definition>NLISTPTR html_post</definition>
+        <argsstring></argsstring>
+        <name>html_post</name>
+        <initializer> NULL</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/linklist.c" line="101" bodyfile="/home/r23/oosalizer/linklist.c" bodystart="101" bodyend="-1"/>
+        <referencedby refid="output_8c_10bc1fdaca7513c4813773bef5529008e" compoundref="output_8c" startline="148" endline="254">write_html_head</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="linklist_8c_17d3b981f0cda9084a93c191ab80637da" prot="public" static="no" mutable="no">
+        <type><ref refid="structnlist" kindref="compound">NLISTPTR</ref></type>
+        <definition>NLISTPTR html_tail</definition>
+        <argsstring></argsstring>
+        <name>html_tail</name>
+        <initializer> NULL</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/linklist.c" line="102" bodyfile="/home/r23/oosalizer/linklist.c" bodystart="102" bodyend="-1"/>
+        <referencedby refid="output_8c_1b5fc0fbb03c2b6a431bef6bc473505e2" compoundref="output_8c" startline="260" endline="319">write_html_tail</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="linklist_8c_1d7f0906501b524d986d95f8efddb48e5" prot="public" static="no" mutable="no">
+        <type><ref refid="structnlist" kindref="compound">NLISTPTR</ref></type>
+        <definition>NLISTPTR html_end</definition>
+        <argsstring></argsstring>
+        <name>html_end</name>
+        <initializer> NULL</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/linklist.c" line="103" bodyfile="/home/r23/oosalizer/linklist.c" bodystart="103" bodyend="-1"/>
+        <referencedby refid="output_8c_1b5fc0fbb03c2b6a431bef6bc473505e2" compoundref="output_8c" startline="260" endline="319">write_html_tail</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="linklist_8c_1556b3c90c27ba5b38626945734914353" prot="public" static="no" mutable="no">
+        <type><ref refid="structnlist" kindref="compound">NLISTPTR</ref></type>
+        <definition>NLISTPTR page_type</definition>
+        <argsstring></argsstring>
+        <name>page_type</name>
+        <initializer> NULL</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/linklist.c" line="104" bodyfile="/home/r23/oosalizer/linklist.c" bodystart="104" bodyend="-1"/>
+        <referencedby refid="webalizer_8h_1cd1966893702ec0520fb7a743275a2e0" compoundref="webalizer_8c" startline="1802" endline="1810">ispage</referencedby>
+        <referencedby refid="webalizer_8c_10ddf1224851353fc92bfbff6f499fa97" compoundref="webalizer_8c" startline="232" endline="1437">main</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="linklist_8c_1d93c06cbf86de996601e602d07da3663" prot="public" static="no" mutable="no">
+        <type><ref refid="structglist" kindref="compound">GLISTPTR</ref></type>
+        <definition>GLISTPTR search_list</definition>
+        <argsstring></argsstring>
+        <name>search_list</name>
+        <initializer> NULL</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/linklist.c" line="105" bodyfile="/home/r23/oosalizer/linklist.c" bodystart="105" bodyend="-1"/>
+        <referencedby refid="webalizer_8c_12b1002ec17d1cd1e6901514b8b6de058" compoundref="webalizer_8c" startline="1883" endline="1936">srch_string</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/><sp/><sp/><sp/>webalizer<sp/>-<sp/>a<sp/>web<sp/>server<sp/>log<sp/>analysis<sp/>program</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"></highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/><sp/><sp/><sp/>Copyright<sp/>(C)<sp/>1997-2001<sp/><sp/>Bradford<sp/>L.<sp/>Barrett<sp/>(brad@mrunix.net)</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"></highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/><sp/><sp/><sp/>This<sp/>program<sp/>is<sp/>free<sp/>software;<sp/>you<sp/>can<sp/>redistribute<sp/>it<sp/>and/or<sp/>modify</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/><sp/><sp/><sp/>it<sp/>under<sp/>the<sp/>terms<sp/>of<sp/>the<sp/>GNU<sp/>General<sp/>Public<sp/>License<sp/>as<sp/>published<sp/>by</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/><sp/><sp/><sp/>the<sp/>Free<sp/>Software<sp/>Foundation;<sp/>either<sp/>version<sp/>2<sp/>of<sp/>the<sp/>License,<sp/>or</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/><sp/><sp/><sp/>(at<sp/>your<sp/>option)<sp/>any<sp/>later<sp/>version,<sp/>and<sp/>provided<sp/>that<sp/>the<sp/>above</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/><sp/><sp/><sp/>copyright<sp/>and<sp/>permission<sp/>notice<sp/>is<sp/>included<sp/>with<sp/>all<sp/>distributed</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/><sp/><sp/><sp/>copies<sp/>of<sp/>this<sp/>or<sp/>derived<sp/>software.</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"></highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/><sp/><sp/><sp/>This<sp/>program<sp/>is<sp/>distributed<sp/>in<sp/>the<sp/>hope<sp/>that<sp/>it<sp/>will<sp/>be<sp/>useful,</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/><sp/><sp/><sp/>but<sp/>WITHOUT<sp/>ANY<sp/>WARRANTY;<sp/>without<sp/>even<sp/>the<sp/>implied<sp/>warranty<sp/>of</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/><sp/><sp/><sp/>MERCHANTABILITY<sp/>or<sp/>FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR<sp/>PURPOSE.<sp/><sp/>See<sp/>the</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/><sp/><sp/><sp/>GNU<sp/>General<sp/>Public<sp/>License<sp/>for<sp/>more<sp/>details.</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"></highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/><sp/><sp/><sp/>You<sp/>should<sp/>have<sp/>received<sp/>a<sp/>copy<sp/>of<sp/>the<sp/>GNU<sp/>General<sp/>Public<sp/>License</highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/><sp/><sp/><sp/>along<sp/>with<sp/>this<sp/>program;<sp/>if<sp/>not,<sp/>write<sp/>to<sp/>the<sp/>Free<sp/>Software</highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/><sp/><sp/><sp/>Foundation,<sp/>Inc.,<sp/>59<sp/>Temple<sp/>Place<sp/>-<sp/>Suite<sp/>330,<sp/>Boston,<sp/>MA<sp/>02111-1307,<sp/>USA</highlight></codeline>
+<codeline lineno="21"><highlight class="comment"></highlight></codeline>
+<codeline lineno="22"><highlight class="comment"><sp/><sp/><sp/><sp/>This<sp/>software<sp/>uses<sp/>the<sp/>gd<sp/>graphics<sp/>library,<sp/>which<sp/>is<sp/>copyright<sp/>by</highlight></codeline>
+<codeline lineno="23"><highlight class="comment"><sp/><sp/><sp/><sp/>Quest<sp/>Protein<sp/>Database<sp/>Center,<sp/>Cold<sp/>Spring<sp/>Harbor<sp/>Labs.<sp/><sp/>Please</highlight></codeline>
+<codeline lineno="24"><highlight class="comment"><sp/><sp/><sp/><sp/>see<sp/>the<sp/>documentation<sp/>supplied<sp/>with<sp/>the<sp/>library<sp/>for<sp/>additional</highlight></codeline>
+<codeline lineno="25"><highlight class="comment"><sp/><sp/><sp/><sp/>information<sp/>and<sp/>license<sp/>terms,<sp/>or<sp/>visit<sp/>www.boutell.com/gd/<sp/>for<sp/>the</highlight></codeline>
+<codeline lineno="26"><highlight class="comment"><sp/><sp/><sp/><sp/>most<sp/>recent<sp/>version<sp/>of<sp/>the<sp/>library<sp/>and<sp/>supporting<sp/>documentation.</highlight></codeline>
+<codeline lineno="27"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="comment">/*********************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>STANDARD<sp/>INCLUDES<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="comment">/*********************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;time.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdio.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdlib.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;unistd.h&gt;</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>normal<sp/>stuff<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;ctype.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;sys/utsname.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;sys/times.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>ensure<sp/>getopt<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>HAVE_GETOPT_H</highlight></codeline>
+<codeline lineno="44"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#include<sp/>&lt;getopt.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="46"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>ensure<sp/>sys/types<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>_SYS_TYPES_H</highlight></codeline>
+<codeline lineno="49"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#include<sp/>&lt;sys/types.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="51"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>some<sp/>systems<sp/>need<sp/>this<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>HAVE_MATH_H</highlight></codeline>
+<codeline lineno="54"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#include<sp/>&lt;math.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="56"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>SunOS<sp/>4.x<sp/>Fix<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>CLK_TCK</highlight></codeline>
+<codeline lineno="59" refid="linklist_8c_103df76d1f70664d745ca8de2864e39b3" refkind="member"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>CLK_TCK<sp/>_SC_CLK_TCK</highlight></codeline>
+<codeline lineno="60"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="61"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="webalizer_8h" kindref="compound">webalizer.h</ref>&quot;</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>main<sp/>header<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="lang_8h" kindref="compound">lang.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="linklist_8h" kindref="compound">linklist.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>internal<sp/>function<sp/>prototypes<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><ref refid="structnlist" kindref="compound">NLISTPTR</ref><sp/><ref refid="linklist_8c_12818014b7feb4f6db3a0884d0c7caf0f" kindref="member">new_nlist</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*);<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>new<sp/>list<sp/>node<sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><ref refid="linklist_8c_1949ae6c82d1c88d8407757f05724d8af" kindref="member">del_nlist</ref>(<ref refid="structnlist" kindref="compound">NLISTPTR</ref><sp/>*);<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>del<sp/>list<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><ref refid="structglist" kindref="compound">GLISTPTR</ref><sp/><ref refid="linklist_8c_1efe1a363b71eccafc7f2c8e31f8f2b05" kindref="member">new_glist</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*);<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>new<sp/>group<sp/>list<sp/>node<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><ref refid="linklist_8c_12db320536d6c5a8726da8e8e627af50c" kindref="member">del_glist</ref>(<ref refid="structglist" kindref="compound">GLISTPTR</ref><sp/>*);<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>del<sp/>group<sp/>list<sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="linklist_8c_199ef4b81dcab23e1497ea7d5afdeceeb" kindref="member">isinstr</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*);</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Linkded<sp/>list<sp/>pointers<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="77" refid="linklist_8h_1cda3597076ed2d11c457ee98bb89caa7" refkind="member"><highlight class="normal"><ref refid="structglist" kindref="compound">GLISTPTR</ref><sp/><ref refid="linklist_8c_1cda3597076ed2d11c457ee98bb89caa7" kindref="member">group_sites</ref><sp/><sp/><sp/>=<sp/>NULL;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>&quot;group&quot;<sp/>lists<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="78" refid="linklist_8h_12b91bf4fd34380ee9673b57513dbff01" refkind="member"><highlight class="normal"><ref refid="structglist" kindref="compound">GLISTPTR</ref><sp/><ref refid="linklist_8c_12b91bf4fd34380ee9673b57513dbff01" kindref="member">group_urls</ref><sp/><sp/><sp/><sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="79" refid="linklist_8h_173820e36830211218e9c911bc6ea6273" refkind="member"><highlight class="normal"><ref refid="structglist" kindref="compound">GLISTPTR</ref><sp/><ref refid="linklist_8c_173820e36830211218e9c911bc6ea6273" kindref="member">group_refs</ref><sp/><sp/><sp/><sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="80" refid="linklist_8h_12acbebab9914d67a3cea0f3716324fe2" refkind="member"><highlight class="normal"><ref refid="structglist" kindref="compound">GLISTPTR</ref><sp/><ref refid="linklist_8c_12acbebab9914d67a3cea0f3716324fe2" kindref="member">group_agents</ref><sp/><sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="81" refid="linklist_8h_15589f953a1673e7a2f3891d321794340" refkind="member"><highlight class="normal"><ref refid="structglist" kindref="compound">GLISTPTR</ref><sp/><ref refid="linklist_8c_15589f953a1673e7a2f3891d321794340" kindref="member">group_users</ref><sp/><sp/><sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="82" refid="linklist_8h_196bde86b735761b0b2b03d057d7bddfd" refkind="member"><highlight class="normal"><ref refid="structnlist" kindref="compound">NLISTPTR</ref><sp/><ref refid="linklist_8c_196bde86b735761b0b2b03d057d7bddfd" kindref="member">hidden_sites</ref><sp/><sp/>=<sp/>NULL;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>&quot;hidden&quot;<sp/>lists<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="83" refid="linklist_8h_1fb86638f144a8726901b06185e2415af" refkind="member"><highlight class="normal"><ref refid="structnlist" kindref="compound">NLISTPTR</ref><sp/><ref refid="linklist_8c_1fb86638f144a8726901b06185e2415af" kindref="member">hidden_urls</ref><sp/><sp/><sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="84" refid="linklist_8h_17f8ec975eaff8227a3e09efb17d3e064" refkind="member"><highlight class="normal"><ref refid="structnlist" kindref="compound">NLISTPTR</ref><sp/><ref refid="linklist_8c_17f8ec975eaff8227a3e09efb17d3e064" kindref="member">hidden_refs</ref><sp/><sp/><sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="85" refid="linklist_8h_189feb23799329906fbd4a3d47a303027" refkind="member"><highlight class="normal"><ref refid="structnlist" kindref="compound">NLISTPTR</ref><sp/><ref refid="linklist_8c_189feb23799329906fbd4a3d47a303027" kindref="member">hidden_agents</ref><sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="86" refid="linklist_8h_1c328ffff94e0ce5d57817ee1197767aa" refkind="member"><highlight class="normal"><ref refid="structnlist" kindref="compound">NLISTPTR</ref><sp/><ref refid="linklist_8c_1c328ffff94e0ce5d57817ee1197767aa" kindref="member">hidden_users</ref><sp/><sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="87" refid="linklist_8h_19df089ae5b8931353b2e79b9a33c70e6" refkind="member"><highlight class="normal"><ref refid="structnlist" kindref="compound">NLISTPTR</ref><sp/><ref refid="linklist_8c_19df089ae5b8931353b2e79b9a33c70e6" kindref="member">ignored_sites</ref><sp/>=<sp/>NULL;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>&quot;Ignored&quot;<sp/>lists<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="88" refid="linklist_8h_19a30b4cfe3e814caad5864bf70683264" refkind="member"><highlight class="normal"><ref refid="structnlist" kindref="compound">NLISTPTR</ref><sp/><ref refid="linklist_8c_19a30b4cfe3e814caad5864bf70683264" kindref="member">ignored_urls</ref><sp/><sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="89" refid="linklist_8h_1761639dc29cca53d524007b9fb4a6e65" refkind="member"><highlight class="normal"><ref refid="structnlist" kindref="compound">NLISTPTR</ref><sp/><ref refid="linklist_8c_1761639dc29cca53d524007b9fb4a6e65" kindref="member">ignored_refs</ref><sp/><sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="90" refid="linklist_8h_160013ce10d008e9eb74a4b6f28959729" refkind="member"><highlight class="normal"><ref refid="structnlist" kindref="compound">NLISTPTR</ref><sp/><ref refid="linklist_8c_160013ce10d008e9eb74a4b6f28959729" kindref="member">ignored_agents</ref>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="91" refid="linklist_8h_1c61949a50def3ceeaf32f93f01d1ea16" refkind="member"><highlight class="normal"><ref refid="structnlist" kindref="compound">NLISTPTR</ref><sp/><ref refid="linklist_8c_1c61949a50def3ceeaf32f93f01d1ea16" kindref="member">ignored_users</ref><sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="92" refid="linklist_8h_154c446a5497d9c6f94704e50f3ab099f" refkind="member"><highlight class="normal"><ref refid="structnlist" kindref="compound">NLISTPTR</ref><sp/><ref refid="linklist_8c_154c446a5497d9c6f94704e50f3ab099f" kindref="member">include_sites</ref><sp/>=<sp/>NULL;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>&quot;Include&quot;<sp/>lists<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="93" refid="linklist_8h_110e92b92241988092187d4a28d95d057" refkind="member"><highlight class="normal"><ref refid="structnlist" kindref="compound">NLISTPTR</ref><sp/><ref refid="linklist_8c_110e92b92241988092187d4a28d95d057" kindref="member">include_urls</ref><sp/><sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="94" refid="linklist_8h_172e046ed2702acb3b3cc2aa444f861b0" refkind="member"><highlight class="normal"><ref refid="structnlist" kindref="compound">NLISTPTR</ref><sp/><ref refid="linklist_8c_172e046ed2702acb3b3cc2aa444f861b0" kindref="member">include_refs</ref><sp/><sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="95" refid="linklist_8h_129034f7c35846ae0399bd7b358be1d94" refkind="member"><highlight class="normal"><ref refid="structnlist" kindref="compound">NLISTPTR</ref><sp/><ref refid="linklist_8c_129034f7c35846ae0399bd7b358be1d94" kindref="member">include_agents</ref>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="96" refid="linklist_8h_14301d92f7f72fdda0af03033d967155b" refkind="member"><highlight class="normal"><ref refid="structnlist" kindref="compound">NLISTPTR</ref><sp/><ref refid="linklist_8c_14301d92f7f72fdda0af03033d967155b" kindref="member">include_users</ref><sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="97" refid="linklist_8h_1a35b4fc28f26c83f77336185f9aa7175" refkind="member"><highlight class="normal"><ref refid="structnlist" kindref="compound">NLISTPTR</ref><sp/><ref refid="linklist_8c_1a35b4fc28f26c83f77336185f9aa7175" kindref="member">index_alias</ref><sp/><sp/><sp/>=<sp/>NULL;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>index.<sp/>aliases<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="98" refid="linklist_8h_1cea32428cfbcce0e252dd3613586d0f3" refkind="member"><highlight class="normal"><ref refid="structnlist" kindref="compound">NLISTPTR</ref><sp/><ref refid="linklist_8c_1cea32428cfbcce0e252dd3613586d0f3" kindref="member">html_pre</ref><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>NULL;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>before<sp/>anything<sp/>else<sp/>:)<sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="99" refid="linklist_8h_11811e9595e278ef4ac307d06cd3a4eed" refkind="member"><highlight class="normal"><ref refid="structnlist" kindref="compound">NLISTPTR</ref><sp/><ref refid="linklist_8c_11811e9595e278ef4ac307d06cd3a4eed" kindref="member">html_head</ref><sp/><sp/><sp/><sp/><sp/>=<sp/>NULL;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>top<sp/>HTML<sp/>code<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="100" refid="linklist_8h_14bb0bd1db8f0b3cc89d509d8c5daddde" refkind="member"><highlight class="normal"><ref refid="structnlist" kindref="compound">NLISTPTR</ref><sp/><ref refid="linklist_8c_14bb0bd1db8f0b3cc89d509d8c5daddde" kindref="member">html_body</ref><sp/><sp/><sp/><sp/><sp/>=<sp/>NULL;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>body<sp/>HTML<sp/>code<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="101" refid="linklist_8h_1fd6de839e46d75632279853537235e7c" refkind="member"><highlight class="normal"><ref refid="structnlist" kindref="compound">NLISTPTR</ref><sp/><ref refid="linklist_8c_1fd6de839e46d75632279853537235e7c" kindref="member">html_post</ref><sp/><sp/><sp/><sp/><sp/>=<sp/>NULL;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>middle<sp/>HTML<sp/>code<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="102" refid="linklist_8h_17d3b981f0cda9084a93c191ab80637da" refkind="member"><highlight class="normal"><ref refid="structnlist" kindref="compound">NLISTPTR</ref><sp/><ref refid="linklist_8c_17d3b981f0cda9084a93c191ab80637da" kindref="member">html_tail</ref><sp/><sp/><sp/><sp/><sp/>=<sp/>NULL;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>tail<sp/>HTML<sp/>code<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="103" refid="linklist_8h_1d7f0906501b524d986d95f8efddb48e5" refkind="member"><highlight class="normal"><ref refid="structnlist" kindref="compound">NLISTPTR</ref><sp/><ref refid="linklist_8c_1d7f0906501b524d986d95f8efddb48e5" kindref="member">html_end</ref><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>NULL;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>after<sp/>everything<sp/>else<sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="104" refid="linklist_8h_1556b3c90c27ba5b38626945734914353" refkind="member"><highlight class="normal"><ref refid="structnlist" kindref="compound">NLISTPTR</ref><sp/><ref refid="linklist_8c_1556b3c90c27ba5b38626945734914353" kindref="member">page_type</ref><sp/><sp/><sp/><sp/><sp/>=<sp/>NULL;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>page<sp/>view<sp/>types<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="105" refid="linklist_8h_1d93c06cbf86de996601e602d07da3663" refkind="member"><highlight class="normal"><ref refid="structglist" kindref="compound">GLISTPTR</ref><sp/><ref refid="linklist_8c_1d93c06cbf86de996601e602d07da3663" kindref="member">search_list</ref><sp/><sp/><sp/>=<sp/>NULL;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Search<sp/>engine<sp/>list<sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight><highlight class="comment">/*********************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>NEW_NLIST<sp/>-<sp/>create<sp/>new<sp/>linked<sp/>list<sp/>node<sp/><sp/><sp/>*/</highlight><highlight class="normal"><sp/></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"></highlight><highlight class="comment">/*********************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight></codeline>
+<codeline lineno="111" refid="linklist_8c_12818014b7feb4f6db3a0884d0c7caf0f" refkind="member"><highlight class="normal"><ref refid="structnlist" kindref="compound">NLISTPTR</ref><sp/><ref refid="linklist_8c_12818014b7feb4f6db3a0884d0c7caf0f" kindref="member">new_nlist</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*str)</highlight></codeline>
+<codeline lineno="112"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><ref refid="structnlist" kindref="compound">NLISTPTR</ref><sp/>newptr;</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(newptr-&gt;<ref refid="structnlist_1272774fb3950796b85497317de3dd85a" kindref="member">string</ref>)<sp/>&lt;<sp/>strlen(str))</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="webalizer_8c_10b2caeb4b6f130be43e5a2f0267dd453" kindref="member">verbose</ref>)</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/>fprintf(stderr,</highlight><highlight class="stringliteral">&quot;[new_nlist]<sp/>%s\n&quot;</highlight><highlight class="normal">,<ref refid="lang_8h_1a2ee47975118e6f57ce4a10d1baeef26" kindref="member">msg_big_one</ref>);</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>((<sp/>newptr<sp/>=<sp/>malloc(</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(</highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="structnlist" kindref="compound">nlist</ref>)))<sp/>!=<sp/>NULL)</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/>{strncpy(newptr-&gt;<ref refid="structnlist_1272774fb3950796b85497317de3dd85a" kindref="member">string</ref>,<sp/>str,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(newptr-&gt;<ref refid="structnlist_1272774fb3950796b85497317de3dd85a" kindref="member">string</ref>));newptr-&gt;<ref refid="structnlist_16e5fbb2f12a2799e60611dbda92c6f38" kindref="member">next</ref>=NULL;}</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>newptr;</highlight></codeline>
+<codeline lineno="123"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight><highlight class="comment">/*********************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>ADD_NLIST<sp/>-<sp/>add<sp/>item<sp/>to<sp/>FIFO<sp/>linked<sp/>list<sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight><highlight class="comment">/*********************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"></highlight></codeline>
+<codeline lineno="129" refid="linklist_8h_15ff4c7ffc3201d64048a6921c866c937" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="linklist_8c_18839d62523e9b12655cca004617bbe77" kindref="member">add_nlist</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*str,<sp/><ref refid="structnlist" kindref="compound">NLISTPTR</ref><sp/>*list)</highlight></codeline>
+<codeline lineno="130"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><ref refid="structnlist" kindref="compound">NLISTPTR</ref><sp/>newptr,cptr,pptr;</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"></highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>(newptr<sp/>=<sp/><ref refid="linklist_8c_12818014b7feb4f6db3a0884d0c7caf0f" kindref="member">new_nlist</ref>(str))<sp/>!=<sp/>NULL)</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(*list==NULL)<sp/>*list=newptr;</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cptr=pptr=*list;</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal">(cptr!=NULL)<sp/>{<sp/>pptr=cptr;<sp/>cptr=cptr-&gt;<ref refid="structnlist_16e5fbb2f12a2799e60611dbda92c6f38" kindref="member">next</ref>;<sp/>};</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pptr-&gt;<ref refid="structnlist_16e5fbb2f12a2799e60611dbda92c6f38" kindref="member">next</ref><sp/>=<sp/>newptr;</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/>}<sp/></highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>newptr==NULL;</highlight></codeline>
+<codeline lineno="144"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"></highlight></codeline>
+<codeline lineno="146"><highlight class="normal"></highlight><highlight class="comment">/*********************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="147"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>DEL_NLIST<sp/>-<sp/>delete<sp/>FIFO<sp/>linked<sp/>list<sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="148"><highlight class="normal"></highlight><highlight class="comment">/*********************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="149"><highlight class="normal"></highlight></codeline>
+<codeline lineno="150" refid="linklist_8c_1949ae6c82d1c88d8407757f05724d8af" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="linklist_8c_1949ae6c82d1c88d8407757f05724d8af" kindref="member">del_nlist</ref>(<ref refid="structnlist" kindref="compound">NLISTPTR</ref><sp/>*list)</highlight></codeline>
+<codeline lineno="151"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><ref refid="structnlist" kindref="compound">NLISTPTR</ref><sp/>cptr,nptr;</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"></highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/>cptr=*list;</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(cptr!=NULL)</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>nptr=cptr-&gt;<ref refid="structnlist_16e5fbb2f12a2799e60611dbda92c6f38" kindref="member">next</ref>;</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>free(cptr);</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>cptr=nptr;</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="161"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"></highlight></codeline>
+<codeline lineno="163"><highlight class="normal"></highlight><highlight class="comment">/*********************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="164"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>NEW_GLIST<sp/>-<sp/>create<sp/>new<sp/>linked<sp/>list<sp/>node<sp/><sp/><sp/>*/</highlight><highlight class="normal"><sp/></highlight></codeline>
+<codeline lineno="165"><highlight class="normal"></highlight><highlight class="comment">/*********************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="166"><highlight class="normal"></highlight></codeline>
+<codeline lineno="167" refid="linklist_8c_1efe1a363b71eccafc7f2c8e31f8f2b05" refkind="member"><highlight class="normal"><ref refid="structglist" kindref="compound">GLISTPTR</ref><sp/><ref refid="linklist_8c_1efe1a363b71eccafc7f2c8e31f8f2b05" kindref="member">new_glist</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*str,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*name)</highlight></codeline>
+<codeline lineno="168"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><ref refid="structglist" kindref="compound">GLISTPTR</ref><sp/>newptr;</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"></highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(newptr-&gt;<ref refid="structglist_136312d3b785bc51f116bd01aa2a3cf20" kindref="member">string</ref>)<sp/>&lt;<sp/>strlen(str)<sp/>||</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(newptr-&gt;<ref refid="structglist_1d3ebdbe9d3d9448d753a3aa95d232455" kindref="member">name</ref>)<sp/>&lt;<sp/>strlen(name))</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="webalizer_8c_10b2caeb4b6f130be43e5a2f0267dd453" kindref="member">verbose</ref>)</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>fprintf(stderr,</highlight><highlight class="stringliteral">&quot;[new_glist]<sp/>%s\n&quot;</highlight><highlight class="normal">,<ref refid="lang_8h_1a2ee47975118e6f57ce4a10d1baeef26" kindref="member">msg_big_one</ref>);</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>((<sp/>newptr<sp/>=<sp/>malloc(</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(</highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="structglist" kindref="compound">glist</ref>)))<sp/>!=<sp/>NULL)</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>strncpy(newptr-&gt;<ref refid="structglist_136312d3b785bc51f116bd01aa2a3cf20" kindref="member">string</ref>,<sp/>str,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(newptr-&gt;<ref refid="structglist_136312d3b785bc51f116bd01aa2a3cf20" kindref="member">string</ref>));</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>strncpy(newptr-&gt;<ref refid="structglist_1d3ebdbe9d3d9448d753a3aa95d232455" kindref="member">name</ref>,<sp/>name,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(newptr-&gt;<ref refid="structglist_1d3ebdbe9d3d9448d753a3aa95d232455" kindref="member">name</ref>));</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>newptr-&gt;<ref refid="structglist_1fcbd6d229e8a0ea95ed0532927a3bf85" kindref="member">next</ref>=NULL;</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>newptr;</highlight></codeline>
+<codeline lineno="184"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"></highlight></codeline>
+<codeline lineno="186"><highlight class="normal"></highlight><highlight class="comment">/*********************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="187"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>ADD_GLIST<sp/>-<sp/>add<sp/>item<sp/>to<sp/>FIFO<sp/>linked<sp/>list<sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="188"><highlight class="normal"></highlight><highlight class="comment">/*********************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="189"><highlight class="normal"></highlight></codeline>
+<codeline lineno="190" refid="linklist_8h_1a17a4a0e1bebcb1f19644843920ef3ea" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="linklist_8c_17a76399c20af4803b0efcc757733039d" kindref="member">add_glist</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*str,<sp/><ref refid="structglist" kindref="compound">GLISTPTR</ref><sp/>*list)</highlight></codeline>
+<codeline lineno="191"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><ref refid="structglist" kindref="compound">GLISTPTR</ref><sp/>newptr,cptr,pptr;</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>temp_buf[80];</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*name=temp_buf;</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"></highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>make<sp/>local<sp/>copy<sp/>of<sp/>string<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/>strncpy(temp_buf,str,79);</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/>temp_buf[79]=0;</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"></highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(!isspace((</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">)*name)&amp;&amp;*name!=0)<sp/>name++;</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(*name==0)<sp/>name=temp_buf;</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>*name++=0;</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(isspace((</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">)*name)&amp;&amp;*name!=0)<sp/>name++;</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(*name==0)<sp/>name=temp_buf;</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"></highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>(newptr<sp/>=<sp/><ref refid="linklist_8c_1efe1a363b71eccafc7f2c8e31f8f2b05" kindref="member">new_glist</ref>(temp_buf,<sp/>name))<sp/>!=<sp/>NULL)</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(*list==NULL)<sp/>*list=newptr;</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cptr=pptr=*list;</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal">(cptr!=NULL)<sp/>{<sp/>pptr=cptr;<sp/>cptr=cptr-&gt;<ref refid="structglist_1fcbd6d229e8a0ea95ed0532927a3bf85" kindref="member">next</ref>;<sp/>};</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pptr-&gt;<ref refid="structglist_1fcbd6d229e8a0ea95ed0532927a3bf85" kindref="member">next</ref><sp/>=<sp/>newptr;</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/>}<sp/></highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>newptr==NULL;</highlight></codeline>
+<codeline lineno="220"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="221"><highlight class="normal"></highlight></codeline>
+<codeline lineno="222"><highlight class="normal"></highlight><highlight class="comment">/*********************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="223"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>DEL_GLIST<sp/>-<sp/>delete<sp/>FIFO<sp/>linked<sp/>list<sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="224"><highlight class="normal"></highlight><highlight class="comment">/*********************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="225"><highlight class="normal"></highlight></codeline>
+<codeline lineno="226" refid="linklist_8c_12db320536d6c5a8726da8e8e627af50c" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="linklist_8c_12db320536d6c5a8726da8e8e627af50c" kindref="member">del_glist</ref>(<ref refid="structglist" kindref="compound">GLISTPTR</ref><sp/>*list)</highlight></codeline>
+<codeline lineno="227"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="228"><highlight class="normal"><sp/><sp/><sp/><ref refid="structglist" kindref="compound">GLISTPTR</ref><sp/>cptr,nptr;</highlight></codeline>
+<codeline lineno="229"><highlight class="normal"></highlight></codeline>
+<codeline lineno="230"><highlight class="normal"><sp/><sp/><sp/>cptr=*list;</highlight></codeline>
+<codeline lineno="231"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(cptr!=NULL)</highlight></codeline>
+<codeline lineno="232"><highlight class="normal"><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>nptr=cptr-&gt;<ref refid="structglist_1fcbd6d229e8a0ea95ed0532927a3bf85" kindref="member">next</ref>;</highlight></codeline>
+<codeline lineno="234"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>free(cptr);</highlight></codeline>
+<codeline lineno="235"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>cptr=nptr;</highlight></codeline>
+<codeline lineno="236"><highlight class="normal"><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="237"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="238"><highlight class="normal"></highlight></codeline>
+<codeline lineno="239"><highlight class="normal"></highlight><highlight class="comment">/*********************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="240"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>ISINLIST<sp/>-<sp/>Test<sp/>if<sp/>string<sp/>is<sp/>in<sp/>list<sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="241"><highlight class="normal"></highlight><highlight class="comment">/*********************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="242"><highlight class="normal"></highlight></codeline>
+<codeline lineno="243" refid="linklist_8h_13568dfb8e887fc7a6c38ca8f900c721c" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="linklist_8c_129bda5ebb6dd2f9b19d8f9519eaf94ff" kindref="member">isinlist</ref>(<ref refid="structnlist" kindref="compound">NLISTPTR</ref><sp/>list,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*str)</highlight></codeline>
+<codeline lineno="244"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="245"><highlight class="normal"><sp/><sp/><sp/><ref refid="structnlist" kindref="compound">NLISTPTR</ref><sp/>lptr;</highlight></codeline>
+<codeline lineno="246"><highlight class="normal"></highlight></codeline>
+<codeline lineno="247"><highlight class="normal"><sp/><sp/><sp/>lptr=list;</highlight></codeline>
+<codeline lineno="248"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(lptr!=NULL)</highlight></codeline>
+<codeline lineno="249"><highlight class="normal"><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="250"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="linklist_8c_199ef4b81dcab23e1497ea7d5afdeceeb" kindref="member">isinstr</ref>(str,lptr-&gt;<ref refid="structnlist_1272774fb3950796b85497317de3dd85a" kindref="member">string</ref>))<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>lptr-&gt;<ref refid="structnlist_1272774fb3950796b85497317de3dd85a" kindref="member">string</ref>;</highlight></codeline>
+<codeline lineno="251"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>lptr=lptr-&gt;<ref refid="structnlist_16e5fbb2f12a2799e60611dbda92c6f38" kindref="member">next</ref>;</highlight></codeline>
+<codeline lineno="252"><highlight class="normal"><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="253"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>NULL;</highlight></codeline>
+<codeline lineno="254"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="255"><highlight class="normal"></highlight></codeline>
+<codeline lineno="256"><highlight class="normal"></highlight><highlight class="comment">/*********************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="257"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>ISINGLIST<sp/>-<sp/>Test<sp/>if<sp/>string<sp/>is<sp/>in<sp/>list<sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="258"><highlight class="normal"></highlight><highlight class="comment">/*********************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="259"><highlight class="normal"></highlight></codeline>
+<codeline lineno="260" refid="linklist_8h_104dff50c01cd9572b6a3d9dfbdb7cc07" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="linklist_8c_170d3ef92faca75f6392ba919975ffe47" kindref="member">isinglist</ref>(<ref refid="structglist" kindref="compound">GLISTPTR</ref><sp/>list,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*str)</highlight></codeline>
+<codeline lineno="261"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="262"><highlight class="normal"><sp/><sp/><sp/><ref refid="structglist" kindref="compound">GLISTPTR</ref><sp/>lptr;</highlight></codeline>
+<codeline lineno="263"><highlight class="normal"></highlight></codeline>
+<codeline lineno="264"><highlight class="normal"><sp/><sp/><sp/>lptr=list;</highlight></codeline>
+<codeline lineno="265"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(lptr!=NULL)</highlight></codeline>
+<codeline lineno="266"><highlight class="normal"><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="267"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="linklist_8c_199ef4b81dcab23e1497ea7d5afdeceeb" kindref="member">isinstr</ref>(str,lptr-&gt;<ref refid="structglist_136312d3b785bc51f116bd01aa2a3cf20" kindref="member">string</ref>))<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>lptr-&gt;<ref refid="structglist_1d3ebdbe9d3d9448d753a3aa95d232455" kindref="member">name</ref>;</highlight></codeline>
+<codeline lineno="268"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>lptr=lptr-&gt;<ref refid="structglist_1fcbd6d229e8a0ea95ed0532927a3bf85" kindref="member">next</ref>;</highlight></codeline>
+<codeline lineno="269"><highlight class="normal"><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="270"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>NULL;</highlight></codeline>
+<codeline lineno="271"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="272"><highlight class="normal"></highlight></codeline>
+<codeline lineno="273"><highlight class="normal"></highlight><highlight class="comment">/*********************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="274"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>ISINSTR<sp/>-<sp/>Scan<sp/>for<sp/>string<sp/>in<sp/>string<sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="275"><highlight class="normal"></highlight><highlight class="comment">/*********************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="276"><highlight class="normal"></highlight></codeline>
+<codeline lineno="277" refid="linklist_8c_199ef4b81dcab23e1497ea7d5afdeceeb" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="linklist_8c_199ef4b81dcab23e1497ea7d5afdeceeb" kindref="member">isinstr</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*str,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*cp)</highlight></codeline>
+<codeline lineno="278"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="279"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*cp1,*cp2;</highlight></codeline>
+<codeline lineno="280"><highlight class="normal"></highlight></codeline>
+<codeline lineno="281"><highlight class="normal"><sp/><sp/><sp/>cp1=(cp+strlen(cp))-1;</highlight></codeline>
+<codeline lineno="282"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(*cp==</highlight><highlight class="charliteral">&apos;*&apos;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="283"><highlight class="normal"><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="284"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>if<sp/>leading<sp/>wildcard,<sp/>start<sp/>from<sp/>end<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="285"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>cp2=str+strlen(str)-1;</highlight></codeline>
+<codeline lineno="286"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(<sp/>(cp1!=cp)<sp/>&amp;&amp;<sp/>(cp2!=str))</highlight></codeline>
+<codeline lineno="287"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="288"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(*cp1==</highlight><highlight class="charliteral">&apos;*&apos;</highlight><highlight class="normal">)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>1;</highlight></codeline>
+<codeline lineno="289"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(*cp1--!=*cp2--)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="290"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="291"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(cp1==cp)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>1;</highlight></codeline>
+<codeline lineno="292"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="293"><highlight class="normal"><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="294"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="295"><highlight class="normal"><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="296"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>if<sp/>no<sp/>leading/trailing<sp/>wildcard,<sp/>just<sp/>strstr<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="297"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(*cp1!=</highlight><highlight class="charliteral">&apos;*&apos;</highlight><highlight class="normal">)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">(strstr(str,cp)!=NULL);</highlight></codeline>
+<codeline lineno="298"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>otherwise<sp/>do<sp/>normal<sp/>forward<sp/>scan<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="299"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>cp1=cp;<sp/>cp2=str;</highlight></codeline>
+<codeline lineno="300"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(*cp2!=</highlight><highlight class="charliteral">&apos;\0&apos;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="301"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="302"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(*cp1==</highlight><highlight class="charliteral">&apos;*&apos;</highlight><highlight class="normal">)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>1;</highlight></codeline>
+<codeline lineno="303"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(*cp1++!=*cp2++)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="304"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="305"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(*cp1==</highlight><highlight class="charliteral">&apos;*&apos;</highlight><highlight class="normal">)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>1;</highlight></codeline>
+<codeline lineno="306"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="307"><highlight class="normal"><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="308"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="/home/r23/oosalizer/linklist.c"/>
+  </compounddef>
+</doxygen>

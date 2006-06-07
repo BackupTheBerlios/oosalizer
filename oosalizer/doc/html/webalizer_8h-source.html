@@ -1,0 +1,308 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1">
+<title>OOS [Webalizer]: oosalizer/webalizer.h Quellcode</title>
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+<link href="tabs.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Erzeugt von Doxygen 1.4.6 -->
+<div class="tabs">
+  <ul>
+    <li><a href="main.html"><span>Hauptseite</span></a></li>
+    <li><a href="annotated.html"><span>Datenstrukturen</span></a></li>
+    <li id="current"><a href="files.html"><span>Dateien</span></a></li>
+    <li>
+      <form action="search.php" method="get">
+        <table cellspacing="0" cellpadding="0" border="0">
+          <tr>
+            <td><label>&nbsp;<u>S</u>uchen&nbsp;nach&nbsp;</label></td>
+            <td><input type="text" name="query" value="" size="20" accesskey="s"/></td>
+          </tr>
+        </table>
+      </form>
+    </li>
+  </ul></div>
+<div class="tabs">
+  <ul>
+    <li><a href="files.html"><span>Auflistung&nbsp;der&nbsp;Dateien</span></a></li>
+    <li><a href="globals.html"><span>Datei-Elemente</span></a></li>
+  </ul></div>
+<h1>oosalizer/webalizer.h</h1><a href="webalizer_8h.html">gehe zur Dokumentation dieser Datei</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef _WEBALIZER_H</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define _WEBALIZER_H</span>
+<a name="l00003"></a>00003 <span class="preprocessor"></span>
+<a name="l00004"></a><a class="code" href="webalizer_8h.html#349ccc58930e23a50f4cdd125a2edf7d">00004</a> <span class="preprocessor">#define PCENT(val,max) ((val)?((double)val/(double)max)*100.0 : 0.0)</span>
+<a name="l00005"></a><a class="code" href="webalizer_8h.html#4e6c8a23bbe623659548c4b567bb06df">00005</a> <span class="preprocessor"></span><span class="preprocessor">#define IDX_2C(c1,c2)       (((c1-'a'+1)&lt;&lt;5)+(c2-'a'+1) )</span>
+<a name="l00006"></a><a class="code" href="webalizer_8h.html#d70b6fe1fe6cb2c356bbc8268ad87774">00006</a> <span class="preprocessor"></span><span class="preprocessor">#define IDX_3C(c1,c2,c3)    (((c1-'a'+1)&lt;&lt;10)+((c2-'a'+1)&lt;&lt;5)+(c3-'a'+1) )</span>
+<a name="l00007"></a><a class="code" href="webalizer_8h.html#250c884e24a342d554caefc036bf27c1">00007</a> <span class="preprocessor"></span><span class="preprocessor">#define IDX_4C(c1,c2,c3,c4) (((c1-'a'+1)&lt;&lt;15)+((c2-'a'+1)&lt;&lt;10)+((c3-'a'+1)&lt;&lt;5)+(c4-'a'+1) )</span>
+<a name="l00008"></a>00008 <span class="preprocessor"></span>
+<a name="l00009"></a>00009 <span class="preprocessor">#ifndef MAX</span>
+<a name="l00010"></a><a class="code" href="webalizer_8h.html#fa99ec4acc4ecb2dc3c2d05da15d0e3f">00010</a> <span class="preprocessor"></span><span class="preprocessor">#define MAX(a,b) ((a) &gt; (b) ? (a) : (b))</span>
+<a name="l00011"></a>00011 <span class="preprocessor"></span><span class="preprocessor">#endif</span>
+<a name="l00012"></a>00012 <span class="preprocessor"></span>
+<a name="l00013"></a><a class="code" href="webalizer_8h.html#3d47d7a8b615ae32d0978491b0fdd2a7">00013</a> <span class="preprocessor">#define MAXRESP  1000                  </span><span class="comment">/* Max 404-Not-Found field size     */</span>
+<a name="l00014"></a><a class="code" href="webalizer_8h.html#08a8f937430dfb2f8d178491808565c4">00014</a> <span class="preprocessor">#define INCRESP  500                   </span><span class="comment">/* Size to increment MAXRESP        */</span>
+<a name="l00015"></a><a class="code" href="webalizer_8h.html#381dfed3a446e2b49171f4593a701df8">00015</a> <span class="preprocessor">#define MAXHASH  2048                  </span><span class="comment">/* Size of our hash tables          */</span>
+<a name="l00016"></a><a class="code" href="webalizer_8h.html#eca034f67218340ecb2261a22c2f3dcd">00016</a> <span class="preprocessor">#define BUFSIZE  4096                  </span><span class="comment">/* Max buffer size for log record   */</span>
+<a name="l00017"></a><a class="code" href="webalizer_8h.html#35a96510c197e5b56b079fd4b85a40d6">00017</a> <span class="preprocessor">#define MAXHOST  128                   </span><span class="comment">/* Max hostname buffer size         */</span>
+<a name="l00018"></a><a class="code" href="webalizer_8h.html#154e43d94122a068e2f1b110ef9885fa">00018</a> <span class="preprocessor">#define MAXURL   2048                  </span><span class="comment">/* Max HTTP request/URL field size  */</span>
+<a name="l00019"></a><a class="code" href="webalizer_8h.html#25de11d4cd5b64bfd955e494e2b5d815">00019</a> <span class="preprocessor">#define MAXURLH  512                   </span><span class="comment">/* Max URL field size in htab       */</span>
+<a name="l00020"></a><a class="code" href="webalizer_8h.html#93490f19b31aee2379f0acc0aa08af06">00020</a> <span class="preprocessor">#define MAXREF   2048                  </span><span class="comment">/* Max referrer field size          */</span>
+<a name="l00021"></a><a class="code" href="webalizer_8h.html#2c5b86478207547dbb0f2f026725c8f8">00021</a> <span class="preprocessor">#define MAXREFH  512                   </span><span class="comment">/* Max referrer field size in htab  */</span>
+<a name="l00022"></a><a class="code" href="webalizer_8h.html#cac54bd107b23b8a6433b11c185a884d">00022</a> <span class="preprocessor">#define MAXAGENT 512                   </span><span class="comment">/* Max user agent field size        */</span>
+<a name="l00023"></a><a class="code" href="webalizer_8h.html#1ee34374643e38b0f4ae8fff42539f32">00023</a> <span class="preprocessor">#define MAXCTRY  48                    </span><span class="comment">/* Max country name size            */</span>
+<a name="l00024"></a><a class="code" href="webalizer_8h.html#fbd0e79f3020d8a6df0a85a2300bbd3c">00024</a> <span class="preprocessor">#define MAXSRCH  512                   </span><span class="comment">/* Max size of search string buffer */</span>
+<a name="l00025"></a><a class="code" href="webalizer_8h.html#da235f98b7907e34754de783b33f69f1">00025</a> <span class="preprocessor">#define MAXSRCHH 128                   </span><span class="comment">/* Max size of search str in htab   */</span>
+<a name="l00026"></a><a class="code" href="webalizer_8h.html#f4f5153d8faa075eda9141a6de77764b">00026</a> <span class="preprocessor">#define MAXIDENT 64                    </span><span class="comment">/* Max size of ident string (user)  */</span>
+<a name="l00027"></a>00027 
+<a name="l00028"></a><a class="code" href="webalizer_8h.html#557769cbf6a29c118bc171bd836c8622">00028</a> <span class="preprocessor">#define SLOP_VAL 3600                  </span><span class="comment">/* out of sequence slop (seconds)   */</span>
+<a name="l00029"></a>00029 
+<a name="l00030"></a>00030 <span class="comment">/* Log types */</span>
+<a name="l00031"></a><a class="code" href="webalizer_8h.html#5ce0d49d0e92ba00b7385ef68d26b51a">00031</a> <span class="preprocessor">#define LOG_CLF   0                        </span><span class="comment">/* CLF/combined log type        */</span>
+<a name="l00032"></a><a class="code" href="webalizer_8h.html#cf5d4c2811adb735aaf5b32f62cc3cea">00032</a> <span class="preprocessor">#define LOG_FTP   1                        </span><span class="comment">/* wu-ftpd xferlog type         */</span>
+<a name="l00033"></a><a class="code" href="webalizer_8h.html#43821087b540ecbc400b7cef8ab10be0">00033</a> <span class="preprocessor">#define LOG_SQUID 2                        </span><span class="comment">/* squid proxy log              */</span>
+<a name="l00034"></a>00034 
+<a name="l00035"></a>00035 <span class="comment">/* Response code defines as per draft ietf HTTP/1.1 rev 6 */</span>
+<a name="l00036"></a><a class="code" href="webalizer_8h.html#2973ef9c3946a53a2d2abb55a55a3b97">00036</a> <span class="preprocessor">#define RC_CONTINUE           100</span>
+<a name="l00037"></a><a class="code" href="webalizer_8h.html#5c3ddeb1827b40ef72ef2eacf1008e5d">00037</a> <span class="preprocessor"></span><span class="preprocessor">#define RC_SWITCHPROTO        101</span>
+<a name="l00038"></a><a class="code" href="webalizer_8h.html#c96a9e3f6c17299d532eb572ef0ea415">00038</a> <span class="preprocessor"></span><span class="preprocessor">#define RC_OK                 200</span>
+<a name="l00039"></a><a class="code" href="webalizer_8h.html#f0332079723f3067bbfaaa3898c92f83">00039</a> <span class="preprocessor"></span><span class="preprocessor">#define RC_CREATED            201</span>
+<a name="l00040"></a><a class="code" href="webalizer_8h.html#1dc4c23d4b1d53e2c441c8f0be4a6c8f">00040</a> <span class="preprocessor"></span><span class="preprocessor">#define RC_ACCEPTED           202</span>
+<a name="l00041"></a><a class="code" href="webalizer_8h.html#8ecd21218957eab5e7e58325f40f6552">00041</a> <span class="preprocessor"></span><span class="preprocessor">#define RC_NONAUTHINFO        203</span>
+<a name="l00042"></a><a class="code" href="webalizer_8h.html#2a4892c2fd090a258e299fe74a2b62bc">00042</a> <span class="preprocessor"></span><span class="preprocessor">#define RC_NOCONTENT          204</span>
+<a name="l00043"></a><a class="code" href="webalizer_8h.html#83082fa7e8fef231b575b90477032d0d">00043</a> <span class="preprocessor"></span><span class="preprocessor">#define RC_RESETCONTENT       205</span>
+<a name="l00044"></a><a class="code" href="webalizer_8h.html#893e07be696874c598cea81950e6c072">00044</a> <span class="preprocessor"></span><span class="preprocessor">#define RC_PARTIALCONTENT     206</span>
+<a name="l00045"></a><a class="code" href="webalizer_8h.html#e57d896ee18e8ef51e3787d3d00227ad">00045</a> <span class="preprocessor"></span><span class="preprocessor">#define RC_MULTIPLECHOICES    300</span>
+<a name="l00046"></a><a class="code" href="webalizer_8h.html#377e76f0029c632db82eeed9ca566170">00046</a> <span class="preprocessor"></span><span class="preprocessor">#define RC_MOVEDPERM          301</span>
+<a name="l00047"></a><a class="code" href="webalizer_8h.html#c68cd020d1f6ac6c183545ac2ddedac4">00047</a> <span class="preprocessor"></span><span class="preprocessor">#define RC_MOVEDTEMP          302</span>
+<a name="l00048"></a><a class="code" href="webalizer_8h.html#f8c87dee2a752ec00cd4cc68294af9bc">00048</a> <span class="preprocessor"></span><span class="preprocessor">#define RC_SEEOTHER           303</span>
+<a name="l00049"></a><a class="code" href="webalizer_8h.html#eff5fe0e9d6e0d3b059e98fa6a7af4c0">00049</a> <span class="preprocessor"></span><span class="preprocessor">#define RC_NOMOD              304</span>
+<a name="l00050"></a><a class="code" href="webalizer_8h.html#ffbf5096b0418235f7c14eec29c4aa0f">00050</a> <span class="preprocessor"></span><span class="preprocessor">#define RC_USEPROXY           305</span>
+<a name="l00051"></a><a class="code" href="webalizer_8h.html#f51f0ab3e378b9069e91c0cdb70967f0">00051</a> <span class="preprocessor"></span><span class="preprocessor">#define RC_MOVEDTEMPORARILY   307</span>
+<a name="l00052"></a><a class="code" href="webalizer_8h.html#fe7364776d74e37117c140dd2a57120d">00052</a> <span class="preprocessor"></span><span class="preprocessor">#define RC_BAD                400</span>
+<a name="l00053"></a><a class="code" href="webalizer_8h.html#77accf4be7686d8af84c6629d04176ae">00053</a> <span class="preprocessor"></span><span class="preprocessor">#define RC_UNAUTH             401</span>
+<a name="l00054"></a><a class="code" href="webalizer_8h.html#632840a368cc8995b7cf7c5a2a8fcae9">00054</a> <span class="preprocessor"></span><span class="preprocessor">#define RC_PAYMENTREQ         402</span>
+<a name="l00055"></a><a class="code" href="webalizer_8h.html#80228f15ff6a244a08c671165772a4cb">00055</a> <span class="preprocessor"></span><span class="preprocessor">#define RC_FORBIDDEN          403</span>
+<a name="l00056"></a><a class="code" href="webalizer_8h.html#71678208a421e84056782803d8a4b123">00056</a> <span class="preprocessor"></span><span class="preprocessor">#define RC_NOTFOUND           404</span>
+<a name="l00057"></a><a class="code" href="webalizer_8h.html#aefe9210427876578c52b3d1b9585d26">00057</a> <span class="preprocessor"></span><span class="preprocessor">#define RC_METHODNOTALLOWED   405</span>
+<a name="l00058"></a><a class="code" href="webalizer_8h.html#84e1c25114a994a902bcc647855ac889">00058</a> <span class="preprocessor"></span><span class="preprocessor">#define RC_NOTACCEPTABLE      406</span>
+<a name="l00059"></a><a class="code" href="webalizer_8h.html#bb3cc66b80375945009d866c67106eec">00059</a> <span class="preprocessor"></span><span class="preprocessor">#define RC_PROXYAUTHREQ       407</span>
+<a name="l00060"></a><a class="code" href="webalizer_8h.html#d434474a429a400a76b36167c2883eb0">00060</a> <span class="preprocessor"></span><span class="preprocessor">#define RC_TIMEOUT            408</span>
+<a name="l00061"></a><a class="code" href="webalizer_8h.html#de706652b6ba7c52ded58b8945282a10">00061</a> <span class="preprocessor"></span><span class="preprocessor">#define RC_CONFLICT           409</span>
+<a name="l00062"></a><a class="code" href="webalizer_8h.html#e3c00160efe3330657c85c15d047490c">00062</a> <span class="preprocessor"></span><span class="preprocessor">#define RC_GONE               410</span>
+<a name="l00063"></a><a class="code" href="webalizer_8h.html#d8e34c952fc0f159e05586be6444fd7e">00063</a> <span class="preprocessor"></span><span class="preprocessor">#define RC_LENGTHREQ          411</span>
+<a name="l00064"></a><a class="code" href="webalizer_8h.html#1b9f678bdf687297ee1d2c6d33901a9d">00064</a> <span class="preprocessor"></span><span class="preprocessor">#define RC_PREFAILED          412</span>
+<a name="l00065"></a><a class="code" href="webalizer_8h.html#09481992e00a806a61fa09aa85ba914a">00065</a> <span class="preprocessor"></span><span class="preprocessor">#define RC_REQENTTOOLARGE     413</span>
+<a name="l00066"></a><a class="code" href="webalizer_8h.html#94a11e7b21ac575205e9100b72e23d8d">00066</a> <span class="preprocessor"></span><span class="preprocessor">#define RC_REQURITOOLARGE     414</span>
+<a name="l00067"></a><a class="code" href="webalizer_8h.html#816d51d9feb10e5a9aeeb0e10029b280">00067</a> <span class="preprocessor"></span><span class="preprocessor">#define RC_UNSUPMEDIATYPE     415</span>
+<a name="l00068"></a><a class="code" href="webalizer_8h.html#cdb353643fa046961295e21975c5cc9d">00068</a> <span class="preprocessor"></span><span class="preprocessor">#define RC_RNGNOTSATISFIABLE  416</span>
+<a name="l00069"></a><a class="code" href="webalizer_8h.html#491c8d8e375207b66d0d730c96f7f72f">00069</a> <span class="preprocessor"></span><span class="preprocessor">#define RC_EXPECTATIONFAILED  417</span>
+<a name="l00070"></a><a class="code" href="webalizer_8h.html#154fcfc91d9d9dc80189afa640f7505e">00070</a> <span class="preprocessor"></span><span class="preprocessor">#define RC_SERVERERR          500</span>
+<a name="l00071"></a><a class="code" href="webalizer_8h.html#ede48bc0a06917580753201049f9e396">00071</a> <span class="preprocessor"></span><span class="preprocessor">#define RC_NOTIMPLEMENTED     501</span>
+<a name="l00072"></a><a class="code" href="webalizer_8h.html#1d6c4fd6c60fc320baee08a960890fc3">00072</a> <span class="preprocessor"></span><span class="preprocessor">#define RC_BADGATEWAY         502</span>
+<a name="l00073"></a><a class="code" href="webalizer_8h.html#1be4e098cbdf953b61ea3e9014b04179">00073</a> <span class="preprocessor"></span><span class="preprocessor">#define RC_UNAVAIL            503</span>
+<a name="l00074"></a><a class="code" href="webalizer_8h.html#9a6769b1960fc266b7276c99ae6be4b4">00074</a> <span class="preprocessor"></span><span class="preprocessor">#define RC_GATEWAYTIMEOUT     504</span>
+<a name="l00075"></a><a class="code" href="webalizer_8h.html#97071445bafc08e42f84edfb030bd18e">00075</a> <span class="preprocessor"></span><span class="preprocessor">#define RC_BADHTTPVER         505</span>
+<a name="l00076"></a>00076 <span class="preprocessor"></span>
+<a name="l00077"></a>00077 <span class="comment">/* Index defines for RC codes */</span>
+<a name="l00078"></a><a class="code" href="webalizer_8h.html#b93bf51da9eb22f9c1137af150b41875">00078</a> <span class="preprocessor">#define IDX_UNDEFINED          0</span>
+<a name="l00079"></a><a class="code" href="webalizer_8h.html#83ecb43db7919a2df7837349bbb39e87">00079</a> <span class="preprocessor"></span><span class="preprocessor">#define IDX_CONTINUE           1</span>
+<a name="l00080"></a><a class="code" href="webalizer_8h.html#f75dbc50a390198de5a2b7fa3a1cf74e">00080</a> <span class="preprocessor"></span><span class="preprocessor">#define IDX_SWITCHPROTO        2</span>
+<a name="l00081"></a><a class="code" href="webalizer_8h.html#8414d7b1864c34564ece4a0bbc184b59">00081</a> <span class="preprocessor"></span><span class="preprocessor">#define IDX_OK                 3</span>
+<a name="l00082"></a><a class="code" href="webalizer_8h.html#d4e7a4a0de3d9e8f8fd702d4cc107e5c">00082</a> <span class="preprocessor"></span><span class="preprocessor">#define IDX_CREATED            4 </span>
+<a name="l00083"></a><a class="code" href="webalizer_8h.html#933e0eb54658be0ad274c542b96b143d">00083</a> <span class="preprocessor"></span><span class="preprocessor">#define IDX_ACCEPTED           5 </span>
+<a name="l00084"></a><a class="code" href="webalizer_8h.html#939fa36123980dca45b09a9c642c45b4">00084</a> <span class="preprocessor"></span><span class="preprocessor">#define IDX_NONAUTHINFO        6 </span>
+<a name="l00085"></a><a class="code" href="webalizer_8h.html#56130b6b2cce89fee3bd155d7697792a">00085</a> <span class="preprocessor"></span><span class="preprocessor">#define IDX_NOCONTENT          7  </span>
+<a name="l00086"></a><a class="code" href="webalizer_8h.html#06fdfc6a30a2c0e48f0f5e4aa47064c9">00086</a> <span class="preprocessor"></span><span class="preprocessor">#define IDX_RESETCONTENT       8 </span>
+<a name="l00087"></a><a class="code" href="webalizer_8h.html#781f7d89028f787181cb19ae2467e1fa">00087</a> <span class="preprocessor"></span><span class="preprocessor">#define IDX_PARTIALCONTENT     9 </span>
+<a name="l00088"></a><a class="code" href="webalizer_8h.html#6f4595e5a6403777c1e6cb5831206156">00088</a> <span class="preprocessor"></span><span class="preprocessor">#define IDX_MULTIPLECHOICES    10 </span>
+<a name="l00089"></a><a class="code" href="webalizer_8h.html#dfb37d5b32200232d0b76ecea8f26c84">00089</a> <span class="preprocessor"></span><span class="preprocessor">#define IDX_MOVEDPERM          11 </span>
+<a name="l00090"></a><a class="code" href="webalizer_8h.html#f6cbf62366bb52a3609fd1e37f9cda52">00090</a> <span class="preprocessor"></span><span class="preprocessor">#define IDX_MOVEDTEMP          12 </span>
+<a name="l00091"></a><a class="code" href="webalizer_8h.html#7e2706d21cedca3fe0b354d5a1ead818">00091</a> <span class="preprocessor"></span><span class="preprocessor">#define IDX_SEEOTHER           13 </span>
+<a name="l00092"></a><a class="code" href="webalizer_8h.html#9bfe7536dafc3a3c706d948d72807a3a">00092</a> <span class="preprocessor"></span><span class="preprocessor">#define IDX_NOMOD              14 </span>
+<a name="l00093"></a><a class="code" href="webalizer_8h.html#78d0d675c3de5dae71aa53d872331bc4">00093</a> <span class="preprocessor"></span><span class="preprocessor">#define IDX_USEPROXY           15 </span>
+<a name="l00094"></a><a class="code" href="webalizer_8h.html#93c6942088e638bf6e98b953d9f2d1f7">00094</a> <span class="preprocessor"></span><span class="preprocessor">#define IDX_MOVEDTEMPORARILY   16</span>
+<a name="l00095"></a><a class="code" href="webalizer_8h.html#48260339557cf3534665eb05912a1868">00095</a> <span class="preprocessor"></span><span class="preprocessor">#define IDX_BAD                17 </span>
+<a name="l00096"></a><a class="code" href="webalizer_8h.html#8ea05eb3e8a1b38e57de383d26c37504">00096</a> <span class="preprocessor"></span><span class="preprocessor">#define IDX_UNAUTH             18 </span>
+<a name="l00097"></a><a class="code" href="webalizer_8h.html#aa47991200d3a366985009e68b0f24a0">00097</a> <span class="preprocessor"></span><span class="preprocessor">#define IDX_PAYMENTREQ         19 </span>
+<a name="l00098"></a><a class="code" href="webalizer_8h.html#b7b99408c850493c8014826e8bb2c6f3">00098</a> <span class="preprocessor"></span><span class="preprocessor">#define IDX_FORBIDDEN          20 </span>
+<a name="l00099"></a><a class="code" href="webalizer_8h.html#e54d154c414e589efe8192c8207d2839">00099</a> <span class="preprocessor"></span><span class="preprocessor">#define IDX_NOTFOUND           21 </span>
+<a name="l00100"></a><a class="code" href="webalizer_8h.html#41fb3f3f6b1da41411b493a2dd061beb">00100</a> <span class="preprocessor"></span><span class="preprocessor">#define IDX_METHODNOTALLOWED   22 </span>
+<a name="l00101"></a><a class="code" href="webalizer_8h.html#beee00b54b28f24ee992a5ccd3107c1c">00101</a> <span class="preprocessor"></span><span class="preprocessor">#define IDX_NOTACCEPTABLE      23 </span>
+<a name="l00102"></a><a class="code" href="webalizer_8h.html#2512abf4bfb02560c15b69fbb96f1116">00102</a> <span class="preprocessor"></span><span class="preprocessor">#define IDX_PROXYAUTHREQ       24 </span>
+<a name="l00103"></a><a class="code" href="webalizer_8h.html#c6815df17d8a5de1d1d9f2cfebc54549">00103</a> <span class="preprocessor"></span><span class="preprocessor">#define IDX_TIMEOUT            25 </span>
+<a name="l00104"></a><a class="code" href="webalizer_8h.html#80993fd20ef234e37cd81707101a93e5">00104</a> <span class="preprocessor"></span><span class="preprocessor">#define IDX_CONFLICT           26 </span>
+<a name="l00105"></a><a class="code" href="webalizer_8h.html#016b0abec5b38a6587c1efdc0220b768">00105</a> <span class="preprocessor"></span><span class="preprocessor">#define IDX_GONE               27 </span>
+<a name="l00106"></a><a class="code" href="webalizer_8h.html#81cd1be9f15877380c00d1c71bd511ff">00106</a> <span class="preprocessor"></span><span class="preprocessor">#define IDX_LENGTHREQ          28 </span>
+<a name="l00107"></a><a class="code" href="webalizer_8h.html#dd268ced3960a37e6f03794d754d37c4">00107</a> <span class="preprocessor"></span><span class="preprocessor">#define IDX_PREFAILED          29 </span>
+<a name="l00108"></a><a class="code" href="webalizer_8h.html#800af5d850306ceda4230bc357eb49a1">00108</a> <span class="preprocessor"></span><span class="preprocessor">#define IDX_REQENTTOOLARGE     30 </span>
+<a name="l00109"></a><a class="code" href="webalizer_8h.html#2ff00bc5fadae34827ff0514047124b4">00109</a> <span class="preprocessor"></span><span class="preprocessor">#define IDX_REQURITOOLARGE     31 </span>
+<a name="l00110"></a><a class="code" href="webalizer_8h.html#e11d6a0f8e87a7188ecc2d97b40e6027">00110</a> <span class="preprocessor"></span><span class="preprocessor">#define IDX_UNSUPMEDIATYPE     32</span>
+<a name="l00111"></a><a class="code" href="webalizer_8h.html#5aafa8994d729c3cbcc7c6564ee32793">00111</a> <span class="preprocessor"></span><span class="preprocessor">#define IDX_RNGNOTSATISFIABLE  33</span>
+<a name="l00112"></a><a class="code" href="webalizer_8h.html#31802e28bbe27706459b6d1a9649cebb">00112</a> <span class="preprocessor"></span><span class="preprocessor">#define IDX_EXPECTATIONFAILED  34 </span>
+<a name="l00113"></a><a class="code" href="webalizer_8h.html#172077342801961a306c9d7a1fac4433">00113</a> <span class="preprocessor"></span><span class="preprocessor">#define IDX_SERVERERR          35 </span>
+<a name="l00114"></a><a class="code" href="webalizer_8h.html#7ed773dca0aac3af7eb48e70d7483ebb">00114</a> <span class="preprocessor"></span><span class="preprocessor">#define IDX_NOTIMPLEMENTED     36 </span>
+<a name="l00115"></a><a class="code" href="webalizer_8h.html#2de048827e8a84dab33a5421e9eb2819">00115</a> <span class="preprocessor"></span><span class="preprocessor">#define IDX_BADGATEWAY         37 </span>
+<a name="l00116"></a><a class="code" href="webalizer_8h.html#e22b7bcbc25b5d27c2f17f513e5fb470">00116</a> <span class="preprocessor"></span><span class="preprocessor">#define IDX_UNAVAIL            38 </span>
+<a name="l00117"></a><a class="code" href="webalizer_8h.html#4b7b0e69b67e440b46ddc4c2b9cee01a">00117</a> <span class="preprocessor"></span><span class="preprocessor">#define IDX_GATEWAYTIMEOUT     39 </span>
+<a name="l00118"></a><a class="code" href="webalizer_8h.html#e4191d0093c406af5911ea618427431c">00118</a> <span class="preprocessor"></span><span class="preprocessor">#define IDX_BADHTTPVER         40 </span>
+<a name="l00119"></a><a class="code" href="webalizer_8h.html#774b57757b20d74727ecde0388a020b6">00119</a> <span class="preprocessor"></span><span class="preprocessor">#define TOTAL_RC               41</span>
+<a name="l00120"></a>00120 <span class="preprocessor"></span>
+<a name="l00121"></a>00121 <span class="preprocessor">#ifdef USE_DNS</span>
+<a name="l00122"></a>00122 <span class="preprocessor"></span><span class="preprocessor">#include &lt;netinet/in.h&gt;</span>       <span class="comment">/* needed for in_addr structure definition   */</span>
+<a name="l00123"></a>00123 <span class="preprocessor">#ifndef INADDR_NONE</span>
+<a name="l00124"></a>00124 <span class="preprocessor"></span><span class="preprocessor">#define INADDR_NONE 0xFFFFFFFF</span>
+<a name="l00125"></a>00125 <span class="preprocessor"></span><span class="preprocessor">#endif  </span><span class="comment">/* INADDR_NONE */</span>
+<a name="l00126"></a>00126 <span class="preprocessor">#endif</span>
+<a name="l00127"></a>00127 <span class="preprocessor"></span>
+<a name="l00128"></a>00128 <span class="comment">/* Response code structure */</span>
+<a name="l00129"></a><a class="code" href="structresponse__code.html#c580ee9a4994223d0e663fa9a839ba0a">00129</a> <span class="keyword">struct </span><a class="code" href="structresponse__code.html">response_code</a> {     <span class="keywordtype">char</span>    *<a class="code" href="structresponse__code.html#c580ee9a4994223d0e663fa9a839ba0a">desc</a>;         <span class="comment">/* response code struct  */</span>
+<a name="l00130"></a><a class="code" href="structresponse__code.html#a973afefbe5e787ef2fee765f05bbfaf">00130</a>                          u_long    <a class="code" href="structresponse__code.html#a973afefbe5e787ef2fee765f05bbfaf">count</a>; };
+<a name="l00131"></a>00131 
+<a name="l00132"></a>00132 <span class="comment">/* Response URL structure */</span>
+<a name="l00133"></a><a class="code" href="structresponse__url.html#c997088a7965d5b69b6aec48f77deea6">00133</a> <span class="keyword">struct </span><a class="code" href="structresponse__url.html">response_url</a> { <span class="keywordtype">char</span> <a class="code" href="structresponse__url.html#c997088a7965d5b69b6aec48f77deea6">respurl</a>[<a class="code" href="webalizer_8h.html#25de11d4cd5b64bfd955e494e2b5d815">MAXURLH</a>];       <span class="comment">/* resp url struct       */</span>
+<a name="l00134"></a><a class="code" href="structresponse__url.html#82f3189f3b02c8eb1edc0f0da8ceb0e7">00134</a>                         u_long    <a class="code" href="structresponse__url.html#82f3189f3b02c8eb1edc0f0da8ceb0e7">count</a>; };
+<a name="l00135"></a><a class="code" href="webalizer_8h.html#a8ed05f974eff62796d7d6bb0863d253">00135</a> <span class="keyword">struct </span><a class="code" href="structresponse__url.html">response_url</a> * <a class="code" href="webalizer_8h.html#a8ed05f974eff62796d7d6bb0863d253">respnotfound</a>;
+<a name="l00136"></a><a class="code" href="structresponsetmp__url.html#b4ad044e588e562efd1346b8f43c5384">00136</a> <span class="keyword">struct </span><a class="code" href="structresponsetmp__url.html">responsetmp_url</a> { <span class="keywordtype">char</span> <a class="code" href="structresponsetmp__url.html#b4ad044e588e562efd1346b8f43c5384">respurl</a>[<a class="code" href="webalizer_8h.html#25de11d4cd5b64bfd955e494e2b5d815">MAXURLH</a>];    <span class="comment">/* temp resp url struct  */</span>
+<a name="l00137"></a><a class="code" href="structresponsetmp__url.html#3fadce0607dd50b5b522cecb148a3e3a">00137</a>                         u_long    <a class="code" href="structresponsetmp__url.html#3fadce0607dd50b5b522cecb148a3e3a">count</a>; };
+<a name="l00138"></a><a class="code" href="webalizer_8h.html#c86ff2f54b16d3d0c0b7c732acd5d2dc">00138</a> <span class="keyword">struct </span><a class="code" href="structresponsetmp__url.html">responsetmp_url</a> * <a class="code" href="webalizer_8h.html#c86ff2f54b16d3d0c0b7c732acd5d2dc">respnotfoundtmp</a>;
+<a name="l00139"></a><a class="code" href="webalizer_8h.html#520aedc681661bda91ae6b58266be08d">00139</a> u_long <a class="code" href="webalizer_8h.html#520aedc681661bda91ae6b58266be08d">resp_counter</a>;                              <span class="comment">/* total 404 counter     */</span>
+<a name="l00140"></a>00140 
+<a name="l00141"></a>00141 <span class="comment">/* Country code structure */</span>
+<a name="l00142"></a><a class="code" href="structcountry__code.html#8b77525096037f6830210dc03728c88a">00142</a> <span class="keyword">struct  </span><a class="code" href="structcountry__code.html">country_code</a> { u_long <a class="code" href="structcountry__code.html#8b77525096037f6830210dc03728c88a">idx</a>;
+<a name="l00143"></a><a class="code" href="structcountry__code.html#835c53390df57142797eae431d0d7a8b">00143</a>                          <span class="keywordtype">char</span> *<a class="code" href="structcountry__code.html#835c53390df57142797eae431d0d7a8b">desc</a>;
+<a name="l00144"></a><a class="code" href="structcountry__code.html#1998a168a8ea9025323f7ca7080b7ad7">00144</a>                        u_long <a class="code" href="structcountry__code.html#1998a168a8ea9025323f7ca7080b7ad7">count</a>;
+<a name="l00145"></a><a class="code" href="structcountry__code.html#ecff0cb1d546cd8375ca6ed45a75867c">00145</a>                        u_long <a class="code" href="structcountry__code.html#ecff0cb1d546cd8375ca6ed45a75867c">files</a>;
+<a name="l00146"></a><a class="code" href="structcountry__code.html#c2f451d6198d10eb266d7cdadf117a1e">00146</a>                        <span class="keywordtype">double</span>  <a class="code" href="structcountry__code.html#c2f451d6198d10eb266d7cdadf117a1e">xfer</a>; };
+<a name="l00147"></a>00147 
+<a name="l00148"></a><a class="code" href="webalizer_8h.html#3502d3057324fbd3bc3f7c0b0e6777bf">00148</a> <span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structcountry__code.html">country_code</a> *<a class="code" href="structcountry__code.html">CLISTPTR</a>;
+<a name="l00149"></a>00149 
+<a name="l00150"></a>00150 <span class="comment">/* log record structure */</span>
+<a name="l00151"></a><a class="code" href="structlog__struct.html#8d92ed4a00d2d6b0f155bdbfcc551478">00151</a> <span class="keyword">struct  </span><a class="code" href="structlog__struct.html">log_struct</a>  {  <span class="keywordtype">char</span>   <a class="code" href="structlog__struct.html#8d92ed4a00d2d6b0f155bdbfcc551478">hostname</a>[<a class="code" href="webalizer_8h.html#35a96510c197e5b56b079fd4b85a40d6">MAXHOST</a>];   <span class="comment">/* hostname             */</span>
+<a name="l00152"></a><a class="code" href="structlog__struct.html#1a6e77deebf410bb8fefe35aa02e384c">00152</a>                        <span class="keywordtype">char</span>   <a class="code" href="structlog__struct.html#1a6e77deebf410bb8fefe35aa02e384c">datetime</a>[29];        <span class="comment">/* raw timestamp        */</span>
+<a name="l00153"></a><a class="code" href="structlog__struct.html#479e09f2dc389f8a0a57b9c3146d9d32">00153</a>                        <span class="keywordtype">char</span>   <a class="code" href="structlog__struct.html#479e09f2dc389f8a0a57b9c3146d9d32">url</a>[<a class="code" href="webalizer_8h.html#154e43d94122a068e2f1b110ef9885fa">MAXURL</a>];         <span class="comment">/* raw request field    */</span>
+<a name="l00154"></a><a class="code" href="structlog__struct.html#b8db9826a57acc82a4c7d99948a9b89c">00154</a>                        <span class="keywordtype">int</span>    <a class="code" href="structlog__struct.html#b8db9826a57acc82a4c7d99948a9b89c">resp_code</a>;           <span class="comment">/* response code        */</span>
+<a name="l00155"></a><a class="code" href="structlog__struct.html#8147dacfe44060fa40bb3caf79e3fdd1">00155</a>                        u_long <a class="code" href="structlog__struct.html#8147dacfe44060fa40bb3caf79e3fdd1">xfer_size</a>;           <span class="comment">/* xfer size in bytes   */</span>
+<a name="l00156"></a>00156 <span class="preprocessor">#ifdef USE_DNS</span>
+<a name="l00157"></a>00157 <span class="preprocessor"></span>                       <span class="keyword">struct </span>in_addr addr;        <span class="comment">/* IP address structure */</span>
+<a name="l00158"></a>00158 <span class="preprocessor">#endif  </span><span class="comment">/* USE_DNS */</span>
+<a name="l00159"></a><a class="code" href="structlog__struct.html#cb4f74246c1b97c518bbcc8a4823c0d4">00159</a>                        <span class="keywordtype">char</span>   <a class="code" href="structlog__struct.html#cb4f74246c1b97c518bbcc8a4823c0d4">refer</a>[<a class="code" href="webalizer_8h.html#93490f19b31aee2379f0acc0aa08af06">MAXREF</a>];       <span class="comment">/* referrer             */</span>
+<a name="l00160"></a><a class="code" href="structlog__struct.html#b512bdcfac62ef38139eaf1701994a4f">00160</a>                        <span class="keywordtype">char</span>   <a class="code" href="structlog__struct.html#b512bdcfac62ef38139eaf1701994a4f">agent</a>[<a class="code" href="webalizer_8h.html#cac54bd107b23b8a6433b11c185a884d">MAXAGENT</a>];     <span class="comment">/* user agent (browser) */</span>
+<a name="l00161"></a><a class="code" href="structlog__struct.html#56f5b706fac667b9d9309ad128e5a102">00161</a>                        <span class="keywordtype">char</span>   <a class="code" href="structlog__struct.html#56f5b706fac667b9d9309ad128e5a102">srchstr</a>[<a class="code" href="webalizer_8h.html#fbd0e79f3020d8a6df0a85a2300bbd3c">MAXSRCH</a>];    <span class="comment">/* search string        */</span>
+<a name="l00162"></a><a class="code" href="structlog__struct.html#abac03796cba2fed0c5185a55e5578bd">00162</a>                        <span class="keywordtype">char</span>   <a class="code" href="structlog__struct.html#abac03796cba2fed0c5185a55e5578bd">ident</a>[<a class="code" href="webalizer_8h.html#f4f5153d8faa075eda9141a6de77764b">MAXIDENT</a>]; };  <span class="comment">/* ident string (user)  */</span>
+<a name="l00163"></a>00163 
+<a name="l00164"></a>00164 <span class="keyword">extern</span> <span class="keyword">struct </span><a class="code" href="structlog__struct.html">log_struct</a> <a class="code" href="webalizer_8c.html#b78a7a0970e517ad18adea541d2b2b32">log_rec</a>;
+<a name="l00165"></a>00165 
+<a name="l00166"></a>00166 <span class="keyword">extern</span> <span class="keywordtype">char</span>    *<a class="code" href="webalizer_8c.html#56abfaab87c46691c1ef3ad0df23e864">version</a>     ;                 <span class="comment">/* program version          */</span>
+<a name="l00167"></a>00167 <span class="keyword">extern</span> <span class="keywordtype">char</span>    *<a class="code" href="webalizer_8c.html#59179d90a91f573f3c081592845ee19c">editlvl</a>     ;                 <span class="comment">/* edit level               */</span>
+<a name="l00168"></a>00168 <span class="keyword">extern</span> <span class="keywordtype">char</span>    *<a class="code" href="webalizer_8c.html#c000a634d0e3be8405dde288f429e91a">moddate</a>     ;                 <span class="comment">/* modification date        */</span>
+<a name="l00169"></a>00169 <span class="keyword">extern</span> <span class="keywordtype">char</span>    *<a class="code" href="webalizer_8c.html#38852561a5fe1b90c4dae9d90b83a80a">copyright</a>   ;
+<a name="l00170"></a>00170 
+<a name="l00171"></a>00171 <span class="keyword">extern</span> <span class="keywordtype">int</span>     <a class="code" href="webalizer_8c.html#0b2caeb4b6f130be43e5a2f0267dd453">verbose</a>      ;                 <span class="comment">/* 2=verbose,1=err, 0=none  */</span> 
+<a name="l00172"></a>00172 <span class="keyword">extern</span> <span class="keywordtype">int</span>     <a class="code" href="webalizer_8c.html#4f7caf3ead45aac3963d1e354e820017">debug_mode</a>   ;                 <span class="comment">/* debug mode flag          */</span>
+<a name="l00173"></a>00173 <span class="keyword">extern</span> <span class="keywordtype">int</span>     <a class="code" href="webalizer_8c.html#445501b8b84e1293820c0142acd34113">time_me</a>      ;                 <span class="comment">/* timing display flag      */</span>
+<a name="l00174"></a>00174 <span class="keyword">extern</span> <span class="keywordtype">int</span>     <a class="code" href="webalizer_8c.html#34c0559db82e0af71c64d53206f763c8">local_time</a>   ;                 <span class="comment">/* 1=localtime 0=GMT (UTC)  */</span>
+<a name="l00175"></a>00175 <span class="keyword">extern</span> <span class="keywordtype">int</span>     <a class="code" href="webalizer_8c.html#9c25fea667217c12ecade9cfac496daa">ignore_hist</a>  ;                 <span class="comment">/* history flag (1=skip)    */</span>
+<a name="l00176"></a>00176 <span class="keyword">extern</span> <span class="keywordtype">int</span>     <a class="code" href="webalizer_8c.html#ef88d69bc7f6d6214835f0f15ef4522a">hourly_graph</a> ;                 <span class="comment">/* hourly graph display     */</span>
+<a name="l00177"></a>00177 <span class="keyword">extern</span> <span class="keywordtype">int</span>     <a class="code" href="webalizer_8c.html#6359837576bb8bf34e8b6984cee1e53a">hourly_stats</a> ;                 <span class="comment">/* hourly stats table       */</span>
+<a name="l00178"></a>00178 <span class="keyword">extern</span> <span class="keywordtype">int</span>     <a class="code" href="webalizer_8c.html#81ebc74fab71c6cde9eff752ad0b5974">daily_graph</a>  ;                 <span class="comment">/* daily graph display      */</span>
+<a name="l00179"></a>00179 <span class="keyword">extern</span> <span class="keywordtype">int</span>     <a class="code" href="webalizer_8c.html#4c83c5bd481ef466be0d92fd9ad6c8b1">daily_stats</a>  ;                 <span class="comment">/* daily stats table        */</span>
+<a name="l00180"></a>00180 <span class="keyword">extern</span> <span class="keywordtype">int</span>     <a class="code" href="webalizer_8c.html#f1ef30cbdcfd1e369800371e296aaec2">ctry_graph</a>   ;                 <span class="comment">/* country graph display    */</span>
+<a name="l00181"></a>00181 <span class="keyword">extern</span> <span class="keywordtype">int</span>     <a class="code" href="webalizer_8c.html#9b469898b01940a383f1ed816e4459b2">shade_groups</a> ;                 <span class="comment">/* Group shading 0=no 1=yes */</span>
+<a name="l00182"></a>00182 <span class="keyword">extern</span> <span class="keywordtype">int</span>     <a class="code" href="webalizer_8c.html#607dff280556363fab771e9e492ea057">hlite_groups</a> ;                 <span class="comment">/* Group hlite 0=no 1=yes   */</span>
+<a name="l00183"></a>00183 <span class="keyword">extern</span> <span class="keywordtype">int</span>     <a class="code" href="webalizer_8c.html#23d6ba920f8b5ddaea1f3e92958bdaba">mangle_agent</a> ;                 <span class="comment">/* mangle user agents       */</span>
+<a name="l00184"></a>00184 <span class="keyword">extern</span> <span class="keywordtype">int</span>     <a class="code" href="webalizer_8c.html#534a10f9409e025831882efe4a58f959">incremental</a>  ;                 <span class="comment">/* incremental mode 1=yes   */</span>
+<a name="l00185"></a>00185 <span class="keyword">extern</span> <span class="keywordtype">int</span>     <a class="code" href="webalizer_8c.html#d821baa693a77d314549e3556fd6534a">use_https</a>    ;                 <span class="comment">/* use 'https://' on URL's  */</span>
+<a name="l00186"></a>00186 <span class="keyword">extern</span> <span class="keywordtype">int</span>     <a class="code" href="webalizer_8c.html#95c29ea4f1f207b5be0cdd3cefa935d1">visit_timeout</a>;                 <span class="comment">/* visit timeout (30 min)   */</span>
+<a name="l00187"></a>00187 <span class="keyword">extern</span> <span class="keywordtype">int</span>     <a class="code" href="webalizer_8c.html#8209c1ed16bfdf4913b7837d8d0b8520">graph_legend</a> ;                 <span class="comment">/* graph legend (1=yes)     */</span>
+<a name="l00188"></a>00188 <span class="keyword">extern</span> <span class="keywordtype">int</span>     <a class="code" href="webalizer_8c.html#b0e6606dc823003635fbd6408bd03439">graph_lines</a>  ;                 <span class="comment">/* graph lines (0=none)     */</span>
+<a name="l00189"></a>00189 <span class="keyword">extern</span> <span class="keywordtype">int</span>     <a class="code" href="webalizer_8c.html#23652bde57737d1f6f700f29c4762728">fold_seq_err</a> ;                 <span class="comment">/* fold seq err (0=no)      */</span>
+<a name="l00190"></a>00190 <span class="keyword">extern</span> <span class="keywordtype">int</span>     <a class="code" href="webalizer_8c.html#d1e2a6d9014a2af70dfa80ce7b69d4b0">log_type</a>     ;                 <span class="comment">/* (0=clf, 1=ftp, 2=squid)  */</span>
+<a name="l00191"></a>00191 <span class="keyword">extern</span> <span class="keywordtype">int</span>     <a class="code" href="webalizer_8c.html#3b91bd084088b32764aaa00f48083faf">group_domains</a>;                 <span class="comment">/* Group domains 0=none     */</span>
+<a name="l00192"></a>00192 <span class="keyword">extern</span> <span class="keywordtype">int</span>     <a class="code" href="webalizer_8c.html#a77fbf13eba0ffbb98b893c0089cb49b">hide_sites</a>   ;                 <span class="comment">/* Hide ind. sites (0=no)   */</span>
+<a name="l00193"></a>00193 <span class="keyword">extern</span> <span class="keywordtype">char</span>    *<a class="code" href="webalizer_8c.html#674a1f0ec86ffb26578c11999c89a3c0">hname</a>       ;                 <span class="comment">/* hostname for reports     */</span>
+<a name="l00194"></a>00194 <span class="keyword">extern</span> <span class="keywordtype">char</span>    *<a class="code" href="webalizer_8c.html#bc6083147b471a6df297cc5851057771">state_fname</a> ;                 <span class="comment">/* run state file name      */</span>
+<a name="l00195"></a>00195 <span class="keyword">extern</span> <span class="keywordtype">char</span>    *<a class="code" href="webalizer_8c.html#196026e726faa9db510409f5d895d7a3">hist_fname</a>  ;                 <span class="comment">/* name of history file     */</span>
+<a name="l00196"></a>00196 <span class="keyword">extern</span> <span class="keywordtype">char</span>    *<a class="code" href="webalizer_8c.html#ef5a49b05e1bff557f85797e61dcd23a">html_ext</a>    ;                 <span class="comment">/* HTML file prefix         */</span>
+<a name="l00197"></a>00197 <span class="keyword">extern</span> <span class="keywordtype">char</span>    *<a class="code" href="webalizer_8c.html#b11b451e9eab811058070fddc7f42efb">dump_ext</a>    ;                 <span class="comment">/* Dump file prefix         */</span>
+<a name="l00198"></a>00198 <span class="keyword">extern</span> <span class="keywordtype">char</span>    *<a class="code" href="webalizer_8c.html#cdbdc13e07422e1c556c3eda55c593c2">conf_fname</a>  ;                 <span class="comment">/* name of config file      */</span>
+<a name="l00199"></a>00199 <span class="keyword">extern</span> <span class="keywordtype">char</span>    *<a class="code" href="webalizer_8c.html#9db6dddd9890ca88ccca763b0533919b">log_fname</a>   ;                 <span class="comment">/* log file pointer         */</span>
+<a name="l00200"></a>00200 <span class="keyword">extern</span> <span class="keywordtype">char</span>    *<a class="code" href="webalizer_8c.html#6910a5df32ce9909ffbacfafaa6e3645">out_dir</a>     ;                 <span class="comment">/* output directory         */</span>
+<a name="l00201"></a>00201 <span class="keyword">extern</span> <span class="keywordtype">char</span>    *<a class="code" href="webalizer_8c.html#8c3c3d8858d6430eea049c5989d2bf6d">blank_str</a>   ;                 <span class="comment">/* blank string             */</span>
+<a name="l00202"></a>00202 <span class="keyword">extern</span> <span class="keywordtype">char</span>    *<a class="code" href="webalizer_8c.html#3cb74b5ee16f5910ee70cc4944d1300a">dns_cache</a>   ;                 <span class="comment">/* DNS cache file name      */</span>
+<a name="l00203"></a>00203 <span class="keyword">extern</span> <span class="keywordtype">int</span>     <a class="code" href="webalizer_8c.html#90492045766d92f08b5e160135ade65c">dns_children</a> ;                 <span class="comment">/* # of DNS children        */</span>
+<a name="l00204"></a>00204 
+<a name="l00205"></a>00205 <span class="keyword">extern</span> <span class="keywordtype">int</span>     <a class="code" href="webalizer_8c.html#57531d5f29d4cbdaac1f25e52f4a069d">ntop_sites</a>   ;                 <span class="comment">/* top n sites to display   */</span>
+<a name="l00206"></a>00206 <span class="keyword">extern</span> <span class="keywordtype">int</span>     <a class="code" href="webalizer_8c.html#a3069c260eedec99be29617d90fa687a">ntop_sitesK</a>  ;                 <span class="comment">/* top n sites (by kbytes)  */</span>
+<a name="l00207"></a>00207 <span class="keyword">extern</span> <span class="keywordtype">int</span>     <a class="code" href="webalizer_8c.html#a450ef7a6e4e6148f9cb184144a7c8cc">ntop_urls</a>    ;                 <span class="comment">/* top n url's to display   */</span>
+<a name="l00208"></a>00208 <span class="keyword">extern</span> <span class="keywordtype">int</span>     <a class="code" href="webalizer_8c.html#21acc4795c6bb4027a1bd2ad038fe3fa">ntop_urlsK</a>   ;                 <span class="comment">/* top n url's (by kbytes)  */</span>
+<a name="l00209"></a>00209 <span class="keyword">extern</span> <span class="keywordtype">int</span>     <a class="code" href="webalizer_8c.html#a573c7e2a32733a06a3b0dbb9430569f">ntop_entry</a>   ;                 <span class="comment">/* top n entry url's        */</span>
+<a name="l00210"></a>00210 <span class="keyword">extern</span> <span class="keywordtype">int</span>     <a class="code" href="webalizer_8c.html#9d1968145275f8eb19935b5c6d5b2848">ntop_exit</a>    ;                 <span class="comment">/* top n exit url's         */</span>
+<a name="l00211"></a>00211 <span class="keyword">extern</span> <span class="keywordtype">int</span>     <a class="code" href="webalizer_8c.html#78414d5060b40b23c1fbb95546fb74d3">ntop_refs</a>    ;                 <span class="comment">/* top n referrers ""       */</span>
+<a name="l00212"></a>00212 <span class="keyword">extern</span> <span class="keywordtype">int</span>     <a class="code" href="webalizer_8c.html#09d5297ba12ba78e65bcb4679036de17">ntop_agents</a>  ;                 <span class="comment">/* top n user agents ""     */</span>
+<a name="l00213"></a>00213 <span class="keyword">extern</span> <span class="keywordtype">int</span>     <a class="code" href="webalizer_8c.html#fcd390bd7df1e721799f33f0ac87fdaf">ntop_ctrys</a>   ;                 <span class="comment">/* top n countries   ""     */</span>
+<a name="l00214"></a>00214 <span class="keyword">extern</span> <span class="keywordtype">int</span>     <a class="code" href="webalizer_8c.html#57e3ec40e1f85e8b2620950dc43b753f">ntop_search</a>  ;                 <span class="comment">/* top n search strings     */</span>
+<a name="l00215"></a>00215 <span class="keyword">extern</span> <span class="keywordtype">int</span>     <a class="code" href="webalizer_8c.html#958b818c79b6fa3f2d0ab1ca4bb3e97c">ntop_users</a>   ;                 <span class="comment">/* top n users to display   */</span>
+<a name="l00216"></a>00216 <span class="keyword">extern</span> <span class="keywordtype">int</span>     <a class="code" href="webalizer_8c.html#aae85fa49329c9361a901e52954764eb">ntop_notfound</a>;                 <span class="comment">/* top n 404 to display     */</span>
+<a name="l00217"></a>00217 
+<a name="l00218"></a>00218 <span class="keyword">extern</span> <span class="keywordtype">int</span>     <a class="code" href="webalizer_8c.html#e80c0d7d06836110749922f34dd902c2">all_sites</a>    ;                 <span class="comment">/* List All sites (0=no)    */</span>
+<a name="l00219"></a>00219 <span class="keyword">extern</span> <span class="keywordtype">int</span>     <a class="code" href="webalizer_8c.html#633444563a9587349d9a5f158062b662">all_urls</a>     ;                 <span class="comment">/* List All URL's (0=no)    */</span>
+<a name="l00220"></a>00220 <span class="keyword">extern</span> <span class="keywordtype">int</span>     <a class="code" href="webalizer_8c.html#5d9ecc711cb4edb47133e9c8329a2f6a">all_refs</a>     ;                 <span class="comment">/* List All Referrers       */</span>
+<a name="l00221"></a>00221 <span class="keyword">extern</span> <span class="keywordtype">int</span>     <a class="code" href="webalizer_8c.html#e6a5e084455a29d95c410b6e6f509c07">all_agents</a>   ;                 <span class="comment">/* List All User Agents     */</span>
+<a name="l00222"></a>00222 <span class="keyword">extern</span> <span class="keywordtype">int</span>     <a class="code" href="webalizer_8c.html#f51b93932a98e306bd47239ec9c99f23">all_search</a>   ;                 <span class="comment">/* List All Search Strings  */</span>
+<a name="l00223"></a>00223 <span class="keyword">extern</span> <span class="keywordtype">int</span>     <a class="code" href="webalizer_8c.html#395ccae1fd2f2450f623db87fbd9f9e1">all_users</a>    ;                 <span class="comment">/* List All Usernames       */</span>
+<a name="l00224"></a>00224 
+<a name="l00225"></a>00225 <span class="keyword">extern</span> <span class="keywordtype">int</span>     <a class="code" href="webalizer_8c.html#54401b9d6a97a9951e2fb1bf09e83b2b">dump_sites</a>   ;                 <span class="comment">/* Dump tab delimited sites */</span>
+<a name="l00226"></a>00226 <span class="keyword">extern</span> <span class="keywordtype">int</span>     <a class="code" href="webalizer_8c.html#a9f638a5b7e03638423ce8d5c3f5be6e">dump_urls</a>    ;                 <span class="comment">/* URL's                    */</span>
+<a name="l00227"></a>00227 <span class="keyword">extern</span> <span class="keywordtype">int</span>     <a class="code" href="webalizer_8c.html#5e125d6b90581ab008f71bf272ec1aac">dump_refs</a>    ;                 <span class="comment">/* Referrers                */</span>
+<a name="l00228"></a>00228 <span class="keyword">extern</span> <span class="keywordtype">int</span>     <a class="code" href="webalizer_8c.html#95b4dacf3a1c2e18715bfbd268726afb">dump_agents</a>  ;                 <span class="comment">/* User Agents              */</span>
+<a name="l00229"></a>00229 <span class="keyword">extern</span> <span class="keywordtype">int</span>     <a class="code" href="webalizer_8c.html#a6b267f406cddbd150680fb2ce5260b1">dump_users</a>   ;                 <span class="comment">/* Usernames                */</span>
+<a name="l00230"></a>00230 <span class="keyword">extern</span> <span class="keywordtype">int</span>     <a class="code" href="webalizer_8c.html#5acb64968750f92b0c7443ec44dde282">dump_search</a>  ;                 <span class="comment">/* Search strings           */</span>
+<a name="l00231"></a>00231 <span class="keyword">extern</span> <span class="keywordtype">int</span>     <a class="code" href="webalizer_8c.html#2a20cc7746e90fec505b066fda4e1f5d">dump_header</a>  ;                 <span class="comment">/* Dump header as first rec */</span>
+<a name="l00232"></a>00232 <span class="keyword">extern</span> <span class="keywordtype">char</span>    *<a class="code" href="webalizer_8c.html#10b59e622c5a54e43f7ec491e5bc1776">dump_path</a>   ;                 <span class="comment">/* Path for dump files      */</span>
+<a name="l00233"></a>00233 
+<a name="l00234"></a>00234 <span class="keyword">extern</span> u_long  <a class="code" href="webalizer_8c.html#4327980462d3207e34bf99fce007b511">cur_tstamp</a>;                    <span class="comment">/* Current timestamp        */</span>
+<a name="l00235"></a>00235 <span class="keyword">extern</span> u_long  <a class="code" href="webalizer_8c.html#71f3fc3b6564ee11c34ff02cee2a3e05">epoch</a>;                         <span class="comment">/* used for timestamp adj.  */</span>
+<a name="l00236"></a>00236 <span class="keyword">extern</span> <span class="keywordtype">int</span>     <a class="code" href="webalizer_8c.html#b1757477076fc2811cf714a92dc18d0f">check_dup</a>;                     <span class="comment">/* check for dups flag      */</span>
+<a name="l00237"></a>00237 
+<a name="l00238"></a>00238 <span class="keyword">extern</span> <span class="keywordtype">int</span>     <a class="code" href="webalizer_8c.html#8447667f9dc8021c4f17284b9a12f776">cur_year</a>,<a class="code" href="webalizer_8c.html#d8ec6498bcc8d8eb82d92bc5c1aacc8d">cur_month</a>,            <span class="comment">/* year/month/day/hour      */</span>
+<a name="l00239"></a>00239                <a class="code" href="webalizer_8c.html#6edfa42467177fc02002d61038a98f39">cur_day</a>, <a class="code" href="webalizer_8c.html#ae0bcd47798b959a96cb28082a0f151b">cur_hour</a>,             <span class="comment">/* tracking variables       */</span>
+<a name="l00240"></a>00240                <a class="code" href="webalizer_8c.html#726c08db04038ffbeffd72a3181ac519">cur_min</a>, <a class="code" href="webalizer_8c.html#a2131c365f9da2fb93a57aed95b563d8">cur_sec</a>;
+<a name="l00241"></a>00241 
+<a name="l00242"></a>00242 <span class="keyword">extern</span> <span class="keywordtype">double</span>  <a class="code" href="webalizer_8c.html#1952e11824da591d81fdf3371627ae86">t_xfer</a>;                        <span class="comment">/* monthly total xfer value */</span>
+<a name="l00243"></a>00243 <span class="keyword">extern</span> u_long  <a class="code" href="webalizer_8c.html#4f0e430951167c36ff37f1373c453d40">t_hit</a>, <a class="code" href="webalizer_8c.html#8d8f1b3ebaff4207130ee4e068a74578">t_file</a>, <a class="code" href="webalizer_8c.html#e37f859c6ceb40434ecd96c6ba5d0565">t_site</a>,         <span class="comment">/* monthly total vars       */</span>
+<a name="l00244"></a>00244                <a class="code" href="webalizer_8c.html#593eb26715b7f629074c61861d8dd8b3">t_url</a>, <a class="code" href="webalizer_8c.html#54f4adcbb2769b5082a138f23c9bb07e">t_ref</a>,  <a class="code" href="webalizer_8c.html#681645a12ff433a6d191ac4eabbb265d">t_agent</a>,
+<a name="l00245"></a>00245                <a class="code" href="webalizer_8c.html#dab177cb0d83726239072547f166262a">t_page</a>,<a class="code" href="webalizer_8c.html#241257c2fb7477a7dc9191c01e8a155a">t_visit</a>,<a class="code" href="webalizer_8c.html#196ee522ca1e09cef5b8962a7c63e4e2">t_user</a>;
+<a name="l00246"></a>00246 
+<a name="l00247"></a>00247 <span class="keyword">extern</span> <span class="keywordtype">double</span>  <a class="code" href="webalizer_8c.html#d8577082542e8d61ae9d21b5cdc09de6">tm_xfer</a>[31];                   <span class="comment">/* daily transfer totals    */</span>
+<a name="l00248"></a>00248 
+<a name="l00249"></a>00249 <span class="keyword">extern</span> u_long  <a class="code" href="webalizer_8c.html#90b2c6f5c71d87e07a6aa0694651c7a8">tm_hit</a>[31], <a class="code" href="webalizer_8c.html#985c7f07bdd01aea04be87abba0d225b">tm_file</a>[31],       <span class="comment">/* daily total arrays       */</span>
+<a name="l00250"></a>00250                <a class="code" href="webalizer_8c.html#3016395581c35bac86027a654deb0db5">tm_site</a>[31],<a class="code" href="webalizer_8c.html#2b0163914dcd84396a9d6dae48ee4a54">tm_page</a>[31],
+<a name="l00251"></a>00251                <a class="code" href="webalizer_8c.html#f3d33c8d579ff7b3d41abb0e618f70a5">tm_visit</a>[31];
+<a name="l00252"></a>00252 
+<a name="l00253"></a>00253 <span class="keyword">extern</span> u_long  <a class="code" href="webalizer_8c.html#f80cf0d40e63789f26cf6ee643eb3b4c">dt_site</a>;                       <span class="comment">/* daily 'sites' total      */</span>
+<a name="l00254"></a>00254 
+<a name="l00255"></a>00255 <span class="keyword">extern</span> u_long  <a class="code" href="webalizer_8c.html#14a295f77051b0898135267236453dd6">ht_hit</a>,<a class="code" href="webalizer_8c.html#0fbe52a528ae909f4058a35bdab8d034">mh_hit</a>;                 <span class="comment">/* hourly hits totals       */</span>
+<a name="l00256"></a>00256 
+<a name="l00257"></a>00257 <span class="keyword">extern</span> u_long  <a class="code" href="webalizer_8c.html#2c634f4ff63cf16a5bb219632d9da1f5">th_hit</a>[24], <a class="code" href="webalizer_8c.html#8d6ce1fa8aba3c7f1ed1c7e19ea0541c">th_file</a>[24],       <span class="comment">/* hourly total arrays      */</span>
+<a name="l00258"></a>00258                <a class="code" href="webalizer_8c.html#cdb9ccdbdd487d188cd174056a7dcd80">th_page</a>[24];
+<a name="l00259"></a>00259 
+<a name="l00260"></a>00260 <span class="keyword">extern</span> <span class="keywordtype">double</span>  <a class="code" href="webalizer_8c.html#a063714cc339793854ef49bb72c4382b">th_xfer</a>[24];
+<a name="l00261"></a>00261 
+<a name="l00262"></a>00262 <span class="keyword">extern</span> <span class="keywordtype">int</span>     <a class="code" href="webalizer_8c.html#4637ce886571ae33e34d7d0ae8d50df8">f_day</a>,<a class="code" href="webalizer_8c.html#3322d751ac470f626bc34fb8b34c1759">l_day</a>;                   <span class="comment">/* first/last day vars      */</span>
+<a name="l00263"></a>00263 <span class="keyword">extern</span> <span class="keywordtype">int</span>     <a class="code" href="webalizer_8c.html#480128e1291f32b04678ddac9dc69457">gz_log</a>;                        <span class="comment">/* flag for zipped log      */</span>
+<a name="l00264"></a>00264 
+<a name="l00265"></a>00265 <span class="keyword">extern</span> <a class="code" href="webalizer_8h.html#3502d3057324fbd3bc3f7c0b0e6777bf">CLISTPTR</a> *<a class="code" href="webalizer_8c.html#acb9022e3fedc2d14e55e9854fa3cbcf">top_ctrys</a>;                   <span class="comment">/* Top countries table      */</span>
+<a name="l00266"></a>00266 
+<a name="l00267"></a>00267 <span class="comment">/* define our externally visable functions */</span>
+<a name="l00268"></a>00268 
+<a name="l00269"></a>00269 <span class="keyword">extern</span> <span class="keywordtype">char</span>   *<a class="code" href="webalizer_8c.html#f6fc05ecb3c962ea69fac0a9ce9525d7">cur_time</a>();
+<a name="l00270"></a>00270 <span class="keyword">extern</span> u_long <a class="code" href="webalizer_8c.html#154bd0b4bda40aa5c99d7cf79886d400">ctry_idx</a>(<span class="keywordtype">char</span> *);
+<a name="l00271"></a>00271 <span class="keyword">extern</span> <span class="keywordtype">void</span>   <a class="code" href="webalizer_8c.html#c13990c5857877d516d60af22bfbc492">init_counters</a>();
+<a name="l00272"></a>00272 <span class="keyword">extern</span> <span class="keywordtype">int</span>    <a class="code" href="webalizer_8c.html#875f50fc519d72b2f46b8413cb1a9c45">ispage</a>(<span class="keywordtype">char</span> *);
+<a name="l00273"></a>00273 <span class="keyword">extern</span> u_long <a class="code" href="webalizer_8c.html#8fb8978d91b70fd80d00d381cb115731">jdate</a>(<span class="keywordtype">int</span>,<span class="keywordtype">int</span>,<span class="keywordtype">int</span>);
+<a name="l00274"></a>00274 
+<a name="l00275"></a>00275 <span class="preprocessor">#endif  </span><span class="comment">/* _WEBALIZER_H */</span>
+</pre></div><hr size="1"><address style="align: right;"><small>Erzeugt am Wed Jun 7 04:07:56 2006 für OOS [Webalizer] von&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.6 </small></address>
+</body>
+</html>

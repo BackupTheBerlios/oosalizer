@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='iso-8859-1' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.4.6">
+  <compounddef id="structnlist" kind="struct" prot="public">
+    <compoundname>nlist</compoundname>
+    <includes refid="linklist_8h" local="no">linklist.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structnlist_1272774fb3950796b85497317de3dd85a" prot="public" static="no" mutable="no">
+        <type>char</type>
+        <definition>char nlist::string[80]</definition>
+        <argsstring>[80]</argsstring>
+        <name>string</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/linklist.h" line="4" bodyfile="/home/r23/oosalizer/linklist.h" bodystart="4" bodyend="-1"/>
+        <referencedby refid="linklist_8h_13568dfb8e887fc7a6c38ca8f900c721c" compoundref="linklist_8c" startline="243" endline="254">isinlist</referencedby>
+        <referencedby refid="linklist_8c_12818014b7feb4f6db3a0884d0c7caf0f" compoundref="linklist_8c" startline="111" endline="123">new_nlist</referencedby>
+        <referencedby refid="output_8c_10bc1fdaca7513c4813773bef5529008e" compoundref="output_8c" startline="148" endline="254">write_html_head</referencedby>
+        <referencedby refid="output_8c_1b5fc0fbb03c2b6a431bef6bc473505e2" compoundref="output_8c" startline="260" endline="319">write_html_tail</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structnlist_16e5fbb2f12a2799e60611dbda92c6f38" prot="public" static="no" mutable="no">
+        <type><ref refid="structnlist" kindref="compound">nlist</ref> *</type>
+        <definition>struct nlist* nlist::next</definition>
+        <argsstring></argsstring>
+        <name>next</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/linklist.h" line="5" bodyfile="/home/r23/oosalizer/linklist.h" bodystart="5" bodyend="-1"/>
+        <referencedby refid="linklist_8h_15ff4c7ffc3201d64048a6921c866c937" compoundref="linklist_8c" startline="129" endline="144">add_nlist</referencedby>
+        <referencedby refid="linklist_8c_1949ae6c82d1c88d8407757f05724d8af" compoundref="linklist_8c" startline="150" endline="161">del_nlist</referencedby>
+        <referencedby refid="linklist_8h_13568dfb8e887fc7a6c38ca8f900c721c" compoundref="linklist_8c" startline="243" endline="254">isinlist</referencedby>
+        <referencedby refid="linklist_8c_12818014b7feb4f6db3a0884d0c7caf0f" compoundref="linklist_8c" startline="111" endline="123">new_nlist</referencedby>
+        <referencedby refid="output_8c_10bc1fdaca7513c4813773bef5529008e" compoundref="output_8c" startline="148" endline="254">write_html_head</referencedby>
+        <referencedby refid="output_8c_1b5fc0fbb03c2b6a431bef6bc473505e2" compoundref="output_8c" startline="260" endline="319">write_html_tail</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="41">
+        <label>nlist</label>
+        <link refid="structnlist"/>
+        <childnode refid="41" relation="usage">
+          <edgelabel>next</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/r23/oosalizer/linklist.h" line="4" bodyfile="/home/r23/oosalizer/linklist.h" bodystart="4" bodyend="5"/>
+    <listofallmembers>
+      <member refid="structnlist_16e5fbb2f12a2799e60611dbda92c6f38" prot="public" virt="non-virtual"><scope>nlist</scope><name>next</name></member>
+      <member refid="structnlist_1272774fb3950796b85497317de3dd85a" prot="public" virt="non-virtual"><scope>nlist</scope><name>string</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

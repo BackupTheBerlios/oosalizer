@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='iso-8859-1' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.4.6">
+  <compounddef id="parser_8h" kind="file">
+    <compoundname>parser.h</compoundname>
+    <includedby refid="parser_8c" local="yes">oosalizer/parser.c</includedby>
+    <includedby refid="preserve_8c" local="yes">oosalizer/preserve.c</includedby>
+    <includedby refid="webalizer_8c" local="yes">oosalizer/webalizer.c</includedby>
+    <invincdepgraph>
+      <node id="289">
+        <label>oosalizer/preserve.c</label>
+        <link refid="preserve_8c"/>
+      </node>
+      <node id="290">
+        <label>oosalizer/webalizer.c</label>
+        <link refid="webalizer_8c"/>
+      </node>
+      <node id="288">
+        <label>oosalizer/parser.c</label>
+        <link refid="parser_8c"/>
+      </node>
+      <node id="287">
+        <label>oosalizer/parser.h</label>
+        <link refid="parser.h"/>
+        <childnode refid="288" relation="include">
+        </childnode>
+        <childnode refid="289" relation="include">
+        </childnode>
+        <childnode refid="290" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="parser_8h_12e298d5e806fc4936bf6b142c0913a31" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int parse_record</definition>
+        <argsstring>(char *)</argsstring>
+        <name>parse_record</name>
+        <param>
+          <type>char *</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/parser.h" line="4" bodyfile="/home/r23/oosalizer/parser.c" bodystart="101" bodyend="128"/>
+        <references refid="webalizer_8h_15ce0d49d0e92ba00b7385ef68d26b51a" compoundref="webalizer_8h" startline="31">LOG_CLF</references>
+        <references refid="webalizer_8h_1cf5d4c2811adb735aaf5b32f62cc3cea" compoundref="webalizer_8h" startline="32">LOG_FTP</references>
+        <references refid="webalizer_8c_1b78a7a0970e517ad18adea541d2b2b32" compoundref="webalizer_8c" startline="209">log_rec</references>
+        <references refid="webalizer_8h_143821087b540ecbc400b7cef8ab10be0" compoundref="webalizer_8h" startline="33">LOG_SQUID</references>
+        <references refid="webalizer_8c_1d1e2a6d9014a2af70dfa80ce7b69d4b0" compoundref="webalizer_8c" startline="127">log_type</references>
+        <references refid="parser_8c_1630c3ac0dab48c2fba68649da4bb871e" compoundref="parser_8c" startline="134" endline="214">parse_record_ftp</references>
+        <references refid="parser_8c_12b00ce99cc8f1387d75aeb7193968b21" compoundref="parser_8c" startline="379" endline="502">parse_record_squid</references>
+        <references refid="parser_8c_1f79ff394bf86e83cffbcb560096f5052" compoundref="parser_8c" startline="220" endline="373">parse_record_web</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>_PARSER_H</highlight></codeline>
+<codeline lineno="2"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>_PARSER_H</highlight></codeline>
+<codeline lineno="3"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><ref refid="parser_8c_1f7f838e64a0d2b296d0b8b09b49d6b85" kindref="member">parse_record</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*);</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/><sp/></highlight><highlight class="comment">/*<sp/>_PARSER_H<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/home/r23/oosalizer/parser.h"/>
+  </compounddef>
+</doxygen>

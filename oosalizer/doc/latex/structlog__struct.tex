@@ -1,0 +1,119 @@
+\section{log\_\-struct Strukturreferenz}
+\label{structlog__struct}\index{log_struct@{log\_\-struct}}
+{\tt \#include $<$webalizer.h$>$}
+
+\subsection*{Datenfelder}
+\begin{CompactItemize}
+\item 
+char {\bf hostname} [MAXHOST]
+\item 
+char {\bf datetime} [29]
+\item 
+char {\bf url} [MAXURL]
+\item 
+int {\bf resp\_\-code}
+\item 
+u\_\-long {\bf xfer\_\-size}
+\item 
+char {\bf refer} [MAXREF]
+\item 
+char {\bf agent} [MAXAGENT]
+\item 
+char {\bf srchstr} [MAXSRCH]
+\item 
+char {\bf ident} [MAXIDENT]
+\end{CompactItemize}
+
+
+\subsection{Ausf\"{u}hrliche Beschreibung}
+
+
+
+
+Definiert in Zeile 151 der Datei webalizer.h.
+
+\subsection{Dokumentation der Datenelemente}
+\index{log_struct@{log\_\-struct}!agent@{agent}}
+\index{agent@{agent}!log_struct@{log\_\-struct}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}char {\bf log\_\-struct::agent}[MAXAGENT]}\label{structlog__struct_b512bdcfac62ef38139eaf1701994a4f}
+
+
+
+
+Definiert in Zeile 160 der Datei webalizer.h.
+
+Wird benutzt von parse\_\-record\_\-web().\index{log_struct@{log\_\-struct}!datetime@{datetime}}
+\index{datetime@{datetime}!log_struct@{log\_\-struct}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}char {\bf log\_\-struct::datetime}[29]}\label{structlog__struct_1a6e77deebf410bb8fefe35aa02e384c}
+
+
+
+
+Definiert in Zeile 152 der Datei webalizer.h.
+
+Wird benutzt von parse\_\-record\_\-ftp(), parse\_\-record\_\-squid() und parse\_\-record\_\-web().\index{log_struct@{log\_\-struct}!hostname@{hostname}}
+\index{hostname@{hostname}!log_struct@{log\_\-struct}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}char {\bf log\_\-struct::hostname}[MAXHOST]}\label{structlog__struct_8d92ed4a00d2d6b0f155bdbfcc551478}
+
+
+
+
+Definiert in Zeile 151 der Datei webalizer.h.
+
+Wird benutzt von parse\_\-record\_\-ftp(), parse\_\-record\_\-squid() und parse\_\-record\_\-web().\index{log_struct@{log\_\-struct}!ident@{ident}}
+\index{ident@{ident}!log_struct@{log\_\-struct}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}char {\bf log\_\-struct::ident}[MAXIDENT]}\label{structlog__struct_abac03796cba2fed0c5185a55e5578bd}
+
+
+
+
+Definiert in Zeile 162 der Datei webalizer.h.
+
+Wird benutzt von parse\_\-record\_\-ftp(), parse\_\-record\_\-squid() und parse\_\-record\_\-web().\index{log_struct@{log\_\-struct}!refer@{refer}}
+\index{refer@{refer}!log_struct@{log\_\-struct}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}char {\bf log\_\-struct::refer}[MAXREF]}\label{structlog__struct_cb4f74246c1b97c518bbcc8a4823c0d4}
+
+
+
+
+Definiert in Zeile 159 der Datei webalizer.h.
+
+Wird benutzt von parse\_\-record\_\-web() und srch\_\-string().\index{log_struct@{log\_\-struct}!resp_code@{resp\_\-code}}
+\index{resp_code@{resp\_\-code}!log_struct@{log\_\-struct}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int {\bf log\_\-struct::resp\_\-code}}\label{structlog__struct_b8db9826a57acc82a4c7d99948a9b89c}
+
+
+
+
+Definiert in Zeile 154 der Datei webalizer.h.
+
+Wird benutzt von parse\_\-record\_\-ftp(), parse\_\-record\_\-squid() und parse\_\-record\_\-web().\index{log_struct@{log\_\-struct}!srchstr@{srchstr}}
+\index{srchstr@{srchstr}!log_struct@{log\_\-struct}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}char {\bf log\_\-struct::srchstr}[MAXSRCH]}\label{structlog__struct_56f5b706fac667b9d9309ad128e5a102}
+
+
+
+
+Definiert in Zeile 161 der Datei webalizer.h.\index{log_struct@{log\_\-struct}!url@{url}}
+\index{url@{url}!log_struct@{log\_\-struct}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}char {\bf log\_\-struct::url}[MAXURL]}\label{structlog__struct_479e09f2dc389f8a0a57b9c3146d9d32}
+
+
+
+
+Definiert in Zeile 153 der Datei webalizer.h.
+
+Wird benutzt von parse\_\-record\_\-ftp(), parse\_\-record\_\-squid(), parse\_\-record\_\-web(), put\_\-hnode() und put\_\-inode().\index{log_struct@{log\_\-struct}!xfer_size@{xfer\_\-size}}
+\index{xfer_size@{xfer\_\-size}!log_struct@{log\_\-struct}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}u\_\-long {\bf log\_\-struct::xfer\_\-size}}\label{structlog__struct_8147dacfe44060fa40bb3caf79e3fdd1}
+
+
+
+
+Definiert in Zeile 155 der Datei webalizer.h.
+
+Wird benutzt von parse\_\-record\_\-ftp(), parse\_\-record\_\-squid() und parse\_\-record\_\-web().
+
+Die Dokumentation f\"{u}r diese Struktur wurde erzeugt aufgrund der Datei:\begin{CompactItemize}
+\item 
+oosalizer/{\bf webalizer.h}\end{CompactItemize}

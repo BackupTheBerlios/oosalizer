@@ -1,0 +1,265 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1">
+<title>OOS [Webalizer]: oosalizer/parser.c-Dateireferenz</title>
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+<link href="tabs.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Erzeugt von Doxygen 1.4.6 -->
+<div class="tabs">
+  <ul>
+    <li><a href="main.html"><span>Hauptseite</span></a></li>
+    <li><a href="annotated.html"><span>Datenstrukturen</span></a></li>
+    <li id="current"><a href="files.html"><span>Dateien</span></a></li>
+    <li>
+      <form action="search.php" method="get">
+        <table cellspacing="0" cellpadding="0" border="0">
+          <tr>
+            <td><label>&nbsp;<u>S</u>uchen&nbsp;nach&nbsp;</label></td>
+            <td><input type="text" name="query" value="" size="20" accesskey="s"/></td>
+          </tr>
+        </table>
+      </form>
+    </li>
+  </ul></div>
+<div class="tabs">
+  <ul>
+    <li><a href="files.html"><span>Auflistung&nbsp;der&nbsp;Dateien</span></a></li>
+    <li><a href="globals.html"><span>Datei-Elemente</span></a></li>
+  </ul></div>
+<h1>oosalizer/parser.c-Dateireferenz</h1><code>#include &lt;time.h&gt;</code><br>
+<code>#include &lt;stdio.h&gt;</code><br>
+<code>#include &lt;stdlib.h&gt;</code><br>
+<code>#include &lt;string.h&gt;</code><br>
+<code>#include &lt;unistd.h&gt;</code><br>
+<code>#include &lt;ctype.h&gt;</code><br>
+<code>#include &lt;sys/utsname.h&gt;</code><br>
+<code>#include &lt;sys/times.h&gt;</code><br>
+<code>#include &lt;sys/types.h&gt;</code><br>
+<code>#include &quot;<a class="el" href="webalizer_8h-source.html">webalizer.h</a>&quot;</code><br>
+<code>#include &quot;<a class="el" href="lang_8h-source.html">lang.h</a>&quot;</code><br>
+<code>#include &quot;<a class="el" href="parser_8h-source.html">parser.h</a>&quot;</code><br>
+
+<p>
+Include-Abhängigkeitsdiagramm für parser.c:<p><center><img src="parser_8c__incl.png" border="0" usemap="#oosalizer/parser.c_map" alt=""></center>
+<map name="oosalizer/parser.c_map">
+<area href="webalizer_8h.html" shape="rect" coords="194,440,282,464" alt="">
+<area href="lang_8h.html" shape="rect" coords="209,488,267,512" alt="">
+<area href="parser_8h.html" shape="rect" coords="203,536,273,560" alt="">
+</map>
+
+<p>
+<a href="parser_8c-source.html">gehe zum Quellcode dieser Datei</a><table border="0" cellpadding="0" cellspacing="0">
+<tr><td></td></tr>
+<tr><td colspan="2"><br><h2>Makrodefinitionen</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="parser_8c.html#03df76d1f70664d745ca8de2864e39b3">CLK_TCK</a>&nbsp;&nbsp;&nbsp;_SC_CLK_TCK</td></tr>
+
+<tr><td colspan="2"><br><h2>Funktionen</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="parser_8c.html#05c2b956fa80dba2cd2fcce536158855">fmt_logrec</a> (char *)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="parser_8c.html#f79ff394bf86e83cffbcb560096f5052">parse_record_web</a> (char *)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="parser_8c.html#630c3ac0dab48c2fba68649da4bb871e">parse_record_ftp</a> (char *)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="parser_8c.html#2b00ce99cc8f1387d75aeb7193968b21">parse_record_squid</a> (char *)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="parser_8c.html#f7f838e64a0d2b296d0b8b09b49d6b85">parse_record</a> (char *<a class="el" href="webalizer_8c.html#09b4e72533ab279f7930a9a5e3ab050c">buffer</a>)</td></tr>
+
+</table>
+<hr><h2>Makro-Dokumentation</h2>
+<a class="anchor" name="03df76d1f70664d745ca8de2864e39b3"></a><!-- doxytag: member="parser.c::CLK_TCK" ref="03df76d1f70664d745ca8de2864e39b3" args="" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">#define CLK_TCK&nbsp;&nbsp;&nbsp;_SC_CLK_TCK          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="parser_8c-source.html#l00059">59</a> der Datei <a class="el" href="parser_8c-source.html">parser.c</a>.    </td>
+  </tr>
+</table>
+<hr><h2>Dokumentation der Funktionen</h2>
+<a class="anchor" name="05c2b956fa80dba2cd2fcce536158855"></a><!-- doxytag: member="parser.c::fmt_logrec" ref="05c2b956fa80dba2cd2fcce536158855" args="(char *)" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">void fmt_logrec           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top">char *&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>          </td>
+          <td class="md" valign="top">&nbsp;)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="parser_8c-source.html#l00076">76</a> der Datei <a class="el" href="parser_8c-source.html">parser.c</a>.
+<p>
+Wird benutzt von <a class="el" href="parser_8c-source.html#l00134">parse_record_ftp()</a>, <a class="el" href="parser_8c-source.html#l00379">parse_record_squid()</a> und <a class="el" href="parser_8c-source.html#l00220">parse_record_web()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="f7f838e64a0d2b296d0b8b09b49d6b85"></a><!-- doxytag: member="parser.c::parse_record" ref="f7f838e64a0d2b296d0b8b09b49d6b85" args="(char *buffer)" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">int parse_record           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top">char *&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap> <em>buffer</em>          </td>
+          <td class="md" valign="top">&nbsp;)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="parser_8c-source.html#l00101">101</a> der Datei <a class="el" href="parser_8c-source.html">parser.c</a>.
+<p>
+Benutzt <a class="el" href="webalizer_8h-source.html#l00031">LOG_CLF</a>, <a class="el" href="webalizer_8h-source.html#l00032">LOG_FTP</a>, <a class="el" href="webalizer_8c-source.html#l00209">log_rec</a>, <a class="el" href="webalizer_8h-source.html#l00033">LOG_SQUID</a>, <a class="el" href="webalizer_8c-source.html#l00127">log_type</a>, <a class="el" href="parser_8c-source.html#l00134">parse_record_ftp()</a>, <a class="el" href="parser_8c-source.html#l00379">parse_record_squid()</a> und <a class="el" href="parser_8c-source.html#l00220">parse_record_web()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="630c3ac0dab48c2fba68649da4bb871e"></a><!-- doxytag: member="parser.c::parse_record_ftp" ref="630c3ac0dab48c2fba68649da4bb871e" args="(char *)" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">int parse_record_ftp           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top">char *&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>          </td>
+          <td class="md" valign="top">&nbsp;)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="parser_8c-source.html#l00134">134</a> der Datei <a class="el" href="parser_8c-source.html">parser.c</a>.
+<p>
+Benutzt <a class="el" href="webalizer_8h-source.html#l00152">log_struct::datetime</a>, <a class="el" href="parser_8c-source.html#l00076">fmt_logrec()</a>, <a class="el" href="webalizer_8h-source.html#l00151">log_struct::hostname</a>, <a class="el" href="webalizer_8h-source.html#l00162">log_struct::ident</a>, <a class="el" href="webalizer_8c-source.html#l00209">log_rec</a>, <a class="el" href="webalizer_8h-source.html#l00017">MAXHOST</a>, <a class="el" href="webalizer_8h-source.html#l00018">MAXURL</a>, <a class="el" href="webalizer_8h-source.html#l00154">log_struct::resp_code</a>, <a class="el" href="webalizer_8h-source.html#l00153">log_struct::url</a> und <a class="el" href="webalizer_8h-source.html#l00155">log_struct::xfer_size</a>.
+<p>
+Wird benutzt von <a class="el" href="parser_8c-source.html#l00101">parse_record()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="2b00ce99cc8f1387d75aeb7193968b21"></a><!-- doxytag: member="parser.c::parse_record_squid" ref="2b00ce99cc8f1387d75aeb7193968b21" args="(char *)" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">int parse_record_squid           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top">char *&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>          </td>
+          <td class="md" valign="top">&nbsp;)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="parser_8c-source.html#l00379">379</a> der Datei <a class="el" href="parser_8c-source.html">parser.c</a>.
+<p>
+Benutzt <a class="el" href="webalizer_8h-source.html#l00152">log_struct::datetime</a>, <a class="el" href="webalizer_8c-source.html#l00109">debug_mode</a>, <a class="el" href="parser_8c-source.html#l00076">fmt_logrec()</a>, <a class="el" href="webalizer_8h-source.html#l00151">log_struct::hostname</a>, <a class="el" href="webalizer_8h-source.html#l00162">log_struct::ident</a>, <a class="el" href="webalizer_8c-source.html#l00209">log_rec</a>, <a class="el" href="webalizer_8h-source.html#l00017">MAXHOST</a>, <a class="el" href="webalizer_8h-source.html#l00026">MAXIDENT</a>, <a class="el" href="webalizer_8h-source.html#l00018">MAXURL</a>, <a class="el" href="lang_8h.html#6ce7f8ad0ab920f3113dff9e936dc9a5">msg_big_host</a>, <a class="el" href="lang_8h.html#43eab59f53dc27f4f768755b759684f7">msg_big_req</a>, <a class="el" href="webalizer_8h-source.html#l00154">log_struct::resp_code</a>, <a class="el" href="webalizer_8h-source.html#l00153">log_struct::url</a>, <a class="el" href="webalizer_8c-source.html#l00108">verbose</a> und <a class="el" href="webalizer_8h-source.html#l00155">log_struct::xfer_size</a>.
+<p>
+Wird benutzt von <a class="el" href="parser_8c-source.html#l00101">parse_record()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="f79ff394bf86e83cffbcb560096f5052"></a><!-- doxytag: member="parser.c::parse_record_web" ref="f79ff394bf86e83cffbcb560096f5052" args="(char *)" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">int parse_record_web           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top">char *&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>          </td>
+          <td class="md" valign="top">&nbsp;)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="parser_8c-source.html#l00220">220</a> der Datei <a class="el" href="parser_8c-source.html">parser.c</a>.
+<p>
+Benutzt <a class="el" href="webalizer_8h-source.html#l00160">log_struct::agent</a>, <a class="el" href="webalizer_8h-source.html#l00152">log_struct::datetime</a>, <a class="el" href="webalizer_8c-source.html#l00109">debug_mode</a>, <a class="el" href="parser_8c-source.html#l00076">fmt_logrec()</a>, <a class="el" href="webalizer_8h-source.html#l00151">log_struct::hostname</a>, <a class="el" href="webalizer_8h-source.html#l00162">log_struct::ident</a>, <a class="el" href="webalizer_8c-source.html#l00209">log_rec</a>, <a class="el" href="webalizer_8h-source.html#l00022">MAXAGENT</a>, <a class="el" href="webalizer_8h-source.html#l00017">MAXHOST</a>, <a class="el" href="webalizer_8h-source.html#l00026">MAXIDENT</a>, <a class="el" href="webalizer_8h-source.html#l00020">MAXREF</a>, <a class="el" href="webalizer_8h-source.html#l00018">MAXURL</a>, <a class="el" href="lang_8h.html#5cf2461dfbe62c32f225953b0326462c">msg_big_date</a>, <a class="el" href="lang_8h.html#6ce7f8ad0ab920f3113dff9e936dc9a5">msg_big_host</a>, <a class="el" href="lang_8h.html#ae731a9fc075ed277c6ee4b8a6384ea0">msg_big_ref</a>, <a class="el" href="lang_8h.html#43eab59f53dc27f4f768755b759684f7">msg_big_req</a>, <a class="el" href="lang_8h.html#9f2cc97f2917013977b0b0969a5c7960">msg_big_user</a>, <a class="el" href="webalizer_8h-source.html#l00159">log_struct::refer</a>, <a class="el" href="webalizer_8h-source.html#l00154">log_struct::resp_code</a>, <a class="el" href="webalizer_8h-source.html#l00153">log_struct::url</a>, <a class="el" href="webalizer_8c-source.html#l00108">verbose</a> und <a class="el" href="webalizer_8h-source.html#l00155">log_struct::xfer_size</a>.
+<p>
+Wird benutzt von <a class="el" href="parser_8c-source.html#l00101">parse_record()</a>.    </td>
+  </tr>
+</table>
+<hr size="1"><address style="align: right;"><small>Erzeugt am Wed Jun 7 04:08:06 2006 für OOS [Webalizer] von&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.6 </small></address>
+</body>
+</html>

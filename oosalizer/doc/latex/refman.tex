@@ -1,0 +1,73 @@
+\documentclass[a4paper]{book}
+\usepackage{a4wide}
+\usepackage{makeidx}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{multicol}
+\usepackage{float}
+\usepackage{textcomp}
+\usepackage{alltt}
+\usepackage{ngerman}
+\usepackage[latin1]{inputenc}
+
+\usepackage{doxygen}
+\makeindex
+\setcounter{tocdepth}{1}
+\renewcommand{\footrulewidth}{0.4pt}
+\begin{document}
+\begin{titlepage}
+\vspace*{7cm}
+\begin{center}
+{\Large OOS [Webalizer] Nachschlagewerk\\[1ex]\large -dev 06.06.2006 }\\
+\vspace*{1cm}
+{\large Erzeugt von Doxygen 1.4.6}\\
+\vspace*{0.5cm}
+{\small Wed Jun 7 04:07:55 2006}\\
+\end{center}
+\end{titlepage}
+\clearemptydoublepage
+\pagenumbering{roman}
+\tableofcontents
+\clearemptydoublepage
+\pagenumbering{arabic}
+\chapter{OOS [Webalizer] Hierarchie-Verzeichnis}
+\input{hierarchy}
+\chapter{OOS [Webalizer] Datenstruktur-Verzeichnis}
+\input{annotated}
+\chapter{OOS [Webalizer] Datei-Verzeichnis}
+\input{files}
+\chapter{OOS [Webalizer] Datenstruktur-Dokumentation}
+\input{structanode}
+\include{structcountry__code}
+\include{structglist}
+\include{structhnode}
+\include{structinode}
+\include{structlog__struct}
+\include{structnlist}
+\include{structpie__data}
+\include{structresponse__code}
+\include{structresponse__url}
+\include{structresponsetmp__url}
+\include{structrnode}
+\include{structsnode}
+\include{structunode}
+\chapter{OOS [Webalizer] Datei-Dokumentation}
+\input{dns__resolv_8c}
+\include{dns__resolv_8h}
+\include{graphs_8c}
+\include{graphs_8h}
+\include{hashtab_8c}
+\include{hashtab_8h}
+\include{lang_8h}
+\include{linklist_8c}
+\include{linklist_8h}
+\include{output_8c}
+\include{output_8h}
+\include{parser_8c}
+\include{parser_8h}
+\include{preserve_8c}
+\include{preserve_8h}
+\include{webalizer_8c}
+\include{webalizer_8h}
+\printindex
+\end{document}

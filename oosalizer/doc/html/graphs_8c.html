@@ -1,0 +1,1263 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1">
+<title>OOS [Webalizer]: oosalizer/graphs.c-Dateireferenz</title>
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+<link href="tabs.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Erzeugt von Doxygen 1.4.6 -->
+<div class="tabs">
+  <ul>
+    <li><a href="main.html"><span>Hauptseite</span></a></li>
+    <li><a href="annotated.html"><span>Datenstrukturen</span></a></li>
+    <li id="current"><a href="files.html"><span>Dateien</span></a></li>
+    <li>
+      <form action="search.php" method="get">
+        <table cellspacing="0" cellpadding="0" border="0">
+          <tr>
+            <td><label>&nbsp;<u>S</u>uchen&nbsp;nach&nbsp;</label></td>
+            <td><input type="text" name="query" value="" size="20" accesskey="s"/></td>
+          </tr>
+        </table>
+      </form>
+    </li>
+  </ul></div>
+<div class="tabs">
+  <ul>
+    <li><a href="files.html"><span>Auflistung&nbsp;der&nbsp;Dateien</span></a></li>
+    <li><a href="globals.html"><span>Datei-Elemente</span></a></li>
+  </ul></div>
+<h1>oosalizer/graphs.c-Dateireferenz</h1><code>#include &lt;math.h&gt;</code><br>
+<code>#include &lt;stdio.h&gt;</code><br>
+<code>#include &lt;string.h&gt;</code><br>
+<code>#include &lt;sys/types.h&gt;</code><br>
+<code>#include &lt;gd.h&gt;</code><br>
+<code>#include &lt;gdfontt.h&gt;</code><br>
+<code>#include &lt;gdfonts.h&gt;</code><br>
+<code>#include &lt;gdfontmb.h&gt;</code><br>
+<code>#include &quot;<a class="el" href="webalizer_8h-source.html">webalizer.h</a>&quot;</code><br>
+<code>#include &quot;<a class="el" href="lang_8h-source.html">lang.h</a>&quot;</code><br>
+<code>#include &quot;<a class="el" href="graphs_8h-source.html">graphs.h</a>&quot;</code><br>
+
+<p>
+Include-Abhängigkeitsdiagramm für graphs.c:<p><center><img src="graphs_8c__incl.png" border="0" usemap="#oosalizer/graphs.c_map" alt=""></center>
+<map name="oosalizer/graphs.c_map">
+<area href="webalizer_8h.html" shape="rect" coords="187,392,275,416" alt="">
+<area href="lang_8h.html" shape="rect" coords="202,440,261,464" alt="">
+<area href="graphs_8h.html" shape="rect" coords="194,488,269,512" alt="">
+</map>
+
+<p>
+<a href="graphs_8c-source.html">gehe zum Quellcode dieser Datei</a><table border="0" cellpadding="0" cellspacing="0">
+<tr><td></td></tr>
+<tr><td colspan="2"><br><h2>Datenstrukturen</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">struct &nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structpie__data.html">pie_data</a></td></tr>
+
+<tr><td colspan="2"><br><h2>Makrodefinitionen</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphs_8c.html#598a3330b3c21701223ee0ca14316eca">PI</a>&nbsp;&nbsp;&nbsp;3.14159265358979323846</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphs_8c.html#1169cd1b397420b29bd3b0153f047818">COLOR1</a>&nbsp;&nbsp;&nbsp;<a class="el" href="graphs_8c.html#6e208843f894f38fa7644608917a2a41">green</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphs_8c.html#609e0791889f4cde446ee0eb6efd369a">COLOR2</a>&nbsp;&nbsp;&nbsp;<a class="el" href="graphs_8c.html#16043f28bf0a6b55db852853f0683fc2">blue</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphs_8c.html#299edc84540341c664cd7a183e8fc9bd">COLOR3</a>&nbsp;&nbsp;&nbsp;<a class="el" href="graphs_8c.html#d316f80317cb97c5ada72ac0e05bbf92">orange</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphs_8c.html#5b1074ec004e850c360022e0d433e475">COLOR4</a>&nbsp;&nbsp;&nbsp;<a class="el" href="graphs_8c.html#6761340706096510fd89edca40a63b9b">red</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphs_8c.html#b1b154af4927f41dc0ac230992bf1a15">COLOR5</a>&nbsp;&nbsp;&nbsp;<a class="el" href="graphs_8c.html#f6bc84de5c6f5361f222772133cf1ab8">cyan</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphs_8c.html#8fd4fb399b4659d7aed1fcb5cc182ebb">COLOR6</a>&nbsp;&nbsp;&nbsp;<a class="el" href="graphs_8c.html#34167711871149458e41ef5d3e3541fe">yellow</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphs_8c.html#0b4c12a5dc8490a3cff8385334db2d13">CX</a>&nbsp;&nbsp;&nbsp;156</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphs_8c.html#c5bc792e372b15e7a1d3efe6daac9aec">CY</a>&nbsp;&nbsp;&nbsp;150</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphs_8c.html#e1eec295ea8cd8f04c1f24b59110fcae">XRAD</a>&nbsp;&nbsp;&nbsp;240</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphs_8c.html#3eeb4d5b339574d992e5ac5b2c5cd8ff">YRAD</a>&nbsp;&nbsp;&nbsp;200</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphs_8c.html#faefa0d521156ca605f526c14d05e272">YSIZE</a>&nbsp;&nbsp;&nbsp;400</td></tr>
+
+<tr><td colspan="2"><br><h2>Funktionen</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphs_8c.html#2040d817b934e470b4a2cdeb9811c097">init_graph</a> (char *, int, int)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="structpie__data.html">pie_data</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphs_8c.html#b831d5a0b0198ea523e0b116aaa20488">calc_arc</a> (float, float)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphs_8c.html#58eec29feb4d1c90de8813c8c59d4fcd">year_graph6x</a> (char *fname, char *title, int fmonth, u_long data1[12], u_long data2[12], u_long data3[12], double data4[12], u_long data5[12], u_long data6[12])</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphs_8c.html#7d33e4e14ae660bf05b5793f8e18d091">month_graph6</a> (char *fname, char *title, int month, int year, u_long data1[31], u_long data2[31], u_long data3[31], double data4[31], u_long data5[31], u_long data6[31])</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphs_8c.html#98296b41d7e2982e4b341e6ed18255ac">day_graph3</a> (char *fname, char *title, u_long data1[24], u_long data2[24], u_long data3[24])</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphs_8c.html#49e615d9104950eeb7a886df4301f7da">pie_chart</a> (char *fname, char *title, u_long t_val, u_long data1[], char *legend[])</td></tr>
+
+<tr><td colspan="2"><br><h2>Variablen</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">char *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphs_8c.html#d8920ceda92347671d37ba01be631d65">numchar</a> []</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">gdImagePtr&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">FILE *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphs_8c.html#1277960b5f2b37137fe9b0b5a1ea0beb">out</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">char&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphs_8c.html#3933b61d12d9878aa33d711259d94c5f">maxvaltxt</a> [32]</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">float&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphs_8c.html#ac167f3972a2f244f4b32c8ee5b89364">percent</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">u_long&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphs_8c.html#488cb40243821792a9a226ca1042b3e1">julday</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphs_8c.html#8784d4f8ed73cff78355d2ed8e0c3a3b">black</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphs_8c.html#52b8a1dc217164197e6e5ba60ec911bf">white</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphs_8c.html#852d2c8c77477e510b44d799fdaaf1f9">grey</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphs_8c.html#ee1005868568d9750214235693ba63e1">dkgrey</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphs_8c.html#6761340706096510fd89edca40a63b9b">red</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphs_8c.html#16043f28bf0a6b55db852853f0683fc2">blue</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphs_8c.html#d316f80317cb97c5ada72ac0e05bbf92">orange</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphs_8c.html#6e208843f894f38fa7644608917a2a41">green</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphs_8c.html#f6bc84de5c6f5361f222772133cf1ab8">cyan</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphs_8c.html#34167711871149458e41ef5d3e3541fe">yellow</a></td></tr>
+
+</table>
+<hr><h2>Makro-Dokumentation</h2>
+<a class="anchor" name="1169cd1b397420b29bd3b0153f047818"></a><!-- doxytag: member="graphs.c::COLOR1" ref="1169cd1b397420b29bd3b0153f047818" args="" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">#define COLOR1&nbsp;&nbsp;&nbsp;<a class="el" href="graphs_8c.html#6e208843f894f38fa7644608917a2a41">green</a>          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="graphs_8c-source.html#l00047">47</a> der Datei <a class="el" href="graphs_8c-source.html">graphs.c</a>.
+<p>
+Wird benutzt von <a class="el" href="graphs_8c-source.html#l00298">month_graph6()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="609e0791889f4cde446ee0eb6efd369a"></a><!-- doxytag: member="graphs.c::COLOR2" ref="609e0791889f4cde446ee0eb6efd369a" args="" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">#define COLOR2&nbsp;&nbsp;&nbsp;<a class="el" href="graphs_8c.html#16043f28bf0a6b55db852853f0683fc2">blue</a>          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="graphs_8c-source.html#l00048">48</a> der Datei <a class="el" href="graphs_8c-source.html">graphs.c</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="299edc84540341c664cd7a183e8fc9bd"></a><!-- doxytag: member="graphs.c::COLOR3" ref="299edc84540341c664cd7a183e8fc9bd" args="" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">#define COLOR3&nbsp;&nbsp;&nbsp;<a class="el" href="graphs_8c.html#d316f80317cb97c5ada72ac0e05bbf92">orange</a>          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="graphs_8c-source.html#l00049">49</a> der Datei <a class="el" href="graphs_8c-source.html">graphs.c</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="5b1074ec004e850c360022e0d433e475"></a><!-- doxytag: member="graphs.c::COLOR4" ref="5b1074ec004e850c360022e0d433e475" args="" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">#define COLOR4&nbsp;&nbsp;&nbsp;<a class="el" href="graphs_8c.html#6761340706096510fd89edca40a63b9b">red</a>          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="graphs_8c-source.html#l00050">50</a> der Datei <a class="el" href="graphs_8c-source.html">graphs.c</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="b1b154af4927f41dc0ac230992bf1a15"></a><!-- doxytag: member="graphs.c::COLOR5" ref="b1b154af4927f41dc0ac230992bf1a15" args="" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">#define COLOR5&nbsp;&nbsp;&nbsp;<a class="el" href="graphs_8c.html#f6bc84de5c6f5361f222772133cf1ab8">cyan</a>          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="graphs_8c-source.html#l00051">51</a> der Datei <a class="el" href="graphs_8c-source.html">graphs.c</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="8fd4fb399b4659d7aed1fcb5cc182ebb"></a><!-- doxytag: member="graphs.c::COLOR6" ref="8fd4fb399b4659d7aed1fcb5cc182ebb" args="" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">#define COLOR6&nbsp;&nbsp;&nbsp;<a class="el" href="graphs_8c.html#34167711871149458e41ef5d3e3541fe">yellow</a>          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="graphs_8c-source.html#l00052">52</a> der Datei <a class="el" href="graphs_8c-source.html">graphs.c</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="0b4c12a5dc8490a3cff8385334db2d13"></a><!-- doxytag: member="graphs.c::CX" ref="0b4c12a5dc8490a3cff8385334db2d13" args="" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">#define CX&nbsp;&nbsp;&nbsp;156          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="graphs_8c-source.html#l00054">54</a> der Datei <a class="el" href="graphs_8c-source.html">graphs.c</a>.
+<p>
+Wird benutzt von <a class="el" href="graphs_8c-source.html#l00694">calc_arc()</a> und <a class="el" href="graphs_8c-source.html#l00610">pie_chart()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="c5bc792e372b15e7a1d3efe6daac9aec"></a><!-- doxytag: member="graphs.c::CY" ref="c5bc792e372b15e7a1d3efe6daac9aec" args="" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">#define CY&nbsp;&nbsp;&nbsp;150          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="graphs_8c-source.html#l00055">55</a> der Datei <a class="el" href="graphs_8c-source.html">graphs.c</a>.
+<p>
+Wird benutzt von <a class="el" href="graphs_8c-source.html#l00694">calc_arc()</a> und <a class="el" href="graphs_8c-source.html#l00610">pie_chart()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="598a3330b3c21701223ee0ca14316eca"></a><!-- doxytag: member="graphs.c::PI" ref="598a3330b3c21701223ee0ca14316eca" args="" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">#define PI&nbsp;&nbsp;&nbsp;3.14159265358979323846          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="graphs_8c-source.html#l00044">44</a> der Datei <a class="el" href="graphs_8c-source.html">graphs.c</a>.
+<p>
+Wird benutzt von <a class="el" href="graphs_8c-source.html#l00694">calc_arc()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="e1eec295ea8cd8f04c1f24b59110fcae"></a><!-- doxytag: member="graphs.c::XRAD" ref="e1eec295ea8cd8f04c1f24b59110fcae" args="" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">#define XRAD&nbsp;&nbsp;&nbsp;240          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="graphs_8c-source.html#l00056">56</a> der Datei <a class="el" href="graphs_8c-source.html">graphs.c</a>.
+<p>
+Wird benutzt von <a class="el" href="graphs_8c-source.html#l00694">calc_arc()</a> und <a class="el" href="graphs_8c-source.html#l00610">pie_chart()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="3eeb4d5b339574d992e5ac5b2c5cd8ff"></a><!-- doxytag: member="graphs.c::YRAD" ref="3eeb4d5b339574d992e5ac5b2c5cd8ff" args="" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">#define YRAD&nbsp;&nbsp;&nbsp;200          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="graphs_8c-source.html#l00057">57</a> der Datei <a class="el" href="graphs_8c-source.html">graphs.c</a>.
+<p>
+Wird benutzt von <a class="el" href="graphs_8c-source.html#l00694">calc_arc()</a> und <a class="el" href="graphs_8c-source.html#l00610">pie_chart()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="faefa0d521156ca605f526c14d05e272"></a><!-- doxytag: member="graphs.c::YSIZE" ref="faefa0d521156ca605f526c14d05e272" args="" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">#define YSIZE&nbsp;&nbsp;&nbsp;400          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="graphs_8c-source.html#l00296">296</a> der Datei <a class="el" href="graphs_8c-source.html">graphs.c</a>.    </td>
+  </tr>
+</table>
+<hr><h2>Dokumentation der Funktionen</h2>
+<a class="anchor" name="b831d5a0b0198ea523e0b116aaa20488"></a><!-- doxytag: member="graphs.c::calc_arc" ref="b831d5a0b0198ea523e0b116aaa20488" args="(float, float)" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">struct <a class="el" href="structpie__data.html">pie_data</a> * calc_arc           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top">float&nbsp;</td>
+          <td class="mdname" nowrap>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>float&nbsp;</td>
+          <td class="mdname" nowrap></td>
+        </tr>
+        <tr>
+          <td class="md"></td>
+          <td class="md">)&nbsp;</td>
+          <td class="md" colspan="2"></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="graphs_8c-source.html#l00694">694</a> der Datei <a class="el" href="graphs_8c-source.html">graphs.c</a>.
+<p>
+Benutzt <a class="el" href="graphs_8c-source.html#l00054">CX</a>, <a class="el" href="graphs_8c-source.html#l00055">CY</a>, <a class="el" href="graphs_8c-source.html#l00077">pie_data::mx</a>, <a class="el" href="graphs_8c-source.html#l00077">pie_data::my</a>, <a class="el" href="graphs_8c-source.html#l00044">PI</a>, <a class="el" href="graphs_8c-source.html#l00076">pie_data::x</a>, <a class="el" href="graphs_8c-source.html#l00056">XRAD</a>, <a class="el" href="graphs_8c-source.html#l00076">pie_data::y</a> und <a class="el" href="graphs_8c-source.html#l00057">YRAD</a>.
+<p>
+Wird benutzt von <a class="el" href="graphs_8c-source.html#l00610">pie_chart()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="98296b41d7e2982e4b341e6ed18255ac"></a><!-- doxytag: member="graphs.c::day_graph3" ref="98296b41d7e2982e4b341e6ed18255ac" args="(char *fname, char *title, u_long data1[24], u_long data2[24], u_long data3[24])" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">int day_graph3           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top">char *&nbsp;</td>
+          <td class="mdname" nowrap> <em>fname</em>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>char *&nbsp;</td>
+          <td class="mdname" nowrap> <em>title</em>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>u_long&nbsp;</td>
+          <td class="mdname" nowrap> <em>data1</em>[24], </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>u_long&nbsp;</td>
+          <td class="mdname" nowrap> <em>data2</em>[24], </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>u_long&nbsp;</td>
+          <td class="mdname" nowrap> <em>data3</em>[24]</td>
+        </tr>
+        <tr>
+          <td class="md"></td>
+          <td class="md">)&nbsp;</td>
+          <td class="md" colspan="2"></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="graphs_8c-source.html#l00503">503</a> der Datei <a class="el" href="graphs_8c-source.html">graphs.c</a>.
+<p>
+Benutzt <a class="el" href="graphs_8c-source.html#l00079">black</a>, <a class="el" href="graphs_8c-source.html#l00079">dkgrey</a>, <a class="el" href="webalizer_8c-source.html#l00125">graph_lines</a>, <a class="el" href="graphs_8c-source.html#l00070">im</a>, <a class="el" href="graphs_8c-source.html#l00716">init_graph()</a> und <a class="el" href="graphs_8c-source.html#l00066">numchar</a>.
+<p>
+Wird benutzt von <a class="el" href="output_8c-source.html#l00325">write_month_html()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="2040d817b934e470b4a2cdeb9811c097"></a><!-- doxytag: member="graphs.c::init_graph" ref="2040d817b934e470b4a2cdeb9811c097" args="(char *, int, int)" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">void init_graph           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top">char *&nbsp;</td>
+          <td class="mdname" nowrap>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>int&nbsp;</td>
+          <td class="mdname" nowrap>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>int&nbsp;</td>
+          <td class="mdname" nowrap></td>
+        </tr>
+        <tr>
+          <td class="md"></td>
+          <td class="md">)&nbsp;</td>
+          <td class="md" colspan="2"></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="graphs_8c-source.html#l00716">716</a> der Datei <a class="el" href="graphs_8c-source.html">graphs.c</a>.
+<p>
+Benutzt <a class="el" href="graphs_8c-source.html#l00079">black</a>, <a class="el" href="graphs_8c-source.html#l00079">blue</a>, <a class="el" href="graphs_8c-source.html#l00079">cyan</a>, <a class="el" href="graphs_8c-source.html#l00079">dkgrey</a>, <a class="el" href="graphs_8c-source.html#l00079">green</a>, <a class="el" href="graphs_8c-source.html#l00079">grey</a>, <a class="el" href="graphs_8c-source.html#l00070">im</a>, <a class="el" href="graphs_8c-source.html#l00079">orange</a>, <a class="el" href="graphs_8c-source.html#l00079">red</a>, <a class="el" href="graphs_8c-source.html#l00079">white</a> und <a class="el" href="graphs_8c-source.html#l00079">yellow</a>.
+<p>
+Wird benutzt von <a class="el" href="graphs_8c-source.html#l00503">day_graph3()</a>, <a class="el" href="graphs_8c-source.html#l00298">month_graph6()</a>, <a class="el" href="graphs_8c-source.html#l00610">pie_chart()</a> und <a class="el" href="graphs_8c-source.html#l00088">year_graph6x()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="7d33e4e14ae660bf05b5793f8e18d091"></a><!-- doxytag: member="graphs.c::month_graph6" ref="7d33e4e14ae660bf05b5793f8e18d091" args="(char *fname, char *title, int month, int year, u_long data1[31], u_long data2[31], u_long data3[31], double data4[31], u_long data5[31], u_long data6[31])" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">int month_graph6           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top">char *&nbsp;</td>
+          <td class="mdname" nowrap> <em>fname</em>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>char *&nbsp;</td>
+          <td class="mdname" nowrap> <em>title</em>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>int&nbsp;</td>
+          <td class="mdname" nowrap> <em>month</em>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>int&nbsp;</td>
+          <td class="mdname" nowrap> <em>year</em>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>u_long&nbsp;</td>
+          <td class="mdname" nowrap> <em>data1</em>[31], </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>u_long&nbsp;</td>
+          <td class="mdname" nowrap> <em>data2</em>[31], </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>u_long&nbsp;</td>
+          <td class="mdname" nowrap> <em>data3</em>[31], </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>double&nbsp;</td>
+          <td class="mdname" nowrap> <em>data4</em>[31], </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>u_long&nbsp;</td>
+          <td class="mdname" nowrap> <em>data5</em>[31], </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>u_long&nbsp;</td>
+          <td class="mdname" nowrap> <em>data6</em>[31]</td>
+        </tr>
+        <tr>
+          <td class="md"></td>
+          <td class="md">)&nbsp;</td>
+          <td class="md" colspan="2"></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="graphs_8c-source.html#l00298">298</a> der Datei <a class="el" href="graphs_8c-source.html">graphs.c</a>.
+<p>
+Benutzt <a class="el" href="graphs_8c-source.html#l00079">black</a>, <a class="el" href="graphs_8c-source.html#l00047">COLOR1</a>, <a class="el" href="graphs_8c-source.html#l00079">dkgrey</a>, <a class="el" href="webalizer_8c-source.html#l00125">graph_lines</a>, <a class="el" href="graphs_8c-source.html#l00070">im</a>, <a class="el" href="graphs_8c-source.html#l00716">init_graph()</a>, <a class="el" href="webalizer_8c-source.html#l02009">jdate()</a>, <a class="el" href="graphs_8c-source.html#l00074">julday</a>, <a class="el" href="graphs_8c-source.html#l00066">numchar</a> und <a class="el" href="graphs_8c-source.html#l00079">white</a>.
+<p>
+Wird benutzt von <a class="el" href="output_8c-source.html#l00325">write_month_html()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="49e615d9104950eeb7a886df4301f7da"></a><!-- doxytag: member="graphs.c::pie_chart" ref="49e615d9104950eeb7a886df4301f7da" args="(char *fname, char *title, u_long t_val, u_long data1[], char *legend[])" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">int pie_chart           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top">char *&nbsp;</td>
+          <td class="mdname" nowrap> <em>fname</em>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>char *&nbsp;</td>
+          <td class="mdname" nowrap> <em>title</em>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>u_long&nbsp;</td>
+          <td class="mdname" nowrap> <em>t_val</em>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>u_long&nbsp;</td>
+          <td class="mdname" nowrap> <em>data1</em>[], </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>char *&nbsp;</td>
+          <td class="mdname" nowrap> <em>legend</em>[]</td>
+        </tr>
+        <tr>
+          <td class="md"></td>
+          <td class="md">)&nbsp;</td>
+          <td class="md" colspan="2"></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="graphs_8c-source.html#l00610">610</a> der Datei <a class="el" href="graphs_8c-source.html">graphs.c</a>.
+<p>
+Benutzt <a class="el" href="graphs_8c-source.html#l00079">black</a>, <a class="el" href="webalizer_8c-source.html#l00218">buffer</a>, <a class="el" href="graphs_8c-source.html#l00694">calc_arc()</a>, <a class="el" href="graphs_8c-source.html#l00054">CX</a>, <a class="el" href="graphs_8c-source.html#l00055">CY</a>, <a class="el" href="graphs_8c-source.html#l00070">im</a>, <a class="el" href="graphs_8c-source.html#l00716">init_graph()</a>, <a class="el" href="graphs_8c-source.html#l00073">percent</a>, <a class="el" href="graphs_8c-source.html#l00076">pie_data::x</a>, <a class="el" href="graphs_8c-source.html#l00056">XRAD</a>, <a class="el" href="graphs_8c-source.html#l00076">pie_data::y</a> und <a class="el" href="graphs_8c-source.html#l00057">YRAD</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="58eec29feb4d1c90de8813c8c59d4fcd"></a><!-- doxytag: member="graphs.c::year_graph6x" ref="58eec29feb4d1c90de8813c8c59d4fcd" args="(char *fname, char *title, int fmonth, u_long data1[12], u_long data2[12], u_long data3[12], double data4[12], u_long data5[12], u_long data6[12])" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">int year_graph6x           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top">char *&nbsp;</td>
+          <td class="mdname" nowrap> <em>fname</em>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>char *&nbsp;</td>
+          <td class="mdname" nowrap> <em>title</em>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>int&nbsp;</td>
+          <td class="mdname" nowrap> <em>fmonth</em>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>u_long&nbsp;</td>
+          <td class="mdname" nowrap> <em>data1</em>[12], </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>u_long&nbsp;</td>
+          <td class="mdname" nowrap> <em>data2</em>[12], </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>u_long&nbsp;</td>
+          <td class="mdname" nowrap> <em>data3</em>[12], </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>double&nbsp;</td>
+          <td class="mdname" nowrap> <em>data4</em>[12], </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>u_long&nbsp;</td>
+          <td class="mdname" nowrap> <em>data5</em>[12], </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>u_long&nbsp;</td>
+          <td class="mdname" nowrap> <em>data6</em>[12]</td>
+        </tr>
+        <tr>
+          <td class="md"></td>
+          <td class="md">)&nbsp;</td>
+          <td class="md" colspan="2"></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="graphs_8c-source.html#l00088">88</a> der Datei <a class="el" href="graphs_8c-source.html">graphs.c</a>.
+<p>
+Benutzt <a class="el" href="graphs_8c-source.html#l00079">black</a>, <a class="el" href="graphs_8c-source.html#l00079">dkgrey</a>, <a class="el" href="webalizer_8c-source.html#l00125">graph_lines</a>, <a class="el" href="graphs_8c-source.html#l00070">im</a>, <a class="el" href="graphs_8c-source.html#l00716">init_graph()</a>, <a class="el" href="lang_8h.html#9a0b242c466188c82510261247faf983">s_month</a> und <a class="el" href="graphs_8c-source.html#l00079">white</a>.    </td>
+  </tr>
+</table>
+<hr><h2>Variablen-Dokumentation</h2>
+<a class="anchor" name="8784d4f8ed73cff78355d2ed8e0c3a3b"></a><!-- doxytag: member="graphs.c::black" ref="8784d4f8ed73cff78355d2ed8e0c3a3b" args="" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">int <a class="el" href="graphs_8c.html#8784d4f8ed73cff78355d2ed8e0c3a3b">black</a>          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="graphs_8c-source.html#l00079">79</a> der Datei <a class="el" href="graphs_8c-source.html">graphs.c</a>.
+<p>
+Wird benutzt von <a class="el" href="graphs_8c-source.html#l00503">day_graph3()</a>, <a class="el" href="graphs_8c-source.html#l00716">init_graph()</a>, <a class="el" href="graphs_8c-source.html#l00298">month_graph6()</a>, <a class="el" href="graphs_8c-source.html#l00610">pie_chart()</a> und <a class="el" href="graphs_8c-source.html#l00088">year_graph6x()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="16043f28bf0a6b55db852853f0683fc2"></a><!-- doxytag: member="graphs.c::blue" ref="16043f28bf0a6b55db852853f0683fc2" args="" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">int <a class="el" href="graphs_8c.html#16043f28bf0a6b55db852853f0683fc2">blue</a>          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="graphs_8c-source.html#l00079">79</a> der Datei <a class="el" href="graphs_8c-source.html">graphs.c</a>.
+<p>
+Wird benutzt von <a class="el" href="graphs_8c-source.html#l00716">init_graph()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="f6bc84de5c6f5361f222772133cf1ab8"></a><!-- doxytag: member="graphs.c::cyan" ref="f6bc84de5c6f5361f222772133cf1ab8" args="" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">int <a class="el" href="graphs_8c.html#f6bc84de5c6f5361f222772133cf1ab8">cyan</a>          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="graphs_8c-source.html#l00079">79</a> der Datei <a class="el" href="graphs_8c-source.html">graphs.c</a>.
+<p>
+Wird benutzt von <a class="el" href="graphs_8c-source.html#l00716">init_graph()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="ee1005868568d9750214235693ba63e1"></a><!-- doxytag: member="graphs.c::dkgrey" ref="ee1005868568d9750214235693ba63e1" args="" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">int <a class="el" href="graphs_8c.html#ee1005868568d9750214235693ba63e1">dkgrey</a>          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="graphs_8c-source.html#l00079">79</a> der Datei <a class="el" href="graphs_8c-source.html">graphs.c</a>.
+<p>
+Wird benutzt von <a class="el" href="graphs_8c-source.html#l00503">day_graph3()</a>, <a class="el" href="graphs_8c-source.html#l00716">init_graph()</a>, <a class="el" href="graphs_8c-source.html#l00298">month_graph6()</a> und <a class="el" href="graphs_8c-source.html#l00088">year_graph6x()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="6e208843f894f38fa7644608917a2a41"></a><!-- doxytag: member="graphs.c::green" ref="6e208843f894f38fa7644608917a2a41" args="" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">int <a class="el" href="graphs_8c.html#6e208843f894f38fa7644608917a2a41">green</a>          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="graphs_8c-source.html#l00079">79</a> der Datei <a class="el" href="graphs_8c-source.html">graphs.c</a>.
+<p>
+Wird benutzt von <a class="el" href="graphs_8c-source.html#l00716">init_graph()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="852d2c8c77477e510b44d799fdaaf1f9"></a><!-- doxytag: member="graphs.c::grey" ref="852d2c8c77477e510b44d799fdaaf1f9" args="" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">int <a class="el" href="graphs_8c.html#852d2c8c77477e510b44d799fdaaf1f9">grey</a>          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="graphs_8c-source.html#l00079">79</a> der Datei <a class="el" href="graphs_8c-source.html">graphs.c</a>.
+<p>
+Wird benutzt von <a class="el" href="graphs_8c-source.html#l00716">init_graph()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="0e84b6d886b70b0cf21c56e5e26f0ed9"></a><!-- doxytag: member="graphs.c::im" ref="0e84b6d886b70b0cf21c56e5e26f0ed9" args="" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">gdImagePtr <a class="el" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="graphs_8c-source.html#l00070">70</a> der Datei <a class="el" href="graphs_8c-source.html">graphs.c</a>.
+<p>
+Wird benutzt von <a class="el" href="graphs_8c-source.html#l00503">day_graph3()</a>, <a class="el" href="graphs_8c-source.html#l00716">init_graph()</a>, <a class="el" href="graphs_8c-source.html#l00298">month_graph6()</a>, <a class="el" href="graphs_8c-source.html#l00610">pie_chart()</a> und <a class="el" href="graphs_8c-source.html#l00088">year_graph6x()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="488cb40243821792a9a226ca1042b3e1"></a><!-- doxytag: member="graphs.c::julday" ref="488cb40243821792a9a226ca1042b3e1" args="" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">u_long <a class="el" href="graphs_8c.html#488cb40243821792a9a226ca1042b3e1">julday</a>          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="graphs_8c-source.html#l00074">74</a> der Datei <a class="el" href="graphs_8c-source.html">graphs.c</a>.
+<p>
+Wird benutzt von <a class="el" href="graphs_8c-source.html#l00298">month_graph6()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="3933b61d12d9878aa33d711259d94c5f"></a><!-- doxytag: member="graphs.c::maxvaltxt" ref="3933b61d12d9878aa33d711259d94c5f" args="[32]" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">char <a class="el" href="graphs_8c.html#3933b61d12d9878aa33d711259d94c5f">maxvaltxt</a>[32]          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="graphs_8c-source.html#l00072">72</a> der Datei <a class="el" href="graphs_8c-source.html">graphs.c</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="d8920ceda92347671d37ba01be631d65"></a><!-- doxytag: member="graphs.c::numchar" ref="d8920ceda92347671d37ba01be631d65" args="[]" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">char* <a class="el" href="graphs_8c.html#d8920ceda92347671d37ba01be631d65">numchar</a>[]          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+<b>Initialisierung:</b><div class="fragment"><pre class="fragment"> { <span class="stringliteral">" 0"</span>,<span class="stringliteral">" 1"</span>,<span class="stringliteral">" 2"</span>,<span class="stringliteral">" 3"</span>,<span class="stringliteral">" 4"</span>,<span class="stringliteral">" 5"</span>,<span class="stringliteral">" 6"</span>,<span class="stringliteral">" 7"</span>,<span class="stringliteral">" 8"</span>,<span class="stringliteral">" 9"</span>,<span class="stringliteral">"10"</span>,
+                    <span class="stringliteral">"11"</span>,<span class="stringliteral">"12"</span>,<span class="stringliteral">"13"</span>,<span class="stringliteral">"14"</span>,<span class="stringliteral">"15"</span>,<span class="stringliteral">"16"</span>,<span class="stringliteral">"17"</span>,<span class="stringliteral">"18"</span>,<span class="stringliteral">"19"</span>,<span class="stringliteral">"20"</span>,
+                    <span class="stringliteral">"21"</span>,<span class="stringliteral">"22"</span>,<span class="stringliteral">"23"</span>,<span class="stringliteral">"24"</span>,<span class="stringliteral">"25"</span>,<span class="stringliteral">"26"</span>,<span class="stringliteral">"27"</span>,<span class="stringliteral">"28"</span>,<span class="stringliteral">"29"</span>,<span class="stringliteral">"30"</span>,<span class="stringliteral">"31"</span>}
+</pre></div>
+<p>
+Definiert in Zeile <a class="el" href="graphs_8c-source.html#l00066">66</a> der Datei <a class="el" href="graphs_8c-source.html">graphs.c</a>.
+<p>
+Wird benutzt von <a class="el" href="graphs_8c-source.html#l00503">day_graph3()</a> und <a class="el" href="graphs_8c-source.html#l00298">month_graph6()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="d316f80317cb97c5ada72ac0e05bbf92"></a><!-- doxytag: member="graphs.c::orange" ref="d316f80317cb97c5ada72ac0e05bbf92" args="" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">int <a class="el" href="graphs_8c.html#d316f80317cb97c5ada72ac0e05bbf92">orange</a>          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="graphs_8c-source.html#l00079">79</a> der Datei <a class="el" href="graphs_8c-source.html">graphs.c</a>.
+<p>
+Wird benutzt von <a class="el" href="graphs_8c-source.html#l00716">init_graph()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="1277960b5f2b37137fe9b0b5a1ea0beb"></a><!-- doxytag: member="graphs.c::out" ref="1277960b5f2b37137fe9b0b5a1ea0beb" args="" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">FILE* <a class="el" href="graphs_8c.html#1277960b5f2b37137fe9b0b5a1ea0beb">out</a>          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="graphs_8c-source.html#l00071">71</a> der Datei <a class="el" href="graphs_8c-source.html">graphs.c</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="ac167f3972a2f244f4b32c8ee5b89364"></a><!-- doxytag: member="graphs.c::percent" ref="ac167f3972a2f244f4b32c8ee5b89364" args="" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">float <a class="el" href="graphs_8c.html#ac167f3972a2f244f4b32c8ee5b89364">percent</a>          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="graphs_8c-source.html#l00073">73</a> der Datei <a class="el" href="graphs_8c-source.html">graphs.c</a>.
+<p>
+Wird benutzt von <a class="el" href="graphs_8c-source.html#l00610">pie_chart()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="6761340706096510fd89edca40a63b9b"></a><!-- doxytag: member="graphs.c::red" ref="6761340706096510fd89edca40a63b9b" args="" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">int <a class="el" href="graphs_8c.html#6761340706096510fd89edca40a63b9b">red</a>          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="graphs_8c-source.html#l00079">79</a> der Datei <a class="el" href="graphs_8c-source.html">graphs.c</a>.
+<p>
+Wird benutzt von <a class="el" href="graphs_8c-source.html#l00716">init_graph()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="52b8a1dc217164197e6e5ba60ec911bf"></a><!-- doxytag: member="graphs.c::white" ref="52b8a1dc217164197e6e5ba60ec911bf" args="" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">int <a class="el" href="graphs_8c.html#52b8a1dc217164197e6e5ba60ec911bf">white</a>          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="graphs_8c-source.html#l00079">79</a> der Datei <a class="el" href="graphs_8c-source.html">graphs.c</a>.
+<p>
+Wird benutzt von <a class="el" href="graphs_8c-source.html#l00716">init_graph()</a>, <a class="el" href="graphs_8c-source.html#l00298">month_graph6()</a> und <a class="el" href="graphs_8c-source.html#l00088">year_graph6x()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="34167711871149458e41ef5d3e3541fe"></a><!-- doxytag: member="graphs.c::yellow" ref="34167711871149458e41ef5d3e3541fe" args="" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">int <a class="el" href="graphs_8c.html#34167711871149458e41ef5d3e3541fe">yellow</a>          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="graphs_8c-source.html#l00079">79</a> der Datei <a class="el" href="graphs_8c-source.html">graphs.c</a>.
+<p>
+Wird benutzt von <a class="el" href="graphs_8c-source.html#l00716">init_graph()</a>.    </td>
+  </tr>
+</table>
+<hr size="1"><address style="align: right;"><small>Erzeugt am Wed Jun 7 04:07:58 2006 für OOS [Webalizer] von&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.6 </small></address>
+</body>
+</html>

@@ -1,0 +1,2323 @@
+<?xml version='1.0' encoding='iso-8859-1' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.4.6">
+  <compounddef id="lang_8h" kind="file">
+    <compoundname>lang.h</compoundname>
+    <includedby refid="graphs_8c" local="yes">oosalizer/graphs.c</includedby>
+    <includedby refid="hashtab_8c" local="yes">oosalizer/hashtab.c</includedby>
+    <includedby refid="linklist_8c" local="yes">oosalizer/linklist.c</includedby>
+    <includedby refid="output_8c" local="yes">oosalizer/output.c</includedby>
+    <includedby refid="parser_8c" local="yes">oosalizer/parser.c</includedby>
+    <includedby refid="preserve_8c" local="yes">oosalizer/preserve.c</includedby>
+    <invincdepgraph>
+      <node id="225">
+        <label>oosalizer/hashtab.c</label>
+        <link refid="hashtab_8c"/>
+      </node>
+      <node id="229">
+        <label>oosalizer/preserve.c</label>
+        <link refid="preserve_8c"/>
+      </node>
+      <node id="223">
+        <label>oosalizer/lang.h</label>
+        <link refid="lang.h"/>
+        <childnode refid="224" relation="include">
+        </childnode>
+        <childnode refid="225" relation="include">
+        </childnode>
+        <childnode refid="226" relation="include">
+        </childnode>
+        <childnode refid="227" relation="include">
+        </childnode>
+        <childnode refid="228" relation="include">
+        </childnode>
+        <childnode refid="229" relation="include">
+        </childnode>
+      </node>
+      <node id="228">
+        <label>oosalizer/parser.c</label>
+        <link refid="parser_8c"/>
+      </node>
+      <node id="226">
+        <label>oosalizer/linklist.c</label>
+        <link refid="linklist_8c"/>
+      </node>
+      <node id="224">
+        <label>oosalizer/graphs.c</label>
+        <link refid="graphs_8c"/>
+      </node>
+      <node id="227">
+        <label>oosalizer/output.c</label>
+        <link refid="output_8c"/>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="lang_8h_18ae4b47621b125e915cee8ccdaa2095c" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* language</definition>
+        <argsstring></argsstring>
+        <name>language</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="4"/>
+        <referencedby refid="webalizer_8c_16302aaae12249e8ea16bfdc7de892f21" compoundref="webalizer_8c" startline="1757" endline="1777">print_version</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_188e6df607f1a60fa253d40f651b00379" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_records</definition>
+        <argsstring></argsstring>
+        <name>msg_records</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="6"/>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_161f6c7ec6657cd88a32549b14d43d489" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_addresses</definition>
+        <argsstring></argsstring>
+        <name>msg_addresses</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="7"/>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_1c22eefe4a5b9307497ebdb835c9950f1" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_ignored</definition>
+        <argsstring></argsstring>
+        <name>msg_ignored</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="8"/>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_1d0f59bbd0fcb26d5e153ffc4c1a907f8" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_bad</definition>
+        <argsstring></argsstring>
+        <name>msg_bad</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="9"/>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_1535c7dd66e495aae8b796efb12b07c26" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_in</definition>
+        <argsstring></argsstring>
+        <name>msg_in</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="10"/>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_13356f081f77d31d5a6ec61e60dcd284b" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_seconds</definition>
+        <argsstring></argsstring>
+        <name>msg_seconds</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="11"/>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_19e7542262695e0c68034a68d247830a0" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_log_err</definition>
+        <argsstring></argsstring>
+        <name>msg_log_err</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="13"/>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_18ac6c7acc62fc13da0b2e7454234bab9" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_log_use</definition>
+        <argsstring></argsstring>
+        <name>msg_log_use</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="14"/>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_138a10d8fc0f51c7a330c6fb6d6e471de" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_dir_err</definition>
+        <argsstring></argsstring>
+        <name>msg_dir_err</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="15"/>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_1dd2c26fd0af447d6b6b6aad63715299a" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_dir_use</definition>
+        <argsstring></argsstring>
+        <name>msg_dir_use</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="16"/>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_1753780d6a71f07ea59ad96c3b4425d3f" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_cur_dir</definition>
+        <argsstring></argsstring>
+        <name>msg_cur_dir</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="17"/>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_16510de07acb9808935ed549a2050108d" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_hostname</definition>
+        <argsstring></argsstring>
+        <name>msg_hostname</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="18"/>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_1e918ce031986bc8bf1a4f16337f23c88" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_ign_hist</definition>
+        <argsstring></argsstring>
+        <name>msg_ign_hist</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="19"/>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_13fb184b8d4ab117fd5c15f062610c064" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_no_hist</definition>
+        <argsstring></argsstring>
+        <name>msg_no_hist</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="20"/>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_113a7e44b057b2a3dfe84864e6e955313" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_get_hist</definition>
+        <argsstring></argsstring>
+        <name>msg_get_hist</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="21"/>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_172324582cd40a329d7d29f6a2ca9738e" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_put_hist</definition>
+        <argsstring></argsstring>
+        <name>msg_put_hist</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="22"/>
+        <referencedby refid="preserve_8h_10725425e14f501da1e2fc612d7854c01" compoundref="preserve_8c" startline="140" endline="172">put_history</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_178b4e52380a3d91b131c074eea130b82" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_hist_err</definition>
+        <argsstring></argsstring>
+        <name>msg_hist_err</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="23"/>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_141d93d2d187e1c3836391e695f8344a7" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_bad_hist</definition>
+        <argsstring></argsstring>
+        <name>msg_bad_hist</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="24"/>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_1c96834cc1626aa91d6edfb4f59e3a742" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_bad_conf</definition>
+        <argsstring></argsstring>
+        <name>msg_bad_conf</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="25"/>
+        <referencedby refid="webalizer_8c_17e50c67e6aba9c0c3025c04b0a7aedc4" compoundref="webalizer_8c" startline="1443" endline="1681">get_config</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_1677f59db55311afd2a3a860c1e36e004" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_bad_key</definition>
+        <argsstring></argsstring>
+        <name>msg_bad_key</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="26"/>
+        <referencedby refid="webalizer_8c_17e50c67e6aba9c0c3025c04b0a7aedc4" compoundref="webalizer_8c" startline="1443" endline="1681">get_config</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_1fa5fa3fc2684b89b20a57f5081e6cfe1" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_bad_date</definition>
+        <argsstring></argsstring>
+        <name>msg_bad_date</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="27"/>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_1a7d1a260e3b1ac61b06f7e7eb22b35f8" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_ign_nscp</definition>
+        <argsstring></argsstring>
+        <name>msg_ign_nscp</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="28"/>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_1bc0778be3e6f0173eda81a2a70e97fee" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_bad_rec</definition>
+        <argsstring></argsstring>
+        <name>msg_bad_rec</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="29"/>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_1fd51ae08588a9e067ada37728d9d3d3d" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_no_vrec</definition>
+        <argsstring></argsstring>
+        <name>msg_no_vrec</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="30"/>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_15e34eccd1e2035aea1b7159063d915f8" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_gen_rpt</definition>
+        <argsstring></argsstring>
+        <name>msg_gen_rpt</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="31"/>
+        <referencedby refid="output_8h_1a88c70787fac7e72d1f6509b38b6bcab" compoundref="output_8c" startline="325" endline="531">write_month_html</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_16e6be76001566785c2bcfcbab6dbca41" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_gen_sum</definition>
+        <argsstring></argsstring>
+        <name>msg_gen_sum</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="32"/>
+        <referencedby refid="output_8h_190b458b70bbeed91acc9ec79062f6ac7" compoundref="output_8c" startline="2450" endline="2591">write_main_index</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_12911108863867222d664581ddfa69db0" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_get_data</definition>
+        <argsstring></argsstring>
+        <name>msg_get_data</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="33"/>
+        <referencedby refid="preserve_8h_187684b62a3f6bfdc76f25d5fb679c901" compoundref="preserve_8c" startline="405" endline="758">restore_state</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_1b9771714bf044067d9c69fe0e7490bb4" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_put_data</definition>
+        <argsstring></argsstring>
+        <name>msg_put_data</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="34"/>
+        <referencedby refid="preserve_8h_130d384683c4584a041792cf314051fa3" compoundref="preserve_8c" startline="178" endline="399">save_state</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_1b6bff39e242fa874be2f2473bc87cd3f" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_no_data</definition>
+        <argsstring></argsstring>
+        <name>msg_no_data</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="35"/>
+        <referencedby refid="preserve_8h_187684b62a3f6bfdc76f25d5fb679c901" compoundref="preserve_8c" startline="405" endline="758">restore_state</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_18e438fc75d1860600b450deead48c385" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_bad_data</definition>
+        <argsstring></argsstring>
+        <name>msg_bad_data</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="36"/>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_1d78d59d0e6763c1c3eee300b87985f85" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_data_err</definition>
+        <argsstring></argsstring>
+        <name>msg_data_err</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="37"/>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_15dc0ad29f3bcca57145a156d92c331c2" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_dup_data</definition>
+        <argsstring></argsstring>
+        <name>msg_dup_data</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="38"/>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_1e1ba4137910c0624529a95d485160da8" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_dns_nocf</definition>
+        <argsstring></argsstring>
+        <name>msg_dns_nocf</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="40"/>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_176e75b9036f799fbd887d7a3222e01ca" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_dns_nodb</definition>
+        <argsstring></argsstring>
+        <name>msg_dns_nodb</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="41"/>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_1a488fc78d64f1c5208d73d133d089452" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_dns_nolk</definition>
+        <argsstring></argsstring>
+        <name>msg_dns_nolk</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="42"/>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_1b73f8c1a203f27cb555899a882beed0a" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_dns_usec</definition>
+        <argsstring></argsstring>
+        <name>msg_dns_usec</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="43"/>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_12b21e7d80cef6c8ac7f7ad94a56e2dc6" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_dns_rslf</definition>
+        <argsstring></argsstring>
+        <name>msg_dns_rslf</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="44"/>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_19f52d036b0b7b7550e759af41428d725" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_dns_none</definition>
+        <argsstring></argsstring>
+        <name>msg_dns_none</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="45"/>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_1895dc95a6113902a3d50d9cc7402e958" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_nomem_ts</definition>
+        <argsstring></argsstring>
+        <name>msg_nomem_ts</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="47"/>
+        <referencedby refid="output_8h_1a88c70787fac7e72d1f6509b38b6bcab" compoundref="output_8c" startline="325" endline="531">write_month_html</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_123d055f2dae443bacaf9abc8e5d25dc7" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_nomem_tr</definition>
+        <argsstring></argsstring>
+        <name>msg_nomem_tr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="48"/>
+        <referencedby refid="output_8h_1a88c70787fac7e72d1f6509b38b6bcab" compoundref="output_8c" startline="325" endline="531">write_month_html</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_10818c9fe28426f27e863c5d1d6971be7" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_nomem_tu</definition>
+        <argsstring></argsstring>
+        <name>msg_nomem_tu</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="49"/>
+        <referencedby refid="output_8h_1a88c70787fac7e72d1f6509b38b6bcab" compoundref="output_8c" startline="325" endline="531">write_month_html</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_172748e86d00f8672f17b1e80fe93029e" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_nomem_tc</definition>
+        <argsstring></argsstring>
+        <name>msg_nomem_tc</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="50"/>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_16e6ba456bc92e8ce0d6955c37f8ca9dd" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_nomem_ta</definition>
+        <argsstring></argsstring>
+        <name>msg_nomem_ta</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="51"/>
+        <referencedby refid="output_8h_1a88c70787fac7e72d1f6509b38b6bcab" compoundref="output_8c" startline="325" endline="531">write_month_html</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_18fa82c2055a9fa9ee57d49129758cf14" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_nomem_tsr</definition>
+        <argsstring></argsstring>
+        <name>msg_nomem_tsr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="52"/>
+        <referencedby refid="output_8h_1a88c70787fac7e72d1f6509b38b6bcab" compoundref="output_8c" startline="325" endline="531">write_month_html</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_112eac62ea5fd36e5ef1692197451fe16" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_nomem_ti</definition>
+        <argsstring></argsstring>
+        <name>msg_nomem_ti</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="53"/>
+        <referencedby refid="output_8h_1a88c70787fac7e72d1f6509b38b6bcab" compoundref="output_8c" startline="325" endline="531">write_month_html</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_10394677512879753019322aa7714d053" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_nomem_dh</definition>
+        <argsstring></argsstring>
+        <name>msg_nomem_dh</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="54"/>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_1c3a28cccaa2a946ac079813c3a62566a" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_nomem_mh</definition>
+        <argsstring></argsstring>
+        <name>msg_nomem_mh</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="55"/>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_14f94ee12bccb4680d59196515afb79fc" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_nomem_u</definition>
+        <argsstring></argsstring>
+        <name>msg_nomem_u</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="56"/>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_1e02a3168a80b6a9818341b0a5f85deef" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_nomem_a</definition>
+        <argsstring></argsstring>
+        <name>msg_nomem_a</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="57"/>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_10c816d6a70c7e1bde625077d07327582" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_nomem_r</definition>
+        <argsstring></argsstring>
+        <name>msg_nomem_r</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="58"/>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_1c16f110828a2baa76b8a63f213a81022" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_nomem_sc</definition>
+        <argsstring></argsstring>
+        <name>msg_nomem_sc</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="59"/>
+        <referencedby refid="webalizer_8c_12b1002ec17d1cd1e6901514b8b6de058" compoundref="webalizer_8c" startline="1883" endline="1936">srch_string</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_137cc2bae5377bb30bb07d887fe762c38" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_nomem_i</definition>
+        <argsstring></argsstring>
+        <name>msg_nomem_i</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="60"/>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_11ef9a73473db9b45b770351a8c69ff33" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_big_rec</definition>
+        <argsstring></argsstring>
+        <name>msg_big_rec</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="62"/>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_16ce7f8ad0ab920f3113dff9e936dc9a5" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_big_host</definition>
+        <argsstring></argsstring>
+        <name>msg_big_host</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="63"/>
+        <referencedby refid="parser_8c_12b00ce99cc8f1387d75aeb7193968b21" compoundref="parser_8c" startline="379" endline="502">parse_record_squid</referencedby>
+        <referencedby refid="parser_8c_1f79ff394bf86e83cffbcb560096f5052" compoundref="parser_8c" startline="220" endline="373">parse_record_web</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_15cf2461dfbe62c32f225953b0326462c" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_big_date</definition>
+        <argsstring></argsstring>
+        <name>msg_big_date</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="64"/>
+        <referencedby refid="parser_8c_1f79ff394bf86e83cffbcb560096f5052" compoundref="parser_8c" startline="220" endline="373">parse_record_web</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_143eab59f53dc27f4f768755b759684f7" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_big_req</definition>
+        <argsstring></argsstring>
+        <name>msg_big_req</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="65"/>
+        <referencedby refid="parser_8c_12b00ce99cc8f1387d75aeb7193968b21" compoundref="parser_8c" startline="379" endline="502">parse_record_squid</referencedby>
+        <referencedby refid="parser_8c_1f79ff394bf86e83cffbcb560096f5052" compoundref="parser_8c" startline="220" endline="373">parse_record_web</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_1ae731a9fc075ed277c6ee4b8a6384ea0" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_big_ref</definition>
+        <argsstring></argsstring>
+        <name>msg_big_ref</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="66"/>
+        <referencedby refid="parser_8c_1f79ff394bf86e83cffbcb560096f5052" compoundref="parser_8c" startline="220" endline="373">parse_record_web</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_19f2cc97f2917013977b0b0969a5c7960" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_big_user</definition>
+        <argsstring></argsstring>
+        <name>msg_big_user</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="67"/>
+        <referencedby refid="parser_8c_1f79ff394bf86e83cffbcb560096f5052" compoundref="parser_8c" startline="220" endline="373">parse_record_web</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_1a2ee47975118e6f57ce4a10d1baeef26" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_big_one</definition>
+        <argsstring></argsstring>
+        <name>msg_big_one</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="68"/>
+        <referencedby refid="hashtab_8c_177e03d0d91a9f6365711aed781c218f2" compoundref="hashtab_8c" startline="556" endline="584">new_anode</referencedby>
+        <referencedby refid="linklist_8c_1efe1a363b71eccafc7f2c8e31f8f2b05" compoundref="linklist_8c" startline="167" endline="184">new_glist</referencedby>
+        <referencedby refid="hashtab_8c_1ca7c730d21349d04dcff3556d0a89fec" compoundref="hashtab_8c" startline="120" endline="149">new_hnode</referencedby>
+        <referencedby refid="hashtab_8c_1850b758cda6a66b5563aa41454279b76" compoundref="hashtab_8c" startline="777" endline="805">new_inode</referencedby>
+        <referencedby refid="linklist_8c_12818014b7feb4f6db3a0884d0c7caf0f" compoundref="linklist_8c" startline="111" endline="123">new_nlist</referencedby>
+        <referencedby refid="hashtab_8c_1b9cf53c565bbf77a87c29f745ef76a80" compoundref="hashtab_8c" startline="437" endline="465">new_rnode</referencedby>
+        <referencedby refid="hashtab_8c_140b9a825d5fab2416f5911a3255980f9" compoundref="hashtab_8c" startline="672" endline="699">new_snode</referencedby>
+        <referencedby refid="hashtab_8c_1e97ded5fe5fa045e492128b73ff18c8b" compoundref="hashtab_8c" startline="310" endline="338">new_unode</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_1ec2af564e53fa3fd26d6c38709369ae7" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_no_open</definition>
+        <argsstring></argsstring>
+        <name>msg_no_open</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="70"/>
+        <referencedby refid="output_8h_1e3a7ea5eb1ee0a6be7ae6e674102897c" compoundref="output_8c" startline="2891" endline="2903">open_out_file</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_19ba617b9ad4b243163879779992cb922" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* h_usage1</definition>
+        <argsstring></argsstring>
+        <name>h_usage1</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="72"/>
+        <referencedby refid="webalizer_8c_1beb1db8f30c512b9050440ec49248364" compoundref="webalizer_8c" startline="1744" endline="1751">print_opts</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_13b3adac04f9e05f7ff5b592fcf18cdc6" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* h_usage2</definition>
+        <argsstring></argsstring>
+        <name>h_usage2</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="73"/>
+        <referencedby refid="webalizer_8c_1beb1db8f30c512b9050440ec49248364" compoundref="webalizer_8c" startline="1744" endline="1751">print_opts</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_1b5b6cedf99598af62b8cd4bc308493b4" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* h_msg[]</definition>
+        <argsstring>[]</argsstring>
+        <name>h_msg</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="74"/>
+        <referencedby refid="webalizer_8c_1beb1db8f30c512b9050440ec49248364" compoundref="webalizer_8c" startline="1744" endline="1751">print_opts</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_13d3b7751d6e494d468adb748ca65167c" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_hhdr_sp</definition>
+        <argsstring></argsstring>
+        <name>msg_hhdr_sp</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="78"/>
+        <referencedby refid="output_8c_10bc1fdaca7513c4813773bef5529008e" compoundref="output_8c" startline="148" endline="254">write_html_head</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_12b9f2f69e665448e249b8ce01055196e" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_hhdr_gt</definition>
+        <argsstring></argsstring>
+        <name>msg_hhdr_gt</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="79"/>
+        <referencedby refid="output_8c_10bc1fdaca7513c4813773bef5529008e" compoundref="output_8c" startline="148" endline="254">write_html_head</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_1b0f683bbdd193f7ce1952965bed2a573" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_main_us</definition>
+        <argsstring></argsstring>
+        <name>msg_main_us</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="81"/>
+        <referencedby refid="output_8h_190b458b70bbeed91acc9ec79062f6ac7" compoundref="output_8c" startline="2450" endline="2591">write_main_index</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_1673e4ce0cc7ef54ce149c46dfa763d1c" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_main_per</definition>
+        <argsstring></argsstring>
+        <name>msg_main_per</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="82"/>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_1d2636af1af9f0438fe706d7537da2b11" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_main_sum</definition>
+        <argsstring></argsstring>
+        <name>msg_main_sum</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="83"/>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_153f4fba45ae38690dc69303c2f6bc612" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_main_da</definition>
+        <argsstring></argsstring>
+        <name>msg_main_da</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="84"/>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_1735484375c2c2b75633f58972cb64608" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_main_mt</definition>
+        <argsstring></argsstring>
+        <name>msg_main_mt</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="85"/>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_1cab39528c85f8dbabed2e31bb5189b03" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_hmth_du</definition>
+        <argsstring></argsstring>
+        <name>msg_hmth_du</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="87"/>
+        <referencedby refid="output_8h_1a88c70787fac7e72d1f6509b38b6bcab" compoundref="output_8c" startline="325" endline="531">write_month_html</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_1b80bdfb304ceb290c6072c62d86fe010" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_hmth_hu</definition>
+        <argsstring></argsstring>
+        <name>msg_hmth_hu</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="88"/>
+        <referencedby refid="output_8h_1a88c70787fac7e72d1f6509b38b6bcab" compoundref="output_8c" startline="325" endline="531">write_month_html</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_1445f2712cd567c8d33b7fb797843dea0" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_h_by</definition>
+        <argsstring></argsstring>
+        <name>msg_h_by</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="90"/>
+        <referencedby refid="output_8c_18459026bf062636220025d736ae99fa7" compoundref="output_8c" startline="972" endline="1079">top_sites_table</referencedby>
+        <referencedby refid="output_8c_167742ac3286c8dd6e07650560a96e228" compoundref="output_8c" startline="1158" endline="1284">top_urls_table</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_141aae7d7f619d71ff5b47f541d3c8dfd" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_h_avg</definition>
+        <argsstring></argsstring>
+        <name>msg_h_avg</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="91"/>
+        <referencedby refid="output_8c_1bed9fdc7ecf13c9399e3e41bd583abd9" compoundref="output_8c" startline="881" endline="966">hourly_total_table</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_1081ce53502d2128996c22bef5bd24a53" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_h_max</definition>
+        <argsstring></argsstring>
+        <name>msg_h_max</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="92"/>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_155b57954b9d1fe93bc7ddd126a839db0" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_h_total</definition>
+        <argsstring></argsstring>
+        <name>msg_h_total</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="93"/>
+        <referencedby refid="output_8c_1bed9fdc7ecf13c9399e3e41bd583abd9" compoundref="output_8c" startline="881" endline="966">hourly_total_table</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_1dafe58551b800a16ddc8b3111529262f" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_h_totals</definition>
+        <argsstring></argsstring>
+        <name>msg_h_totals</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="94"/>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_14ea7eb5797dae19227edd460213b7b0a" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_h_day</definition>
+        <argsstring></argsstring>
+        <name>msg_h_day</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="95"/>
+        <referencedby refid="output_8c_124968f52f4cb828c450b4357d0da9326" compoundref="output_8c" startline="804" endline="875">daily_total_table</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_13f7e8b2df4f2e24306b823798e8ee780" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_h_mth</definition>
+        <argsstring></argsstring>
+        <name>msg_h_mth</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="96"/>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_175d18a9846e48af78b39df85c88b425e" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_h_hour</definition>
+        <argsstring></argsstring>
+        <name>msg_h_hour</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="97"/>
+        <referencedby refid="output_8c_1bed9fdc7ecf13c9399e3e41bd583abd9" compoundref="output_8c" startline="881" endline="966">hourly_total_table</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_1529f40f7939bbf363a37235b1b209b62" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_h_hits</definition>
+        <argsstring></argsstring>
+        <name>msg_h_hits</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="98"/>
+        <referencedby refid="output_8c_14f27932d464425450d0c11106ae0c2fe" compoundref="output_8c" startline="1713" endline="1769">all_agents_page</referencedby>
+        <referencedby refid="output_8c_1ffa5d4248e6a8d3946f094e5a16c026e" compoundref="output_8c" startline="1561" endline="1617">all_refs_page</referencedby>
+        <referencedby refid="output_8c_1b218b4268390f2e5c00ef1f303d3baad" compoundref="output_8c" startline="1846" endline="1882">all_search_page</referencedby>
+        <referencedby refid="output_8c_1c4e6c9fc2562755c38403dd45bdab4e9" compoundref="output_8c" startline="1085" endline="1152">all_sites_page</referencedby>
+        <referencedby refid="output_8c_1510367124c184f22aac1331c1412c7d5" compoundref="output_8c" startline="1290" endline="1353">all_urls_page</referencedby>
+        <referencedby refid="output_8c_1b1313f0c59efbacd626ea5fb185f126e" compoundref="output_8c" startline="1990" endline="2057">all_users_page</referencedby>
+        <referencedby refid="output_8c_124968f52f4cb828c450b4357d0da9326" compoundref="output_8c" startline="804" endline="875">daily_total_table</referencedby>
+        <referencedby refid="output_8c_113b9a7e783dc0408ef406d95e9a347a8" compoundref="output_8c" startline="2332" endline="2365">dump_all_agents</referencedby>
+        <referencedby refid="output_8c_1246f33aca4a4783b5b9853d70aa44d61" compoundref="output_8c" startline="2293" endline="2326">dump_all_refs</referencedby>
+        <referencedby refid="output_8c_146280cc9688bd8a784859589d0ca588e" compoundref="output_8c" startline="2414" endline="2444">dump_all_search</referencedby>
+        <referencedby refid="output_8c_11ff4091dce5e22d1f8f4cc034a78afec" compoundref="output_8c" startline="2210" endline="2247">dump_all_sites</referencedby>
+        <referencedby refid="output_8c_1d1bfd511fab3836f3e1d1867384b425f" compoundref="output_8c" startline="2253" endline="2287">dump_all_urls</referencedby>
+        <referencedby refid="output_8c_1a519e8d866cad7c01f72636d749a9f57" compoundref="output_8c" startline="2371" endline="2408">dump_all_users</referencedby>
+        <referencedby refid="output_8c_1bed9fdc7ecf13c9399e3e41bd583abd9" compoundref="output_8c" startline="881" endline="966">hourly_total_table</referencedby>
+        <referencedby refid="output_8c_155f5637d81e4b2847ea889ac14cbcc6b" compoundref="output_8c" startline="1623" endline="1707">top_agents_table</referencedby>
+        <referencedby refid="output_8c_172037da3c986417f62837bb8c96b60c0" compoundref="output_8c" startline="1359" endline="1455">top_entry_table</referencedby>
+        <referencedby refid="output_8c_1f175d11f499a6782ad34c4b21f6891e1" compoundref="output_8c" startline="1461" endline="1555">top_refs_table</referencedby>
+        <referencedby refid="output_8c_169ab2fc5b74afcb9c52ad9e0906cde88" compoundref="output_8c" startline="1775" endline="1840">top_search_table</referencedby>
+        <referencedby refid="output_8c_18459026bf062636220025d736ae99fa7" compoundref="output_8c" startline="972" endline="1079">top_sites_table</referencedby>
+        <referencedby refid="output_8c_167742ac3286c8dd6e07650560a96e228" compoundref="output_8c" startline="1158" endline="1284">top_urls_table</referencedby>
+        <referencedby refid="output_8c_12e8e6386a5b4fa3e5dafd4f2becfb3ce" compoundref="output_8c" startline="1888" endline="1984">top_users_table</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_1db4c9ee2d878d68d50a008b354042927" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_h_pages</definition>
+        <argsstring></argsstring>
+        <name>msg_h_pages</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="99"/>
+        <referencedby refid="output_8c_124968f52f4cb828c450b4357d0da9326" compoundref="output_8c" startline="804" endline="875">daily_total_table</referencedby>
+        <referencedby refid="output_8c_1bed9fdc7ecf13c9399e3e41bd583abd9" compoundref="output_8c" startline="881" endline="966">hourly_total_table</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_1daf199b209b9dd7996804b6018b8539f" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_h_visits</definition>
+        <argsstring></argsstring>
+        <name>msg_h_visits</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="100"/>
+        <referencedby refid="output_8c_1c4e6c9fc2562755c38403dd45bdab4e9" compoundref="output_8c" startline="1085" endline="1152">all_sites_page</referencedby>
+        <referencedby refid="output_8c_1b1313f0c59efbacd626ea5fb185f126e" compoundref="output_8c" startline="1990" endline="2057">all_users_page</referencedby>
+        <referencedby refid="output_8c_124968f52f4cb828c450b4357d0da9326" compoundref="output_8c" startline="804" endline="875">daily_total_table</referencedby>
+        <referencedby refid="output_8c_11ff4091dce5e22d1f8f4cc034a78afec" compoundref="output_8c" startline="2210" endline="2247">dump_all_sites</referencedby>
+        <referencedby refid="output_8c_1a519e8d866cad7c01f72636d749a9f57" compoundref="output_8c" startline="2371" endline="2408">dump_all_users</referencedby>
+        <referencedby refid="output_8c_172037da3c986417f62837bb8c96b60c0" compoundref="output_8c" startline="1359" endline="1455">top_entry_table</referencedby>
+        <referencedby refid="output_8c_18459026bf062636220025d736ae99fa7" compoundref="output_8c" startline="972" endline="1079">top_sites_table</referencedby>
+        <referencedby refid="output_8c_12e8e6386a5b4fa3e5dafd4f2becfb3ce" compoundref="output_8c" startline="1888" endline="1984">top_users_table</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_117cdd1238613c58645be27ec86da138c" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_h_files</definition>
+        <argsstring></argsstring>
+        <name>msg_h_files</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="101"/>
+        <referencedby refid="output_8c_1c4e6c9fc2562755c38403dd45bdab4e9" compoundref="output_8c" startline="1085" endline="1152">all_sites_page</referencedby>
+        <referencedby refid="output_8c_1b1313f0c59efbacd626ea5fb185f126e" compoundref="output_8c" startline="1990" endline="2057">all_users_page</referencedby>
+        <referencedby refid="output_8c_124968f52f4cb828c450b4357d0da9326" compoundref="output_8c" startline="804" endline="875">daily_total_table</referencedby>
+        <referencedby refid="output_8c_11ff4091dce5e22d1f8f4cc034a78afec" compoundref="output_8c" startline="2210" endline="2247">dump_all_sites</referencedby>
+        <referencedby refid="output_8c_1a519e8d866cad7c01f72636d749a9f57" compoundref="output_8c" startline="2371" endline="2408">dump_all_users</referencedby>
+        <referencedby refid="output_8c_1bed9fdc7ecf13c9399e3e41bd583abd9" compoundref="output_8c" startline="881" endline="966">hourly_total_table</referencedby>
+        <referencedby refid="output_8c_18459026bf062636220025d736ae99fa7" compoundref="output_8c" startline="972" endline="1079">top_sites_table</referencedby>
+        <referencedby refid="output_8c_12e8e6386a5b4fa3e5dafd4f2becfb3ce" compoundref="output_8c" startline="1888" endline="1984">top_users_table</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_140421f6c86f03b581ec81e010c8d0086" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_h_sites</definition>
+        <argsstring></argsstring>
+        <name>msg_h_sites</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="102"/>
+        <referencedby refid="output_8c_1c4e6c9fc2562755c38403dd45bdab4e9" compoundref="output_8c" startline="1085" endline="1152">all_sites_page</referencedby>
+        <referencedby refid="output_8c_124968f52f4cb828c450b4357d0da9326" compoundref="output_8c" startline="804" endline="875">daily_total_table</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_1b193be580f6d1d61bb87dfb4e9f8547c" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_h_xfer</definition>
+        <argsstring></argsstring>
+        <name>msg_h_xfer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="103"/>
+        <referencedby refid="output_8c_1c4e6c9fc2562755c38403dd45bdab4e9" compoundref="output_8c" startline="1085" endline="1152">all_sites_page</referencedby>
+        <referencedby refid="output_8c_1510367124c184f22aac1331c1412c7d5" compoundref="output_8c" startline="1290" endline="1353">all_urls_page</referencedby>
+        <referencedby refid="output_8c_1b1313f0c59efbacd626ea5fb185f126e" compoundref="output_8c" startline="1990" endline="2057">all_users_page</referencedby>
+        <referencedby refid="output_8c_124968f52f4cb828c450b4357d0da9326" compoundref="output_8c" startline="804" endline="875">daily_total_table</referencedby>
+        <referencedby refid="output_8c_11ff4091dce5e22d1f8f4cc034a78afec" compoundref="output_8c" startline="2210" endline="2247">dump_all_sites</referencedby>
+        <referencedby refid="output_8c_1d1bfd511fab3836f3e1d1867384b425f" compoundref="output_8c" startline="2253" endline="2287">dump_all_urls</referencedby>
+        <referencedby refid="output_8c_1a519e8d866cad7c01f72636d749a9f57" compoundref="output_8c" startline="2371" endline="2408">dump_all_users</referencedby>
+        <referencedby refid="output_8c_1bed9fdc7ecf13c9399e3e41bd583abd9" compoundref="output_8c" startline="881" endline="966">hourly_total_table</referencedby>
+        <referencedby refid="output_8c_18459026bf062636220025d736ae99fa7" compoundref="output_8c" startline="972" endline="1079">top_sites_table</referencedby>
+        <referencedby refid="output_8c_167742ac3286c8dd6e07650560a96e228" compoundref="output_8c" startline="1158" endline="1284">top_urls_table</referencedby>
+        <referencedby refid="output_8c_12e8e6386a5b4fa3e5dafd4f2becfb3ce" compoundref="output_8c" startline="1888" endline="1984">top_users_table</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_1389648e11c07ae97a6c19e049401a01f" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_h_hname</definition>
+        <argsstring></argsstring>
+        <name>msg_h_hname</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="104"/>
+        <referencedby refid="output_8c_1c4e6c9fc2562755c38403dd45bdab4e9" compoundref="output_8c" startline="1085" endline="1152">all_sites_page</referencedby>
+        <referencedby refid="output_8c_11ff4091dce5e22d1f8f4cc034a78afec" compoundref="output_8c" startline="2210" endline="2247">dump_all_sites</referencedby>
+        <referencedby refid="output_8c_18459026bf062636220025d736ae99fa7" compoundref="output_8c" startline="972" endline="1079">top_sites_table</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_1c2422ae6f0a2e8bdc0caa4fc75645f4b" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_h_url</definition>
+        <argsstring></argsstring>
+        <name>msg_h_url</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="105"/>
+        <referencedby refid="output_8c_1510367124c184f22aac1331c1412c7d5" compoundref="output_8c" startline="1290" endline="1353">all_urls_page</referencedby>
+        <referencedby refid="output_8c_1d1bfd511fab3836f3e1d1867384b425f" compoundref="output_8c" startline="2253" endline="2287">dump_all_urls</referencedby>
+        <referencedby refid="output_8c_172037da3c986417f62837bb8c96b60c0" compoundref="output_8c" startline="1359" endline="1455">top_entry_table</referencedby>
+        <referencedby refid="output_8c_167742ac3286c8dd6e07650560a96e228" compoundref="output_8c" startline="1158" endline="1284">top_urls_table</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_188ef492f810cce55301b0422c8c135ec" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_h_agent</definition>
+        <argsstring></argsstring>
+        <name>msg_h_agent</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="106"/>
+        <referencedby refid="output_8c_14f27932d464425450d0c11106ae0c2fe" compoundref="output_8c" startline="1713" endline="1769">all_agents_page</referencedby>
+        <referencedby refid="output_8c_113b9a7e783dc0408ef406d95e9a347a8" compoundref="output_8c" startline="2332" endline="2365">dump_all_agents</referencedby>
+        <referencedby refid="output_8c_155f5637d81e4b2847ea889ac14cbcc6b" compoundref="output_8c" startline="1623" endline="1707">top_agents_table</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_1044f17c6b922b4c62fcd9d60dc5743b6" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_h_ref</definition>
+        <argsstring></argsstring>
+        <name>msg_h_ref</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="107"/>
+        <referencedby refid="output_8c_1ffa5d4248e6a8d3946f094e5a16c026e" compoundref="output_8c" startline="1561" endline="1617">all_refs_page</referencedby>
+        <referencedby refid="output_8c_1246f33aca4a4783b5b9853d70aa44d61" compoundref="output_8c" startline="2293" endline="2326">dump_all_refs</referencedby>
+        <referencedby refid="output_8c_1f175d11f499a6782ad34c4b21f6891e1" compoundref="output_8c" startline="1461" endline="1555">top_refs_table</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_13d13e2f231a2e408c85d587974fab840" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_h_ctry</definition>
+        <argsstring></argsstring>
+        <name>msg_h_ctry</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="108"/>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_1a60f1bd74d1fb88de31964981fc8d0d6" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_h_search</definition>
+        <argsstring></argsstring>
+        <name>msg_h_search</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="109"/>
+        <referencedby refid="output_8c_1b218b4268390f2e5c00ef1f303d3baad" compoundref="output_8c" startline="1846" endline="1882">all_search_page</referencedby>
+        <referencedby refid="output_8c_146280cc9688bd8a784859589d0ca588e" compoundref="output_8c" startline="2414" endline="2444">dump_all_search</referencedby>
+        <referencedby refid="output_8c_169ab2fc5b74afcb9c52ad9e0906cde88" compoundref="output_8c" startline="1775" endline="1840">top_search_table</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_104b9008a2c6d6752de424ad84772f803" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_h_uname</definition>
+        <argsstring></argsstring>
+        <name>msg_h_uname</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="110"/>
+        <referencedby refid="output_8c_1b1313f0c59efbacd626ea5fb185f126e" compoundref="output_8c" startline="1990" endline="2057">all_users_page</referencedby>
+        <referencedby refid="output_8c_1a519e8d866cad7c01f72636d749a9f57" compoundref="output_8c" startline="2371" endline="2408">dump_all_users</referencedby>
+        <referencedby refid="output_8c_12e8e6386a5b4fa3e5dafd4f2becfb3ce" compoundref="output_8c" startline="1888" endline="1984">top_users_table</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_1f477d45ee4c0a42dd8e2badd00583eb3" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_hlnk_ds</definition>
+        <argsstring></argsstring>
+        <name>msg_hlnk_ds</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="112"/>
+        <referencedby refid="output_8c_188fc4fa78dab50f356e5daebd1c0efcb" compoundref="output_8c" startline="537" endline="565">month_links</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_1eae96628c726d260b32e2d22d1d37960" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_hlnk_hs</definition>
+        <argsstring></argsstring>
+        <name>msg_hlnk_hs</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="113"/>
+        <referencedby refid="output_8c_188fc4fa78dab50f356e5daebd1c0efcb" compoundref="output_8c" startline="537" endline="565">month_links</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_1f4980dbff649e1801ea68f5dbd556ab5" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_hlnk_u</definition>
+        <argsstring></argsstring>
+        <name>msg_hlnk_u</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="114"/>
+        <referencedby refid="output_8c_188fc4fa78dab50f356e5daebd1c0efcb" compoundref="output_8c" startline="537" endline="565">month_links</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_1cfaa06480a2bdd2784ddd82913829eb5" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_hlnk_s</definition>
+        <argsstring></argsstring>
+        <name>msg_hlnk_s</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="115"/>
+        <referencedby refid="output_8c_188fc4fa78dab50f356e5daebd1c0efcb" compoundref="output_8c" startline="537" endline="565">month_links</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_163bc4c24fa58aadfe6b07847a5385727" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_hlnk_a</definition>
+        <argsstring></argsstring>
+        <name>msg_hlnk_a</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="116"/>
+        <referencedby refid="output_8c_188fc4fa78dab50f356e5daebd1c0efcb" compoundref="output_8c" startline="537" endline="565">month_links</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_1db006844c6196bd298ae047e146032c6" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_hlnk_c</definition>
+        <argsstring></argsstring>
+        <name>msg_hlnk_c</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="117"/>
+        <referencedby refid="output_8c_188fc4fa78dab50f356e5daebd1c0efcb" compoundref="output_8c" startline="537" endline="565">month_links</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_197ec2c175568d35b3720480b56bc5e5e" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_hlnk_r</definition>
+        <argsstring></argsstring>
+        <name>msg_hlnk_r</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="118"/>
+        <referencedby refid="output_8c_188fc4fa78dab50f356e5daebd1c0efcb" compoundref="output_8c" startline="537" endline="565">month_links</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_1cfa5f6db28bff540ecfe2ee1f05323c2" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_hlnk_en</definition>
+        <argsstring></argsstring>
+        <name>msg_hlnk_en</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="119"/>
+        <referencedby refid="output_8c_188fc4fa78dab50f356e5daebd1c0efcb" compoundref="output_8c" startline="537" endline="565">month_links</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_1295cbfa997b35a310627cd5efd8e6634" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_hlnk_ex</definition>
+        <argsstring></argsstring>
+        <name>msg_hlnk_ex</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="120"/>
+        <referencedby refid="output_8c_188fc4fa78dab50f356e5daebd1c0efcb" compoundref="output_8c" startline="537" endline="565">month_links</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_16dfdb6f431662bebeaab6328c39c6193" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_hlnk_sr</definition>
+        <argsstring></argsstring>
+        <name>msg_hlnk_sr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="121"/>
+        <referencedby refid="output_8c_188fc4fa78dab50f356e5daebd1c0efcb" compoundref="output_8c" startline="537" endline="565">month_links</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_120fdd1ef12a927f7b070c9fe5b21fe8a" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_hlnk_i</definition>
+        <argsstring></argsstring>
+        <name>msg_hlnk_i</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="122"/>
+        <referencedby refid="output_8c_188fc4fa78dab50f356e5daebd1c0efcb" compoundref="output_8c" startline="537" endline="565">month_links</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_1115bb889848f5396a3c846d99fdb8cf1" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_mtot_ms</definition>
+        <argsstring></argsstring>
+        <name>msg_mtot_ms</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="124"/>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_11adc3b94c54819b8241bc89e33972019" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_mtot_th</definition>
+        <argsstring></argsstring>
+        <name>msg_mtot_th</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="125"/>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_145d784d37cfd4d12fc943d1995c6f862" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_mtot_tf</definition>
+        <argsstring></argsstring>
+        <name>msg_mtot_tf</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="126"/>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_1c39bd58ece81013055e1f9b21a4951d0" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_mtot_tx</definition>
+        <argsstring></argsstring>
+        <name>msg_mtot_tx</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="127"/>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_1e85545a7f1d2036cdff6842e233f48d0" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_mtot_us</definition>
+        <argsstring></argsstring>
+        <name>msg_mtot_us</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="128"/>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_14608e0e23e3f02698e40cfc281e2d455" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_mtot_ur</definition>
+        <argsstring></argsstring>
+        <name>msg_mtot_ur</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="129"/>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_1b53fda0285dcb7a6a402ec79a9b323c8" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_mtot_ua</definition>
+        <argsstring></argsstring>
+        <name>msg_mtot_ua</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="130"/>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_187aaba642eff139a1c1f3dc8dbf06619" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_mtot_uu</definition>
+        <argsstring></argsstring>
+        <name>msg_mtot_uu</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="131"/>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_1d4449945a4dc512f4dd3727924453a33" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_mtot_ui</definition>
+        <argsstring></argsstring>
+        <name>msg_mtot_ui</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="132"/>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_13d3f1f9a70097fa5b6b9e30eaafb36c8" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_mtot_mhd</definition>
+        <argsstring></argsstring>
+        <name>msg_mtot_mhd</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="133"/>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_1834e68dde177f5f90df4de14e7331d90" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_mtot_mhh</definition>
+        <argsstring></argsstring>
+        <name>msg_mtot_mhh</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="134"/>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_1d7319b2cc4408fddfa3a3f933775f9d5" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_mtot_mfd</definition>
+        <argsstring></argsstring>
+        <name>msg_mtot_mfd</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="135"/>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_15b64e45525d89ca959433061e93942ad" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_mtot_mpd</definition>
+        <argsstring></argsstring>
+        <name>msg_mtot_mpd</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="136"/>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_1d0d02efa35a7a154c182ddf9947802c8" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_mtot_mvd</definition>
+        <argsstring></argsstring>
+        <name>msg_mtot_mvd</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="137"/>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_155d1ba1abbc14d2647af21b755fac0cc" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_mtot_mkd</definition>
+        <argsstring></argsstring>
+        <name>msg_mtot_mkd</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="138"/>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_120a450aa269b2373a7b1aeb026bb0761" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_mtot_rc</definition>
+        <argsstring></argsstring>
+        <name>msg_mtot_rc</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="139"/>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_105ed4ddbb649bb7506fc41d1607127ae" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_dtot_ds</definition>
+        <argsstring></argsstring>
+        <name>msg_dtot_ds</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="141"/>
+        <referencedby refid="output_8c_124968f52f4cb828c450b4357d0da9326" compoundref="output_8c" startline="804" endline="875">daily_total_table</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_15b672337bba98d0ce3e3f0b458bb764e" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_htot_hs</definition>
+        <argsstring></argsstring>
+        <name>msg_htot_hs</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="143"/>
+        <referencedby refid="output_8c_1bed9fdc7ecf13c9399e3e41bd583abd9" compoundref="output_8c" startline="881" endline="966">hourly_total_table</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_1d86bfd951b9d1f489e0fac664d76643e" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_ctry_use</definition>
+        <argsstring></argsstring>
+        <name>msg_ctry_use</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="145"/>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_1ccd25ad9dd7b9fb588071f55d6a3c98c" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_top_top</definition>
+        <argsstring></argsstring>
+        <name>msg_top_top</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="147"/>
+        <referencedby refid="output_8c_155f5637d81e4b2847ea889ac14cbcc6b" compoundref="output_8c" startline="1623" endline="1707">top_agents_table</referencedby>
+        <referencedby refid="output_8c_172037da3c986417f62837bb8c96b60c0" compoundref="output_8c" startline="1359" endline="1455">top_entry_table</referencedby>
+        <referencedby refid="output_8c_1f175d11f499a6782ad34c4b21f6891e1" compoundref="output_8c" startline="1461" endline="1555">top_refs_table</referencedby>
+        <referencedby refid="output_8c_169ab2fc5b74afcb9c52ad9e0906cde88" compoundref="output_8c" startline="1775" endline="1840">top_search_table</referencedby>
+        <referencedby refid="output_8c_18459026bf062636220025d736ae99fa7" compoundref="output_8c" startline="972" endline="1079">top_sites_table</referencedby>
+        <referencedby refid="output_8c_167742ac3286c8dd6e07650560a96e228" compoundref="output_8c" startline="1158" endline="1284">top_urls_table</referencedby>
+        <referencedby refid="output_8c_12e8e6386a5b4fa3e5dafd4f2becfb3ce" compoundref="output_8c" startline="1888" endline="1984">top_users_table</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_1b3bbb0a05acd36a0ca6f294ddedf5576" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_top_of</definition>
+        <argsstring></argsstring>
+        <name>msg_top_of</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="148"/>
+        <referencedby refid="output_8c_155f5637d81e4b2847ea889ac14cbcc6b" compoundref="output_8c" startline="1623" endline="1707">top_agents_table</referencedby>
+        <referencedby refid="output_8c_172037da3c986417f62837bb8c96b60c0" compoundref="output_8c" startline="1359" endline="1455">top_entry_table</referencedby>
+        <referencedby refid="output_8c_1f175d11f499a6782ad34c4b21f6891e1" compoundref="output_8c" startline="1461" endline="1555">top_refs_table</referencedby>
+        <referencedby refid="output_8c_169ab2fc5b74afcb9c52ad9e0906cde88" compoundref="output_8c" startline="1775" endline="1840">top_search_table</referencedby>
+        <referencedby refid="output_8c_18459026bf062636220025d736ae99fa7" compoundref="output_8c" startline="972" endline="1079">top_sites_table</referencedby>
+        <referencedby refid="output_8c_167742ac3286c8dd6e07650560a96e228" compoundref="output_8c" startline="1158" endline="1284">top_urls_table</referencedby>
+        <referencedby refid="output_8c_12e8e6386a5b4fa3e5dafd4f2becfb3ce" compoundref="output_8c" startline="1888" endline="1984">top_users_table</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_156698ea4f9c0b356cf97ee37ff53ff2f" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_top_s</definition>
+        <argsstring></argsstring>
+        <name>msg_top_s</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="149"/>
+        <referencedby refid="output_8c_18459026bf062636220025d736ae99fa7" compoundref="output_8c" startline="972" endline="1079">top_sites_table</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_17231f924432df2c0d2e056d15b7919ad" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_top_u</definition>
+        <argsstring></argsstring>
+        <name>msg_top_u</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="150"/>
+        <referencedby refid="output_8c_167742ac3286c8dd6e07650560a96e228" compoundref="output_8c" startline="1158" endline="1284">top_urls_table</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_183e30a010661cb0cfce5f54890d50b56" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_top_r</definition>
+        <argsstring></argsstring>
+        <name>msg_top_r</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="151"/>
+        <referencedby refid="output_8c_1f175d11f499a6782ad34c4b21f6891e1" compoundref="output_8c" startline="1461" endline="1555">top_refs_table</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_111ec258902060597b0beb56257c32dd0" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_top_a</definition>
+        <argsstring></argsstring>
+        <name>msg_top_a</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="152"/>
+        <referencedby refid="output_8c_155f5637d81e4b2847ea889ac14cbcc6b" compoundref="output_8c" startline="1623" endline="1707">top_agents_table</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_10879e9ab873ed888f733a2967b557756" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_top_c</definition>
+        <argsstring></argsstring>
+        <name>msg_top_c</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="153"/>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_18a3ac5eed2948b107c70b2d89b9c8605" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_top_en</definition>
+        <argsstring></argsstring>
+        <name>msg_top_en</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="154"/>
+        <referencedby refid="output_8c_172037da3c986417f62837bb8c96b60c0" compoundref="output_8c" startline="1359" endline="1455">top_entry_table</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_112234dbbb8a0a93eb2f2b43ea58e07d9" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_top_ex</definition>
+        <argsstring></argsstring>
+        <name>msg_top_ex</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="155"/>
+        <referencedby refid="output_8c_172037da3c986417f62837bb8c96b60c0" compoundref="output_8c" startline="1359" endline="1455">top_entry_table</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_1ac25e2239379aa97235561ba1b44c6ef" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_top_sr</definition>
+        <argsstring></argsstring>
+        <name>msg_top_sr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="156"/>
+        <referencedby refid="output_8c_169ab2fc5b74afcb9c52ad9e0906cde88" compoundref="output_8c" startline="1775" endline="1840">top_search_table</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_141943ef3550158b5d1b0eaa79bad301a" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_top_i</definition>
+        <argsstring></argsstring>
+        <name>msg_top_i</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="157"/>
+        <referencedby refid="output_8c_12e8e6386a5b4fa3e5dafd4f2becfb3ce" compoundref="output_8c" startline="1888" endline="1984">top_users_table</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_17bbd861b776a38bd532d4f29b0735a50" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_v_sites</definition>
+        <argsstring></argsstring>
+        <name>msg_v_sites</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="158"/>
+        <referencedby refid="output_8c_18459026bf062636220025d736ae99fa7" compoundref="output_8c" startline="972" endline="1079">top_sites_table</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_1f9cbd6a1a6ac705c14326ed3d64fd1c0" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_v_urls</definition>
+        <argsstring></argsstring>
+        <name>msg_v_urls</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="159"/>
+        <referencedby refid="output_8c_167742ac3286c8dd6e07650560a96e228" compoundref="output_8c" startline="1158" endline="1284">top_urls_table</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_126ccd1f09cf35a65c0ad152c9d44be8a" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_v_refs</definition>
+        <argsstring></argsstring>
+        <name>msg_v_refs</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="160"/>
+        <referencedby refid="output_8c_1f175d11f499a6782ad34c4b21f6891e1" compoundref="output_8c" startline="1461" endline="1555">top_refs_table</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_1e4c3f02df2f45e19ffab7bd99d0169d2" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_v_agents</definition>
+        <argsstring></argsstring>
+        <name>msg_v_agents</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="161"/>
+        <referencedby refid="output_8c_155f5637d81e4b2847ea889ac14cbcc6b" compoundref="output_8c" startline="1623" endline="1707">top_agents_table</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_10565fe1151bc9dd5de181b2d1de42350" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_v_search</definition>
+        <argsstring></argsstring>
+        <name>msg_v_search</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="162"/>
+        <referencedby refid="output_8c_169ab2fc5b74afcb9c52ad9e0906cde88" compoundref="output_8c" startline="1775" endline="1840">top_search_table</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_1bf4cb5cbd2d88d3791abfb27cdb883f9" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_v_users</definition>
+        <argsstring></argsstring>
+        <name>msg_v_users</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="163"/>
+        <referencedby refid="output_8c_12e8e6386a5b4fa3e5dafd4f2becfb3ce" compoundref="output_8c" startline="1888" endline="1984">top_users_table</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_156970821c884da0e4d8fd75e51bc37d9" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_title</definition>
+        <argsstring></argsstring>
+        <name>msg_title</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="165"/>
+        <referencedby refid="webalizer_8c_10ddf1224851353fc92bfbff6f499fa97" compoundref="webalizer_8c" startline="232" endline="1437">main</referencedby>
+        <referencedby refid="output_8c_10bc1fdaca7513c4813773bef5529008e" compoundref="output_8c" startline="148" endline="254">write_html_head</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_1b351e925c0e7fcdb3483ab94cba23c9c" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* msg_h_other</definition>
+        <argsstring></argsstring>
+        <name>msg_h_other</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="166"/>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_19a0b242c466188c82510261247faf983" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* s_month[12]</definition>
+        <argsstring>[12]</argsstring>
+        <name>s_month</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="168"/>
+        <referencedby refid="graphs_8c_158eec29feb4d1c90de8813c8c59d4fcd" compoundref="graphs_8c" startline="88" endline="288">year_graph6x</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_1e75828f9450cccbb02d410d60a6caa1d" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* l_month[12]</definition>
+        <argsstring>[12]</argsstring>
+        <name>l_month</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="169"/>
+        <referencedby refid="output_8c_14f27932d464425450d0c11106ae0c2fe" compoundref="output_8c" startline="1713" endline="1769">all_agents_page</referencedby>
+        <referencedby refid="output_8c_1ffa5d4248e6a8d3946f094e5a16c026e" compoundref="output_8c" startline="1561" endline="1617">all_refs_page</referencedby>
+        <referencedby refid="output_8c_1b218b4268390f2e5c00ef1f303d3baad" compoundref="output_8c" startline="1846" endline="1882">all_search_page</referencedby>
+        <referencedby refid="output_8c_1c4e6c9fc2562755c38403dd45bdab4e9" compoundref="output_8c" startline="1085" endline="1152">all_sites_page</referencedby>
+        <referencedby refid="output_8c_1510367124c184f22aac1331c1412c7d5" compoundref="output_8c" startline="1290" endline="1353">all_urls_page</referencedby>
+        <referencedby refid="output_8c_1b1313f0c59efbacd626ea5fb185f126e" compoundref="output_8c" startline="1990" endline="2057">all_users_page</referencedby>
+        <referencedby refid="output_8c_124968f52f4cb828c450b4357d0da9326" compoundref="output_8c" startline="804" endline="875">daily_total_table</referencedby>
+        <referencedby refid="output_8c_1bed9fdc7ecf13c9399e3e41bd583abd9" compoundref="output_8c" startline="881" endline="966">hourly_total_table</referencedby>
+        <referencedby refid="output_8h_1a88c70787fac7e72d1f6509b38b6bcab" compoundref="output_8c" startline="325" endline="531">write_month_html</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_16fbb1449f14f39208f656061d49c280b" prot="public" static="no" mutable="no">
+        <type><ref refid="structresponse__code" kindref="compound">response_code</ref></type>
+        <definition>struct response_code response[]</definition>
+        <argsstring>[]</argsstring>
+        <name>response</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="171"/>
+        <referencedby refid="webalizer_8h_1c13990c5857877d516d60af22bfbc492" compoundref="webalizer_8c" startline="1714" endline="1738">init_counters</referencedby>
+        <referencedby refid="output_8c_188fc4fa78dab50f356e5daebd1c0efcb" compoundref="output_8c" startline="537" endline="565">month_links</referencedby>
+        <referencedby refid="output_8h_1a88c70787fac7e72d1f6509b38b6bcab" compoundref="output_8c" startline="325" endline="531">write_month_html</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="lang_8h_12da4e4ffd517ae749587bd8692434663" prot="public" static="no" mutable="no">
+        <type><ref refid="structcountry__code" kindref="compound">country_code</ref></type>
+        <definition>struct country_code ctry[]</definition>
+        <argsstring>[]</argsstring>
+        <name>ctry</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/lang.h" line="172"/>
+        <referencedby refid="webalizer_8c_10ddf1224851353fc92bfbff6f499fa97" compoundref="webalizer_8c" startline="232" endline="1437">main</referencedby>
+        <referencedby refid="output_8c_1c1ecb6ecbe9f7218b2e9ccae79cf2f5f" compoundref="output_8c" startline="2063" endline="2204">top_ctry_table</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>_LANG_H</highlight></codeline>
+<codeline lineno="2"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>_LANG_H</highlight></codeline>
+<codeline lineno="3"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_18ae4b47621b125e915cee8ccdaa2095c" kindref="member">language</ref><sp/><sp/><sp/><sp/>;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_188e6df607f1a60fa253d40f651b00379" kindref="member">msg_records</ref><sp/>;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_161f6c7ec6657cd88a32549b14d43d489" kindref="member">msg_addresses</ref>;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_1c22eefe4a5b9307497ebdb835c9950f1" kindref="member">msg_ignored</ref><sp/>;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_1d0f59bbd0fcb26d5e153ffc4c1a907f8" kindref="member">msg_bad</ref><sp/><sp/><sp/><sp/><sp/>;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_1535c7dd66e495aae8b796efb12b07c26" kindref="member">msg_in</ref><sp/><sp/><sp/><sp/><sp/><sp/>;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_13356f081f77d31d5a6ec61e60dcd284b" kindref="member">msg_seconds</ref><sp/>;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_19e7542262695e0c68034a68d247830a0" kindref="member">msg_log_err</ref><sp/>;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_18ac6c7acc62fc13da0b2e7454234bab9" kindref="member">msg_log_use</ref><sp/>;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_138a10d8fc0f51c7a330c6fb6d6e471de" kindref="member">msg_dir_err</ref><sp/>;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_1dd2c26fd0af447d6b6b6aad63715299a" kindref="member">msg_dir_use</ref><sp/>;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_1753780d6a71f07ea59ad96c3b4425d3f" kindref="member">msg_cur_dir</ref><sp/>;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_16510de07acb9808935ed549a2050108d" kindref="member">msg_hostname</ref>;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_1e918ce031986bc8bf1a4f16337f23c88" kindref="member">msg_ign_hist</ref>;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_13fb184b8d4ab117fd5c15f062610c064" kindref="member">msg_no_hist</ref><sp/>;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_113a7e44b057b2a3dfe84864e6e955313" kindref="member">msg_get_hist</ref>;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_172324582cd40a329d7d29f6a2ca9738e" kindref="member">msg_put_hist</ref>;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_178b4e52380a3d91b131c074eea130b82" kindref="member">msg_hist_err</ref>;</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_141d93d2d187e1c3836391e695f8344a7" kindref="member">msg_bad_hist</ref>;</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_1c96834cc1626aa91d6edfb4f59e3a742" kindref="member">msg_bad_conf</ref>;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_1677f59db55311afd2a3a860c1e36e004" kindref="member">msg_bad_key</ref><sp/>;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_1fa5fa3fc2684b89b20a57f5081e6cfe1" kindref="member">msg_bad_date</ref>;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_1a7d1a260e3b1ac61b06f7e7eb22b35f8" kindref="member">msg_ign_nscp</ref>;</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_1bc0778be3e6f0173eda81a2a70e97fee" kindref="member">msg_bad_rec</ref><sp/>;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_1fd51ae08588a9e067ada37728d9d3d3d" kindref="member">msg_no_vrec</ref><sp/>;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_15e34eccd1e2035aea1b7159063d915f8" kindref="member">msg_gen_rpt</ref><sp/>;</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_16e6be76001566785c2bcfcbab6dbca41" kindref="member">msg_gen_sum</ref><sp/>;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_12911108863867222d664581ddfa69db0" kindref="member">msg_get_data</ref>;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_1b9771714bf044067d9c69fe0e7490bb4" kindref="member">msg_put_data</ref>;</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_1b6bff39e242fa874be2f2473bc87cd3f" kindref="member">msg_no_data</ref><sp/>;</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_18e438fc75d1860600b450deead48c385" kindref="member">msg_bad_data</ref>;</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_1d78d59d0e6763c1c3eee300b87985f85" kindref="member">msg_data_err</ref>;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_15dc0ad29f3bcca57145a156d92c331c2" kindref="member">msg_dup_data</ref>;</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_1e1ba4137910c0624529a95d485160da8" kindref="member">msg_dns_nocf</ref>;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_176e75b9036f799fbd887d7a3222e01ca" kindref="member">msg_dns_nodb</ref>;</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_1a488fc78d64f1c5208d73d133d089452" kindref="member">msg_dns_nolk</ref>;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_1b73f8c1a203f27cb555899a882beed0a" kindref="member">msg_dns_usec</ref>;</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_12b21e7d80cef6c8ac7f7ad94a56e2dc6" kindref="member">msg_dns_rslf</ref>;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_19f52d036b0b7b7550e759af41428d725" kindref="member">msg_dns_none</ref>;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_1895dc95a6113902a3d50d9cc7402e958" kindref="member">msg_nomem_ts</ref>;</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_123d055f2dae443bacaf9abc8e5d25dc7" kindref="member">msg_nomem_tr</ref>;</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_10818c9fe28426f27e863c5d1d6971be7" kindref="member">msg_nomem_tu</ref>;</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_172748e86d00f8672f17b1e80fe93029e" kindref="member">msg_nomem_tc</ref>;</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_16e6ba456bc92e8ce0d6955c37f8ca9dd" kindref="member">msg_nomem_ta</ref>;</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_18fa82c2055a9fa9ee57d49129758cf14" kindref="member">msg_nomem_tsr</ref>;</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_112eac62ea5fd36e5ef1692197451fe16" kindref="member">msg_nomem_ti</ref>;</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_10394677512879753019322aa7714d053" kindref="member">msg_nomem_dh</ref>;</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_1c3a28cccaa2a946ac079813c3a62566a" kindref="member">msg_nomem_mh</ref>;</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_14f94ee12bccb4680d59196515afb79fc" kindref="member">msg_nomem_u</ref><sp/>;</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_1e02a3168a80b6a9818341b0a5f85deef" kindref="member">msg_nomem_a</ref><sp/>;</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_10c816d6a70c7e1bde625077d07327582" kindref="member">msg_nomem_r</ref><sp/>;</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_1c16f110828a2baa76b8a63f213a81022" kindref="member">msg_nomem_sc</ref>;</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_137cc2bae5377bb30bb07d887fe762c38" kindref="member">msg_nomem_i</ref><sp/>;</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_11ef9a73473db9b45b770351a8c69ff33" kindref="member">msg_big_rec</ref><sp/>;</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_16ce7f8ad0ab920f3113dff9e936dc9a5" kindref="member">msg_big_host</ref>;</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_15cf2461dfbe62c32f225953b0326462c" kindref="member">msg_big_date</ref>;</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_143eab59f53dc27f4f768755b759684f7" kindref="member">msg_big_req</ref><sp/>;</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_1ae731a9fc075ed277c6ee4b8a6384ea0" kindref="member">msg_big_ref</ref><sp/>;</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_19f2cc97f2917013977b0b0969a5c7960" kindref="member">msg_big_user</ref>;</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_1a2ee47975118e6f57ce4a10d1baeef26" kindref="member">msg_big_one</ref><sp/>;</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_1ec2af564e53fa3fd26d6c38709369ae7" kindref="member">msg_no_open</ref><sp/>;</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_19ba617b9ad4b243163879779992cb922" kindref="member">h_usage1</ref><sp/><sp/><sp/><sp/>;</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_13b3adac04f9e05f7ff5b592fcf18cdc6" kindref="member">h_usage2</ref><sp/><sp/><sp/><sp/>;</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_1b5b6cedf99598af62b8cd4bc308493b4" kindref="member">h_msg</ref>[];</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>HTML<sp/>Strings<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_13d3b7751d6e494d468adb748ca65167c" kindref="member">msg_hhdr_sp</ref><sp/>;</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_12b9f2f69e665448e249b8ce01055196e" kindref="member">msg_hhdr_gt</ref><sp/>;</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_1b0f683bbdd193f7ce1952965bed2a573" kindref="member">msg_main_us</ref><sp/>;</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_1673e4ce0cc7ef54ce149c46dfa763d1c" kindref="member">msg_main_per</ref>;</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_1d2636af1af9f0438fe706d7537da2b11" kindref="member">msg_main_sum</ref>;</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_153f4fba45ae38690dc69303c2f6bc612" kindref="member">msg_main_da</ref><sp/>;</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_1735484375c2c2b75633f58972cb64608" kindref="member">msg_main_mt</ref><sp/>;</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_1cab39528c85f8dbabed2e31bb5189b03" kindref="member">msg_hmth_du</ref><sp/>;</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_1b80bdfb304ceb290c6072c62d86fe010" kindref="member">msg_hmth_hu</ref><sp/>;</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_1445f2712cd567c8d33b7fb797843dea0" kindref="member">msg_h_by</ref><sp/><sp/><sp/><sp/>;</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_141aae7d7f619d71ff5b47f541d3c8dfd" kindref="member">msg_h_avg</ref><sp/><sp/><sp/>;</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_1081ce53502d2128996c22bef5bd24a53" kindref="member">msg_h_max</ref><sp/><sp/><sp/>;</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_155b57954b9d1fe93bc7ddd126a839db0" kindref="member">msg_h_total</ref><sp/>;</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_1dafe58551b800a16ddc8b3111529262f" kindref="member">msg_h_totals</ref>;</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_14ea7eb5797dae19227edd460213b7b0a" kindref="member">msg_h_day</ref><sp/><sp/><sp/>;</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_13f7e8b2df4f2e24306b823798e8ee780" kindref="member">msg_h_mth</ref><sp/><sp/><sp/>;</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_175d18a9846e48af78b39df85c88b425e" kindref="member">msg_h_hour</ref><sp/><sp/>;</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_1529f40f7939bbf363a37235b1b209b62" kindref="member">msg_h_hits</ref><sp/><sp/>;</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_1db4c9ee2d878d68d50a008b354042927" kindref="member">msg_h_pages</ref><sp/>;</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_1daf199b209b9dd7996804b6018b8539f" kindref="member">msg_h_visits</ref>;</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_117cdd1238613c58645be27ec86da138c" kindref="member">msg_h_files</ref><sp/>;</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_140421f6c86f03b581ec81e010c8d0086" kindref="member">msg_h_sites</ref><sp/>;</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_1b193be580f6d1d61bb87dfb4e9f8547c" kindref="member">msg_h_xfer</ref><sp/><sp/>;</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_1389648e11c07ae97a6c19e049401a01f" kindref="member">msg_h_hname</ref><sp/>;</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_1c2422ae6f0a2e8bdc0caa4fc75645f4b" kindref="member">msg_h_url</ref><sp/><sp/><sp/>;</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_188ef492f810cce55301b0422c8c135ec" kindref="member">msg_h_agent</ref><sp/>;</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_1044f17c6b922b4c62fcd9d60dc5743b6" kindref="member">msg_h_ref</ref><sp/><sp/><sp/>;</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_13d13e2f231a2e408c85d587974fab840" kindref="member">msg_h_ctry</ref><sp/><sp/>;</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_1a60f1bd74d1fb88de31964981fc8d0d6" kindref="member">msg_h_search</ref>;</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_104b9008a2c6d6752de424ad84772f803" kindref="member">msg_h_uname</ref><sp/>;</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_1f477d45ee4c0a42dd8e2badd00583eb3" kindref="member">msg_hlnk_ds</ref><sp/>;</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_1eae96628c726d260b32e2d22d1d37960" kindref="member">msg_hlnk_hs</ref><sp/>;</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_1f4980dbff649e1801ea68f5dbd556ab5" kindref="member">msg_hlnk_u</ref><sp/><sp/>;</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_1cfaa06480a2bdd2784ddd82913829eb5" kindref="member">msg_hlnk_s</ref><sp/><sp/>;</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_163bc4c24fa58aadfe6b07847a5385727" kindref="member">msg_hlnk_a</ref><sp/><sp/>;</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_1db006844c6196bd298ae047e146032c6" kindref="member">msg_hlnk_c</ref><sp/><sp/>;</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_197ec2c175568d35b3720480b56bc5e5e" kindref="member">msg_hlnk_r</ref><sp/><sp/>;</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_1cfa5f6db28bff540ecfe2ee1f05323c2" kindref="member">msg_hlnk_en</ref><sp/>;</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_1295cbfa997b35a310627cd5efd8e6634" kindref="member">msg_hlnk_ex</ref><sp/>;</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_16dfdb6f431662bebeaab6328c39c6193" kindref="member">msg_hlnk_sr</ref><sp/>;</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_120fdd1ef12a927f7b070c9fe5b21fe8a" kindref="member">msg_hlnk_i</ref><sp/><sp/>;</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_1115bb889848f5396a3c846d99fdb8cf1" kindref="member">msg_mtot_ms</ref><sp/>;</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_11adc3b94c54819b8241bc89e33972019" kindref="member">msg_mtot_th</ref><sp/>;</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_145d784d37cfd4d12fc943d1995c6f862" kindref="member">msg_mtot_tf</ref><sp/>;</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_1c39bd58ece81013055e1f9b21a4951d0" kindref="member">msg_mtot_tx</ref><sp/>;</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_1e85545a7f1d2036cdff6842e233f48d0" kindref="member">msg_mtot_us</ref><sp/>;</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_14608e0e23e3f02698e40cfc281e2d455" kindref="member">msg_mtot_ur</ref><sp/>;</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_1b53fda0285dcb7a6a402ec79a9b323c8" kindref="member">msg_mtot_ua</ref><sp/>;</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_187aaba642eff139a1c1f3dc8dbf06619" kindref="member">msg_mtot_uu</ref><sp/>;</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_1d4449945a4dc512f4dd3727924453a33" kindref="member">msg_mtot_ui</ref><sp/>;</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_13d3f1f9a70097fa5b6b9e30eaafb36c8" kindref="member">msg_mtot_mhd</ref>;</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_1834e68dde177f5f90df4de14e7331d90" kindref="member">msg_mtot_mhh</ref>;</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_1d7319b2cc4408fddfa3a3f933775f9d5" kindref="member">msg_mtot_mfd</ref>;</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_15b64e45525d89ca959433061e93942ad" kindref="member">msg_mtot_mpd</ref>;</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_1d0d02efa35a7a154c182ddf9947802c8" kindref="member">msg_mtot_mvd</ref>;</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_155d1ba1abbc14d2647af21b755fac0cc" kindref="member">msg_mtot_mkd</ref>;</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_120a450aa269b2373a7b1aeb026bb0761" kindref="member">msg_mtot_rc</ref><sp/>;</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"></highlight></codeline>
+<codeline lineno="141"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_105ed4ddbb649bb7506fc41d1607127ae" kindref="member">msg_dtot_ds</ref><sp/>;</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"></highlight></codeline>
+<codeline lineno="143"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_15b672337bba98d0ce3e3f0b458bb764e" kindref="member">msg_htot_hs</ref><sp/>;</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"></highlight></codeline>
+<codeline lineno="145"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_1d86bfd951b9d1f489e0fac664d76643e" kindref="member">msg_ctry_use</ref>;</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"></highlight></codeline>
+<codeline lineno="147"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_1ccd25ad9dd7b9fb588071f55d6a3c98c" kindref="member">msg_top_top</ref><sp/>;</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_1b3bbb0a05acd36a0ca6f294ddedf5576" kindref="member">msg_top_of</ref><sp/><sp/>;</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_156698ea4f9c0b356cf97ee37ff53ff2f" kindref="member">msg_top_s</ref><sp/><sp/><sp/>;</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_17231f924432df2c0d2e056d15b7919ad" kindref="member">msg_top_u</ref><sp/><sp/><sp/>;</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_183e30a010661cb0cfce5f54890d50b56" kindref="member">msg_top_r</ref><sp/><sp/><sp/>;</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_111ec258902060597b0beb56257c32dd0" kindref="member">msg_top_a</ref><sp/><sp/><sp/>;</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_10879e9ab873ed888f733a2967b557756" kindref="member">msg_top_c</ref><sp/><sp/><sp/>;</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_18a3ac5eed2948b107c70b2d89b9c8605" kindref="member">msg_top_en</ref><sp/><sp/>;</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_112234dbbb8a0a93eb2f2b43ea58e07d9" kindref="member">msg_top_ex</ref><sp/><sp/>;</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_1ac25e2239379aa97235561ba1b44c6ef" kindref="member">msg_top_sr</ref><sp/><sp/>;</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_141943ef3550158b5d1b0eaa79bad301a" kindref="member">msg_top_i</ref><sp/><sp/><sp/>;</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_17bbd861b776a38bd532d4f29b0735a50" kindref="member">msg_v_sites</ref><sp/>;</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_1f9cbd6a1a6ac705c14326ed3d64fd1c0" kindref="member">msg_v_urls</ref><sp/><sp/>;</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_126ccd1f09cf35a65c0ad152c9d44be8a" kindref="member">msg_v_refs</ref><sp/><sp/>;</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_1e4c3f02df2f45e19ffab7bd99d0169d2" kindref="member">msg_v_agents</ref>;</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_10565fe1151bc9dd5de181b2d1de42350" kindref="member">msg_v_search</ref>;</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_1bf4cb5cbd2d88d3791abfb27cdb883f9" kindref="member">msg_v_users</ref><sp/>;</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"></highlight></codeline>
+<codeline lineno="165"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_156970821c884da0e4d8fd75e51bc37d9" kindref="member">msg_title</ref><sp/><sp/><sp/>;</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_1b351e925c0e7fcdb3483ab94cba23c9c" kindref="member">msg_h_other</ref><sp/>;</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"></highlight></codeline>
+<codeline lineno="168"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_19a0b242c466188c82510261247faf983" kindref="member">s_month</ref>[12];</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="lang_8h_1e75828f9450cccbb02d410d60a6caa1d" kindref="member">l_month</ref>[12];</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"></highlight></codeline>
+<codeline lineno="171"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structresponse__code" kindref="compound">response_code</ref><sp/>response[];</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structcountry__code" kindref="compound">country_code</ref><sp/>ctry[];</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"></highlight></codeline>
+<codeline lineno="174"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/><sp/></highlight><highlight class="comment">/*<sp/>_LANG_H<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/home/r23/oosalizer/lang.h"/>
+  </compounddef>
+</doxygen>

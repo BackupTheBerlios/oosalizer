@@ -1,0 +1,196 @@
+<?xml version='1.0' encoding='iso-8859-1' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.4.6">
+  <compounddef id="structhnode" kind="struct" prot="public">
+    <compoundname>hnode</compoundname>
+    <includes refid="hashtab_8h" local="no">hashtab.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structhnode_1eb54894424f88ea691ce2739a7b7ce80" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* hnode::string</definition>
+        <argsstring></argsstring>
+        <name>string</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/hashtab.h" line="26" bodyfile="/home/r23/oosalizer/hashtab.h" bodystart="26" bodyend="-1"/>
+        <referencedby refid="output_8c_1c4e6c9fc2562755c38403dd45bdab4e9" compoundref="output_8c" startline="1085" endline="1152">all_sites_page</referencedby>
+        <referencedby refid="hashtab_8h_1faa716f0287d99c15c2f1d1b26d74ce0" compoundref="hashtab_8c" startline="283" endline="304">del_hlist</referencedby>
+        <referencedby refid="output_8c_11ff4091dce5e22d1f8f4cc034a78afec" compoundref="output_8c" startline="2210" endline="2247">dump_all_sites</referencedby>
+        <referencedby refid="hashtab_8c_1ca7c730d21349d04dcff3556d0a89fec" compoundref="hashtab_8c" startline="120" endline="149">new_hnode</referencedby>
+        <referencedby refid="hashtab_8h_1fe9c0e49a4926c7cba71b7f8db5db8cd" compoundref="hashtab_8c" startline="155" endline="277">put_hnode</referencedby>
+        <referencedby refid="output_8c_1c1ecb6ecbe9f7218b2e9ccae79cf2f5f" compoundref="output_8c" startline="2063" endline="2204">top_ctry_table</referencedby>
+        <referencedby refid="output_8c_18459026bf062636220025d736ae99fa7" compoundref="output_8c" startline="972" endline="1079">top_sites_table</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structhnode_1821441b6ed6dd23ac11a37d932461b03" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int hnode::flag</definition>
+        <argsstring></argsstring>
+        <name>flag</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/hashtab.h" line="27" bodyfile="/home/r23/oosalizer/hashtab.h" bodystart="27" bodyend="-1"/>
+        <referencedby refid="output_8c_1c4e6c9fc2562755c38403dd45bdab4e9" compoundref="output_8c" startline="1085" endline="1152">all_sites_page</referencedby>
+        <referencedby refid="output_8c_11ff4091dce5e22d1f8f4cc034a78afec" compoundref="output_8c" startline="2210" endline="2247">dump_all_sites</referencedby>
+        <referencedby refid="hashtab_8h_1a516a060c822c1718d2254a425a0c033" compoundref="hashtab_8c" startline="1136" endline="1154">month_update_exit</referencedby>
+        <referencedby refid="hashtab_8h_1fe9c0e49a4926c7cba71b7f8db5db8cd" compoundref="hashtab_8c" startline="155" endline="277">put_hnode</referencedby>
+        <referencedby refid="output_8c_1c1ecb6ecbe9f7218b2e9ccae79cf2f5f" compoundref="output_8c" startline="2063" endline="2204">top_ctry_table</referencedby>
+        <referencedby refid="output_8c_18459026bf062636220025d736ae99fa7" compoundref="output_8c" startline="972" endline="1079">top_sites_table</referencedby>
+        <referencedby refid="hashtab_8h_14bdcfce12ca5e5236241cfdd1ec5288a" compoundref="hashtab_8c" startline="1160" endline="1176">tot_visit</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structhnode_1ea12ded28f814b621ae07ab94aaa1f4e" prot="public" static="no" mutable="no">
+        <type>u_long</type>
+        <definition>u_long hnode::count</definition>
+        <argsstring></argsstring>
+        <name>count</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/hashtab.h" line="28" bodyfile="/home/r23/oosalizer/hashtab.h" bodystart="28" bodyend="-1"/>
+        <referencedby refid="output_8c_1c4e6c9fc2562755c38403dd45bdab4e9" compoundref="output_8c" startline="1085" endline="1152">all_sites_page</referencedby>
+        <referencedby refid="output_8c_11ff4091dce5e22d1f8f4cc034a78afec" compoundref="output_8c" startline="2210" endline="2247">dump_all_sites</referencedby>
+        <referencedby refid="hashtab_8h_1fe9c0e49a4926c7cba71b7f8db5db8cd" compoundref="hashtab_8c" startline="155" endline="277">put_hnode</referencedby>
+        <referencedby refid="output_8c_1c1ecb6ecbe9f7218b2e9ccae79cf2f5f" compoundref="output_8c" startline="2063" endline="2204">top_ctry_table</referencedby>
+        <referencedby refid="output_8c_18459026bf062636220025d736ae99fa7" compoundref="output_8c" startline="972" endline="1079">top_sites_table</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structhnode_1afa2fd08fe9e22e6f183759b01a0e5c4" prot="public" static="no" mutable="no">
+        <type>u_long</type>
+        <definition>u_long hnode::files</definition>
+        <argsstring></argsstring>
+        <name>files</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/hashtab.h" line="29" bodyfile="/home/r23/oosalizer/hashtab.h" bodystart="29" bodyend="-1"/>
+        <referencedby refid="output_8c_1c4e6c9fc2562755c38403dd45bdab4e9" compoundref="output_8c" startline="1085" endline="1152">all_sites_page</referencedby>
+        <referencedby refid="output_8c_11ff4091dce5e22d1f8f4cc034a78afec" compoundref="output_8c" startline="2210" endline="2247">dump_all_sites</referencedby>
+        <referencedby refid="hashtab_8h_1fe9c0e49a4926c7cba71b7f8db5db8cd" compoundref="hashtab_8c" startline="155" endline="277">put_hnode</referencedby>
+        <referencedby refid="output_8c_1c1ecb6ecbe9f7218b2e9ccae79cf2f5f" compoundref="output_8c" startline="2063" endline="2204">top_ctry_table</referencedby>
+        <referencedby refid="output_8c_18459026bf062636220025d736ae99fa7" compoundref="output_8c" startline="972" endline="1079">top_sites_table</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structhnode_1e55f7c9efab364555b1fee0a61deb229" prot="public" static="no" mutable="no">
+        <type>u_long</type>
+        <definition>u_long hnode::visit</definition>
+        <argsstring></argsstring>
+        <name>visit</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/hashtab.h" line="30" bodyfile="/home/r23/oosalizer/hashtab.h" bodystart="30" bodyend="-1"/>
+        <referencedby refid="output_8c_1c4e6c9fc2562755c38403dd45bdab4e9" compoundref="output_8c" startline="1085" endline="1152">all_sites_page</referencedby>
+        <referencedby refid="output_8c_11ff4091dce5e22d1f8f4cc034a78afec" compoundref="output_8c" startline="2210" endline="2247">dump_all_sites</referencedby>
+        <referencedby refid="hashtab_8c_1ca7c730d21349d04dcff3556d0a89fec" compoundref="hashtab_8c" startline="120" endline="149">new_hnode</referencedby>
+        <referencedby refid="hashtab_8h_1fe9c0e49a4926c7cba71b7f8db5db8cd" compoundref="hashtab_8c" startline="155" endline="277">put_hnode</referencedby>
+        <referencedby refid="output_8c_18459026bf062636220025d736ae99fa7" compoundref="output_8c" startline="972" endline="1079">top_sites_table</referencedby>
+        <referencedby refid="hashtab_8h_14bdcfce12ca5e5236241cfdd1ec5288a" compoundref="hashtab_8c" startline="1160" endline="1176">tot_visit</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structhnode_1e02fb87d76b57ad488493862bdd54f1e" prot="public" static="no" mutable="no">
+        <type>u_long</type>
+        <definition>u_long hnode::tstamp</definition>
+        <argsstring></argsstring>
+        <name>tstamp</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/hashtab.h" line="31" bodyfile="/home/r23/oosalizer/hashtab.h" bodystart="31" bodyend="-1"/>
+        <referencedby refid="hashtab_8h_1a516a060c822c1718d2254a425a0c033" compoundref="hashtab_8c" startline="1136" endline="1154">month_update_exit</referencedby>
+        <referencedby refid="hashtab_8c_1ca7c730d21349d04dcff3556d0a89fec" compoundref="hashtab_8c" startline="120" endline="149">new_hnode</referencedby>
+        <referencedby refid="hashtab_8h_1fe9c0e49a4926c7cba71b7f8db5db8cd" compoundref="hashtab_8c" startline="155" endline="277">put_hnode</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structhnode_1d025a4c0d49fa093181202d2a91eb524" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* hnode::lasturl</definition>
+        <argsstring></argsstring>
+        <name>lasturl</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/hashtab.h" line="32" bodyfile="/home/r23/oosalizer/hashtab.h" bodystart="32" bodyend="-1"/>
+        <referencedby refid="hashtab_8h_1a516a060c822c1718d2254a425a0c033" compoundref="hashtab_8c" startline="1136" endline="1154">month_update_exit</referencedby>
+        <referencedby refid="hashtab_8c_1ca7c730d21349d04dcff3556d0a89fec" compoundref="hashtab_8c" startline="120" endline="149">new_hnode</referencedby>
+        <referencedby refid="hashtab_8h_1fe9c0e49a4926c7cba71b7f8db5db8cd" compoundref="hashtab_8c" startline="155" endline="277">put_hnode</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structhnode_18069d0fba422f3b79fdeef1e263f7141" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double hnode::xfer</definition>
+        <argsstring></argsstring>
+        <name>xfer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/hashtab.h" line="33" bodyfile="/home/r23/oosalizer/hashtab.h" bodystart="33" bodyend="-1"/>
+        <referencedby refid="output_8c_1c4e6c9fc2562755c38403dd45bdab4e9" compoundref="output_8c" startline="1085" endline="1152">all_sites_page</referencedby>
+        <referencedby refid="output_8c_11ff4091dce5e22d1f8f4cc034a78afec" compoundref="output_8c" startline="2210" endline="2247">dump_all_sites</referencedby>
+        <referencedby refid="hashtab_8h_1fe9c0e49a4926c7cba71b7f8db5db8cd" compoundref="hashtab_8c" startline="155" endline="277">put_hnode</referencedby>
+        <referencedby refid="output_8c_1c1ecb6ecbe9f7218b2e9ccae79cf2f5f" compoundref="output_8c" startline="2063" endline="2204">top_ctry_table</referencedby>
+        <referencedby refid="output_8c_18459026bf062636220025d736ae99fa7" compoundref="output_8c" startline="972" endline="1079">top_sites_table</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structhnode_1da1ebcc2a224afb85778f07ff89c9e23" prot="public" static="no" mutable="no">
+        <type><ref refid="structhnode" kindref="compound">hnode</ref> *</type>
+        <definition>struct hnode* hnode::next</definition>
+        <argsstring></argsstring>
+        <name>next</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/hashtab.h" line="34" bodyfile="/home/r23/oosalizer/hashtab.h" bodystart="34" bodyend="-1"/>
+        <referencedby refid="hashtab_8h_1faa716f0287d99c15c2f1d1b26d74ce0" compoundref="hashtab_8c" startline="283" endline="304">del_hlist</referencedby>
+        <referencedby refid="output_8c_112790ed69b92f9024071f8e8ba312ee3" compoundref="output_8c" startline="2747" endline="2765">load_site_array</referencedby>
+        <referencedby refid="hashtab_8h_1fe9c0e49a4926c7cba71b7f8db5db8cd" compoundref="hashtab_8c" startline="155" endline="277">put_hnode</referencedby>
+        <referencedby refid="hashtab_8h_14bdcfce12ca5e5236241cfdd1ec5288a" compoundref="hashtab_8c" startline="1160" endline="1176">tot_visit</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="35">
+        <label>hnode</label>
+        <link refid="structhnode"/>
+        <childnode refid="35" relation="usage">
+          <edgelabel>next</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/r23/oosalizer/hashtab.h" line="26" bodyfile="/home/r23/oosalizer/hashtab.h" bodystart="26" bodyend="34"/>
+    <listofallmembers>
+      <member refid="structhnode_1ea12ded28f814b621ae07ab94aaa1f4e" prot="public" virt="non-virtual"><scope>hnode</scope><name>count</name></member>
+      <member refid="structhnode_1afa2fd08fe9e22e6f183759b01a0e5c4" prot="public" virt="non-virtual"><scope>hnode</scope><name>files</name></member>
+      <member refid="structhnode_1821441b6ed6dd23ac11a37d932461b03" prot="public" virt="non-virtual"><scope>hnode</scope><name>flag</name></member>
+      <member refid="structhnode_1d025a4c0d49fa093181202d2a91eb524" prot="public" virt="non-virtual"><scope>hnode</scope><name>lasturl</name></member>
+      <member refid="structhnode_1da1ebcc2a224afb85778f07ff89c9e23" prot="public" virt="non-virtual"><scope>hnode</scope><name>next</name></member>
+      <member refid="structhnode_1eb54894424f88ea691ce2739a7b7ce80" prot="public" virt="non-virtual"><scope>hnode</scope><name>string</name></member>
+      <member refid="structhnode_1e02fb87d76b57ad488493862bdd54f1e" prot="public" virt="non-virtual"><scope>hnode</scope><name>tstamp</name></member>
+      <member refid="structhnode_1e55f7c9efab364555b1fee0a61deb229" prot="public" virt="non-virtual"><scope>hnode</scope><name>visit</name></member>
+      <member refid="structhnode_18069d0fba422f3b79fdeef1e263f7141" prot="public" virt="non-virtual"><scope>hnode</scope><name>xfer</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

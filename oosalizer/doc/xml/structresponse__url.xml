@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='iso-8859-1' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.4.6">
+  <compounddef id="structresponse__url" kind="struct" prot="public">
+    <compoundname>response_url</compoundname>
+    <includes refid="webalizer_8h" local="no">webalizer.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structresponse__url_1c997088a7965d5b69b6aec48f77deea6" prot="public" static="no" mutable="no">
+        <type>char</type>
+        <definition>char response_url::respurl[MAXURLH]</definition>
+        <argsstring>[MAXURLH]</argsstring>
+        <name>respurl</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/webalizer.h" line="133" bodyfile="/home/r23/oosalizer/webalizer.h" bodystart="133" bodyend="-1"/>
+        <referencedby refid="output_8c_1267f41fceee149a1e7eeb4ee30ee5f09" compoundref="output_8c" startline="715" endline="798">month_error_table</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structresponse__url_182f3189f3b02c8eb1edc0f0da8ceb0e7" prot="public" static="no" mutable="no">
+        <type>u_long</type>
+        <definition>u_long response_url::count</definition>
+        <argsstring></argsstring>
+        <name>count</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/webalizer.h" line="134" bodyfile="/home/r23/oosalizer/webalizer.h" bodystart="134" bodyend="-1"/>
+        <referencedby refid="webalizer_8h_1c13990c5857877d516d60af22bfbc492" compoundref="webalizer_8c" startline="1714" endline="1738">init_counters</referencedby>
+        <referencedby refid="output_8c_1267f41fceee149a1e7eeb4ee30ee5f09" compoundref="output_8c" startline="715" endline="798">month_error_table</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/r23/oosalizer/webalizer.h" line="133" bodyfile="/home/r23/oosalizer/webalizer.h" bodystart="133" bodyend="134"/>
+    <listofallmembers>
+      <member refid="structresponse__url_182f3189f3b02c8eb1edc0f0da8ceb0e7" prot="public" virt="non-virtual"><scope>response_url</scope><name>count</name></member>
+      <member refid="structresponse__url_1c997088a7965d5b69b6aec48f77deea6" prot="public" virt="non-virtual"><scope>response_url</scope><name>respurl</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='iso-8859-1' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.4.6">
+  <compounddef id="structresponse__code" kind="struct" prot="public">
+    <compoundname>response_code</compoundname>
+    <includes refid="webalizer_8h" local="no">webalizer.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structresponse__code_1c580ee9a4994223d0e663fa9a839ba0a" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* response_code::desc</definition>
+        <argsstring></argsstring>
+        <name>desc</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/webalizer.h" line="129" bodyfile="/home/r23/oosalizer/webalizer.h" bodystart="129" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structresponse__code_1a973afefbe5e787ef2fee765f05bbfaf" prot="public" static="no" mutable="no">
+        <type>u_long</type>
+        <definition>u_long response_code::count</definition>
+        <argsstring></argsstring>
+        <name>count</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/webalizer.h" line="130" bodyfile="/home/r23/oosalizer/webalizer.h" bodystart="130" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/r23/oosalizer/webalizer.h" line="129" bodyfile="/home/r23/oosalizer/webalizer.h" bodystart="129" bodyend="130"/>
+    <listofallmembers>
+      <member refid="structresponse__code_1a973afefbe5e787ef2fee765f05bbfaf" prot="public" virt="non-virtual"><scope>response_code</scope><name>count</name></member>
+      <member refid="structresponse__code_1c580ee9a4994223d0e663fa9a839ba0a" prot="public" virt="non-virtual"><scope>response_code</scope><name>desc</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

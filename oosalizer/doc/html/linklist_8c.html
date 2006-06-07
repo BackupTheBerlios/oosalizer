@@ -1,0 +1,1272 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1">
+<title>OOS [Webalizer]: oosalizer/linklist.c-Dateireferenz</title>
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+<link href="tabs.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Erzeugt von Doxygen 1.4.6 -->
+<div class="tabs">
+  <ul>
+    <li><a href="main.html"><span>Hauptseite</span></a></li>
+    <li><a href="annotated.html"><span>Datenstrukturen</span></a></li>
+    <li id="current"><a href="files.html"><span>Dateien</span></a></li>
+    <li>
+      <form action="search.php" method="get">
+        <table cellspacing="0" cellpadding="0" border="0">
+          <tr>
+            <td><label>&nbsp;<u>S</u>uchen&nbsp;nach&nbsp;</label></td>
+            <td><input type="text" name="query" value="" size="20" accesskey="s"/></td>
+          </tr>
+        </table>
+      </form>
+    </li>
+  </ul></div>
+<div class="tabs">
+  <ul>
+    <li><a href="files.html"><span>Auflistung&nbsp;der&nbsp;Dateien</span></a></li>
+    <li><a href="globals.html"><span>Datei-Elemente</span></a></li>
+  </ul></div>
+<h1>oosalizer/linklist.c-Dateireferenz</h1><code>#include &lt;time.h&gt;</code><br>
+<code>#include &lt;stdio.h&gt;</code><br>
+<code>#include &lt;stdlib.h&gt;</code><br>
+<code>#include &lt;string.h&gt;</code><br>
+<code>#include &lt;unistd.h&gt;</code><br>
+<code>#include &lt;ctype.h&gt;</code><br>
+<code>#include &lt;sys/utsname.h&gt;</code><br>
+<code>#include &lt;sys/times.h&gt;</code><br>
+<code>#include &lt;sys/types.h&gt;</code><br>
+<code>#include &quot;<a class="el" href="webalizer_8h-source.html">webalizer.h</a>&quot;</code><br>
+<code>#include &quot;<a class="el" href="lang_8h-source.html">lang.h</a>&quot;</code><br>
+<code>#include &quot;<a class="el" href="linklist_8h-source.html">linklist.h</a>&quot;</code><br>
+
+<p>
+Include-Abhängigkeitsdiagramm für linklist.c:<p><center><img src="linklist_8c__incl.png" border="0" usemap="#oosalizer/linklist.c_map" alt=""></center>
+<map name="oosalizer/linklist.c_map">
+<area href="webalizer_8h.html" shape="rect" coords="191,440,279,464" alt="">
+<area href="lang_8h.html" shape="rect" coords="206,488,265,512" alt="">
+<area href="linklist_8h.html" shape="rect" coords="201,536,270,560" alt="">
+</map>
+
+<p>
+<a href="linklist_8c-source.html">gehe zum Quellcode dieser Datei</a><table border="0" cellpadding="0" cellspacing="0">
+<tr><td></td></tr>
+<tr><td colspan="2"><br><h2>Makrodefinitionen</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="linklist_8c.html#03df76d1f70664d745ca8de2864e39b3">CLK_TCK</a>&nbsp;&nbsp;&nbsp;_SC_CLK_TCK</td></tr>
+
+<tr><td colspan="2"><br><h2>Funktionen</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="structnlist.html">NLISTPTR</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="linklist_8c.html#2818014b7feb4f6db3a0884d0c7caf0f">new_nlist</a> (char *)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="linklist_8c.html#949ae6c82d1c88d8407757f05724d8af">del_nlist</a> (<a class="el" href="structnlist.html">NLISTPTR</a> *)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="structglist.html">GLISTPTR</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="linklist_8c.html#efe1a363b71eccafc7f2c8e31f8f2b05">new_glist</a> (char *, char *)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="linklist_8c.html#2db320536d6c5a8726da8e8e627af50c">del_glist</a> (<a class="el" href="structglist.html">GLISTPTR</a> *)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="linklist_8c.html#99ef4b81dcab23e1497ea7d5afdeceeb">isinstr</a> (char *, char *)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="linklist_8c.html#8839d62523e9b12655cca004617bbe77">add_nlist</a> (char *str, <a class="el" href="structnlist.html">NLISTPTR</a> *list)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="linklist_8c.html#7a76399c20af4803b0efcc757733039d">add_glist</a> (char *str, <a class="el" href="structglist.html">GLISTPTR</a> *list)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">char *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="linklist_8c.html#29bda5ebb6dd2f9b19d8f9519eaf94ff">isinlist</a> (<a class="el" href="structnlist.html">NLISTPTR</a> list, char *str)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">char *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="linklist_8c.html#70d3ef92faca75f6392ba919975ffe47">isinglist</a> (<a class="el" href="structglist.html">GLISTPTR</a> list, char *str)</td></tr>
+
+<tr><td colspan="2"><br><h2>Variablen</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="structglist.html">GLISTPTR</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="linklist_8c.html#cda3597076ed2d11c457ee98bb89caa7">group_sites</a> = NULL</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="structglist.html">GLISTPTR</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="linklist_8c.html#2b91bf4fd34380ee9673b57513dbff01">group_urls</a> = NULL</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="structglist.html">GLISTPTR</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="linklist_8c.html#73820e36830211218e9c911bc6ea6273">group_refs</a> = NULL</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="structglist.html">GLISTPTR</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="linklist_8c.html#2acbebab9914d67a3cea0f3716324fe2">group_agents</a> = NULL</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="structglist.html">GLISTPTR</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="linklist_8c.html#5589f953a1673e7a2f3891d321794340">group_users</a> = NULL</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="structnlist.html">NLISTPTR</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="linklist_8c.html#96bde86b735761b0b2b03d057d7bddfd">hidden_sites</a> = NULL</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="structnlist.html">NLISTPTR</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="linklist_8c.html#fb86638f144a8726901b06185e2415af">hidden_urls</a> = NULL</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="structnlist.html">NLISTPTR</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="linklist_8c.html#7f8ec975eaff8227a3e09efb17d3e064">hidden_refs</a> = NULL</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="structnlist.html">NLISTPTR</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="linklist_8c.html#89feb23799329906fbd4a3d47a303027">hidden_agents</a> = NULL</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="structnlist.html">NLISTPTR</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="linklist_8c.html#c328ffff94e0ce5d57817ee1197767aa">hidden_users</a> = NULL</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="structnlist.html">NLISTPTR</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="linklist_8c.html#9df089ae5b8931353b2e79b9a33c70e6">ignored_sites</a> = NULL</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="structnlist.html">NLISTPTR</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="linklist_8c.html#9a30b4cfe3e814caad5864bf70683264">ignored_urls</a> = NULL</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="structnlist.html">NLISTPTR</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="linklist_8c.html#761639dc29cca53d524007b9fb4a6e65">ignored_refs</a> = NULL</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="structnlist.html">NLISTPTR</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="linklist_8c.html#60013ce10d008e9eb74a4b6f28959729">ignored_agents</a> = NULL</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="structnlist.html">NLISTPTR</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="linklist_8c.html#c61949a50def3ceeaf32f93f01d1ea16">ignored_users</a> = NULL</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="structnlist.html">NLISTPTR</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="linklist_8c.html#54c446a5497d9c6f94704e50f3ab099f">include_sites</a> = NULL</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="structnlist.html">NLISTPTR</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="linklist_8c.html#10e92b92241988092187d4a28d95d057">include_urls</a> = NULL</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="structnlist.html">NLISTPTR</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="linklist_8c.html#72e046ed2702acb3b3cc2aa444f861b0">include_refs</a> = NULL</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="structnlist.html">NLISTPTR</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="linklist_8c.html#29034f7c35846ae0399bd7b358be1d94">include_agents</a> = NULL</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="structnlist.html">NLISTPTR</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="linklist_8c.html#4301d92f7f72fdda0af03033d967155b">include_users</a> = NULL</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="structnlist.html">NLISTPTR</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="linklist_8c.html#a35b4fc28f26c83f77336185f9aa7175">index_alias</a> = NULL</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="structnlist.html">NLISTPTR</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="linklist_8c.html#cea32428cfbcce0e252dd3613586d0f3">html_pre</a> = NULL</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="structnlist.html">NLISTPTR</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="linklist_8c.html#1811e9595e278ef4ac307d06cd3a4eed">html_head</a> = NULL</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="structnlist.html">NLISTPTR</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="linklist_8c.html#4bb0bd1db8f0b3cc89d509d8c5daddde">html_body</a> = NULL</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="structnlist.html">NLISTPTR</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="linklist_8c.html#fd6de839e46d75632279853537235e7c">html_post</a> = NULL</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="structnlist.html">NLISTPTR</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="linklist_8c.html#7d3b981f0cda9084a93c191ab80637da">html_tail</a> = NULL</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="structnlist.html">NLISTPTR</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="linklist_8c.html#d7f0906501b524d986d95f8efddb48e5">html_end</a> = NULL</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="structnlist.html">NLISTPTR</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="linklist_8c.html#556b3c90c27ba5b38626945734914353">page_type</a> = NULL</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="structglist.html">GLISTPTR</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="linklist_8c.html#d93c06cbf86de996601e602d07da3663">search_list</a> = NULL</td></tr>
+
+</table>
+<hr><h2>Makro-Dokumentation</h2>
+<a class="anchor" name="03df76d1f70664d745ca8de2864e39b3"></a><!-- doxytag: member="linklist.c::CLK_TCK" ref="03df76d1f70664d745ca8de2864e39b3" args="" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">#define CLK_TCK&nbsp;&nbsp;&nbsp;_SC_CLK_TCK          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="linklist_8c-source.html#l00059">59</a> der Datei <a class="el" href="linklist_8c-source.html">linklist.c</a>.    </td>
+  </tr>
+</table>
+<hr><h2>Dokumentation der Funktionen</h2>
+<a class="anchor" name="7a76399c20af4803b0efcc757733039d"></a><!-- doxytag: member="linklist.c::add_glist" ref="7a76399c20af4803b0efcc757733039d" args="(char *str, GLISTPTR *list)" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">int add_glist           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top">char *&nbsp;</td>
+          <td class="mdname" nowrap> <em>str</em>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap><a class="el" href="structglist.html">GLISTPTR</a> *&nbsp;</td>
+          <td class="mdname" nowrap> <em>list</em></td>
+        </tr>
+        <tr>
+          <td class="md"></td>
+          <td class="md">)&nbsp;</td>
+          <td class="md" colspan="2"></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="linklist_8c-source.html#l00190">190</a> der Datei <a class="el" href="linklist_8c-source.html">linklist.c</a>.
+<p>
+Benutzt <a class="el" href="linklist_8c-source.html#l00167">new_glist()</a> und <a class="el" href="linklist_8h-source.html#l00010">glist::next</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="8839d62523e9b12655cca004617bbe77"></a><!-- doxytag: member="linklist.c::add_nlist" ref="8839d62523e9b12655cca004617bbe77" args="(char *str, NLISTPTR *list)" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">int add_nlist           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top">char *&nbsp;</td>
+          <td class="mdname" nowrap> <em>str</em>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap><a class="el" href="structnlist.html">NLISTPTR</a> *&nbsp;</td>
+          <td class="mdname" nowrap> <em>list</em></td>
+        </tr>
+        <tr>
+          <td class="md"></td>
+          <td class="md">)&nbsp;</td>
+          <td class="md" colspan="2"></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="linklist_8c-source.html#l00129">129</a> der Datei <a class="el" href="linklist_8c-source.html">linklist.c</a>.
+<p>
+Benutzt <a class="el" href="linklist_8c-source.html#l00111">new_nlist()</a> und <a class="el" href="linklist_8h-source.html#l00005">nlist::next</a>.
+<p>
+Wird benutzt von <a class="el" href="webalizer_8c-source.html#l00232">main()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="2db320536d6c5a8726da8e8e627af50c"></a><!-- doxytag: member="linklist.c::del_glist" ref="2db320536d6c5a8726da8e8e627af50c" args="(GLISTPTR *)" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">void del_glist           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="structglist.html">GLISTPTR</a> *&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>          </td>
+          <td class="md" valign="top">&nbsp;)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="linklist_8c-source.html#l00226">226</a> der Datei <a class="el" href="linklist_8c-source.html">linklist.c</a>.
+<p>
+Benutzt <a class="el" href="linklist_8h-source.html#l00010">glist::next</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="949ae6c82d1c88d8407757f05724d8af"></a><!-- doxytag: member="linklist.c::del_nlist" ref="949ae6c82d1c88d8407757f05724d8af" args="(NLISTPTR *)" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">void del_nlist           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="structnlist.html">NLISTPTR</a> *&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>          </td>
+          <td class="md" valign="top">&nbsp;)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="linklist_8c-source.html#l00150">150</a> der Datei <a class="el" href="linklist_8c-source.html">linklist.c</a>.
+<p>
+Benutzt <a class="el" href="linklist_8h-source.html#l00005">nlist::next</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="70d3ef92faca75f6392ba919975ffe47"></a><!-- doxytag: member="linklist.c::isinglist" ref="70d3ef92faca75f6392ba919975ffe47" args="(GLISTPTR list, char *str)" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">char* isinglist           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="structglist.html">GLISTPTR</a>&nbsp;</td>
+          <td class="mdname" nowrap> <em>list</em>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>char *&nbsp;</td>
+          <td class="mdname" nowrap> <em>str</em></td>
+        </tr>
+        <tr>
+          <td class="md"></td>
+          <td class="md">)&nbsp;</td>
+          <td class="md" colspan="2"></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="linklist_8c-source.html#l00260">260</a> der Datei <a class="el" href="linklist_8c-source.html">linklist.c</a>.
+<p>
+Benutzt <a class="el" href="linklist_8c-source.html#l00277">isinstr()</a>, <a class="el" href="linklist_8h-source.html#l00009">glist::name</a>, <a class="el" href="linklist_8h-source.html#l00010">glist::next</a> und <a class="el" href="linklist_8h-source.html#l00008">glist::string</a>.
+<p>
+Wird benutzt von <a class="el" href="webalizer_8c-source.html#l01883">srch_string()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="29bda5ebb6dd2f9b19d8f9519eaf94ff"></a><!-- doxytag: member="linklist.c::isinlist" ref="29bda5ebb6dd2f9b19d8f9519eaf94ff" args="(NLISTPTR list, char *str)" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">char* isinlist           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="structnlist.html">NLISTPTR</a>&nbsp;</td>
+          <td class="mdname" nowrap> <em>list</em>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>char *&nbsp;</td>
+          <td class="mdname" nowrap> <em>str</em></td>
+        </tr>
+        <tr>
+          <td class="md"></td>
+          <td class="md">)&nbsp;</td>
+          <td class="md" colspan="2"></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="linklist_8c-source.html#l00243">243</a> der Datei <a class="el" href="linklist_8c-source.html">linklist.c</a>.
+<p>
+Benutzt <a class="el" href="linklist_8c-source.html#l00277">isinstr()</a>, <a class="el" href="linklist_8h-source.html#l00005">nlist::next</a> und <a class="el" href="linklist_8h-source.html#l00004">nlist::string</a>.
+<p>
+Wird benutzt von <a class="el" href="webalizer_8c-source.html#l01802">ispage()</a>, <a class="el" href="webalizer_8c-source.html#l00232">main()</a>, <a class="el" href="hashtab_8c-source.html#l00590">put_anode()</a>, <a class="el" href="hashtab_8c-source.html#l00155">put_hnode()</a>, <a class="el" href="hashtab_8c-source.html#l00811">put_inode()</a>, <a class="el" href="hashtab_8c-source.html#l00471">put_rnode()</a> und <a class="el" href="hashtab_8c-source.html#l00344">put_unode()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="99ef4b81dcab23e1497ea7d5afdeceeb"></a><!-- doxytag: member="linklist.c::isinstr" ref="99ef4b81dcab23e1497ea7d5afdeceeb" args="(char *, char *)" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">int isinstr           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top">char *&nbsp;</td>
+          <td class="mdname" nowrap>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>char *&nbsp;</td>
+          <td class="mdname" nowrap></td>
+        </tr>
+        <tr>
+          <td class="md"></td>
+          <td class="md">)&nbsp;</td>
+          <td class="md" colspan="2"></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="linklist_8c-source.html#l00277">277</a> der Datei <a class="el" href="linklist_8c-source.html">linklist.c</a>.
+<p>
+Wird benutzt von <a class="el" href="linklist_8c-source.html#l00260">isinglist()</a> und <a class="el" href="linklist_8c-source.html#l00243">isinlist()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="efe1a363b71eccafc7f2c8e31f8f2b05"></a><!-- doxytag: member="linklist.c::new_glist" ref="efe1a363b71eccafc7f2c8e31f8f2b05" args="(char *, char *)" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"><a class="el" href="structglist.html">GLISTPTR</a> new_glist           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top">char *&nbsp;</td>
+          <td class="mdname" nowrap>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>char *&nbsp;</td>
+          <td class="mdname" nowrap></td>
+        </tr>
+        <tr>
+          <td class="md"></td>
+          <td class="md">)&nbsp;</td>
+          <td class="md" colspan="2"></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="linklist_8c-source.html#l00167">167</a> der Datei <a class="el" href="linklist_8c-source.html">linklist.c</a>.
+<p>
+Benutzt <a class="el" href="lang_8h.html#a2ee47975118e6f57ce4a10d1baeef26">msg_big_one</a>, <a class="el" href="linklist_8h-source.html#l00009">glist::name</a>, <a class="el" href="linklist_8h-source.html#l00010">glist::next</a>, <a class="el" href="linklist_8h-source.html#l00008">glist::string</a> und <a class="el" href="webalizer_8c-source.html#l00108">verbose</a>.
+<p>
+Wird benutzt von <a class="el" href="linklist_8c-source.html#l00190">add_glist()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="2818014b7feb4f6db3a0884d0c7caf0f"></a><!-- doxytag: member="linklist.c::new_nlist" ref="2818014b7feb4f6db3a0884d0c7caf0f" args="(char *)" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"><a class="el" href="structnlist.html">NLISTPTR</a> new_nlist           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top">char *&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>          </td>
+          <td class="md" valign="top">&nbsp;)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="linklist_8c-source.html#l00111">111</a> der Datei <a class="el" href="linklist_8c-source.html">linklist.c</a>.
+<p>
+Benutzt <a class="el" href="lang_8h.html#a2ee47975118e6f57ce4a10d1baeef26">msg_big_one</a>, <a class="el" href="linklist_8h-source.html#l00005">nlist::next</a>, <a class="el" href="linklist_8h-source.html#l00004">nlist::string</a> und <a class="el" href="webalizer_8c-source.html#l00108">verbose</a>.
+<p>
+Wird benutzt von <a class="el" href="linklist_8c-source.html#l00129">add_nlist()</a>.    </td>
+  </tr>
+</table>
+<hr><h2>Variablen-Dokumentation</h2>
+<a class="anchor" name="2acbebab9914d67a3cea0f3716324fe2"></a><!-- doxytag: member="linklist.c::group_agents" ref="2acbebab9914d67a3cea0f3716324fe2" args="" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"><a class="el" href="structglist.html">GLISTPTR</a> <a class="el" href="linklist_8h.html#2acbebab9914d67a3cea0f3716324fe2">group_agents</a> = NULL          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="linklist_8c-source.html#l00080">80</a> der Datei <a class="el" href="linklist_8c-source.html">linklist.c</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="73820e36830211218e9c911bc6ea6273"></a><!-- doxytag: member="linklist.c::group_refs" ref="73820e36830211218e9c911bc6ea6273" args="" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"><a class="el" href="structglist.html">GLISTPTR</a> <a class="el" href="linklist_8h.html#73820e36830211218e9c911bc6ea6273">group_refs</a> = NULL          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="linklist_8c-source.html#l00079">79</a> der Datei <a class="el" href="linklist_8c-source.html">linklist.c</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="cda3597076ed2d11c457ee98bb89caa7"></a><!-- doxytag: member="linklist.c::group_sites" ref="cda3597076ed2d11c457ee98bb89caa7" args="" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"><a class="el" href="structglist.html">GLISTPTR</a> <a class="el" href="linklist_8h.html#cda3597076ed2d11c457ee98bb89caa7">group_sites</a> = NULL          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="linklist_8c-source.html#l00077">77</a> der Datei <a class="el" href="linklist_8c-source.html">linklist.c</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="2b91bf4fd34380ee9673b57513dbff01"></a><!-- doxytag: member="linklist.c::group_urls" ref="2b91bf4fd34380ee9673b57513dbff01" args="" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"><a class="el" href="structglist.html">GLISTPTR</a> <a class="el" href="linklist_8h.html#2b91bf4fd34380ee9673b57513dbff01">group_urls</a> = NULL          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="linklist_8c-source.html#l00078">78</a> der Datei <a class="el" href="linklist_8c-source.html">linklist.c</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="5589f953a1673e7a2f3891d321794340"></a><!-- doxytag: member="linklist.c::group_users" ref="5589f953a1673e7a2f3891d321794340" args="" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"><a class="el" href="structglist.html">GLISTPTR</a> <a class="el" href="linklist_8h.html#5589f953a1673e7a2f3891d321794340">group_users</a> = NULL          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="linklist_8c-source.html#l00081">81</a> der Datei <a class="el" href="linklist_8c-source.html">linklist.c</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="89feb23799329906fbd4a3d47a303027"></a><!-- doxytag: member="linklist.c::hidden_agents" ref="89feb23799329906fbd4a3d47a303027" args="" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"><a class="el" href="structnlist.html">NLISTPTR</a> <a class="el" href="linklist_8h.html#89feb23799329906fbd4a3d47a303027">hidden_agents</a> = NULL          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="linklist_8c-source.html#l00085">85</a> der Datei <a class="el" href="linklist_8c-source.html">linklist.c</a>.
+<p>
+Wird benutzt von <a class="el" href="webalizer_8c-source.html#l00232">main()</a> und <a class="el" href="hashtab_8c-source.html#l00590">put_anode()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="7f8ec975eaff8227a3e09efb17d3e064"></a><!-- doxytag: member="linklist.c::hidden_refs" ref="7f8ec975eaff8227a3e09efb17d3e064" args="" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"><a class="el" href="structnlist.html">NLISTPTR</a> <a class="el" href="linklist_8h.html#7f8ec975eaff8227a3e09efb17d3e064">hidden_refs</a> = NULL          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="linklist_8c-source.html#l00084">84</a> der Datei <a class="el" href="linklist_8c-source.html">linklist.c</a>.
+<p>
+Wird benutzt von <a class="el" href="webalizer_8c-source.html#l00232">main()</a> und <a class="el" href="hashtab_8c-source.html#l00471">put_rnode()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="96bde86b735761b0b2b03d057d7bddfd"></a><!-- doxytag: member="linklist.c::hidden_sites" ref="96bde86b735761b0b2b03d057d7bddfd" args="" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"><a class="el" href="structnlist.html">NLISTPTR</a> <a class="el" href="linklist_8h.html#96bde86b735761b0b2b03d057d7bddfd">hidden_sites</a> = NULL          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="linklist_8c-source.html#l00082">82</a> der Datei <a class="el" href="linklist_8c-source.html">linklist.c</a>.
+<p>
+Wird benutzt von <a class="el" href="webalizer_8c-source.html#l00232">main()</a> und <a class="el" href="hashtab_8c-source.html#l00155">put_hnode()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="fb86638f144a8726901b06185e2415af"></a><!-- doxytag: member="linklist.c::hidden_urls" ref="fb86638f144a8726901b06185e2415af" args="" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"><a class="el" href="structnlist.html">NLISTPTR</a> <a class="el" href="linklist_8h.html#fb86638f144a8726901b06185e2415af">hidden_urls</a> = NULL          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="linklist_8c-source.html#l00083">83</a> der Datei <a class="el" href="linklist_8c-source.html">linklist.c</a>.
+<p>
+Wird benutzt von <a class="el" href="webalizer_8c-source.html#l00232">main()</a> und <a class="el" href="hashtab_8c-source.html#l00344">put_unode()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="c328ffff94e0ce5d57817ee1197767aa"></a><!-- doxytag: member="linklist.c::hidden_users" ref="c328ffff94e0ce5d57817ee1197767aa" args="" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"><a class="el" href="structnlist.html">NLISTPTR</a> <a class="el" href="linklist_8h.html#c328ffff94e0ce5d57817ee1197767aa">hidden_users</a> = NULL          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="linklist_8c-source.html#l00086">86</a> der Datei <a class="el" href="linklist_8c-source.html">linklist.c</a>.
+<p>
+Wird benutzt von <a class="el" href="hashtab_8c-source.html#l00811">put_inode()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="4bb0bd1db8f0b3cc89d509d8c5daddde"></a><!-- doxytag: member="linklist.c::html_body" ref="4bb0bd1db8f0b3cc89d509d8c5daddde" args="" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"><a class="el" href="structnlist.html">NLISTPTR</a> <a class="el" href="linklist_8h.html#4bb0bd1db8f0b3cc89d509d8c5daddde">html_body</a> = NULL          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="linklist_8c-source.html#l00100">100</a> der Datei <a class="el" href="linklist_8c-source.html">linklist.c</a>.
+<p>
+Wird benutzt von <a class="el" href="output_8c-source.html#l00148">write_html_head()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="d7f0906501b524d986d95f8efddb48e5"></a><!-- doxytag: member="linklist.c::html_end" ref="d7f0906501b524d986d95f8efddb48e5" args="" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"><a class="el" href="structnlist.html">NLISTPTR</a> <a class="el" href="linklist_8h.html#d7f0906501b524d986d95f8efddb48e5">html_end</a> = NULL          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="linklist_8c-source.html#l00103">103</a> der Datei <a class="el" href="linklist_8c-source.html">linklist.c</a>.
+<p>
+Wird benutzt von <a class="el" href="output_8c-source.html#l00260">write_html_tail()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="1811e9595e278ef4ac307d06cd3a4eed"></a><!-- doxytag: member="linklist.c::html_head" ref="1811e9595e278ef4ac307d06cd3a4eed" args="" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"><a class="el" href="structnlist.html">NLISTPTR</a> <a class="el" href="linklist_8h.html#1811e9595e278ef4ac307d06cd3a4eed">html_head</a> = NULL          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="linklist_8c-source.html#l00099">99</a> der Datei <a class="el" href="linklist_8c-source.html">linklist.c</a>.
+<p>
+Wird benutzt von <a class="el" href="output_8c-source.html#l00148">write_html_head()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="fd6de839e46d75632279853537235e7c"></a><!-- doxytag: member="linklist.c::html_post" ref="fd6de839e46d75632279853537235e7c" args="" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"><a class="el" href="structnlist.html">NLISTPTR</a> <a class="el" href="linklist_8h.html#fd6de839e46d75632279853537235e7c">html_post</a> = NULL          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="linklist_8c-source.html#l00101">101</a> der Datei <a class="el" href="linklist_8c-source.html">linklist.c</a>.
+<p>
+Wird benutzt von <a class="el" href="output_8c-source.html#l00148">write_html_head()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="cea32428cfbcce0e252dd3613586d0f3"></a><!-- doxytag: member="linklist.c::html_pre" ref="cea32428cfbcce0e252dd3613586d0f3" args="" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"><a class="el" href="structnlist.html">NLISTPTR</a> <a class="el" href="linklist_8h.html#cea32428cfbcce0e252dd3613586d0f3">html_pre</a> = NULL          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="linklist_8c-source.html#l00098">98</a> der Datei <a class="el" href="linklist_8c-source.html">linklist.c</a>.
+<p>
+Wird benutzt von <a class="el" href="output_8c-source.html#l00148">write_html_head()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="7d3b981f0cda9084a93c191ab80637da"></a><!-- doxytag: member="linklist.c::html_tail" ref="7d3b981f0cda9084a93c191ab80637da" args="" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"><a class="el" href="structnlist.html">NLISTPTR</a> <a class="el" href="linklist_8h.html#7d3b981f0cda9084a93c191ab80637da">html_tail</a> = NULL          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="linklist_8c-source.html#l00102">102</a> der Datei <a class="el" href="linklist_8c-source.html">linklist.c</a>.
+<p>
+Wird benutzt von <a class="el" href="output_8c-source.html#l00260">write_html_tail()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="60013ce10d008e9eb74a4b6f28959729"></a><!-- doxytag: member="linklist.c::ignored_agents" ref="60013ce10d008e9eb74a4b6f28959729" args="" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"><a class="el" href="structnlist.html">NLISTPTR</a> <a class="el" href="linklist_8h.html#60013ce10d008e9eb74a4b6f28959729">ignored_agents</a> = NULL          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="linklist_8c-source.html#l00090">90</a> der Datei <a class="el" href="linklist_8c-source.html">linklist.c</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="761639dc29cca53d524007b9fb4a6e65"></a><!-- doxytag: member="linklist.c::ignored_refs" ref="761639dc29cca53d524007b9fb4a6e65" args="" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"><a class="el" href="structnlist.html">NLISTPTR</a> <a class="el" href="linklist_8h.html#761639dc29cca53d524007b9fb4a6e65">ignored_refs</a> = NULL          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="linklist_8c-source.html#l00089">89</a> der Datei <a class="el" href="linklist_8c-source.html">linklist.c</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="9df089ae5b8931353b2e79b9a33c70e6"></a><!-- doxytag: member="linklist.c::ignored_sites" ref="9df089ae5b8931353b2e79b9a33c70e6" args="" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"><a class="el" href="structnlist.html">NLISTPTR</a> <a class="el" href="linklist_8h.html#9df089ae5b8931353b2e79b9a33c70e6">ignored_sites</a> = NULL          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="linklist_8c-source.html#l00087">87</a> der Datei <a class="el" href="linklist_8c-source.html">linklist.c</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="9a30b4cfe3e814caad5864bf70683264"></a><!-- doxytag: member="linklist.c::ignored_urls" ref="9a30b4cfe3e814caad5864bf70683264" args="" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"><a class="el" href="structnlist.html">NLISTPTR</a> <a class="el" href="linklist_8h.html#9a30b4cfe3e814caad5864bf70683264">ignored_urls</a> = NULL          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="linklist_8c-source.html#l00088">88</a> der Datei <a class="el" href="linklist_8c-source.html">linklist.c</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="c61949a50def3ceeaf32f93f01d1ea16"></a><!-- doxytag: member="linklist.c::ignored_users" ref="c61949a50def3ceeaf32f93f01d1ea16" args="" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"><a class="el" href="structnlist.html">NLISTPTR</a> <a class="el" href="linklist_8h.html#c61949a50def3ceeaf32f93f01d1ea16">ignored_users</a> = NULL          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="linklist_8c-source.html#l00091">91</a> der Datei <a class="el" href="linklist_8c-source.html">linklist.c</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="29034f7c35846ae0399bd7b358be1d94"></a><!-- doxytag: member="linklist.c::include_agents" ref="29034f7c35846ae0399bd7b358be1d94" args="" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"><a class="el" href="structnlist.html">NLISTPTR</a> <a class="el" href="linklist_8h.html#29034f7c35846ae0399bd7b358be1d94">include_agents</a> = NULL          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="linklist_8c-source.html#l00095">95</a> der Datei <a class="el" href="linklist_8c-source.html">linklist.c</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="72e046ed2702acb3b3cc2aa444f861b0"></a><!-- doxytag: member="linklist.c::include_refs" ref="72e046ed2702acb3b3cc2aa444f861b0" args="" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"><a class="el" href="structnlist.html">NLISTPTR</a> <a class="el" href="linklist_8h.html#72e046ed2702acb3b3cc2aa444f861b0">include_refs</a> = NULL          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="linklist_8c-source.html#l00094">94</a> der Datei <a class="el" href="linklist_8c-source.html">linklist.c</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="54c446a5497d9c6f94704e50f3ab099f"></a><!-- doxytag: member="linklist.c::include_sites" ref="54c446a5497d9c6f94704e50f3ab099f" args="" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"><a class="el" href="structnlist.html">NLISTPTR</a> <a class="el" href="linklist_8h.html#54c446a5497d9c6f94704e50f3ab099f">include_sites</a> = NULL          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="linklist_8c-source.html#l00092">92</a> der Datei <a class="el" href="linklist_8c-source.html">linklist.c</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="10e92b92241988092187d4a28d95d057"></a><!-- doxytag: member="linklist.c::include_urls" ref="10e92b92241988092187d4a28d95d057" args="" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"><a class="el" href="structnlist.html">NLISTPTR</a> <a class="el" href="linklist_8h.html#10e92b92241988092187d4a28d95d057">include_urls</a> = NULL          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="linklist_8c-source.html#l00093">93</a> der Datei <a class="el" href="linklist_8c-source.html">linklist.c</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="4301d92f7f72fdda0af03033d967155b"></a><!-- doxytag: member="linklist.c::include_users" ref="4301d92f7f72fdda0af03033d967155b" args="" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"><a class="el" href="structnlist.html">NLISTPTR</a> <a class="el" href="linklist_8h.html#4301d92f7f72fdda0af03033d967155b">include_users</a> = NULL          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="linklist_8c-source.html#l00096">96</a> der Datei <a class="el" href="linklist_8c-source.html">linklist.c</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="a35b4fc28f26c83f77336185f9aa7175"></a><!-- doxytag: member="linklist.c::index_alias" ref="a35b4fc28f26c83f77336185f9aa7175" args="" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"><a class="el" href="structnlist.html">NLISTPTR</a> <a class="el" href="linklist_8h.html#a35b4fc28f26c83f77336185f9aa7175">index_alias</a> = NULL          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="linklist_8c-source.html#l00097">97</a> der Datei <a class="el" href="linklist_8c-source.html">linklist.c</a>.
+<p>
+Wird benutzt von <a class="el" href="webalizer_8c-source.html#l00232">main()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="556b3c90c27ba5b38626945734914353"></a><!-- doxytag: member="linklist.c::page_type" ref="556b3c90c27ba5b38626945734914353" args="" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"><a class="el" href="structnlist.html">NLISTPTR</a> <a class="el" href="linklist_8h.html#556b3c90c27ba5b38626945734914353">page_type</a> = NULL          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="linklist_8c-source.html#l00104">104</a> der Datei <a class="el" href="linklist_8c-source.html">linklist.c</a>.
+<p>
+Wird benutzt von <a class="el" href="webalizer_8c-source.html#l01802">ispage()</a> und <a class="el" href="webalizer_8c-source.html#l00232">main()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="d93c06cbf86de996601e602d07da3663"></a><!-- doxytag: member="linklist.c::search_list" ref="d93c06cbf86de996601e602d07da3663" args="" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"><a class="el" href="structglist.html">GLISTPTR</a> <a class="el" href="linklist_8h.html#d93c06cbf86de996601e602d07da3663">search_list</a> = NULL          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="linklist_8c-source.html#l00105">105</a> der Datei <a class="el" href="linklist_8c-source.html">linklist.c</a>.
+<p>
+Wird benutzt von <a class="el" href="webalizer_8c-source.html#l01883">srch_string()</a>.    </td>
+  </tr>
+</table>
+<hr size="1"><address style="align: right;"><small>Erzeugt am Wed Jun 7 04:08:03 2006 für OOS [Webalizer] von&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.6 </small></address>
+</body>
+</html>

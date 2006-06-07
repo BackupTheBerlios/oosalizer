@@ -1,0 +1,177 @@
+<?xml version='1.0' encoding='iso-8859-1' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.4.6">
+  <compounddef id="structunode" kind="struct" prot="public">
+    <compoundname>unode</compoundname>
+    <includes refid="hashtab_8h" local="no">hashtab.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structunode_17e4e6f981e97f717739e1844247456a0" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* unode::string</definition>
+        <argsstring></argsstring>
+        <name>string</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/hashtab.h" line="36" bodyfile="/home/r23/oosalizer/hashtab.h" bodystart="36" bodyend="-1"/>
+        <referencedby refid="output_8c_1510367124c184f22aac1331c1412c7d5" compoundref="output_8c" startline="1290" endline="1353">all_urls_page</referencedby>
+        <referencedby refid="hashtab_8h_1175d4b20d25d3a0199d63f3bd6a7d0e1" compoundref="hashtab_8c" startline="410" endline="431">del_ulist</referencedby>
+        <referencedby refid="output_8c_1d1bfd511fab3836f3e1d1867384b425f" compoundref="output_8c" startline="2253" endline="2287">dump_all_urls</referencedby>
+        <referencedby refid="hashtab_8h_1d3836d00c08459b2f9811d213c4e4550" compoundref="hashtab_8c" startline="1062" endline="1076">find_url</referencedby>
+        <referencedby refid="hashtab_8c_1e97ded5fe5fa045e492128b73ff18c8b" compoundref="hashtab_8c" startline="310" endline="338">new_unode</referencedby>
+        <referencedby refid="hashtab_8h_196366abcaec7b7275725bb40618976ab" compoundref="hashtab_8c" startline="344" endline="404">put_unode</referencedby>
+        <referencedby refid="output_8c_172037da3c986417f62837bb8c96b60c0" compoundref="output_8c" startline="1359" endline="1455">top_entry_table</referencedby>
+        <referencedby refid="output_8c_167742ac3286c8dd6e07650560a96e228" compoundref="output_8c" startline="1158" endline="1284">top_urls_table</referencedby>
+        <referencedby refid="hashtab_8c_18017a1f2a1080bd0c9f052305f896b10" compoundref="hashtab_8c" startline="1082" endline="1103">update_entry</referencedby>
+        <referencedby refid="hashtab_8c_17da0915678a706dfa45ec0ae92af2fa2" compoundref="hashtab_8c" startline="1109" endline="1130">update_exit</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structunode_1172c31b32a93663cdde52fba42c0343d" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int unode::flag</definition>
+        <argsstring></argsstring>
+        <name>flag</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/hashtab.h" line="37" bodyfile="/home/r23/oosalizer/hashtab.h" bodystart="37" bodyend="-1"/>
+        <referencedby refid="output_8c_1510367124c184f22aac1331c1412c7d5" compoundref="output_8c" startline="1290" endline="1353">all_urls_page</referencedby>
+        <referencedby refid="output_8c_1d1bfd511fab3836f3e1d1867384b425f" compoundref="output_8c" startline="2253" endline="2287">dump_all_urls</referencedby>
+        <referencedby refid="hashtab_8c_1e97ded5fe5fa045e492128b73ff18c8b" compoundref="hashtab_8c" startline="310" endline="338">new_unode</referencedby>
+        <referencedby refid="hashtab_8h_196366abcaec7b7275725bb40618976ab" compoundref="hashtab_8c" startline="344" endline="404">put_unode</referencedby>
+        <referencedby refid="output_8c_172037da3c986417f62837bb8c96b60c0" compoundref="output_8c" startline="1359" endline="1455">top_entry_table</referencedby>
+        <referencedby refid="output_8c_167742ac3286c8dd6e07650560a96e228" compoundref="output_8c" startline="1158" endline="1284">top_urls_table</referencedby>
+        <referencedby refid="hashtab_8c_18017a1f2a1080bd0c9f052305f896b10" compoundref="hashtab_8c" startline="1082" endline="1103">update_entry</referencedby>
+        <referencedby refid="hashtab_8c_17da0915678a706dfa45ec0ae92af2fa2" compoundref="hashtab_8c" startline="1109" endline="1130">update_exit</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structunode_13c9d9be50f4911615af8e7de965a7435" prot="public" static="no" mutable="no">
+        <type>u_long</type>
+        <definition>u_long unode::count</definition>
+        <argsstring></argsstring>
+        <name>count</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/hashtab.h" line="38" bodyfile="/home/r23/oosalizer/hashtab.h" bodystart="38" bodyend="-1"/>
+        <referencedby refid="output_8c_1510367124c184f22aac1331c1412c7d5" compoundref="output_8c" startline="1290" endline="1353">all_urls_page</referencedby>
+        <referencedby refid="output_8c_1d1bfd511fab3836f3e1d1867384b425f" compoundref="output_8c" startline="2253" endline="2287">dump_all_urls</referencedby>
+        <referencedby refid="hashtab_8c_1e97ded5fe5fa045e492128b73ff18c8b" compoundref="hashtab_8c" startline="310" endline="338">new_unode</referencedby>
+        <referencedby refid="hashtab_8h_196366abcaec7b7275725bb40618976ab" compoundref="hashtab_8c" startline="344" endline="404">put_unode</referencedby>
+        <referencedby refid="output_8c_172037da3c986417f62837bb8c96b60c0" compoundref="output_8c" startline="1359" endline="1455">top_entry_table</referencedby>
+        <referencedby refid="output_8c_167742ac3286c8dd6e07650560a96e228" compoundref="output_8c" startline="1158" endline="1284">top_urls_table</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structunode_1e804f1505713967ff89aae41783c6be1" prot="public" static="no" mutable="no">
+        <type>u_long</type>
+        <definition>u_long unode::files</definition>
+        <argsstring></argsstring>
+        <name>files</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/hashtab.h" line="39" bodyfile="/home/r23/oosalizer/hashtab.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structunode_18799c3c150906874e134a2cc3ccce10d" prot="public" static="no" mutable="no">
+        <type>u_long</type>
+        <definition>u_long unode::entry</definition>
+        <argsstring></argsstring>
+        <name>entry</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/hashtab.h" line="40" bodyfile="/home/r23/oosalizer/hashtab.h" bodystart="40" bodyend="-1"/>
+        <referencedby refid="hashtab_8h_196366abcaec7b7275725bb40618976ab" compoundref="hashtab_8c" startline="344" endline="404">put_unode</referencedby>
+        <referencedby refid="output_8c_172037da3c986417f62837bb8c96b60c0" compoundref="output_8c" startline="1359" endline="1455">top_entry_table</referencedby>
+        <referencedby refid="hashtab_8c_18017a1f2a1080bd0c9f052305f896b10" compoundref="hashtab_8c" startline="1082" endline="1103">update_entry</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structunode_160177f74305a04d4aac550c6b24f8549" prot="public" static="no" mutable="no">
+        <type>u_long</type>
+        <definition>u_long unode::exit</definition>
+        <argsstring></argsstring>
+        <name>exit</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/hashtab.h" line="41" bodyfile="/home/r23/oosalizer/hashtab.h" bodystart="41" bodyend="-1"/>
+        <referencedby refid="hashtab_8h_196366abcaec7b7275725bb40618976ab" compoundref="hashtab_8c" startline="344" endline="404">put_unode</referencedby>
+        <referencedby refid="output_8c_172037da3c986417f62837bb8c96b60c0" compoundref="output_8c" startline="1359" endline="1455">top_entry_table</referencedby>
+        <referencedby refid="hashtab_8c_17da0915678a706dfa45ec0ae92af2fa2" compoundref="hashtab_8c" startline="1109" endline="1130">update_exit</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structunode_1b0e69efc030906335d50a264aa2d2878" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double unode::xfer</definition>
+        <argsstring></argsstring>
+        <name>xfer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/hashtab.h" line="42" bodyfile="/home/r23/oosalizer/hashtab.h" bodystart="42" bodyend="-1"/>
+        <referencedby refid="output_8c_1510367124c184f22aac1331c1412c7d5" compoundref="output_8c" startline="1290" endline="1353">all_urls_page</referencedby>
+        <referencedby refid="output_8c_1d1bfd511fab3836f3e1d1867384b425f" compoundref="output_8c" startline="2253" endline="2287">dump_all_urls</referencedby>
+        <referencedby refid="hashtab_8h_196366abcaec7b7275725bb40618976ab" compoundref="hashtab_8c" startline="344" endline="404">put_unode</referencedby>
+        <referencedby refid="output_8c_167742ac3286c8dd6e07650560a96e228" compoundref="output_8c" startline="1158" endline="1284">top_urls_table</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structunode_184a3ee805e5f7a6011c4c9c5866a27b6" prot="public" static="no" mutable="no">
+        <type><ref refid="structunode" kindref="compound">unode</ref> *</type>
+        <definition>struct unode* unode::next</definition>
+        <argsstring></argsstring>
+        <name>next</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/hashtab.h" line="43" bodyfile="/home/r23/oosalizer/hashtab.h" bodystart="43" bodyend="-1"/>
+        <referencedby refid="hashtab_8h_1175d4b20d25d3a0199d63f3bd6a7d0e1" compoundref="hashtab_8c" startline="410" endline="431">del_ulist</referencedby>
+        <referencedby refid="hashtab_8h_1d3836d00c08459b2f9811d213c4e4550" compoundref="hashtab_8c" startline="1062" endline="1076">find_url</referencedby>
+        <referencedby refid="output_8c_10d5c8398a3b959aa372077fda3f78fff" compoundref="output_8c" startline="2771" endline="2789">load_url_array</referencedby>
+        <referencedby refid="hashtab_8h_196366abcaec7b7275725bb40618976ab" compoundref="hashtab_8c" startline="344" endline="404">put_unode</referencedby>
+        <referencedby refid="hashtab_8c_18017a1f2a1080bd0c9f052305f896b10" compoundref="hashtab_8c" startline="1082" endline="1103">update_entry</referencedby>
+        <referencedby refid="hashtab_8c_17da0915678a706dfa45ec0ae92af2fa2" compoundref="hashtab_8c" startline="1109" endline="1130">update_exit</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="55">
+        <label>unode</label>
+        <link refid="structunode"/>
+        <childnode refid="55" relation="usage">
+          <edgelabel>next</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/r23/oosalizer/hashtab.h" line="36" bodyfile="/home/r23/oosalizer/hashtab.h" bodystart="36" bodyend="43"/>
+    <listofallmembers>
+      <member refid="structunode_13c9d9be50f4911615af8e7de965a7435" prot="public" virt="non-virtual"><scope>unode</scope><name>count</name></member>
+      <member refid="structunode_18799c3c150906874e134a2cc3ccce10d" prot="public" virt="non-virtual"><scope>unode</scope><name>entry</name></member>
+      <member refid="structunode_160177f74305a04d4aac550c6b24f8549" prot="public" virt="non-virtual"><scope>unode</scope><name>exit</name></member>
+      <member refid="structunode_1e804f1505713967ff89aae41783c6be1" prot="public" virt="non-virtual"><scope>unode</scope><name>files</name></member>
+      <member refid="structunode_1172c31b32a93663cdde52fba42c0343d" prot="public" virt="non-virtual"><scope>unode</scope><name>flag</name></member>
+      <member refid="structunode_184a3ee805e5f7a6011c4c9c5866a27b6" prot="public" virt="non-virtual"><scope>unode</scope><name>next</name></member>
+      <member refid="structunode_17e4e6f981e97f717739e1844247456a0" prot="public" virt="non-virtual"><scope>unode</scope><name>string</name></member>
+      <member refid="structunode_1b0e69efc030906335d50a264aa2d2878" prot="public" virt="non-virtual"><scope>unode</scope><name>xfer</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

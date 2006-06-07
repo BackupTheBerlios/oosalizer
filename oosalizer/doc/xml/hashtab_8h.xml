@@ -1,0 +1,931 @@
+<?xml version='1.0' encoding='iso-8859-1' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.4.6">
+  <compounddef id="hashtab_8h" kind="file">
+    <compoundname>hashtab.h</compoundname>
+    <includedby refid="hashtab_8c" local="yes">oosalizer/hashtab.c</includedby>
+    <includedby refid="output_8c" local="yes">oosalizer/output.c</includedby>
+    <includedby refid="preserve_8c" local="yes">oosalizer/preserve.c</includedby>
+    <includedby refid="webalizer_8c" local="yes">oosalizer/webalizer.c</includedby>
+    <invincdepgraph>
+      <node id="218">
+        <label>oosalizer/hashtab.c</label>
+        <link refid="hashtab_8c"/>
+      </node>
+      <node id="217">
+        <label>oosalizer/hashtab.h</label>
+        <link refid="hashtab.h"/>
+        <childnode refid="218" relation="include">
+        </childnode>
+        <childnode refid="219" relation="include">
+        </childnode>
+        <childnode refid="220" relation="include">
+        </childnode>
+        <childnode refid="221" relation="include">
+        </childnode>
+      </node>
+      <node id="220">
+        <label>oosalizer/preserve.c</label>
+        <link refid="preserve_8c"/>
+      </node>
+      <node id="221">
+        <label>oosalizer/webalizer.c</label>
+        <link refid="webalizer_8c"/>
+      </node>
+      <node id="219">
+        <label>oosalizer/output.c</label>
+        <link refid="output_8c"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structhnode">hnode</innerclass>
+    <innerclass refid="structunode">unode</innerclass>
+    <innerclass refid="structrnode">rnode</innerclass>
+    <innerclass refid="structanode">anode</innerclass>
+    <innerclass refid="structsnode">snode</innerclass>
+    <innerclass refid="structinode">inode</innerclass>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="hashtab_8h_1468764de892a2303272613f54f955b0b" prot="public" static="no">
+        <name>OBJ_REG</name>
+        <initializer>0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/hashtab.h" line="15" bodyfile="/home/r23/oosalizer/hashtab.h" bodystart="15" bodyend="-1"/>
+        <referencedby refid="output_8c_14f27932d464425450d0c11106ae0c2fe" compoundref="output_8c" startline="1713" endline="1769">all_agents_page</referencedby>
+        <referencedby refid="output_8c_1ffa5d4248e6a8d3946f094e5a16c026e" compoundref="output_8c" startline="1561" endline="1617">all_refs_page</referencedby>
+        <referencedby refid="output_8c_1c4e6c9fc2562755c38403dd45bdab4e9" compoundref="output_8c" startline="1085" endline="1152">all_sites_page</referencedby>
+        <referencedby refid="output_8c_1510367124c184f22aac1331c1412c7d5" compoundref="output_8c" startline="1290" endline="1353">all_urls_page</referencedby>
+        <referencedby refid="output_8c_1b1313f0c59efbacd626ea5fb185f126e" compoundref="output_8c" startline="1990" endline="2057">all_users_page</referencedby>
+        <referencedby refid="hashtab_8c_177e03d0d91a9f6365711aed781c218f2" compoundref="hashtab_8c" startline="556" endline="584">new_anode</referencedby>
+        <referencedby refid="hashtab_8c_1b9cf53c565bbf77a87c29f745ef76a80" compoundref="hashtab_8c" startline="437" endline="465">new_rnode</referencedby>
+        <referencedby refid="hashtab_8c_1e97ded5fe5fa045e492128b73ff18c8b" compoundref="hashtab_8c" startline="310" endline="338">new_unode</referencedby>
+        <referencedby refid="output_8c_155f5637d81e4b2847ea889ac14cbcc6b" compoundref="output_8c" startline="1623" endline="1707">top_agents_table</referencedby>
+        <referencedby refid="output_8c_172037da3c986417f62837bb8c96b60c0" compoundref="output_8c" startline="1359" endline="1455">top_entry_table</referencedby>
+        <referencedby refid="output_8c_1f175d11f499a6782ad34c4b21f6891e1" compoundref="output_8c" startline="1461" endline="1555">top_refs_table</referencedby>
+        <referencedby refid="output_8c_18459026bf062636220025d736ae99fa7" compoundref="output_8c" startline="972" endline="1079">top_sites_table</referencedby>
+        <referencedby refid="output_8c_167742ac3286c8dd6e07650560a96e228" compoundref="output_8c" startline="1158" endline="1284">top_urls_table</referencedby>
+        <referencedby refid="output_8c_12e8e6386a5b4fa3e5dafd4f2becfb3ce" compoundref="output_8c" startline="1888" endline="1984">top_users_table</referencedby>
+      </memberdef>
+      <memberdef kind="define" id="hashtab_8h_1dc29d672dac67a96fe49e055dce78bff" prot="public" static="no">
+        <name>OBJ_HIDE</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/hashtab.h" line="16" bodyfile="/home/r23/oosalizer/hashtab.h" bodystart="16" bodyend="-1"/>
+        <referencedby refid="hashtab_8h_14d9f66275e1a624931142f32f046dd13" compoundref="hashtab_8c" startline="590" endline="639">put_anode</referencedby>
+        <referencedby refid="hashtab_8h_1fe9c0e49a4926c7cba71b7f8db5db8cd" compoundref="hashtab_8c" startline="155" endline="277">put_hnode</referencedby>
+        <referencedby refid="hashtab_8h_162c7ecc5b3ae3851f5400e30734b8e9e" compoundref="hashtab_8c" startline="811" endline="912">put_inode</referencedby>
+        <referencedby refid="hashtab_8h_1cba57da4379852348b455ce6e86ef96b" compoundref="hashtab_8c" startline="471" endline="523">put_rnode</referencedby>
+        <referencedby refid="hashtab_8h_196366abcaec7b7275725bb40618976ab" compoundref="hashtab_8c" startline="344" endline="404">put_unode</referencedby>
+        <referencedby refid="output_8c_155f5637d81e4b2847ea889ac14cbcc6b" compoundref="output_8c" startline="1623" endline="1707">top_agents_table</referencedby>
+        <referencedby refid="output_8c_172037da3c986417f62837bb8c96b60c0" compoundref="output_8c" startline="1359" endline="1455">top_entry_table</referencedby>
+        <referencedby refid="output_8c_1f175d11f499a6782ad34c4b21f6891e1" compoundref="output_8c" startline="1461" endline="1555">top_refs_table</referencedby>
+        <referencedby refid="output_8c_18459026bf062636220025d736ae99fa7" compoundref="output_8c" startline="972" endline="1079">top_sites_table</referencedby>
+        <referencedby refid="output_8c_167742ac3286c8dd6e07650560a96e228" compoundref="output_8c" startline="1158" endline="1284">top_urls_table</referencedby>
+        <referencedby refid="output_8c_12e8e6386a5b4fa3e5dafd4f2becfb3ce" compoundref="output_8c" startline="1888" endline="1984">top_users_table</referencedby>
+      </memberdef>
+      <memberdef kind="define" id="hashtab_8h_1b2fd3e100a904891f4c27eb46e87140f" prot="public" static="no">
+        <name>OBJ_GRP</name>
+        <initializer>2</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/hashtab.h" line="17" bodyfile="/home/r23/oosalizer/hashtab.h" bodystart="17" bodyend="-1"/>
+        <referencedby refid="output_8c_14f27932d464425450d0c11106ae0c2fe" compoundref="output_8c" startline="1713" endline="1769">all_agents_page</referencedby>
+        <referencedby refid="output_8c_1ffa5d4248e6a8d3946f094e5a16c026e" compoundref="output_8c" startline="1561" endline="1617">all_refs_page</referencedby>
+        <referencedby refid="output_8c_1c4e6c9fc2562755c38403dd45bdab4e9" compoundref="output_8c" startline="1085" endline="1152">all_sites_page</referencedby>
+        <referencedby refid="output_8c_1510367124c184f22aac1331c1412c7d5" compoundref="output_8c" startline="1290" endline="1353">all_urls_page</referencedby>
+        <referencedby refid="output_8c_1b1313f0c59efbacd626ea5fb185f126e" compoundref="output_8c" startline="1990" endline="2057">all_users_page</referencedby>
+        <referencedby refid="output_8c_113b9a7e783dc0408ef406d95e9a347a8" compoundref="output_8c" startline="2332" endline="2365">dump_all_agents</referencedby>
+        <referencedby refid="output_8c_1246f33aca4a4783b5b9853d70aa44d61" compoundref="output_8c" startline="2293" endline="2326">dump_all_refs</referencedby>
+        <referencedby refid="output_8c_11ff4091dce5e22d1f8f4cc034a78afec" compoundref="output_8c" startline="2210" endline="2247">dump_all_sites</referencedby>
+        <referencedby refid="output_8c_1d1bfd511fab3836f3e1d1867384b425f" compoundref="output_8c" startline="2253" endline="2287">dump_all_urls</referencedby>
+        <referencedby refid="output_8c_1a519e8d866cad7c01f72636d749a9f57" compoundref="output_8c" startline="2371" endline="2408">dump_all_users</referencedby>
+        <referencedby refid="hashtab_8h_1a516a060c822c1718d2254a425a0c033" compoundref="hashtab_8c" startline="1136" endline="1154">month_update_exit</referencedby>
+        <referencedby refid="hashtab_8h_14d9f66275e1a624931142f32f046dd13" compoundref="hashtab_8c" startline="590" endline="639">put_anode</referencedby>
+        <referencedby refid="hashtab_8h_1fe9c0e49a4926c7cba71b7f8db5db8cd" compoundref="hashtab_8c" startline="155" endline="277">put_hnode</referencedby>
+        <referencedby refid="hashtab_8h_162c7ecc5b3ae3851f5400e30734b8e9e" compoundref="hashtab_8c" startline="811" endline="912">put_inode</referencedby>
+        <referencedby refid="hashtab_8h_1cba57da4379852348b455ce6e86ef96b" compoundref="hashtab_8c" startline="471" endline="523">put_rnode</referencedby>
+        <referencedby refid="hashtab_8h_196366abcaec7b7275725bb40618976ab" compoundref="hashtab_8c" startline="344" endline="404">put_unode</referencedby>
+        <referencedby refid="output_8c_155f5637d81e4b2847ea889ac14cbcc6b" compoundref="output_8c" startline="1623" endline="1707">top_agents_table</referencedby>
+        <referencedby refid="output_8c_1c1ecb6ecbe9f7218b2e9ccae79cf2f5f" compoundref="output_8c" startline="2063" endline="2204">top_ctry_table</referencedby>
+        <referencedby refid="output_8c_1f175d11f499a6782ad34c4b21f6891e1" compoundref="output_8c" startline="1461" endline="1555">top_refs_table</referencedby>
+        <referencedby refid="output_8c_18459026bf062636220025d736ae99fa7" compoundref="output_8c" startline="972" endline="1079">top_sites_table</referencedby>
+        <referencedby refid="output_8c_167742ac3286c8dd6e07650560a96e228" compoundref="output_8c" startline="1158" endline="1284">top_urls_table</referencedby>
+        <referencedby refid="output_8c_12e8e6386a5b4fa3e5dafd4f2becfb3ce" compoundref="output_8c" startline="1888" endline="1984">top_users_table</referencedby>
+        <referencedby refid="hashtab_8h_14bdcfce12ca5e5236241cfdd1ec5288a" compoundref="hashtab_8c" startline="1160" endline="1176">tot_visit</referencedby>
+        <referencedby refid="hashtab_8c_18017a1f2a1080bd0c9f052305f896b10" compoundref="hashtab_8c" startline="1082" endline="1103">update_entry</referencedby>
+        <referencedby refid="hashtab_8c_17da0915678a706dfa45ec0ae92af2fa2" compoundref="hashtab_8c" startline="1109" endline="1130">update_exit</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="hashtab_8h_16e6c936395602fb2683ed0599131927b" prot="public" static="no">
+        <type><ref refid="structhnode" kindref="compound">hnode</ref> *</type>
+        <definition>typedef struct hnode* HNODEPTR</definition>
+        <argsstring></argsstring>
+        <name>HNODEPTR</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/hashtab.h" line="4" bodyfile="/home/r23/oosalizer/hashtab.h" bodystart="4" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="hashtab_8h_10d24805080edbea320fb2c2ec31b229a" prot="public" static="no">
+        <type><ref refid="structunode" kindref="compound">unode</ref> *</type>
+        <definition>typedef struct unode* UNODEPTR</definition>
+        <argsstring></argsstring>
+        <name>UNODEPTR</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/hashtab.h" line="5" bodyfile="/home/r23/oosalizer/hashtab.h" bodystart="5" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="hashtab_8h_1f93974994603709dc7ef7a9c6798fa23" prot="public" static="no">
+        <type><ref refid="structrnode" kindref="compound">rnode</ref> *</type>
+        <definition>typedef struct rnode* RNODEPTR</definition>
+        <argsstring></argsstring>
+        <name>RNODEPTR</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/hashtab.h" line="6" bodyfile="/home/r23/oosalizer/hashtab.h" bodystart="6" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="hashtab_8h_154e9f1564bf40998b62838a2b06f7798" prot="public" static="no">
+        <type><ref refid="structanode" kindref="compound">anode</ref> *</type>
+        <definition>typedef struct anode* ANODEPTR</definition>
+        <argsstring></argsstring>
+        <name>ANODEPTR</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/hashtab.h" line="7" bodyfile="/home/r23/oosalizer/hashtab.h" bodystart="7" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="hashtab_8h_1ba5bd50dc4074b21b1f1cfac70bb1fd5" prot="public" static="no">
+        <type><ref refid="structsnode" kindref="compound">snode</ref> *</type>
+        <definition>typedef struct snode* SNODEPTR</definition>
+        <argsstring></argsstring>
+        <name>SNODEPTR</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/hashtab.h" line="8" bodyfile="/home/r23/oosalizer/hashtab.h" bodystart="8" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="hashtab_8h_1e88293572818a449e95993c4ccdba0a8" prot="public" static="no">
+        <type><ref refid="structinode" kindref="compound">inode</ref> *</type>
+        <definition>typedef struct inode* INODEPTR</definition>
+        <argsstring></argsstring>
+        <name>INODEPTR</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/hashtab.h" line="9" bodyfile="/home/r23/oosalizer/hashtab.h" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="hashtab_8h_1fe9c0e49a4926c7cba71b7f8db5db8cd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int put_hnode</definition>
+        <argsstring>(char *, int, u_long, u_long, double, u_long *, u_long, u_long, char *, HNODEPTR *)</argsstring>
+        <name>put_hnode</name>
+        <param>
+          <type>char *</type>
+        </param>
+        <param>
+          <type>int</type>
+        </param>
+        <param>
+          <type>u_long</type>
+        </param>
+        <param>
+          <type>u_long</type>
+        </param>
+        <param>
+          <type>double</type>
+        </param>
+        <param>
+          <type>u_long *</type>
+        </param>
+        <param>
+          <type>u_long</type>
+        </param>
+        <param>
+          <type>u_long</type>
+        </param>
+        <param>
+          <type>char *</type>
+        </param>
+        <param>
+          <type><ref refid="structhnode" kindref="compound">HNODEPTR</ref> *</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/hashtab.h" line="80" bodyfile="/home/r23/oosalizer/hashtab.c" bodystart="155" bodyend="277"/>
+        <references refid="structhnode_1ea12ded28f814b621ae07ab94aaa1f4e" compoundref="hashtab_8h" startline="28">hnode::count</references>
+        <references refid="structhnode_1afa2fd08fe9e22e6f183759b01a0e5c4" compoundref="hashtab_8h" startline="29">hnode::files</references>
+        <references refid="hashtab_8c_16028851c0bddbe6cfc35b4092a62e5e5" compoundref="hashtab_8c" startline="1062" endline="1076">find_url</references>
+        <references refid="structhnode_1821441b6ed6dd23ac11a37d932461b03" compoundref="hashtab_8h" startline="27">hnode::flag</references>
+        <references refid="hashtab_8c_19d203938872dfbe120779670bfbefddd" compoundref="hashtab_8c" startline="1050" endline="1056">hash</references>
+        <references refid="linklist_8c_196bde86b735761b0b2b03d057d7bddfd" compoundref="linklist_8c" startline="82">hidden_sites</references>
+        <references refid="webalizer_8c_1a77fbf13eba0ffbb98b893c0089cb49b" compoundref="webalizer_8c" startline="129">hide_sites</references>
+        <references refid="linklist_8c_129bda5ebb6dd2f9b19d8f9519eaf94ff" compoundref="linklist_8c" startline="243" endline="254">isinlist</references>
+        <references refid="webalizer_8c_1875f50fc519d72b2f46b8413cb1a9c45" compoundref="webalizer_8c" startline="1802" endline="1810">ispage</references>
+        <references refid="structhnode_1d025a4c0d49fa093181202d2a91eb524" compoundref="hashtab_8h" startline="32">hnode::lasturl</references>
+        <references refid="webalizer_8c_1b78a7a0970e517ad18adea541d2b2b32" compoundref="webalizer_8c" startline="209">log_rec</references>
+        <references refid="hashtab_8c_1ca7c730d21349d04dcff3556d0a89fec" compoundref="hashtab_8c" startline="120" endline="149">new_hnode</references>
+        <references refid="structhnode_1da1ebcc2a224afb85778f07ff89c9e23" compoundref="hashtab_8h" startline="34">hnode::next</references>
+        <references refid="hashtab_8h_1b2fd3e100a904891f4c27eb46e87140f" compoundref="hashtab_8h" startline="17">OBJ_GRP</references>
+        <references refid="hashtab_8h_1dc29d672dac67a96fe49e055dce78bff" compoundref="hashtab_8h" startline="16">OBJ_HIDE</references>
+        <references refid="hashtab_8c_1408742678920fdb90b2926c215e8e19c" compoundref="hashtab_8c" startline="86">sm_htab</references>
+        <references refid="structhnode_1eb54894424f88ea691ce2739a7b7ce80" compoundref="hashtab_8h" startline="26">hnode::string</references>
+        <references refid="structhnode_1e02fb87d76b57ad488493862bdd54f1e" compoundref="hashtab_8h" startline="31">hnode::tstamp</references>
+        <references refid="hashtab_8c_18017a1f2a1080bd0c9f052305f896b10" compoundref="hashtab_8c" startline="1082" endline="1103">update_entry</references>
+        <references refid="hashtab_8c_17da0915678a706dfa45ec0ae92af2fa2" compoundref="hashtab_8c" startline="1109" endline="1130">update_exit</references>
+        <references refid="structlog__struct_1479e09f2dc389f8a0a57b9c3146d9d32" compoundref="webalizer_8h" startline="153">log_struct::url</references>
+        <references refid="structhnode_1e55f7c9efab364555b1fee0a61deb229" compoundref="hashtab_8h" startline="30">hnode::visit</references>
+        <references refid="webalizer_8c_195c29ea4f1f207b5be0cdd3cefa935d1" compoundref="webalizer_8c" startline="123">visit_timeout</references>
+        <references refid="structhnode_18069d0fba422f3b79fdeef1e263f7141" compoundref="hashtab_8h" startline="33">hnode::xfer</references>
+      </memberdef>
+      <memberdef kind="function" id="hashtab_8h_196366abcaec7b7275725bb40618976ab" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int put_unode</definition>
+        <argsstring>(char *, int, u_long, double, u_long *, u_long, u_long, UNODEPTR *)</argsstring>
+        <name>put_unode</name>
+        <param>
+          <type>char *</type>
+        </param>
+        <param>
+          <type>int</type>
+        </param>
+        <param>
+          <type>u_long</type>
+        </param>
+        <param>
+          <type>double</type>
+        </param>
+        <param>
+          <type>u_long *</type>
+        </param>
+        <param>
+          <type>u_long</type>
+        </param>
+        <param>
+          <type>u_long</type>
+        </param>
+        <param>
+          <type><ref refid="structunode" kindref="compound">UNODEPTR</ref> *</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/hashtab.h" line="82" bodyfile="/home/r23/oosalizer/hashtab.c" bodystart="344" bodyend="404"/>
+        <references refid="structunode_13c9d9be50f4911615af8e7de965a7435" compoundref="hashtab_8h" startline="38">unode::count</references>
+        <references refid="structunode_18799c3c150906874e134a2cc3ccce10d" compoundref="hashtab_8h" startline="40">unode::entry</references>
+        <references refid="structunode_160177f74305a04d4aac550c6b24f8549" compoundref="hashtab_8h" startline="41">unode::exit</references>
+        <references refid="structunode_1172c31b32a93663cdde52fba42c0343d" compoundref="hashtab_8h" startline="37">unode::flag</references>
+        <references refid="hashtab_8c_19d203938872dfbe120779670bfbefddd" compoundref="hashtab_8c" startline="1050" endline="1056">hash</references>
+        <references refid="linklist_8c_1fb86638f144a8726901b06185e2415af" compoundref="linklist_8c" startline="83">hidden_urls</references>
+        <references refid="linklist_8c_129bda5ebb6dd2f9b19d8f9519eaf94ff" compoundref="linklist_8c" startline="243" endline="254">isinlist</references>
+        <references refid="hashtab_8c_1e97ded5fe5fa045e492128b73ff18c8b" compoundref="hashtab_8c" startline="310" endline="338">new_unode</references>
+        <references refid="structunode_184a3ee805e5f7a6011c4c9c5866a27b6" compoundref="hashtab_8h" startline="43">unode::next</references>
+        <references refid="hashtab_8h_1b2fd3e100a904891f4c27eb46e87140f" compoundref="hashtab_8h" startline="17">OBJ_GRP</references>
+        <references refid="hashtab_8h_1dc29d672dac67a96fe49e055dce78bff" compoundref="hashtab_8h" startline="16">OBJ_HIDE</references>
+        <references refid="structunode_17e4e6f981e97f717739e1844247456a0" compoundref="hashtab_8h" startline="36">unode::string</references>
+        <references refid="structunode_1b0e69efc030906335d50a264aa2d2878" compoundref="hashtab_8h" startline="42">unode::xfer</references>
+      </memberdef>
+      <memberdef kind="function" id="hashtab_8h_162c7ecc5b3ae3851f5400e30734b8e9e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int put_inode</definition>
+        <argsstring>(char *, int, u_long, u_long, double, u_long *, u_long, u_long, INODEPTR *)</argsstring>
+        <name>put_inode</name>
+        <param>
+          <type>char *</type>
+        </param>
+        <param>
+          <type>int</type>
+        </param>
+        <param>
+          <type>u_long</type>
+        </param>
+        <param>
+          <type>u_long</type>
+        </param>
+        <param>
+          <type>double</type>
+        </param>
+        <param>
+          <type>u_long *</type>
+        </param>
+        <param>
+          <type>u_long</type>
+        </param>
+        <param>
+          <type>u_long</type>
+        </param>
+        <param>
+          <type><ref refid="structinode" kindref="compound">INODEPTR</ref> *</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/hashtab.h" line="84" bodyfile="/home/r23/oosalizer/hashtab.c" bodystart="811" bodyend="912"/>
+        <references refid="structinode_18579979bc170cd8cceafabe3208cfb3c" compoundref="hashtab_8h" startline="61">inode::count</references>
+        <references refid="structinode_116b7ee518b4af2b7cf436840aff1cc8c" compoundref="hashtab_8h" startline="62">inode::files</references>
+        <references refid="structinode_186565f81a8353154619812e7317b1e2d" compoundref="hashtab_8h" startline="60">inode::flag</references>
+        <references refid="hashtab_8c_19d203938872dfbe120779670bfbefddd" compoundref="hashtab_8c" startline="1050" endline="1056">hash</references>
+        <references refid="linklist_8c_1c328ffff94e0ce5d57817ee1197767aa" compoundref="linklist_8c" startline="86">hidden_users</references>
+        <references refid="linklist_8c_129bda5ebb6dd2f9b19d8f9519eaf94ff" compoundref="linklist_8c" startline="243" endline="254">isinlist</references>
+        <references refid="webalizer_8c_1875f50fc519d72b2f46b8413cb1a9c45" compoundref="webalizer_8c" startline="1802" endline="1810">ispage</references>
+        <references refid="webalizer_8c_1b78a7a0970e517ad18adea541d2b2b32" compoundref="webalizer_8c" startline="209">log_rec</references>
+        <references refid="hashtab_8c_1850b758cda6a66b5563aa41454279b76" compoundref="hashtab_8c" startline="777" endline="805">new_inode</references>
+        <references refid="structinode_1ff3eec0bab3bda5c998d29251bb4d877" compoundref="hashtab_8h" startline="66">inode::next</references>
+        <references refid="hashtab_8h_1b2fd3e100a904891f4c27eb46e87140f" compoundref="hashtab_8h" startline="17">OBJ_GRP</references>
+        <references refid="hashtab_8h_1dc29d672dac67a96fe49e055dce78bff" compoundref="hashtab_8h" startline="16">OBJ_HIDE</references>
+        <references refid="structinode_15883f2056e6f135990b1ba4be0d6017c" compoundref="hashtab_8h" startline="59">inode::string</references>
+        <references refid="structinode_1737deeb7e731e4f9db70427fd0854dfd" compoundref="hashtab_8h" startline="64">inode::tstamp</references>
+        <references refid="structlog__struct_1479e09f2dc389f8a0a57b9c3146d9d32" compoundref="webalizer_8h" startline="153">log_struct::url</references>
+        <references refid="structinode_123fbc8ae83e74cc1ba882eef7b2a6948" compoundref="hashtab_8h" startline="63">inode::visit</references>
+        <references refid="webalizer_8c_195c29ea4f1f207b5be0cdd3cefa935d1" compoundref="webalizer_8c" startline="123">visit_timeout</references>
+        <references refid="structinode_1a3dee5fe9d1b73fa4dfffc800e8a3cdf" compoundref="hashtab_8h" startline="65">inode::xfer</references>
+      </memberdef>
+      <memberdef kind="function" id="hashtab_8h_1cba57da4379852348b455ce6e86ef96b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int put_rnode</definition>
+        <argsstring>(char *, int, u_long, u_long *, RNODEPTR *)</argsstring>
+        <name>put_rnode</name>
+        <param>
+          <type>char *</type>
+        </param>
+        <param>
+          <type>int</type>
+        </param>
+        <param>
+          <type>u_long</type>
+        </param>
+        <param>
+          <type>u_long *</type>
+        </param>
+        <param>
+          <type><ref refid="structrnode" kindref="compound">RNODEPTR</ref> *</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/hashtab.h" line="85" bodyfile="/home/r23/oosalizer/hashtab.c" bodystart="471" bodyend="523"/>
+        <references refid="structrnode_14034f46036f5fa702a86b3609d7a557a" compoundref="hashtab_8h" startline="47">rnode::count</references>
+        <references refid="structrnode_1d5613de994a7efcb74acdb20ac8c2913" compoundref="hashtab_8h" startline="46">rnode::flag</references>
+        <references refid="hashtab_8c_19d203938872dfbe120779670bfbefddd" compoundref="hashtab_8c" startline="1050" endline="1056">hash</references>
+        <references refid="linklist_8c_17f8ec975eaff8227a3e09efb17d3e064" compoundref="linklist_8c" startline="84">hidden_refs</references>
+        <references refid="linklist_8c_129bda5ebb6dd2f9b19d8f9519eaf94ff" compoundref="linklist_8c" startline="243" endline="254">isinlist</references>
+        <references refid="hashtab_8c_1b9cf53c565bbf77a87c29f745ef76a80" compoundref="hashtab_8c" startline="437" endline="465">new_rnode</references>
+        <references refid="structrnode_192d155180af669f0207cd3682c132468" compoundref="hashtab_8h" startline="48">rnode::next</references>
+        <references refid="hashtab_8h_1b2fd3e100a904891f4c27eb46e87140f" compoundref="hashtab_8h" startline="17">OBJ_GRP</references>
+        <references refid="hashtab_8h_1dc29d672dac67a96fe49e055dce78bff" compoundref="hashtab_8h" startline="16">OBJ_HIDE</references>
+        <references refid="structrnode_16709bc4db86e039dd874dede6175a4d1" compoundref="hashtab_8h" startline="45">rnode::string</references>
+      </memberdef>
+      <memberdef kind="function" id="hashtab_8h_14d9f66275e1a624931142f32f046dd13" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int put_anode</definition>
+        <argsstring>(char *, int, u_long, u_long *, ANODEPTR *)</argsstring>
+        <name>put_anode</name>
+        <param>
+          <type>char *</type>
+        </param>
+        <param>
+          <type>int</type>
+        </param>
+        <param>
+          <type>u_long</type>
+        </param>
+        <param>
+          <type>u_long *</type>
+        </param>
+        <param>
+          <type><ref refid="structanode" kindref="compound">ANODEPTR</ref> *</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/hashtab.h" line="86" bodyfile="/home/r23/oosalizer/hashtab.c" bodystart="590" bodyend="639"/>
+        <references refid="structanode_1358dd30d63b3ecf448451988c0139fcf" compoundref="hashtab_8h" startline="52">anode::count</references>
+        <references refid="structanode_1f9635cb5d8af6707a8bfab885f6d556b" compoundref="hashtab_8h" startline="51">anode::flag</references>
+        <references refid="hashtab_8c_19d203938872dfbe120779670bfbefddd" compoundref="hashtab_8c" startline="1050" endline="1056">hash</references>
+        <references refid="linklist_8c_189feb23799329906fbd4a3d47a303027" compoundref="linklist_8c" startline="85">hidden_agents</references>
+        <references refid="linklist_8c_129bda5ebb6dd2f9b19d8f9519eaf94ff" compoundref="linklist_8c" startline="243" endline="254">isinlist</references>
+        <references refid="hashtab_8c_177e03d0d91a9f6365711aed781c218f2" compoundref="hashtab_8c" startline="556" endline="584">new_anode</references>
+        <references refid="structanode_1834db38618dba5e74b8a738441e861d9" compoundref="hashtab_8h" startline="53">anode::next</references>
+        <references refid="hashtab_8h_1b2fd3e100a904891f4c27eb46e87140f" compoundref="hashtab_8h" startline="17">OBJ_GRP</references>
+        <references refid="hashtab_8h_1dc29d672dac67a96fe49e055dce78bff" compoundref="hashtab_8h" startline="16">OBJ_HIDE</references>
+        <references refid="structanode_18fa6d7969583389ae6d535866f9fd914" compoundref="hashtab_8h" startline="50">anode::string</references>
+      </memberdef>
+      <memberdef kind="function" id="hashtab_8h_1e9754e3f6f6b9926edb3bf1706f8202a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int put_snode</definition>
+        <argsstring>(char *, u_long, SNODEPTR *)</argsstring>
+        <name>put_snode</name>
+        <param>
+          <type>char *</type>
+        </param>
+        <param>
+          <type>u_long</type>
+        </param>
+        <param>
+          <type><ref refid="structsnode" kindref="compound">SNODEPTR</ref> *</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/hashtab.h" line="87" bodyfile="/home/r23/oosalizer/hashtab.c" bodystart="705" bodyend="744"/>
+        <references refid="structsnode_1af14980bcdb9d5e9543507adee3fd803" compoundref="hashtab_8h" startline="56">snode::count</references>
+        <references refid="hashtab_8c_19d203938872dfbe120779670bfbefddd" compoundref="hashtab_8c" startline="1050" endline="1056">hash</references>
+        <references refid="hashtab_8c_140b9a825d5fab2416f5911a3255980f9" compoundref="hashtab_8c" startline="672" endline="699">new_snode</references>
+        <references refid="structsnode_191a76319ab431b979edd96540899a605" compoundref="hashtab_8h" startline="57">snode::next</references>
+        <references refid="structsnode_14917005c761d2dfdb653d88a2eb5aa58" compoundref="hashtab_8h" startline="55">snode::string</references>
+        <referencedby refid="webalizer_8c_12b1002ec17d1cd1e6901514b8b6de058" compoundref="webalizer_8c" startline="1883" endline="1936">srch_string</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="hashtab_8h_1f9fcdad76e91434fe5f0728f3a79ae74" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void del_htabs</definition>
+        <argsstring>()</argsstring>
+        <name>del_htabs</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/hashtab.h" line="94" bodyfile="/home/r23/oosalizer/hashtab.c" bodystart="102" bodyend="114"/>
+        <references refid="hashtab_8c_14886dbd661ad553906dc83e1a8031316" compoundref="hashtab_8c" startline="90">am_htab</references>
+        <references refid="hashtab_8c_1ebb84eee637f50db17ab93d1050e8bd1" compoundref="hashtab_8c" startline="645" endline="666">del_alist</references>
+        <references refid="hashtab_8c_1306d5a1540d43fa136c10272cb2f0a4a" compoundref="hashtab_8c" startline="283" endline="304">del_hlist</references>
+        <references refid="hashtab_8c_1d859897805bb7fc6479703fd3bcf493a" compoundref="hashtab_8c" startline="918" endline="939">del_ilist</references>
+        <references refid="hashtab_8c_199589c545676162533a82708505580c6" compoundref="hashtab_8c" startline="529" endline="550">del_rlist</references>
+        <references refid="hashtab_8c_1d526188ebf65c97a2ed3cb521c6e0089" compoundref="hashtab_8c" startline="750" endline="771">del_slist</references>
+        <references refid="hashtab_8c_1d270fa129a86e1f21e04f6863eb443c4" compoundref="hashtab_8c" startline="410" endline="431">del_ulist</references>
+        <references refid="hashtab_8c_11a7bfe1ecf3b78722bcee9d08e8178a1" compoundref="hashtab_8c" startline="92">im_htab</references>
+        <references refid="hashtab_8c_14b36877a2219872c641eb9a58ae45ce8" compoundref="hashtab_8c" startline="89">rm_htab</references>
+        <references refid="hashtab_8c_1e5ddad8435a9d403e79f4bd320fea151" compoundref="hashtab_8c" startline="87">sd_htab</references>
+        <references refid="hashtab_8c_1408742678920fdb90b2926c215e8e19c" compoundref="hashtab_8c" startline="86">sm_htab</references>
+        <references refid="hashtab_8c_1e9a8ef54a4b421e3d16dc313f162ccff" compoundref="hashtab_8c" startline="91">sr_htab</references>
+        <references refid="hashtab_8c_12f99d64abd1711a4b10ee71d070811a7" compoundref="hashtab_8c" startline="88">um_htab</references>
+        <referencedby refid="webalizer_8c_13d6b75394204fbb3dbe30423911cda44" compoundref="webalizer_8c" startline="1701" endline="1708">clear_month</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="hashtab_8h_1faa716f0287d99c15c2f1d1b26d74ce0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void del_hlist</definition>
+        <argsstring>(HNODEPTR *)</argsstring>
+        <name>del_hlist</name>
+        <param>
+          <type><ref refid="structhnode" kindref="compound">HNODEPTR</ref> *</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/hashtab.h" line="95" bodyfile="/home/r23/oosalizer/hashtab.c" bodystart="283" bodyend="304"/>
+        <references refid="webalizer_8h_1381dfed3a446e2b49171f4593a701df8" compoundref="webalizer_8h" startline="15">MAXHASH</references>
+        <references refid="structhnode_1da1ebcc2a224afb85778f07ff89c9e23" compoundref="hashtab_8h" startline="34">hnode::next</references>
+        <references refid="structhnode_1eb54894424f88ea691ce2739a7b7ce80" compoundref="hashtab_8h" startline="26">hnode::string</references>
+        <referencedby refid="hashtab_8h_1f9fcdad76e91434fe5f0728f3a79ae74" compoundref="hashtab_8c" startline="102" endline="114">del_htabs</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="hashtab_8h_1175d4b20d25d3a0199d63f3bd6a7d0e1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void del_ulist</definition>
+        <argsstring>(UNODEPTR *)</argsstring>
+        <name>del_ulist</name>
+        <param>
+          <type><ref refid="structunode" kindref="compound">UNODEPTR</ref> *</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/hashtab.h" line="96" bodyfile="/home/r23/oosalizer/hashtab.c" bodystart="410" bodyend="431"/>
+        <references refid="webalizer_8h_1381dfed3a446e2b49171f4593a701df8" compoundref="webalizer_8h" startline="15">MAXHASH</references>
+        <references refid="structunode_184a3ee805e5f7a6011c4c9c5866a27b6" compoundref="hashtab_8h" startline="43">unode::next</references>
+        <references refid="structunode_17e4e6f981e97f717739e1844247456a0" compoundref="hashtab_8h" startline="36">unode::string</references>
+        <referencedby refid="hashtab_8h_1f9fcdad76e91434fe5f0728f3a79ae74" compoundref="hashtab_8c" startline="102" endline="114">del_htabs</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="hashtab_8h_166b8b1a1eb435b152cb668f00f545a77" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void del_rlist</definition>
+        <argsstring>(RNODEPTR *)</argsstring>
+        <name>del_rlist</name>
+        <param>
+          <type><ref refid="structrnode" kindref="compound">RNODEPTR</ref> *</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/hashtab.h" line="97" bodyfile="/home/r23/oosalizer/hashtab.c" bodystart="529" bodyend="550"/>
+        <references refid="webalizer_8h_1381dfed3a446e2b49171f4593a701df8" compoundref="webalizer_8h" startline="15">MAXHASH</references>
+        <references refid="structrnode_192d155180af669f0207cd3682c132468" compoundref="hashtab_8h" startline="48">rnode::next</references>
+        <references refid="structrnode_16709bc4db86e039dd874dede6175a4d1" compoundref="hashtab_8h" startline="45">rnode::string</references>
+        <referencedby refid="hashtab_8h_1f9fcdad76e91434fe5f0728f3a79ae74" compoundref="hashtab_8c" startline="102" endline="114">del_htabs</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="hashtab_8h_1f22586d044db71a37c6df4e122019504" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void del_alist</definition>
+        <argsstring>(ANODEPTR *)</argsstring>
+        <name>del_alist</name>
+        <param>
+          <type><ref refid="structanode" kindref="compound">ANODEPTR</ref> *</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/hashtab.h" line="98" bodyfile="/home/r23/oosalizer/hashtab.c" bodystart="645" bodyend="666"/>
+        <references refid="webalizer_8h_1381dfed3a446e2b49171f4593a701df8" compoundref="webalizer_8h" startline="15">MAXHASH</references>
+        <references refid="structanode_1834db38618dba5e74b8a738441e861d9" compoundref="hashtab_8h" startline="53">anode::next</references>
+        <references refid="structanode_18fa6d7969583389ae6d535866f9fd914" compoundref="hashtab_8h" startline="50">anode::string</references>
+        <referencedby refid="hashtab_8h_1f9fcdad76e91434fe5f0728f3a79ae74" compoundref="hashtab_8c" startline="102" endline="114">del_htabs</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="hashtab_8h_175fb07de23e0c974422e5b44a587dfca" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void del_slist</definition>
+        <argsstring>(SNODEPTR *)</argsstring>
+        <name>del_slist</name>
+        <param>
+          <type><ref refid="structsnode" kindref="compound">SNODEPTR</ref> *</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/hashtab.h" line="99" bodyfile="/home/r23/oosalizer/hashtab.c" bodystart="750" bodyend="771"/>
+        <references refid="webalizer_8h_1381dfed3a446e2b49171f4593a701df8" compoundref="webalizer_8h" startline="15">MAXHASH</references>
+        <references refid="structsnode_191a76319ab431b979edd96540899a605" compoundref="hashtab_8h" startline="57">snode::next</references>
+        <references refid="structsnode_14917005c761d2dfdb653d88a2eb5aa58" compoundref="hashtab_8h" startline="55">snode::string</references>
+        <referencedby refid="hashtab_8h_1f9fcdad76e91434fe5f0728f3a79ae74" compoundref="hashtab_8c" startline="102" endline="114">del_htabs</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="hashtab_8h_1bbc125dd817affa56cc6bcc60c485079" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void del_ilist</definition>
+        <argsstring>(INODEPTR *)</argsstring>
+        <name>del_ilist</name>
+        <param>
+          <type><ref refid="structinode" kindref="compound">INODEPTR</ref> *</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/hashtab.h" line="100" bodyfile="/home/r23/oosalizer/hashtab.c" bodystart="918" bodyend="939"/>
+        <references refid="webalizer_8h_1381dfed3a446e2b49171f4593a701df8" compoundref="webalizer_8h" startline="15">MAXHASH</references>
+        <references refid="structinode_1ff3eec0bab3bda5c998d29251bb4d877" compoundref="hashtab_8h" startline="66">inode::next</references>
+        <references refid="structinode_15883f2056e6f135990b1ba4be0d6017c" compoundref="hashtab_8h" startline="59">inode::string</references>
+        <referencedby refid="hashtab_8h_1f9fcdad76e91434fe5f0728f3a79ae74" compoundref="hashtab_8c" startline="102" endline="114">del_htabs</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="hashtab_8h_1a516a060c822c1718d2254a425a0c033" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void month_update_exit</definition>
+        <argsstring>(u_long)</argsstring>
+        <name>month_update_exit</name>
+        <param>
+          <type>u_long</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/hashtab.h" line="102" bodyfile="/home/r23/oosalizer/hashtab.c" bodystart="1136" bodyend="1154"/>
+        <references refid="structhnode_1821441b6ed6dd23ac11a37d932461b03" compoundref="hashtab_8h" startline="27">hnode::flag</references>
+        <references refid="structhnode_1d025a4c0d49fa093181202d2a91eb524" compoundref="hashtab_8h" startline="32">hnode::lasturl</references>
+        <references refid="hashtab_8h_1b2fd3e100a904891f4c27eb46e87140f" compoundref="hashtab_8h" startline="17">OBJ_GRP</references>
+        <references refid="hashtab_8c_1408742678920fdb90b2926c215e8e19c" compoundref="hashtab_8c" startline="86">sm_htab</references>
+        <references refid="structhnode_1e02fb87d76b57ad488493862bdd54f1e" compoundref="hashtab_8h" startline="31">hnode::tstamp</references>
+        <references refid="hashtab_8c_17da0915678a706dfa45ec0ae92af2fa2" compoundref="hashtab_8c" startline="1109" endline="1130">update_exit</references>
+        <references refid="webalizer_8c_195c29ea4f1f207b5be0cdd3cefa935d1" compoundref="webalizer_8c" startline="123">visit_timeout</references>
+      </memberdef>
+      <memberdef kind="function" id="hashtab_8h_14bdcfce12ca5e5236241cfdd1ec5288a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>u_long</type>
+        <definition>u_long tot_visit</definition>
+        <argsstring>(HNODEPTR *)</argsstring>
+        <name>tot_visit</name>
+        <param>
+          <type><ref refid="structhnode" kindref="compound">HNODEPTR</ref> *</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/hashtab.h" line="103" bodyfile="/home/r23/oosalizer/hashtab.c" bodystart="1160" bodyend="1176"/>
+        <references refid="structhnode_1821441b6ed6dd23ac11a37d932461b03" compoundref="hashtab_8h" startline="27">hnode::flag</references>
+        <references refid="webalizer_8h_1381dfed3a446e2b49171f4593a701df8" compoundref="webalizer_8h" startline="15">MAXHASH</references>
+        <references refid="structhnode_1da1ebcc2a224afb85778f07ff89c9e23" compoundref="hashtab_8h" startline="34">hnode::next</references>
+        <references refid="hashtab_8h_1b2fd3e100a904891f4c27eb46e87140f" compoundref="hashtab_8h" startline="17">OBJ_GRP</references>
+        <references refid="structhnode_1e55f7c9efab364555b1fee0a61deb229" compoundref="hashtab_8h" startline="30">hnode::visit</references>
+      </memberdef>
+      <memberdef kind="function" id="hashtab_8h_1d3836d00c08459b2f9811d213c4e4550" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>char *</type>
+        <definition>char* find_url</definition>
+        <argsstring>(char *)</argsstring>
+        <name>find_url</name>
+        <param>
+          <type>char *</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/hashtab.h" line="104" bodyfile="/home/r23/oosalizer/hashtab.c" bodystart="1062" bodyend="1076"/>
+        <references refid="webalizer_8c_18c3c3d8858d6430eea049c5989d2bf6d" compoundref="webalizer_8c" startline="138">blank_str</references>
+        <references refid="hashtab_8c_19d203938872dfbe120779670bfbefddd" compoundref="hashtab_8c" startline="1050" endline="1056">hash</references>
+        <references refid="structunode_184a3ee805e5f7a6011c4c9c5866a27b6" compoundref="hashtab_8h" startline="43">unode::next</references>
+        <references refid="structunode_17e4e6f981e97f717739e1844247456a0" compoundref="hashtab_8h" startline="36">unode::string</references>
+        <references refid="hashtab_8c_12f99d64abd1711a4b10ee71d070811a7" compoundref="hashtab_8c" startline="88">um_htab</references>
+        <referencedby refid="hashtab_8h_1fe9c0e49a4926c7cba71b7f8db5db8cd" compoundref="hashtab_8c" startline="155" endline="277">put_hnode</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="hashtab_8h_1408742678920fdb90b2926c215e8e19c" prot="public" static="no" mutable="no">
+        <type><ref refid="structhnode" kindref="compound">HNODEPTR</ref></type>
+        <definition>HNODEPTR sm_htab[MAXHASH]</definition>
+        <argsstring>[MAXHASH]</argsstring>
+        <name>sm_htab</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/hashtab.h" line="68" bodyfile="/home/r23/oosalizer/hashtab.c" bodystart="86" bodyend="-1"/>
+        <referencedby refid="hashtab_8h_1f9fcdad76e91434fe5f0728f3a79ae74" compoundref="hashtab_8c" startline="102" endline="114">del_htabs</referencedby>
+        <referencedby refid="output_8c_112790ed69b92f9024071f8e8ba312ee3" compoundref="output_8c" startline="2747" endline="2765">load_site_array</referencedby>
+        <referencedby refid="hashtab_8h_1a516a060c822c1718d2254a425a0c033" compoundref="hashtab_8c" startline="1136" endline="1154">month_update_exit</referencedby>
+        <referencedby refid="hashtab_8h_1fe9c0e49a4926c7cba71b7f8db5db8cd" compoundref="hashtab_8c" startline="155" endline="277">put_hnode</referencedby>
+        <referencedby refid="output_8c_1c1ecb6ecbe9f7218b2e9ccae79cf2f5f" compoundref="output_8c" startline="2063" endline="2204">top_ctry_table</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="hashtab_8h_1e5ddad8435a9d403e79f4bd320fea151" prot="public" static="no" mutable="no">
+        <type><ref refid="structhnode" kindref="compound">HNODEPTR</ref></type>
+        <definition>HNODEPTR sd_htab[MAXHASH]</definition>
+        <argsstring>[MAXHASH]</argsstring>
+        <name>sd_htab</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/hashtab.h" line="69" bodyfile="/home/r23/oosalizer/hashtab.c" bodystart="87" bodyend="-1"/>
+        <referencedby refid="hashtab_8h_1f9fcdad76e91434fe5f0728f3a79ae74" compoundref="hashtab_8c" startline="102" endline="114">del_htabs</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="hashtab_8h_12f99d64abd1711a4b10ee71d070811a7" prot="public" static="no" mutable="no">
+        <type><ref refid="structunode" kindref="compound">UNODEPTR</ref></type>
+        <definition>UNODEPTR um_htab[MAXHASH]</definition>
+        <argsstring>[MAXHASH]</argsstring>
+        <name>um_htab</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/hashtab.h" line="70" bodyfile="/home/r23/oosalizer/hashtab.c" bodystart="88" bodyend="-1"/>
+        <referencedby refid="hashtab_8h_1f9fcdad76e91434fe5f0728f3a79ae74" compoundref="hashtab_8c" startline="102" endline="114">del_htabs</referencedby>
+        <referencedby refid="hashtab_8h_1d3836d00c08459b2f9811d213c4e4550" compoundref="hashtab_8c" startline="1062" endline="1076">find_url</referencedby>
+        <referencedby refid="output_8c_10d5c8398a3b959aa372077fda3f78fff" compoundref="output_8c" startline="2771" endline="2789">load_url_array</referencedby>
+        <referencedby refid="hashtab_8c_18017a1f2a1080bd0c9f052305f896b10" compoundref="hashtab_8c" startline="1082" endline="1103">update_entry</referencedby>
+        <referencedby refid="hashtab_8c_17da0915678a706dfa45ec0ae92af2fa2" compoundref="hashtab_8c" startline="1109" endline="1130">update_exit</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="hashtab_8h_14b36877a2219872c641eb9a58ae45ce8" prot="public" static="no" mutable="no">
+        <type><ref refid="structrnode" kindref="compound">RNODEPTR</ref></type>
+        <definition>RNODEPTR rm_htab[MAXHASH]</definition>
+        <argsstring>[MAXHASH]</argsstring>
+        <name>rm_htab</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/hashtab.h" line="71" bodyfile="/home/r23/oosalizer/hashtab.c" bodystart="89" bodyend="-1"/>
+        <referencedby refid="hashtab_8h_1f9fcdad76e91434fe5f0728f3a79ae74" compoundref="hashtab_8c" startline="102" endline="114">del_htabs</referencedby>
+        <referencedby refid="output_8c_14fe67ad14b790d3dabec4fc028e338c5" compoundref="output_8c" startline="2795" endline="2813">load_ref_array</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="hashtab_8h_14886dbd661ad553906dc83e1a8031316" prot="public" static="no" mutable="no">
+        <type><ref refid="structanode" kindref="compound">ANODEPTR</ref></type>
+        <definition>ANODEPTR am_htab[MAXHASH]</definition>
+        <argsstring>[MAXHASH]</argsstring>
+        <name>am_htab</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/hashtab.h" line="72" bodyfile="/home/r23/oosalizer/hashtab.c" bodystart="90" bodyend="-1"/>
+        <referencedby refid="hashtab_8h_1f9fcdad76e91434fe5f0728f3a79ae74" compoundref="hashtab_8c" startline="102" endline="114">del_htabs</referencedby>
+        <referencedby refid="output_8c_1695c31f8c5d53bf9a1b112cccd36740f" compoundref="output_8c" startline="2819" endline="2837">load_agent_array</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="hashtab_8h_1e9a8ef54a4b421e3d16dc313f162ccff" prot="public" static="no" mutable="no">
+        <type><ref refid="structsnode" kindref="compound">SNODEPTR</ref></type>
+        <definition>SNODEPTR sr_htab[MAXHASH]</definition>
+        <argsstring>[MAXHASH]</argsstring>
+        <name>sr_htab</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/hashtab.h" line="73" bodyfile="/home/r23/oosalizer/hashtab.c" bodystart="91" bodyend="-1"/>
+        <referencedby refid="hashtab_8h_1f9fcdad76e91434fe5f0728f3a79ae74" compoundref="hashtab_8c" startline="102" endline="114">del_htabs</referencedby>
+        <referencedby refid="output_8c_1d3eb19f2c468e374066739cccec7d3d4" compoundref="output_8c" startline="2843" endline="2861">load_srch_array</referencedby>
+        <referencedby refid="webalizer_8c_12b1002ec17d1cd1e6901514b8b6de058" compoundref="webalizer_8c" startline="1883" endline="1936">srch_string</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="hashtab_8h_11a7bfe1ecf3b78722bcee9d08e8178a1" prot="public" static="no" mutable="no">
+        <type><ref refid="structinode" kindref="compound">INODEPTR</ref></type>
+        <definition>INODEPTR im_htab[MAXHASH]</definition>
+        <argsstring>[MAXHASH]</argsstring>
+        <name>im_htab</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/hashtab.h" line="74" bodyfile="/home/r23/oosalizer/hashtab.c" bodystart="92" bodyend="-1"/>
+        <referencedby refid="hashtab_8h_1f9fcdad76e91434fe5f0728f3a79ae74" compoundref="hashtab_8c" startline="102" endline="114">del_htabs</referencedby>
+        <referencedby refid="output_8c_178caf44e7545035a80e85f498cb9e471" compoundref="output_8c" startline="2867" endline="2885">load_ident_array</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>_HASHTAB_H</highlight></codeline>
+<codeline lineno="2"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>_HASHTAB_H</highlight></codeline>
+<codeline lineno="3"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4" refid="hashtab_8h_16e6c936395602fb2683ed0599131927b" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structhnode" kindref="compound">hnode</ref><sp/>*<ref refid="structhnode" kindref="compound">HNODEPTR</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>site<sp/>node<sp/>(host)<sp/>pointer<sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5" refid="hashtab_8h_10d24805080edbea320fb2c2ec31b229a" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structunode" kindref="compound">unode</ref><sp/>*<ref refid="structunode" kindref="compound">UNODEPTR</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>url<sp/>node<sp/>pointer<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6" refid="hashtab_8h_1f93974994603709dc7ef7a9c6798fa23" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structrnode" kindref="compound">rnode</ref><sp/>*<ref refid="structrnode" kindref="compound">RNODEPTR</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>referrer<sp/>node<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7" refid="hashtab_8h_154e9f1564bf40998b62838a2b06f7798" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structanode" kindref="compound">anode</ref><sp/>*<ref refid="structanode" kindref="compound">ANODEPTR</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>user<sp/>agent<sp/>node<sp/>pointer<sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8" refid="hashtab_8h_1ba5bd50dc4074b21b1f1cfac70bb1fd5" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structsnode" kindref="compound">snode</ref><sp/>*<ref refid="structsnode" kindref="compound">SNODEPTR</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Search<sp/>string<sp/>node<sp/>pointer<sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9" refid="hashtab_8h_1e88293572818a449e95993c4ccdba0a8" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structinode" kindref="compound">inode</ref><sp/>*<ref refid="structinode" kindref="compound">INODEPTR</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>user<sp/>(ident)<sp/>node<sp/>pointer<sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>USE_DNS</highlight></codeline>
+<codeline lineno="11"><highlight class="preprocessor"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">dnode<sp/>*DNODEPTR;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>DNS<sp/>hash<sp/>table<sp/>node<sp/>struct<sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="13"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Object<sp/>flags<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15" refid="hashtab_8h_1468764de892a2303272613f54f955b0b" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>OBJ_REG<sp/><sp/>0<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Regular<sp/>object<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16" refid="hashtab_8h_1dc29d672dac67a96fe49e055dce78bff" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>OBJ_HIDE<sp/>1<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Hidden<sp/>object<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17" refid="hashtab_8h_1b2fd3e100a904891f4c27eb46e87140f" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>OBJ_GRP<sp/><sp/>2<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Grouped<sp/>object<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>USE_DNS</highlight></codeline>
+<codeline lineno="20"><highlight class="preprocessor"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">dnode<sp/>{<sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*string;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>DNS<sp/>node<sp/>hash<sp/>table<sp/>struct<sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">in_addr<sp/><sp/>addr;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">dnode<sp/><sp/><sp/><sp/>*llist;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">dnode<sp/><sp/><sp/><sp/>*next;<sp/>};</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="25"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26" refid="structhnode_1eb54894424f88ea691ce2739a7b7ce80" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structhnode" kindref="compound">hnode</ref><sp/>{<sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="structhnode_1eb54894424f88ea691ce2739a7b7ce80" kindref="member">string</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>host<sp/>hash<sp/>table<sp/>structure<sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27" refid="structhnode_1821441b6ed6dd23ac11a37d932461b03" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="structhnode_1821441b6ed6dd23ac11a37d932461b03" kindref="member">flag</ref>;</highlight></codeline>
+<codeline lineno="28" refid="structhnode_1ea12ded28f814b621ae07ab94aaa1f4e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>u_long<sp/><ref refid="structhnode_1ea12ded28f814b621ae07ab94aaa1f4e" kindref="member">count</ref>;</highlight></codeline>
+<codeline lineno="29" refid="structhnode_1afa2fd08fe9e22e6f183759b01a0e5c4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>u_long<sp/><ref refid="structhnode_1afa2fd08fe9e22e6f183759b01a0e5c4" kindref="member">files</ref>;</highlight></codeline>
+<codeline lineno="30" refid="structhnode_1e55f7c9efab364555b1fee0a61deb229" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>u_long<sp/><ref refid="structhnode_1e55f7c9efab364555b1fee0a61deb229" kindref="member">visit</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>visit<sp/>information<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31" refid="structhnode_1e02fb87d76b57ad488493862bdd54f1e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>u_long<sp/><ref refid="structhnode_1e02fb87d76b57ad488493862bdd54f1e" kindref="member">tstamp</ref>;</highlight></codeline>
+<codeline lineno="32" refid="structhnode_1d025a4c0d49fa093181202d2a91eb524" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="structhnode_1d025a4c0d49fa093181202d2a91eb524" kindref="member">lasturl</ref>;</highlight></codeline>
+<codeline lineno="33" refid="structhnode_18069d0fba422f3b79fdeef1e263f7141" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="structhnode_18069d0fba422f3b79fdeef1e263f7141" kindref="member">xfer</ref>;</highlight></codeline>
+<codeline lineno="34" refid="structhnode_1da1ebcc2a224afb85778f07ff89c9e23" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structhnode" kindref="compound">hnode</ref><sp/>*<ref refid="structhnode_1da1ebcc2a224afb85778f07ff89c9e23" kindref="member">next</ref>;<sp/>};</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36" refid="structunode_17e4e6f981e97f717739e1844247456a0" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structunode" kindref="compound">unode</ref><sp/>{<sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="structunode_17e4e6f981e97f717739e1844247456a0" kindref="member">string</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>url<sp/>hash<sp/>table<sp/>structure<sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37" refid="structunode_1172c31b32a93663cdde52fba42c0343d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="structunode_1172c31b32a93663cdde52fba42c0343d" kindref="member">flag</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Object<sp/>type<sp/>(REG,<sp/>HIDE,<sp/>GRP)<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38" refid="structunode_13c9d9be50f4911615af8e7de965a7435" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>u_long<sp/><ref refid="structunode_13c9d9be50f4911615af8e7de965a7435" kindref="member">count</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>requests<sp/>counter<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39" refid="structunode_1e804f1505713967ff89aae41783c6be1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>u_long<sp/><ref refid="structunode_1e804f1505713967ff89aae41783c6be1" kindref="member">files</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>files<sp/>counter<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40" refid="structunode_18799c3c150906874e134a2cc3ccce10d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>u_long<sp/><ref refid="structunode_18799c3c150906874e134a2cc3ccce10d" kindref="member">entry</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>entry<sp/>page<sp/>counter<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41" refid="structunode_160177f74305a04d4aac550c6b24f8549" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>u_long<sp/><ref refid="structunode_160177f74305a04d4aac550c6b24f8549" kindref="member">exit</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>exit<sp/>page<sp/>counter<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42" refid="structunode_1b0e69efc030906335d50a264aa2d2878" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="structunode_1b0e69efc030906335d50a264aa2d2878" kindref="member">xfer</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>xfer<sp/>size<sp/>in<sp/>bytes<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43" refid="structunode_184a3ee805e5f7a6011c4c9c5866a27b6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structunode" kindref="compound">unode</ref><sp/>*<ref refid="structunode_184a3ee805e5f7a6011c4c9c5866a27b6" kindref="member">next</ref>;<sp/>};<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>pointer<sp/>to<sp/>next<sp/>node<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45" refid="structrnode_16709bc4db86e039dd874dede6175a4d1" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structrnode" kindref="compound">rnode</ref><sp/>{<sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="structrnode_16709bc4db86e039dd874dede6175a4d1" kindref="member">string</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>referrer<sp/>hash<sp/>table<sp/>struct<sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46" refid="structrnode_1d5613de994a7efcb74acdb20ac8c2913" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="structrnode_1d5613de994a7efcb74acdb20ac8c2913" kindref="member">flag</ref>;</highlight></codeline>
+<codeline lineno="47" refid="structrnode_14034f46036f5fa702a86b3609d7a557a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>u_long<sp/><ref refid="structrnode_14034f46036f5fa702a86b3609d7a557a" kindref="member">count</ref>;</highlight></codeline>
+<codeline lineno="48" refid="structrnode_192d155180af669f0207cd3682c132468" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structrnode" kindref="compound">rnode</ref><sp/>*<ref refid="structrnode_192d155180af669f0207cd3682c132468" kindref="member">next</ref>;<sp/>};</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50" refid="structanode_18fa6d7969583389ae6d535866f9fd914" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structanode" kindref="compound">anode</ref><sp/>{<sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="structanode_18fa6d7969583389ae6d535866f9fd914" kindref="member">string</ref>;</highlight></codeline>
+<codeline lineno="51" refid="structanode_1f9635cb5d8af6707a8bfab885f6d556b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="structanode_1f9635cb5d8af6707a8bfab885f6d556b" kindref="member">flag</ref>;</highlight></codeline>
+<codeline lineno="52" refid="structanode_1358dd30d63b3ecf448451988c0139fcf" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>u_long<sp/><ref refid="structanode_1358dd30d63b3ecf448451988c0139fcf" kindref="member">count</ref>;</highlight></codeline>
+<codeline lineno="53" refid="structanode_1834db38618dba5e74b8a738441e861d9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structanode" kindref="compound">anode</ref><sp/>*<ref refid="structanode_1834db38618dba5e74b8a738441e861d9" kindref="member">next</ref>;<sp/>};</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55" refid="structsnode_14917005c761d2dfdb653d88a2eb5aa58" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structsnode" kindref="compound">snode</ref><sp/>{<sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="structsnode_14917005c761d2dfdb653d88a2eb5aa58" kindref="member">string</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>search<sp/>string<sp/>struct<sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56" refid="structsnode_1af14980bcdb9d5e9543507adee3fd803" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>u_long<sp/><ref refid="structsnode_1af14980bcdb9d5e9543507adee3fd803" kindref="member">count</ref>;</highlight></codeline>
+<codeline lineno="57" refid="structsnode_191a76319ab431b979edd96540899a605" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structsnode" kindref="compound">snode</ref><sp/>*<ref refid="structsnode_191a76319ab431b979edd96540899a605" kindref="member">next</ref>;<sp/>};</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59" refid="structinode_15883f2056e6f135990b1ba4be0d6017c" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structinode" kindref="compound">inode</ref><sp/>{<sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="structinode_15883f2056e6f135990b1ba4be0d6017c" kindref="member">string</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>host<sp/>hash<sp/>table<sp/>struct<sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="60" refid="structinode_186565f81a8353154619812e7317b1e2d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="structinode_186565f81a8353154619812e7317b1e2d" kindref="member">flag</ref>;</highlight></codeline>
+<codeline lineno="61" refid="structinode_18579979bc170cd8cceafabe3208cfb3c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>u_long<sp/><ref refid="structinode_18579979bc170cd8cceafabe3208cfb3c" kindref="member">count</ref>;</highlight></codeline>
+<codeline lineno="62" refid="structinode_116b7ee518b4af2b7cf436840aff1cc8c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>u_long<sp/><ref refid="structinode_116b7ee518b4af2b7cf436840aff1cc8c" kindref="member">files</ref>;</highlight></codeline>
+<codeline lineno="63" refid="structinode_123fbc8ae83e74cc1ba882eef7b2a6948" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>u_long<sp/><ref refid="structinode_123fbc8ae83e74cc1ba882eef7b2a6948" kindref="member">visit</ref>;</highlight></codeline>
+<codeline lineno="64" refid="structinode_1737deeb7e731e4f9db70427fd0854dfd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>u_long<sp/><ref refid="structinode_1737deeb7e731e4f9db70427fd0854dfd" kindref="member">tstamp</ref>;</highlight></codeline>
+<codeline lineno="65" refid="structinode_1a3dee5fe9d1b73fa4dfffc800e8a3cdf" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="structinode_1a3dee5fe9d1b73fa4dfffc800e8a3cdf" kindref="member">xfer</ref>;</highlight></codeline>
+<codeline lineno="66" refid="structinode_1ff3eec0bab3bda5c998d29251bb4d877" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structinode" kindref="compound">inode</ref><sp/>*<ref refid="structinode_1ff3eec0bab3bda5c998d29251bb4d877" kindref="member">next</ref>;<sp/>};</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/><ref refid="hashtab_8h_16e6c936395602fb2683ed0599131927b" kindref="member">HNODEPTR</ref><sp/><ref refid="hashtab_8c_1408742678920fdb90b2926c215e8e19c" kindref="member">sm_htab</ref>[<ref refid="webalizer_8h_1381dfed3a446e2b49171f4593a701df8" kindref="member">MAXHASH</ref>];<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>hash<sp/>tables<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/><ref refid="hashtab_8h_16e6c936395602fb2683ed0599131927b" kindref="member">HNODEPTR</ref><sp/><ref refid="hashtab_8c_1e5ddad8435a9d403e79f4bd320fea151" kindref="member">sd_htab</ref>[<ref refid="webalizer_8h_1381dfed3a446e2b49171f4593a701df8" kindref="member">MAXHASH</ref>];</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/><ref refid="hashtab_8h_10d24805080edbea320fb2c2ec31b229a" kindref="member">UNODEPTR</ref><sp/><ref refid="hashtab_8c_12f99d64abd1711a4b10ee71d070811a7" kindref="member">um_htab</ref>[<ref refid="webalizer_8h_1381dfed3a446e2b49171f4593a701df8" kindref="member">MAXHASH</ref>];<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>for<sp/>hits,<sp/>sites,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/><ref refid="hashtab_8h_1f93974994603709dc7ef7a9c6798fa23" kindref="member">RNODEPTR</ref><sp/><ref refid="hashtab_8c_14b36877a2219872c641eb9a58ae45ce8" kindref="member">rm_htab</ref>[<ref refid="webalizer_8h_1381dfed3a446e2b49171f4593a701df8" kindref="member">MAXHASH</ref>];<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>referrers<sp/>and<sp/>agents...<sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/><ref refid="hashtab_8h_154e9f1564bf40998b62838a2b06f7798" kindref="member">ANODEPTR</ref><sp/><ref refid="hashtab_8c_14886dbd661ad553906dc83e1a8031316" kindref="member">am_htab</ref>[<ref refid="webalizer_8h_1381dfed3a446e2b49171f4593a701df8" kindref="member">MAXHASH</ref>];</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/><ref refid="hashtab_8h_1ba5bd50dc4074b21b1f1cfac70bb1fd5" kindref="member">SNODEPTR</ref><sp/><ref refid="hashtab_8c_1e9a8ef54a4b421e3d16dc313f162ccff" kindref="member">sr_htab</ref>[<ref refid="webalizer_8h_1381dfed3a446e2b49171f4593a701df8" kindref="member">MAXHASH</ref>];<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>search<sp/>string<sp/>table<sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/><ref refid="hashtab_8h_1e88293572818a449e95993c4ccdba0a8" kindref="member">INODEPTR</ref><sp/><ref refid="hashtab_8c_11a7bfe1ecf3b78722bcee9d08e8178a1" kindref="member">im_htab</ref>[<ref refid="webalizer_8h_1381dfed3a446e2b49171f4593a701df8" kindref="member">MAXHASH</ref>];<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>ident<sp/>table<sp/>(username)<sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>USE_DNS</highlight></codeline>
+<codeline lineno="76"><highlight class="preprocessor"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/>DNODEPTR<sp/>host_table[<ref refid="webalizer_8h_1381dfed3a446e2b49171f4593a701df8" kindref="member">MAXHASH</ref>];<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>DNS<sp/>resolver<sp/>table<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="78"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="hashtab_8c_1f2f25ed90b609c69446b8446454ca7a0" kindref="member">put_hnode</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">,<sp/>u_long,<sp/>u_long,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal">,<sp/>u_long<sp/>*,</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>u_long,<sp/>u_long,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*,<sp/><ref refid="hashtab_8h_16e6c936395602fb2683ed0599131927b" kindref="member">HNODEPTR</ref><sp/>*);</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="hashtab_8c_1c4f10ed3d908404570fa30fae460b7d0" kindref="member">put_unode</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">,<sp/>u_long,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal">,<sp/>u_long<sp/>*,</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>u_long,<sp/>u_long,<sp/><ref refid="hashtab_8h_10d24805080edbea320fb2c2ec31b229a" kindref="member">UNODEPTR</ref><sp/>*);</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="hashtab_8c_19febd80a08973165c09cd1f42f429838" kindref="member">put_inode</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">,<sp/>u_long,<sp/>u_long,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal">,<sp/>u_long<sp/>*,</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>u_long,<sp/>u_long,<sp/><ref refid="hashtab_8h_1e88293572818a449e95993c4ccdba0a8" kindref="member">INODEPTR</ref><sp/>*);</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="hashtab_8c_1b4002d9ddebb92b4a979361424d2e51b" kindref="member">put_rnode</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">,<sp/>u_long,<sp/>u_long<sp/>*,<sp/><ref refid="hashtab_8h_1f93974994603709dc7ef7a9c6798fa23" kindref="member">RNODEPTR</ref><sp/>*);</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="hashtab_8c_1696c253a54bee8d869c852d86c1f145e" kindref="member">put_anode</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">,<sp/>u_long,<sp/>u_long<sp/>*,<sp/><ref refid="hashtab_8h_154e9f1564bf40998b62838a2b06f7798" kindref="member">ANODEPTR</ref><sp/>*);</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="hashtab_8c_153bf7691f858a503c77b657b22cec782" kindref="member">put_snode</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*,<sp/>u_long,<sp/><ref refid="hashtab_8h_1ba5bd50dc4074b21b1f1cfac70bb1fd5" kindref="member">SNODEPTR</ref><sp/>*);</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>USE_DNS</highlight></codeline>
+<codeline lineno="90"><highlight class="preprocessor"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/>put_dnode(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*,<sp/></highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/>in_addr<sp/>*,<sp/>DNODEPTR<sp/>*);</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><sp/><sp/>del_dlist(DNODEPTR<sp/>*);</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="93"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><sp/><sp/><ref refid="hashtab_8c_1f9fcdad76e91434fe5f0728f3a79ae74" kindref="member">del_htabs</ref>();<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>delete<sp/>hash<sp/>tables<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><sp/><sp/><ref refid="hashtab_8c_1306d5a1540d43fa136c10272cb2f0a4a" kindref="member">del_hlist</ref>(<ref refid="hashtab_8h_16e6c936395602fb2683ed0599131927b" kindref="member">HNODEPTR</ref><sp/>*);<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>delete<sp/>host<sp/>htab<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><sp/><sp/><ref refid="hashtab_8c_1d270fa129a86e1f21e04f6863eb443c4" kindref="member">del_ulist</ref>(<ref refid="hashtab_8h_10d24805080edbea320fb2c2ec31b229a" kindref="member">UNODEPTR</ref><sp/>*);<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>delete<sp/>url<sp/>htab<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><sp/><sp/><ref refid="hashtab_8c_199589c545676162533a82708505580c6" kindref="member">del_rlist</ref>(<ref refid="hashtab_8h_1f93974994603709dc7ef7a9c6798fa23" kindref="member">RNODEPTR</ref><sp/>*);<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>delete<sp/>referrer<sp/>htab<sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><sp/><sp/><ref refid="hashtab_8c_1ebb84eee637f50db17ab93d1050e8bd1" kindref="member">del_alist</ref>(<ref refid="hashtab_8h_154e9f1564bf40998b62838a2b06f7798" kindref="member">ANODEPTR</ref><sp/>*);<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>delete<sp/>host<sp/>htab<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><sp/><sp/><ref refid="hashtab_8c_1d526188ebf65c97a2ed3cb521c6e0089" kindref="member">del_slist</ref>(<ref refid="hashtab_8h_1ba5bd50dc4074b21b1f1cfac70bb1fd5" kindref="member">SNODEPTR</ref><sp/>*);<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>delete<sp/>host<sp/>htab<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><sp/><sp/><ref refid="hashtab_8c_1d859897805bb7fc6479703fd3bcf493a" kindref="member">del_ilist</ref>(<ref refid="hashtab_8h_1e88293572818a449e95993c4ccdba0a8" kindref="member">INODEPTR</ref><sp/>*);<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>delete<sp/>host<sp/>htab<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><sp/><sp/><ref refid="hashtab_8c_18bd37405a172f7642453f9a1fae7438f" kindref="member">month_update_exit</ref>(u_long);</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/>u_long<sp/><ref refid="hashtab_8c_1c7baccdb17212972eee28ccc861dd307" kindref="member">tot_visit</ref>(<ref refid="hashtab_8h_16e6c936395602fb2683ed0599131927b" kindref="member">HNODEPTR</ref><sp/>*);</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><sp/><sp/>*<ref refid="hashtab_8c_16028851c0bddbe6cfc35b4092a62e5e5" kindref="member">find_url</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*);</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/><sp/></highlight><highlight class="comment">/*<sp/>_HASHTAB_H<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/home/r23/oosalizer/hashtab.h"/>
+  </compounddef>
+</doxygen>

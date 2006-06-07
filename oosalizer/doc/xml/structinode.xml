@@ -1,0 +1,169 @@
+<?xml version='1.0' encoding='iso-8859-1' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.4.6">
+  <compounddef id="structinode" kind="struct" prot="public">
+    <compoundname>inode</compoundname>
+    <includes refid="hashtab_8h" local="no">hashtab.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structinode_15883f2056e6f135990b1ba4be0d6017c" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* inode::string</definition>
+        <argsstring></argsstring>
+        <name>string</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/hashtab.h" line="59" bodyfile="/home/r23/oosalizer/hashtab.h" bodystart="59" bodyend="-1"/>
+        <referencedby refid="output_8c_1b1313f0c59efbacd626ea5fb185f126e" compoundref="output_8c" startline="1990" endline="2057">all_users_page</referencedby>
+        <referencedby refid="hashtab_8h_1bbc125dd817affa56cc6bcc60c485079" compoundref="hashtab_8c" startline="918" endline="939">del_ilist</referencedby>
+        <referencedby refid="output_8c_1a519e8d866cad7c01f72636d749a9f57" compoundref="output_8c" startline="2371" endline="2408">dump_all_users</referencedby>
+        <referencedby refid="hashtab_8c_1850b758cda6a66b5563aa41454279b76" compoundref="hashtab_8c" startline="777" endline="805">new_inode</referencedby>
+        <referencedby refid="hashtab_8h_162c7ecc5b3ae3851f5400e30734b8e9e" compoundref="hashtab_8c" startline="811" endline="912">put_inode</referencedby>
+        <referencedby refid="output_8c_12e8e6386a5b4fa3e5dafd4f2becfb3ce" compoundref="output_8c" startline="1888" endline="1984">top_users_table</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structinode_186565f81a8353154619812e7317b1e2d" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int inode::flag</definition>
+        <argsstring></argsstring>
+        <name>flag</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/hashtab.h" line="60" bodyfile="/home/r23/oosalizer/hashtab.h" bodystart="60" bodyend="-1"/>
+        <referencedby refid="output_8c_1b1313f0c59efbacd626ea5fb185f126e" compoundref="output_8c" startline="1990" endline="2057">all_users_page</referencedby>
+        <referencedby refid="output_8c_1a519e8d866cad7c01f72636d749a9f57" compoundref="output_8c" startline="2371" endline="2408">dump_all_users</referencedby>
+        <referencedby refid="hashtab_8h_162c7ecc5b3ae3851f5400e30734b8e9e" compoundref="hashtab_8c" startline="811" endline="912">put_inode</referencedby>
+        <referencedby refid="output_8c_12e8e6386a5b4fa3e5dafd4f2becfb3ce" compoundref="output_8c" startline="1888" endline="1984">top_users_table</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structinode_18579979bc170cd8cceafabe3208cfb3c" prot="public" static="no" mutable="no">
+        <type>u_long</type>
+        <definition>u_long inode::count</definition>
+        <argsstring></argsstring>
+        <name>count</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/hashtab.h" line="61" bodyfile="/home/r23/oosalizer/hashtab.h" bodystart="61" bodyend="-1"/>
+        <referencedby refid="output_8c_1b1313f0c59efbacd626ea5fb185f126e" compoundref="output_8c" startline="1990" endline="2057">all_users_page</referencedby>
+        <referencedby refid="output_8c_1a519e8d866cad7c01f72636d749a9f57" compoundref="output_8c" startline="2371" endline="2408">dump_all_users</referencedby>
+        <referencedby refid="hashtab_8h_162c7ecc5b3ae3851f5400e30734b8e9e" compoundref="hashtab_8c" startline="811" endline="912">put_inode</referencedby>
+        <referencedby refid="output_8c_12e8e6386a5b4fa3e5dafd4f2becfb3ce" compoundref="output_8c" startline="1888" endline="1984">top_users_table</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structinode_116b7ee518b4af2b7cf436840aff1cc8c" prot="public" static="no" mutable="no">
+        <type>u_long</type>
+        <definition>u_long inode::files</definition>
+        <argsstring></argsstring>
+        <name>files</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/hashtab.h" line="62" bodyfile="/home/r23/oosalizer/hashtab.h" bodystart="62" bodyend="-1"/>
+        <referencedby refid="output_8c_1b1313f0c59efbacd626ea5fb185f126e" compoundref="output_8c" startline="1990" endline="2057">all_users_page</referencedby>
+        <referencedby refid="output_8c_1a519e8d866cad7c01f72636d749a9f57" compoundref="output_8c" startline="2371" endline="2408">dump_all_users</referencedby>
+        <referencedby refid="hashtab_8h_162c7ecc5b3ae3851f5400e30734b8e9e" compoundref="hashtab_8c" startline="811" endline="912">put_inode</referencedby>
+        <referencedby refid="output_8c_12e8e6386a5b4fa3e5dafd4f2becfb3ce" compoundref="output_8c" startline="1888" endline="1984">top_users_table</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structinode_123fbc8ae83e74cc1ba882eef7b2a6948" prot="public" static="no" mutable="no">
+        <type>u_long</type>
+        <definition>u_long inode::visit</definition>
+        <argsstring></argsstring>
+        <name>visit</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/hashtab.h" line="63" bodyfile="/home/r23/oosalizer/hashtab.h" bodystart="63" bodyend="-1"/>
+        <referencedby refid="output_8c_1b1313f0c59efbacd626ea5fb185f126e" compoundref="output_8c" startline="1990" endline="2057">all_users_page</referencedby>
+        <referencedby refid="output_8c_1a519e8d866cad7c01f72636d749a9f57" compoundref="output_8c" startline="2371" endline="2408">dump_all_users</referencedby>
+        <referencedby refid="hashtab_8c_1850b758cda6a66b5563aa41454279b76" compoundref="hashtab_8c" startline="777" endline="805">new_inode</referencedby>
+        <referencedby refid="hashtab_8h_162c7ecc5b3ae3851f5400e30734b8e9e" compoundref="hashtab_8c" startline="811" endline="912">put_inode</referencedby>
+        <referencedby refid="output_8c_12e8e6386a5b4fa3e5dafd4f2becfb3ce" compoundref="output_8c" startline="1888" endline="1984">top_users_table</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structinode_1737deeb7e731e4f9db70427fd0854dfd" prot="public" static="no" mutable="no">
+        <type>u_long</type>
+        <definition>u_long inode::tstamp</definition>
+        <argsstring></argsstring>
+        <name>tstamp</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/hashtab.h" line="64" bodyfile="/home/r23/oosalizer/hashtab.h" bodystart="64" bodyend="-1"/>
+        <referencedby refid="hashtab_8c_1850b758cda6a66b5563aa41454279b76" compoundref="hashtab_8c" startline="777" endline="805">new_inode</referencedby>
+        <referencedby refid="hashtab_8h_162c7ecc5b3ae3851f5400e30734b8e9e" compoundref="hashtab_8c" startline="811" endline="912">put_inode</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structinode_1a3dee5fe9d1b73fa4dfffc800e8a3cdf" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double inode::xfer</definition>
+        <argsstring></argsstring>
+        <name>xfer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/hashtab.h" line="65" bodyfile="/home/r23/oosalizer/hashtab.h" bodystart="65" bodyend="-1"/>
+        <referencedby refid="output_8c_1b1313f0c59efbacd626ea5fb185f126e" compoundref="output_8c" startline="1990" endline="2057">all_users_page</referencedby>
+        <referencedby refid="output_8c_1a519e8d866cad7c01f72636d749a9f57" compoundref="output_8c" startline="2371" endline="2408">dump_all_users</referencedby>
+        <referencedby refid="hashtab_8h_162c7ecc5b3ae3851f5400e30734b8e9e" compoundref="hashtab_8c" startline="811" endline="912">put_inode</referencedby>
+        <referencedby refid="output_8c_12e8e6386a5b4fa3e5dafd4f2becfb3ce" compoundref="output_8c" startline="1888" endline="1984">top_users_table</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structinode_1ff3eec0bab3bda5c998d29251bb4d877" prot="public" static="no" mutable="no">
+        <type><ref refid="structinode" kindref="compound">inode</ref> *</type>
+        <definition>struct inode* inode::next</definition>
+        <argsstring></argsstring>
+        <name>next</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/hashtab.h" line="66" bodyfile="/home/r23/oosalizer/hashtab.h" bodystart="66" bodyend="-1"/>
+        <referencedby refid="hashtab_8h_1bbc125dd817affa56cc6bcc60c485079" compoundref="hashtab_8c" startline="918" endline="939">del_ilist</referencedby>
+        <referencedby refid="output_8c_178caf44e7545035a80e85f498cb9e471" compoundref="output_8c" startline="2867" endline="2885">load_ident_array</referencedby>
+        <referencedby refid="hashtab_8h_162c7ecc5b3ae3851f5400e30734b8e9e" compoundref="hashtab_8c" startline="811" endline="912">put_inode</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="37">
+        <label>inode</label>
+        <link refid="structinode"/>
+        <childnode refid="37" relation="usage">
+          <edgelabel>next</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/r23/oosalizer/hashtab.h" line="59" bodyfile="/home/r23/oosalizer/hashtab.h" bodystart="59" bodyend="66"/>
+    <listofallmembers>
+      <member refid="structinode_18579979bc170cd8cceafabe3208cfb3c" prot="public" virt="non-virtual"><scope>inode</scope><name>count</name></member>
+      <member refid="structinode_116b7ee518b4af2b7cf436840aff1cc8c" prot="public" virt="non-virtual"><scope>inode</scope><name>files</name></member>
+      <member refid="structinode_186565f81a8353154619812e7317b1e2d" prot="public" virt="non-virtual"><scope>inode</scope><name>flag</name></member>
+      <member refid="structinode_1ff3eec0bab3bda5c998d29251bb4d877" prot="public" virt="non-virtual"><scope>inode</scope><name>next</name></member>
+      <member refid="structinode_15883f2056e6f135990b1ba4be0d6017c" prot="public" virt="non-virtual"><scope>inode</scope><name>string</name></member>
+      <member refid="structinode_1737deeb7e731e4f9db70427fd0854dfd" prot="public" virt="non-virtual"><scope>inode</scope><name>tstamp</name></member>
+      <member refid="structinode_123fbc8ae83e74cc1ba882eef7b2a6948" prot="public" virt="non-virtual"><scope>inode</scope><name>visit</name></member>
+      <member refid="structinode_1a3dee5fe9d1b73fa4dfffc800e8a3cdf" prot="public" virt="non-virtual"><scope>inode</scope><name>xfer</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

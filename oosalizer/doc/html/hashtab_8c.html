@@ -1,0 +1,1401 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1">
+<title>OOS [Webalizer]: oosalizer/hashtab.c-Dateireferenz</title>
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+<link href="tabs.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Erzeugt von Doxygen 1.4.6 -->
+<div class="tabs">
+  <ul>
+    <li><a href="main.html"><span>Hauptseite</span></a></li>
+    <li><a href="annotated.html"><span>Datenstrukturen</span></a></li>
+    <li id="current"><a href="files.html"><span>Dateien</span></a></li>
+    <li>
+      <form action="search.php" method="get">
+        <table cellspacing="0" cellpadding="0" border="0">
+          <tr>
+            <td><label>&nbsp;<u>S</u>uchen&nbsp;nach&nbsp;</label></td>
+            <td><input type="text" name="query" value="" size="20" accesskey="s"/></td>
+          </tr>
+        </table>
+      </form>
+    </li>
+  </ul></div>
+<div class="tabs">
+  <ul>
+    <li><a href="files.html"><span>Auflistung&nbsp;der&nbsp;Dateien</span></a></li>
+    <li><a href="globals.html"><span>Datei-Elemente</span></a></li>
+  </ul></div>
+<h1>oosalizer/hashtab.c-Dateireferenz</h1><code>#include &lt;time.h&gt;</code><br>
+<code>#include &lt;stdio.h&gt;</code><br>
+<code>#include &lt;stdlib.h&gt;</code><br>
+<code>#include &lt;string.h&gt;</code><br>
+<code>#include &lt;unistd.h&gt;</code><br>
+<code>#include &lt;ctype.h&gt;</code><br>
+<code>#include &lt;sys/utsname.h&gt;</code><br>
+<code>#include &lt;sys/times.h&gt;</code><br>
+<code>#include &lt;sys/types.h&gt;</code><br>
+<code>#include &quot;<a class="el" href="webalizer_8h-source.html">webalizer.h</a>&quot;</code><br>
+<code>#include &quot;<a class="el" href="lang_8h-source.html">lang.h</a>&quot;</code><br>
+<code>#include &quot;<a class="el" href="linklist_8h-source.html">linklist.h</a>&quot;</code><br>
+<code>#include &quot;<a class="el" href="hashtab_8h-source.html">hashtab.h</a>&quot;</code><br>
+
+<p>
+Include-Abhängigkeitsdiagramm für hashtab.c:<p><center><img src="hashtab_8c__incl.png" border="0" usemap="#oosalizer/hashtab.c_map" alt=""></center>
+<map name="oosalizer/hashtab.c_map">
+<area href="webalizer_8h.html" shape="rect" coords="205,440,293,464" alt="">
+<area href="lang_8h.html" shape="rect" coords="220,488,278,512" alt="">
+<area href="linklist_8h.html" shape="rect" coords="214,536,284,560" alt="">
+<area href="hashtab_8h.html" shape="rect" coords="209,584,289,608" alt="">
+</map>
+
+<p>
+<a href="hashtab_8c-source.html">gehe zum Quellcode dieser Datei</a><table border="0" cellpadding="0" cellspacing="0">
+<tr><td></td></tr>
+<tr><td colspan="2"><br><h2>Makrodefinitionen</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="hashtab_8c.html#03df76d1f70664d745ca8de2864e39b3">CLK_TCK</a>&nbsp;&nbsp;&nbsp;_SC_CLK_TCK</td></tr>
+
+<tr><td colspan="2"><br><h2>Funktionen</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="structhnode.html">HNODEPTR</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="hashtab_8c.html#ca7c730d21349d04dcff3556d0a89fec">new_hnode</a> (char *)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="structunode.html">UNODEPTR</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="hashtab_8c.html#e97ded5fe5fa045e492128b73ff18c8b">new_unode</a> (char *)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="structrnode.html">RNODEPTR</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="hashtab_8c.html#b9cf53c565bbf77a87c29f745ef76a80">new_rnode</a> (char *)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="structanode.html">ANODEPTR</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="hashtab_8c.html#77e03d0d91a9f6365711aed781c218f2">new_anode</a> (char *)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="structsnode.html">SNODEPTR</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="hashtab_8c.html#40b9a825d5fab2416f5911a3255980f9">new_snode</a> (char *)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="structinode.html">INODEPTR</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="hashtab_8c.html#850b758cda6a66b5563aa41454279b76">new_inode</a> (char *)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="hashtab_8c.html#8017a1f2a1080bd0c9f052305f896b10">update_entry</a> (char *)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="hashtab_8c.html#7da0915678a706dfa45ec0ae92af2fa2">update_exit</a> (char *)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">u_long&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="hashtab_8c.html#9d203938872dfbe120779670bfbefddd">hash</a> (char *)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="hashtab_8c.html#f9fcdad76e91434fe5f0728f3a79ae74">del_htabs</a> ()</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="hashtab_8c.html#f2f25ed90b609c69446b8446454ca7a0">put_hnode</a> (char *str, int type, u_long count, u_long file, double xfer, u_long *ctr, u_long visit, u_long tstamp, char *lasturl, <a class="el" href="structhnode.html">HNODEPTR</a> *htab)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="hashtab_8c.html#306d5a1540d43fa136c10272cb2f0a4a">del_hlist</a> (<a class="el" href="structhnode.html">HNODEPTR</a> *htab)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="hashtab_8c.html#c4f10ed3d908404570fa30fae460b7d0">put_unode</a> (char *str, int type, u_long count, double xfer, u_long *ctr, u_long entry, u_long exit, <a class="el" href="structunode.html">UNODEPTR</a> *htab)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="hashtab_8c.html#d270fa129a86e1f21e04f6863eb443c4">del_ulist</a> (<a class="el" href="structunode.html">UNODEPTR</a> *htab)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="hashtab_8c.html#b4002d9ddebb92b4a979361424d2e51b">put_rnode</a> (char *str, int type, u_long count, u_long *ctr, <a class="el" href="structrnode.html">RNODEPTR</a> *htab)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="hashtab_8c.html#99589c545676162533a82708505580c6">del_rlist</a> (<a class="el" href="structrnode.html">RNODEPTR</a> *htab)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="hashtab_8c.html#696c253a54bee8d869c852d86c1f145e">put_anode</a> (char *str, int type, u_long count, u_long *ctr, <a class="el" href="structanode.html">ANODEPTR</a> *htab)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="hashtab_8c.html#ebb84eee637f50db17ab93d1050e8bd1">del_alist</a> (<a class="el" href="structanode.html">ANODEPTR</a> *htab)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="hashtab_8c.html#53bf7691f858a503c77b657b22cec782">put_snode</a> (char *str, u_long count, <a class="el" href="structsnode.html">SNODEPTR</a> *htab)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="hashtab_8c.html#d526188ebf65c97a2ed3cb521c6e0089">del_slist</a> (<a class="el" href="structsnode.html">SNODEPTR</a> *htab)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="hashtab_8c.html#9febd80a08973165c09cd1f42f429838">put_inode</a> (char *str, int type, u_long count, u_long file, double xfer, u_long *ctr, u_long visit, u_long tstamp, <a class="el" href="structinode.html">INODEPTR</a> *htab)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="hashtab_8c.html#d859897805bb7fc6479703fd3bcf493a">del_ilist</a> (<a class="el" href="structinode.html">INODEPTR</a> *htab)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">char *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="hashtab_8c.html#6028851c0bddbe6cfc35b4092a62e5e5">find_url</a> (char *str)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="hashtab_8c.html#8bd37405a172f7642453f9a1fae7438f">month_update_exit</a> (u_long tstamp)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">u_long&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="hashtab_8c.html#c7baccdb17212972eee28ccc861dd307">tot_visit</a> (<a class="el" href="structhnode.html">HNODEPTR</a> *list)</td></tr>
+
+<tr><td colspan="2"><br><h2>Variablen</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="structhnode.html">HNODEPTR</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="hashtab_8c.html#408742678920fdb90b2926c215e8e19c">sm_htab</a> [MAXHASH]</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="structhnode.html">HNODEPTR</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="hashtab_8c.html#e5ddad8435a9d403e79f4bd320fea151">sd_htab</a> [MAXHASH]</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="structunode.html">UNODEPTR</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="hashtab_8c.html#2f99d64abd1711a4b10ee71d070811a7">um_htab</a> [MAXHASH]</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="structrnode.html">RNODEPTR</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="hashtab_8c.html#4b36877a2219872c641eb9a58ae45ce8">rm_htab</a> [MAXHASH]</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="structanode.html">ANODEPTR</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="hashtab_8c.html#4886dbd661ad553906dc83e1a8031316">am_htab</a> [MAXHASH]</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="structsnode.html">SNODEPTR</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="hashtab_8c.html#e9a8ef54a4b421e3d16dc313f162ccff">sr_htab</a> [MAXHASH]</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="structinode.html">INODEPTR</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="hashtab_8c.html#1a7bfe1ecf3b78722bcee9d08e8178a1">im_htab</a> [MAXHASH]</td></tr>
+
+</table>
+<hr><h2>Makro-Dokumentation</h2>
+<a class="anchor" name="03df76d1f70664d745ca8de2864e39b3"></a><!-- doxytag: member="hashtab.c::CLK_TCK" ref="03df76d1f70664d745ca8de2864e39b3" args="" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">#define CLK_TCK&nbsp;&nbsp;&nbsp;_SC_CLK_TCK          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="hashtab_8c-source.html#l00059">59</a> der Datei <a class="el" href="hashtab_8c-source.html">hashtab.c</a>.    </td>
+  </tr>
+</table>
+<hr><h2>Dokumentation der Funktionen</h2>
+<a class="anchor" name="ebb84eee637f50db17ab93d1050e8bd1"></a><!-- doxytag: member="hashtab.c::del_alist" ref="ebb84eee637f50db17ab93d1050e8bd1" args="(ANODEPTR *htab)" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">void del_alist           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="structanode.html">ANODEPTR</a> *&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap> <em>htab</em>          </td>
+          <td class="md" valign="top">&nbsp;)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="hashtab_8c-source.html#l00645">645</a> der Datei <a class="el" href="hashtab_8c-source.html">hashtab.c</a>.
+<p>
+Benutzt <a class="el" href="webalizer_8h-source.html#l00015">MAXHASH</a>, <a class="el" href="hashtab_8h-source.html#l00053">anode::next</a> und <a class="el" href="hashtab_8h-source.html#l00050">anode::string</a>.
+<p>
+Wird benutzt von <a class="el" href="hashtab_8c-source.html#l00102">del_htabs()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="306d5a1540d43fa136c10272cb2f0a4a"></a><!-- doxytag: member="hashtab.c::del_hlist" ref="306d5a1540d43fa136c10272cb2f0a4a" args="(HNODEPTR *htab)" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">void del_hlist           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="structhnode.html">HNODEPTR</a> *&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap> <em>htab</em>          </td>
+          <td class="md" valign="top">&nbsp;)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="hashtab_8c-source.html#l00283">283</a> der Datei <a class="el" href="hashtab_8c-source.html">hashtab.c</a>.
+<p>
+Benutzt <a class="el" href="webalizer_8h-source.html#l00015">MAXHASH</a>, <a class="el" href="hashtab_8h-source.html#l00034">hnode::next</a> und <a class="el" href="hashtab_8h-source.html#l00026">hnode::string</a>.
+<p>
+Wird benutzt von <a class="el" href="hashtab_8c-source.html#l00102">del_htabs()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="f9fcdad76e91434fe5f0728f3a79ae74"></a><!-- doxytag: member="hashtab.c::del_htabs" ref="f9fcdad76e91434fe5f0728f3a79ae74" args="()" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">void del_htabs           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>          </td>
+          <td class="md" valign="top">&nbsp;)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="hashtab_8c-source.html#l00102">102</a> der Datei <a class="el" href="hashtab_8c-source.html">hashtab.c</a>.
+<p>
+Benutzt <a class="el" href="hashtab_8c-source.html#l00090">am_htab</a>, <a class="el" href="hashtab_8c-source.html#l00645">del_alist()</a>, <a class="el" href="hashtab_8c-source.html#l00283">del_hlist()</a>, <a class="el" href="hashtab_8c-source.html#l00918">del_ilist()</a>, <a class="el" href="hashtab_8c-source.html#l00529">del_rlist()</a>, <a class="el" href="hashtab_8c-source.html#l00750">del_slist()</a>, <a class="el" href="hashtab_8c-source.html#l00410">del_ulist()</a>, <a class="el" href="hashtab_8c-source.html#l00092">im_htab</a>, <a class="el" href="hashtab_8c-source.html#l00089">rm_htab</a>, <a class="el" href="hashtab_8c-source.html#l00087">sd_htab</a>, <a class="el" href="hashtab_8c-source.html#l00086">sm_htab</a>, <a class="el" href="hashtab_8c-source.html#l00091">sr_htab</a> und <a class="el" href="hashtab_8c-source.html#l00088">um_htab</a>.
+<p>
+Wird benutzt von <a class="el" href="webalizer_8c-source.html#l01701">clear_month()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="d859897805bb7fc6479703fd3bcf493a"></a><!-- doxytag: member="hashtab.c::del_ilist" ref="d859897805bb7fc6479703fd3bcf493a" args="(INODEPTR *htab)" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">void del_ilist           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="structinode.html">INODEPTR</a> *&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap> <em>htab</em>          </td>
+          <td class="md" valign="top">&nbsp;)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="hashtab_8c-source.html#l00918">918</a> der Datei <a class="el" href="hashtab_8c-source.html">hashtab.c</a>.
+<p>
+Benutzt <a class="el" href="webalizer_8h-source.html#l00015">MAXHASH</a>, <a class="el" href="hashtab_8h-source.html#l00066">inode::next</a> und <a class="el" href="hashtab_8h-source.html#l00059">inode::string</a>.
+<p>
+Wird benutzt von <a class="el" href="hashtab_8c-source.html#l00102">del_htabs()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="99589c545676162533a82708505580c6"></a><!-- doxytag: member="hashtab.c::del_rlist" ref="99589c545676162533a82708505580c6" args="(RNODEPTR *htab)" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">void del_rlist           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="structrnode.html">RNODEPTR</a> *&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap> <em>htab</em>          </td>
+          <td class="md" valign="top">&nbsp;)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="hashtab_8c-source.html#l00529">529</a> der Datei <a class="el" href="hashtab_8c-source.html">hashtab.c</a>.
+<p>
+Benutzt <a class="el" href="webalizer_8h-source.html#l00015">MAXHASH</a>, <a class="el" href="hashtab_8h-source.html#l00048">rnode::next</a> und <a class="el" href="hashtab_8h-source.html#l00045">rnode::string</a>.
+<p>
+Wird benutzt von <a class="el" href="hashtab_8c-source.html#l00102">del_htabs()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="d526188ebf65c97a2ed3cb521c6e0089"></a><!-- doxytag: member="hashtab.c::del_slist" ref="d526188ebf65c97a2ed3cb521c6e0089" args="(SNODEPTR *htab)" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">void del_slist           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="structsnode.html">SNODEPTR</a> *&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap> <em>htab</em>          </td>
+          <td class="md" valign="top">&nbsp;)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="hashtab_8c-source.html#l00750">750</a> der Datei <a class="el" href="hashtab_8c-source.html">hashtab.c</a>.
+<p>
+Benutzt <a class="el" href="webalizer_8h-source.html#l00015">MAXHASH</a>, <a class="el" href="hashtab_8h-source.html#l00057">snode::next</a> und <a class="el" href="hashtab_8h-source.html#l00055">snode::string</a>.
+<p>
+Wird benutzt von <a class="el" href="hashtab_8c-source.html#l00102">del_htabs()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="d270fa129a86e1f21e04f6863eb443c4"></a><!-- doxytag: member="hashtab.c::del_ulist" ref="d270fa129a86e1f21e04f6863eb443c4" args="(UNODEPTR *htab)" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">void del_ulist           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="structunode.html">UNODEPTR</a> *&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap> <em>htab</em>          </td>
+          <td class="md" valign="top">&nbsp;)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="hashtab_8c-source.html#l00410">410</a> der Datei <a class="el" href="hashtab_8c-source.html">hashtab.c</a>.
+<p>
+Benutzt <a class="el" href="webalizer_8h-source.html#l00015">MAXHASH</a>, <a class="el" href="hashtab_8h-source.html#l00043">unode::next</a> und <a class="el" href="hashtab_8h-source.html#l00036">unode::string</a>.
+<p>
+Wird benutzt von <a class="el" href="hashtab_8c-source.html#l00102">del_htabs()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="6028851c0bddbe6cfc35b4092a62e5e5"></a><!-- doxytag: member="hashtab.c::find_url" ref="6028851c0bddbe6cfc35b4092a62e5e5" args="(char *str)" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">char* find_url           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top">char *&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap> <em>str</em>          </td>
+          <td class="md" valign="top">&nbsp;)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="hashtab_8c-source.html#l01062">1062</a> der Datei <a class="el" href="hashtab_8c-source.html">hashtab.c</a>.
+<p>
+Benutzt <a class="el" href="webalizer_8c-source.html#l00138">blank_str</a>, <a class="el" href="hashtab_8c-source.html#l01050">hash()</a>, <a class="el" href="hashtab_8h-source.html#l00043">unode::next</a>, <a class="el" href="hashtab_8h-source.html#l00036">unode::string</a> und <a class="el" href="hashtab_8c-source.html#l00088">um_htab</a>.
+<p>
+Wird benutzt von <a class="el" href="hashtab_8c-source.html#l00155">put_hnode()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="9d203938872dfbe120779670bfbefddd"></a><!-- doxytag: member="hashtab.c::hash" ref="9d203938872dfbe120779670bfbefddd" args="(char *)" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">u_long hash           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top">char *&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>          </td>
+          <td class="md" valign="top">&nbsp;)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="hashtab_8c-source.html#l01050">1050</a> der Datei <a class="el" href="hashtab_8c-source.html">hashtab.c</a>.
+<p>
+Wird benutzt von <a class="el" href="hashtab_8c-source.html#l01062">find_url()</a>, <a class="el" href="hashtab_8c-source.html#l00590">put_anode()</a>, <a class="el" href="hashtab_8c-source.html#l00155">put_hnode()</a>, <a class="el" href="hashtab_8c-source.html#l00811">put_inode()</a>, <a class="el" href="hashtab_8c-source.html#l00471">put_rnode()</a>, <a class="el" href="hashtab_8c-source.html#l00705">put_snode()</a>, <a class="el" href="hashtab_8c-source.html#l00344">put_unode()</a>, <a class="el" href="hashtab_8c-source.html#l01082">update_entry()</a> und <a class="el" href="hashtab_8c-source.html#l01109">update_exit()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="8bd37405a172f7642453f9a1fae7438f"></a><!-- doxytag: member="hashtab.c::month_update_exit" ref="8bd37405a172f7642453f9a1fae7438f" args="(u_long tstamp)" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">void month_update_exit           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top">u_long&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap> <em>tstamp</em>          </td>
+          <td class="md" valign="top">&nbsp;)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="hashtab_8c-source.html#l01136">1136</a> der Datei <a class="el" href="hashtab_8c-source.html">hashtab.c</a>.
+<p>
+Benutzt <a class="el" href="hashtab_8h-source.html#l00027">hnode::flag</a>, <a class="el" href="hashtab_8h-source.html#l00032">hnode::lasturl</a>, <a class="el" href="hashtab_8h-source.html#l00017">OBJ_GRP</a>, <a class="el" href="hashtab_8c-source.html#l00086">sm_htab</a>, <a class="el" href="hashtab_8h-source.html#l00031">hnode::tstamp</a>, <a class="el" href="hashtab_8c-source.html#l01109">update_exit()</a> und <a class="el" href="webalizer_8c-source.html#l00123">visit_timeout</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="77e03d0d91a9f6365711aed781c218f2"></a><!-- doxytag: member="hashtab.c::new_anode" ref="77e03d0d91a9f6365711aed781c218f2" args="(char *)" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"><a class="el" href="structanode.html">ANODEPTR</a> new_anode           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top">char *&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>          </td>
+          <td class="md" valign="top">&nbsp;)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="hashtab_8c-source.html#l00556">556</a> der Datei <a class="el" href="hashtab_8c-source.html">hashtab.c</a>.
+<p>
+Benutzt <a class="el" href="hashtab_8h-source.html#l00052">anode::count</a>, <a class="el" href="webalizer_8c-source.html#l00109">debug_mode</a>, <a class="el" href="hashtab_8h-source.html#l00051">anode::flag</a>, <a class="el" href="webalizer_8h-source.html#l00022">MAXAGENT</a>, <a class="el" href="lang_8h.html#a2ee47975118e6f57ce4a10d1baeef26">msg_big_one</a>, <a class="el" href="hashtab_8h-source.html#l00015">OBJ_REG</a>, <a class="el" href="hashtab_8h-source.html#l00050">anode::string</a> und <a class="el" href="webalizer_8c-source.html#l00108">verbose</a>.
+<p>
+Wird benutzt von <a class="el" href="hashtab_8c-source.html#l00590">put_anode()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="ca7c730d21349d04dcff3556d0a89fec"></a><!-- doxytag: member="hashtab.c::new_hnode" ref="ca7c730d21349d04dcff3556d0a89fec" args="(char *)" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"><a class="el" href="structhnode.html">HNODEPTR</a> new_hnode           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top">char *&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>          </td>
+          <td class="md" valign="top">&nbsp;)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="hashtab_8c-source.html#l00120">120</a> der Datei <a class="el" href="hashtab_8c-source.html">hashtab.c</a>.
+<p>
+Benutzt <a class="el" href="webalizer_8c-source.html#l00138">blank_str</a>, <a class="el" href="webalizer_8c-source.html#l00109">debug_mode</a>, <a class="el" href="hashtab_8h-source.html#l00032">hnode::lasturl</a>, <a class="el" href="webalizer_8h-source.html#l00017">MAXHOST</a>, <a class="el" href="lang_8h.html#a2ee47975118e6f57ce4a10d1baeef26">msg_big_one</a>, <a class="el" href="hashtab_8h-source.html#l00026">hnode::string</a>, <a class="el" href="hashtab_8h-source.html#l00031">hnode::tstamp</a>, <a class="el" href="webalizer_8c-source.html#l00108">verbose</a> und <a class="el" href="hashtab_8h-source.html#l00030">hnode::visit</a>.
+<p>
+Wird benutzt von <a class="el" href="hashtab_8c-source.html#l00155">put_hnode()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="850b758cda6a66b5563aa41454279b76"></a><!-- doxytag: member="hashtab.c::new_inode" ref="850b758cda6a66b5563aa41454279b76" args="(char *)" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"><a class="el" href="structinode.html">INODEPTR</a> new_inode           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top">char *&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>          </td>
+          <td class="md" valign="top">&nbsp;)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="hashtab_8c-source.html#l00777">777</a> der Datei <a class="el" href="hashtab_8c-source.html">hashtab.c</a>.
+<p>
+Benutzt <a class="el" href="webalizer_8c-source.html#l00109">debug_mode</a>, <a class="el" href="webalizer_8h-source.html#l00026">MAXIDENT</a>, <a class="el" href="lang_8h.html#a2ee47975118e6f57ce4a10d1baeef26">msg_big_one</a>, <a class="el" href="hashtab_8h-source.html#l00059">inode::string</a>, <a class="el" href="hashtab_8h-source.html#l00064">inode::tstamp</a>, <a class="el" href="webalizer_8c-source.html#l00108">verbose</a> und <a class="el" href="hashtab_8h-source.html#l00063">inode::visit</a>.
+<p>
+Wird benutzt von <a class="el" href="hashtab_8c-source.html#l00811">put_inode()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="b9cf53c565bbf77a87c29f745ef76a80"></a><!-- doxytag: member="hashtab.c::new_rnode" ref="b9cf53c565bbf77a87c29f745ef76a80" args="(char *)" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"><a class="el" href="structrnode.html">RNODEPTR</a> new_rnode           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top">char *&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>          </td>
+          <td class="md" valign="top">&nbsp;)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="hashtab_8c-source.html#l00437">437</a> der Datei <a class="el" href="hashtab_8c-source.html">hashtab.c</a>.
+<p>
+Benutzt <a class="el" href="hashtab_8h-source.html#l00047">rnode::count</a>, <a class="el" href="webalizer_8c-source.html#l00109">debug_mode</a>, <a class="el" href="hashtab_8h-source.html#l00046">rnode::flag</a>, <a class="el" href="webalizer_8h-source.html#l00021">MAXREFH</a>, <a class="el" href="lang_8h.html#a2ee47975118e6f57ce4a10d1baeef26">msg_big_one</a>, <a class="el" href="hashtab_8h-source.html#l00015">OBJ_REG</a>, <a class="el" href="hashtab_8h-source.html#l00045">rnode::string</a> und <a class="el" href="webalizer_8c-source.html#l00108">verbose</a>.
+<p>
+Wird benutzt von <a class="el" href="hashtab_8c-source.html#l00471">put_rnode()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="40b9a825d5fab2416f5911a3255980f9"></a><!-- doxytag: member="hashtab.c::new_snode" ref="40b9a825d5fab2416f5911a3255980f9" args="(char *)" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"><a class="el" href="structsnode.html">SNODEPTR</a> new_snode           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top">char *&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>          </td>
+          <td class="md" valign="top">&nbsp;)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="hashtab_8c-source.html#l00672">672</a> der Datei <a class="el" href="hashtab_8c-source.html">hashtab.c</a>.
+<p>
+Benutzt <a class="el" href="hashtab_8h-source.html#l00056">snode::count</a>, <a class="el" href="webalizer_8c-source.html#l00109">debug_mode</a>, <a class="el" href="webalizer_8h-source.html#l00025">MAXSRCHH</a>, <a class="el" href="lang_8h.html#a2ee47975118e6f57ce4a10d1baeef26">msg_big_one</a>, <a class="el" href="hashtab_8h-source.html#l00055">snode::string</a> und <a class="el" href="webalizer_8c-source.html#l00108">verbose</a>.
+<p>
+Wird benutzt von <a class="el" href="hashtab_8c-source.html#l00705">put_snode()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="e97ded5fe5fa045e492128b73ff18c8b"></a><!-- doxytag: member="hashtab.c::new_unode" ref="e97ded5fe5fa045e492128b73ff18c8b" args="(char *)" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"><a class="el" href="structunode.html">UNODEPTR</a> new_unode           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top">char *&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>          </td>
+          <td class="md" valign="top">&nbsp;)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="hashtab_8c-source.html#l00310">310</a> der Datei <a class="el" href="hashtab_8c-source.html">hashtab.c</a>.
+<p>
+Benutzt <a class="el" href="hashtab_8h-source.html#l00038">unode::count</a>, <a class="el" href="webalizer_8c-source.html#l00109">debug_mode</a>, <a class="el" href="hashtab_8h-source.html#l00037">unode::flag</a>, <a class="el" href="webalizer_8h-source.html#l00019">MAXURLH</a>, <a class="el" href="lang_8h.html#a2ee47975118e6f57ce4a10d1baeef26">msg_big_one</a>, <a class="el" href="hashtab_8h-source.html#l00015">OBJ_REG</a>, <a class="el" href="hashtab_8h-source.html#l00036">unode::string</a> und <a class="el" href="webalizer_8c-source.html#l00108">verbose</a>.
+<p>
+Wird benutzt von <a class="el" href="hashtab_8c-source.html#l00344">put_unode()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="696c253a54bee8d869c852d86c1f145e"></a><!-- doxytag: member="hashtab.c::put_anode" ref="696c253a54bee8d869c852d86c1f145e" args="(char *str, int type, u_long count, u_long *ctr, ANODEPTR *htab)" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">int put_anode           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top">char *&nbsp;</td>
+          <td class="mdname" nowrap> <em>str</em>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>int&nbsp;</td>
+          <td class="mdname" nowrap> <em>type</em>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>u_long&nbsp;</td>
+          <td class="mdname" nowrap> <em>count</em>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>u_long *&nbsp;</td>
+          <td class="mdname" nowrap> <em>ctr</em>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap><a class="el" href="structanode.html">ANODEPTR</a> *&nbsp;</td>
+          <td class="mdname" nowrap> <em>htab</em></td>
+        </tr>
+        <tr>
+          <td class="md"></td>
+          <td class="md">)&nbsp;</td>
+          <td class="md" colspan="2"></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="hashtab_8c-source.html#l00590">590</a> der Datei <a class="el" href="hashtab_8c-source.html">hashtab.c</a>.
+<p>
+Benutzt <a class="el" href="hashtab_8h-source.html#l00052">anode::count</a>, <a class="el" href="hashtab_8h-source.html#l00051">anode::flag</a>, <a class="el" href="hashtab_8c-source.html#l01050">hash()</a>, <a class="el" href="linklist_8c-source.html#l00085">hidden_agents</a>, <a class="el" href="linklist_8c-source.html#l00243">isinlist()</a>, <a class="el" href="hashtab_8c-source.html#l00556">new_anode()</a>, <a class="el" href="hashtab_8h-source.html#l00053">anode::next</a>, <a class="el" href="hashtab_8h-source.html#l00017">OBJ_GRP</a>, <a class="el" href="hashtab_8h-source.html#l00016">OBJ_HIDE</a> und <a class="el" href="hashtab_8h-source.html#l00050">anode::string</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="f2f25ed90b609c69446b8446454ca7a0"></a><!-- doxytag: member="hashtab.c::put_hnode" ref="f2f25ed90b609c69446b8446454ca7a0" args="(char *str, int type, u_long count, u_long file, double xfer, u_long *ctr, u_long visit, u_long tstamp, char *lasturl, HNODEPTR *htab)" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">int put_hnode           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top">char *&nbsp;</td>
+          <td class="mdname" nowrap> <em>str</em>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>int&nbsp;</td>
+          <td class="mdname" nowrap> <em>type</em>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>u_long&nbsp;</td>
+          <td class="mdname" nowrap> <em>count</em>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>u_long&nbsp;</td>
+          <td class="mdname" nowrap> <em>file</em>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>double&nbsp;</td>
+          <td class="mdname" nowrap> <em>xfer</em>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>u_long *&nbsp;</td>
+          <td class="mdname" nowrap> <em>ctr</em>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>u_long&nbsp;</td>
+          <td class="mdname" nowrap> <em>visit</em>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>u_long&nbsp;</td>
+          <td class="mdname" nowrap> <em>tstamp</em>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>char *&nbsp;</td>
+          <td class="mdname" nowrap> <em>lasturl</em>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap><a class="el" href="structhnode.html">HNODEPTR</a> *&nbsp;</td>
+          <td class="mdname" nowrap> <em>htab</em></td>
+        </tr>
+        <tr>
+          <td class="md"></td>
+          <td class="md">)&nbsp;</td>
+          <td class="md" colspan="2"></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="hashtab_8c-source.html#l00155">155</a> der Datei <a class="el" href="hashtab_8c-source.html">hashtab.c</a>.
+<p>
+Benutzt <a class="el" href="hashtab_8h-source.html#l00028">hnode::count</a>, <a class="el" href="hashtab_8h-source.html#l00029">hnode::files</a>, <a class="el" href="hashtab_8c-source.html#l01062">find_url()</a>, <a class="el" href="hashtab_8h-source.html#l00027">hnode::flag</a>, <a class="el" href="hashtab_8c-source.html#l01050">hash()</a>, <a class="el" href="linklist_8c-source.html#l00082">hidden_sites</a>, <a class="el" href="webalizer_8c-source.html#l00129">hide_sites</a>, <a class="el" href="linklist_8c-source.html#l00243">isinlist()</a>, <a class="el" href="webalizer_8c-source.html#l01802">ispage()</a>, <a class="el" href="hashtab_8h-source.html#l00032">hnode::lasturl</a>, <a class="el" href="webalizer_8c-source.html#l00209">log_rec</a>, <a class="el" href="hashtab_8c-source.html#l00120">new_hnode()</a>, <a class="el" href="hashtab_8h-source.html#l00034">hnode::next</a>, <a class="el" href="hashtab_8h-source.html#l00017">OBJ_GRP</a>, <a class="el" href="hashtab_8h-source.html#l00016">OBJ_HIDE</a>, <a class="el" href="hashtab_8c-source.html#l00086">sm_htab</a>, <a class="el" href="hashtab_8h-source.html#l00026">hnode::string</a>, <a class="el" href="hashtab_8h-source.html#l00031">hnode::tstamp</a>, <a class="el" href="hashtab_8c-source.html#l01082">update_entry()</a>, <a class="el" href="hashtab_8c-source.html#l01109">update_exit()</a>, <a class="el" href="webalizer_8h-source.html#l00153">log_struct::url</a>, <a class="el" href="hashtab_8h-source.html#l00030">hnode::visit</a>, <a class="el" href="webalizer_8c-source.html#l00123">visit_timeout</a> und <a class="el" href="hashtab_8h-source.html#l00033">hnode::xfer</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="9febd80a08973165c09cd1f42f429838"></a><!-- doxytag: member="hashtab.c::put_inode" ref="9febd80a08973165c09cd1f42f429838" args="(char *str, int type, u_long count, u_long file, double xfer, u_long *ctr, u_long visit, u_long tstamp, INODEPTR *htab)" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">int put_inode           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top">char *&nbsp;</td>
+          <td class="mdname" nowrap> <em>str</em>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>int&nbsp;</td>
+          <td class="mdname" nowrap> <em>type</em>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>u_long&nbsp;</td>
+          <td class="mdname" nowrap> <em>count</em>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>u_long&nbsp;</td>
+          <td class="mdname" nowrap> <em>file</em>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>double&nbsp;</td>
+          <td class="mdname" nowrap> <em>xfer</em>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>u_long *&nbsp;</td>
+          <td class="mdname" nowrap> <em>ctr</em>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>u_long&nbsp;</td>
+          <td class="mdname" nowrap> <em>visit</em>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>u_long&nbsp;</td>
+          <td class="mdname" nowrap> <em>tstamp</em>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap><a class="el" href="structinode.html">INODEPTR</a> *&nbsp;</td>
+          <td class="mdname" nowrap> <em>htab</em></td>
+        </tr>
+        <tr>
+          <td class="md"></td>
+          <td class="md">)&nbsp;</td>
+          <td class="md" colspan="2"></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="hashtab_8c-source.html#l00811">811</a> der Datei <a class="el" href="hashtab_8c-source.html">hashtab.c</a>.
+<p>
+Benutzt <a class="el" href="hashtab_8h-source.html#l00061">inode::count</a>, <a class="el" href="hashtab_8h-source.html#l00062">inode::files</a>, <a class="el" href="hashtab_8h-source.html#l00060">inode::flag</a>, <a class="el" href="hashtab_8c-source.html#l01050">hash()</a>, <a class="el" href="linklist_8c-source.html#l00086">hidden_users</a>, <a class="el" href="linklist_8c-source.html#l00243">isinlist()</a>, <a class="el" href="webalizer_8c-source.html#l01802">ispage()</a>, <a class="el" href="webalizer_8c-source.html#l00209">log_rec</a>, <a class="el" href="hashtab_8c-source.html#l00777">new_inode()</a>, <a class="el" href="hashtab_8h-source.html#l00066">inode::next</a>, <a class="el" href="hashtab_8h-source.html#l00017">OBJ_GRP</a>, <a class="el" href="hashtab_8h-source.html#l00016">OBJ_HIDE</a>, <a class="el" href="hashtab_8h-source.html#l00059">inode::string</a>, <a class="el" href="hashtab_8h-source.html#l00064">inode::tstamp</a>, <a class="el" href="webalizer_8h-source.html#l00153">log_struct::url</a>, <a class="el" href="hashtab_8h-source.html#l00063">inode::visit</a>, <a class="el" href="webalizer_8c-source.html#l00123">visit_timeout</a> und <a class="el" href="hashtab_8h-source.html#l00065">inode::xfer</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="b4002d9ddebb92b4a979361424d2e51b"></a><!-- doxytag: member="hashtab.c::put_rnode" ref="b4002d9ddebb92b4a979361424d2e51b" args="(char *str, int type, u_long count, u_long *ctr, RNODEPTR *htab)" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">int put_rnode           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top">char *&nbsp;</td>
+          <td class="mdname" nowrap> <em>str</em>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>int&nbsp;</td>
+          <td class="mdname" nowrap> <em>type</em>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>u_long&nbsp;</td>
+          <td class="mdname" nowrap> <em>count</em>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>u_long *&nbsp;</td>
+          <td class="mdname" nowrap> <em>ctr</em>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap><a class="el" href="structrnode.html">RNODEPTR</a> *&nbsp;</td>
+          <td class="mdname" nowrap> <em>htab</em></td>
+        </tr>
+        <tr>
+          <td class="md"></td>
+          <td class="md">)&nbsp;</td>
+          <td class="md" colspan="2"></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="hashtab_8c-source.html#l00471">471</a> der Datei <a class="el" href="hashtab_8c-source.html">hashtab.c</a>.
+<p>
+Benutzt <a class="el" href="hashtab_8h-source.html#l00047">rnode::count</a>, <a class="el" href="hashtab_8h-source.html#l00046">rnode::flag</a>, <a class="el" href="hashtab_8c-source.html#l01050">hash()</a>, <a class="el" href="linklist_8c-source.html#l00084">hidden_refs</a>, <a class="el" href="linklist_8c-source.html#l00243">isinlist()</a>, <a class="el" href="hashtab_8c-source.html#l00437">new_rnode()</a>, <a class="el" href="hashtab_8h-source.html#l00048">rnode::next</a>, <a class="el" href="hashtab_8h-source.html#l00017">OBJ_GRP</a>, <a class="el" href="hashtab_8h-source.html#l00016">OBJ_HIDE</a> und <a class="el" href="hashtab_8h-source.html#l00045">rnode::string</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="53bf7691f858a503c77b657b22cec782"></a><!-- doxytag: member="hashtab.c::put_snode" ref="53bf7691f858a503c77b657b22cec782" args="(char *str, u_long count, SNODEPTR *htab)" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">int put_snode           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top">char *&nbsp;</td>
+          <td class="mdname" nowrap> <em>str</em>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>u_long&nbsp;</td>
+          <td class="mdname" nowrap> <em>count</em>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap><a class="el" href="structsnode.html">SNODEPTR</a> *&nbsp;</td>
+          <td class="mdname" nowrap> <em>htab</em></td>
+        </tr>
+        <tr>
+          <td class="md"></td>
+          <td class="md">)&nbsp;</td>
+          <td class="md" colspan="2"></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="hashtab_8c-source.html#l00705">705</a> der Datei <a class="el" href="hashtab_8c-source.html">hashtab.c</a>.
+<p>
+Benutzt <a class="el" href="hashtab_8h-source.html#l00056">snode::count</a>, <a class="el" href="hashtab_8c-source.html#l01050">hash()</a>, <a class="el" href="hashtab_8c-source.html#l00672">new_snode()</a>, <a class="el" href="hashtab_8h-source.html#l00057">snode::next</a> und <a class="el" href="hashtab_8h-source.html#l00055">snode::string</a>.
+<p>
+Wird benutzt von <a class="el" href="webalizer_8c-source.html#l01883">srch_string()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="c4f10ed3d908404570fa30fae460b7d0"></a><!-- doxytag: member="hashtab.c::put_unode" ref="c4f10ed3d908404570fa30fae460b7d0" args="(char *str, int type, u_long count, double xfer, u_long *ctr, u_long entry, u_long exit, UNODEPTR *htab)" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">int put_unode           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top">char *&nbsp;</td>
+          <td class="mdname" nowrap> <em>str</em>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>int&nbsp;</td>
+          <td class="mdname" nowrap> <em>type</em>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>u_long&nbsp;</td>
+          <td class="mdname" nowrap> <em>count</em>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>double&nbsp;</td>
+          <td class="mdname" nowrap> <em>xfer</em>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>u_long *&nbsp;</td>
+          <td class="mdname" nowrap> <em>ctr</em>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>u_long&nbsp;</td>
+          <td class="mdname" nowrap> <em>entry</em>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>u_long&nbsp;</td>
+          <td class="mdname" nowrap> <em>exit</em>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap><a class="el" href="structunode.html">UNODEPTR</a> *&nbsp;</td>
+          <td class="mdname" nowrap> <em>htab</em></td>
+        </tr>
+        <tr>
+          <td class="md"></td>
+          <td class="md">)&nbsp;</td>
+          <td class="md" colspan="2"></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="hashtab_8c-source.html#l00344">344</a> der Datei <a class="el" href="hashtab_8c-source.html">hashtab.c</a>.
+<p>
+Benutzt <a class="el" href="hashtab_8h-source.html#l00038">unode::count</a>, <a class="el" href="hashtab_8h-source.html#l00040">unode::entry</a>, <a class="el" href="hashtab_8h-source.html#l00041">unode::exit</a>, <a class="el" href="hashtab_8h-source.html#l00037">unode::flag</a>, <a class="el" href="hashtab_8c-source.html#l01050">hash()</a>, <a class="el" href="linklist_8c-source.html#l00083">hidden_urls</a>, <a class="el" href="linklist_8c-source.html#l00243">isinlist()</a>, <a class="el" href="hashtab_8c-source.html#l00310">new_unode()</a>, <a class="el" href="hashtab_8h-source.html#l00043">unode::next</a>, <a class="el" href="hashtab_8h-source.html#l00017">OBJ_GRP</a>, <a class="el" href="hashtab_8h-source.html#l00016">OBJ_HIDE</a>, <a class="el" href="hashtab_8h-source.html#l00036">unode::string</a> und <a class="el" href="hashtab_8h-source.html#l00042">unode::xfer</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="c7baccdb17212972eee28ccc861dd307"></a><!-- doxytag: member="hashtab.c::tot_visit" ref="c7baccdb17212972eee28ccc861dd307" args="(HNODEPTR *list)" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">u_long tot_visit           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="structhnode.html">HNODEPTR</a> *&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap> <em>list</em>          </td>
+          <td class="md" valign="top">&nbsp;)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="hashtab_8c-source.html#l01160">1160</a> der Datei <a class="el" href="hashtab_8c-source.html">hashtab.c</a>.
+<p>
+Benutzt <a class="el" href="hashtab_8h-source.html#l00027">hnode::flag</a>, <a class="el" href="webalizer_8h-source.html#l00015">MAXHASH</a>, <a class="el" href="hashtab_8h-source.html#l00034">hnode::next</a>, <a class="el" href="hashtab_8h-source.html#l00017">OBJ_GRP</a> und <a class="el" href="hashtab_8h-source.html#l00030">hnode::visit</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="8017a1f2a1080bd0c9f052305f896b10"></a><!-- doxytag: member="hashtab.c::update_entry" ref="8017a1f2a1080bd0c9f052305f896b10" args="(char *)" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">void update_entry           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top">char *&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>          </td>
+          <td class="md" valign="top">&nbsp;)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="hashtab_8c-source.html#l01082">1082</a> der Datei <a class="el" href="hashtab_8c-source.html">hashtab.c</a>.
+<p>
+Benutzt <a class="el" href="hashtab_8h-source.html#l00040">unode::entry</a>, <a class="el" href="hashtab_8h-source.html#l00037">unode::flag</a>, <a class="el" href="hashtab_8c-source.html#l01050">hash()</a>, <a class="el" href="hashtab_8h-source.html#l00043">unode::next</a>, <a class="el" href="hashtab_8h-source.html#l00017">OBJ_GRP</a>, <a class="el" href="hashtab_8h-source.html#l00036">unode::string</a> und <a class="el" href="hashtab_8c-source.html#l00088">um_htab</a>.
+<p>
+Wird benutzt von <a class="el" href="hashtab_8c-source.html#l00155">put_hnode()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="7da0915678a706dfa45ec0ae92af2fa2"></a><!-- doxytag: member="hashtab.c::update_exit" ref="7da0915678a706dfa45ec0ae92af2fa2" args="(char *)" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">void update_exit           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top">char *&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>          </td>
+          <td class="md" valign="top">&nbsp;)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="hashtab_8c-source.html#l01109">1109</a> der Datei <a class="el" href="hashtab_8c-source.html">hashtab.c</a>.
+<p>
+Benutzt <a class="el" href="hashtab_8h-source.html#l00041">unode::exit</a>, <a class="el" href="hashtab_8h-source.html#l00037">unode::flag</a>, <a class="el" href="hashtab_8c-source.html#l01050">hash()</a>, <a class="el" href="hashtab_8h-source.html#l00043">unode::next</a>, <a class="el" href="hashtab_8h-source.html#l00017">OBJ_GRP</a>, <a class="el" href="hashtab_8h-source.html#l00036">unode::string</a> und <a class="el" href="hashtab_8c-source.html#l00088">um_htab</a>.
+<p>
+Wird benutzt von <a class="el" href="hashtab_8c-source.html#l01136">month_update_exit()</a> und <a class="el" href="hashtab_8c-source.html#l00155">put_hnode()</a>.    </td>
+  </tr>
+</table>
+<hr><h2>Variablen-Dokumentation</h2>
+<a class="anchor" name="4886dbd661ad553906dc83e1a8031316"></a><!-- doxytag: member="hashtab.c::am_htab" ref="4886dbd661ad553906dc83e1a8031316" args="[MAXHASH]" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"><a class="el" href="structanode.html">ANODEPTR</a> <a class="el" href="hashtab_8h.html#4886dbd661ad553906dc83e1a8031316">am_htab</a>[MAXHASH]          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="hashtab_8c-source.html#l00090">90</a> der Datei <a class="el" href="hashtab_8c-source.html">hashtab.c</a>.
+<p>
+Wird benutzt von <a class="el" href="hashtab_8c-source.html#l00102">del_htabs()</a> und <a class="el" href="output_8c-source.html#l02819">load_agent_array()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="1a7bfe1ecf3b78722bcee9d08e8178a1"></a><!-- doxytag: member="hashtab.c::im_htab" ref="1a7bfe1ecf3b78722bcee9d08e8178a1" args="[MAXHASH]" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"><a class="el" href="structinode.html">INODEPTR</a> <a class="el" href="hashtab_8h.html#1a7bfe1ecf3b78722bcee9d08e8178a1">im_htab</a>[MAXHASH]          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="hashtab_8c-source.html#l00092">92</a> der Datei <a class="el" href="hashtab_8c-source.html">hashtab.c</a>.
+<p>
+Wird benutzt von <a class="el" href="hashtab_8c-source.html#l00102">del_htabs()</a> und <a class="el" href="output_8c-source.html#l02867">load_ident_array()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="4b36877a2219872c641eb9a58ae45ce8"></a><!-- doxytag: member="hashtab.c::rm_htab" ref="4b36877a2219872c641eb9a58ae45ce8" args="[MAXHASH]" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"><a class="el" href="structrnode.html">RNODEPTR</a> <a class="el" href="hashtab_8h.html#4b36877a2219872c641eb9a58ae45ce8">rm_htab</a>[MAXHASH]          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="hashtab_8c-source.html#l00089">89</a> der Datei <a class="el" href="hashtab_8c-source.html">hashtab.c</a>.
+<p>
+Wird benutzt von <a class="el" href="hashtab_8c-source.html#l00102">del_htabs()</a> und <a class="el" href="output_8c-source.html#l02795">load_ref_array()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="e5ddad8435a9d403e79f4bd320fea151"></a><!-- doxytag: member="hashtab.c::sd_htab" ref="e5ddad8435a9d403e79f4bd320fea151" args="[MAXHASH]" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"><a class="el" href="structhnode.html">HNODEPTR</a> <a class="el" href="hashtab_8h.html#e5ddad8435a9d403e79f4bd320fea151">sd_htab</a>[MAXHASH]          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="hashtab_8c-source.html#l00087">87</a> der Datei <a class="el" href="hashtab_8c-source.html">hashtab.c</a>.
+<p>
+Wird benutzt von <a class="el" href="hashtab_8c-source.html#l00102">del_htabs()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="408742678920fdb90b2926c215e8e19c"></a><!-- doxytag: member="hashtab.c::sm_htab" ref="408742678920fdb90b2926c215e8e19c" args="[MAXHASH]" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"><a class="el" href="structhnode.html">HNODEPTR</a> <a class="el" href="hashtab_8h.html#408742678920fdb90b2926c215e8e19c">sm_htab</a>[MAXHASH]          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="hashtab_8c-source.html#l00086">86</a> der Datei <a class="el" href="hashtab_8c-source.html">hashtab.c</a>.
+<p>
+Wird benutzt von <a class="el" href="hashtab_8c-source.html#l00102">del_htabs()</a>, <a class="el" href="output_8c-source.html#l02747">load_site_array()</a>, <a class="el" href="hashtab_8c-source.html#l01136">month_update_exit()</a>, <a class="el" href="hashtab_8c-source.html#l00155">put_hnode()</a> und <a class="el" href="output_8c-source.html#l02063">top_ctry_table()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="e9a8ef54a4b421e3d16dc313f162ccff"></a><!-- doxytag: member="hashtab.c::sr_htab" ref="e9a8ef54a4b421e3d16dc313f162ccff" args="[MAXHASH]" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"><a class="el" href="structsnode.html">SNODEPTR</a> <a class="el" href="hashtab_8h.html#e9a8ef54a4b421e3d16dc313f162ccff">sr_htab</a>[MAXHASH]          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="hashtab_8c-source.html#l00091">91</a> der Datei <a class="el" href="hashtab_8c-source.html">hashtab.c</a>.
+<p>
+Wird benutzt von <a class="el" href="hashtab_8c-source.html#l00102">del_htabs()</a>, <a class="el" href="output_8c-source.html#l02843">load_srch_array()</a> und <a class="el" href="webalizer_8c-source.html#l01883">srch_string()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="2f99d64abd1711a4b10ee71d070811a7"></a><!-- doxytag: member="hashtab.c::um_htab" ref="2f99d64abd1711a4b10ee71d070811a7" args="[MAXHASH]" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"><a class="el" href="structunode.html">UNODEPTR</a> <a class="el" href="hashtab_8h.html#2f99d64abd1711a4b10ee71d070811a7">um_htab</a>[MAXHASH]          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="hashtab_8c-source.html#l00088">88</a> der Datei <a class="el" href="hashtab_8c-source.html">hashtab.c</a>.
+<p>
+Wird benutzt von <a class="el" href="hashtab_8c-source.html#l00102">del_htabs()</a>, <a class="el" href="hashtab_8c-source.html#l01062">find_url()</a>, <a class="el" href="output_8c-source.html#l02771">load_url_array()</a>, <a class="el" href="hashtab_8c-source.html#l01082">update_entry()</a> und <a class="el" href="hashtab_8c-source.html#l01109">update_exit()</a>.    </td>
+  </tr>
+</table>
+<hr size="1"><address style="align: right;"><small>Erzeugt am Wed Jun 7 04:08:00 2006 für OOS [Webalizer] von&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.6 </small></address>
+</body>
+</html>

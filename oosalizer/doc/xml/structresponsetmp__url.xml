@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='iso-8859-1' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.4.6">
+  <compounddef id="structresponsetmp__url" kind="struct" prot="public">
+    <compoundname>responsetmp_url</compoundname>
+    <includes refid="webalizer_8h" local="no">webalizer.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structresponsetmp__url_1b4ad044e588e562efd1346b8f43c5384" prot="public" static="no" mutable="no">
+        <type>char</type>
+        <definition>char responsetmp_url::respurl[MAXURLH]</definition>
+        <argsstring>[MAXURLH]</argsstring>
+        <name>respurl</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/webalizer.h" line="136" bodyfile="/home/r23/oosalizer/webalizer.h" bodystart="136" bodyend="-1"/>
+        <referencedby refid="output_8c_1267f41fceee149a1e7eeb4ee30ee5f09" compoundref="output_8c" startline="715" endline="798">month_error_table</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structresponsetmp__url_13fadce0607dd50b5b522cecb148a3e3a" prot="public" static="no" mutable="no">
+        <type>u_long</type>
+        <definition>u_long responsetmp_url::count</definition>
+        <argsstring></argsstring>
+        <name>count</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/webalizer.h" line="137" bodyfile="/home/r23/oosalizer/webalizer.h" bodystart="137" bodyend="-1"/>
+        <referencedby refid="output_8c_1267f41fceee149a1e7eeb4ee30ee5f09" compoundref="output_8c" startline="715" endline="798">month_error_table</referencedby>
+        <referencedby refid="output_8c_1c1ecb6ecbe9f7218b2e9ccae79cf2f5f" compoundref="output_8c" startline="2063" endline="2204">top_ctry_table</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/r23/oosalizer/webalizer.h" line="136" bodyfile="/home/r23/oosalizer/webalizer.h" bodystart="136" bodyend="137"/>
+    <listofallmembers>
+      <member refid="structresponsetmp__url_13fadce0607dd50b5b522cecb148a3e3a" prot="public" virt="non-virtual"><scope>responsetmp_url</scope><name>count</name></member>
+      <member refid="structresponsetmp__url_1b4ad044e588e562efd1346b8f43c5384" prot="public" virt="non-virtual"><scope>responsetmp_url</scope><name>respurl</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='iso-8859-1' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.4.6">
+  <compounddef id="structpie__data" kind="struct" prot="public">
+    <compoundname>pie_data</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structpie__data_1eaf30870c955a292a0b2896b09bc4169" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int pie_data::x</definition>
+        <argsstring></argsstring>
+        <name>x</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/graphs.c" line="76" bodyfile="/home/r23/oosalizer/graphs.c" bodystart="76" bodyend="-1"/>
+        <referencedby refid="graphs_8c_1b831d5a0b0198ea523e0b116aaa20488" compoundref="graphs_8c" startline="694" endline="708">calc_arc</referencedby>
+        <referencedby refid="graphs_8c_149e615d9104950eeb7a886df4301f7da" compoundref="graphs_8c" startline="610" endline="686">pie_chart</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structpie__data_1016eb86e9e554387895e400c2b285b7d" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int pie_data::y</definition>
+        <argsstring></argsstring>
+        <name>y</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/graphs.c" line="76" bodyfile="/home/r23/oosalizer/graphs.c" bodystart="76" bodyend="-1"/>
+        <referencedby refid="graphs_8c_1b831d5a0b0198ea523e0b116aaa20488" compoundref="graphs_8c" startline="694" endline="708">calc_arc</referencedby>
+        <referencedby refid="graphs_8c_149e615d9104950eeb7a886df4301f7da" compoundref="graphs_8c" startline="610" endline="686">pie_chart</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structpie__data_10234ef9030e27eae38d77037e17871f6" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int pie_data::mx</definition>
+        <argsstring></argsstring>
+        <name>mx</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/graphs.c" line="77" bodyfile="/home/r23/oosalizer/graphs.c" bodystart="77" bodyend="-1"/>
+        <referencedby refid="graphs_8c_1b831d5a0b0198ea523e0b116aaa20488" compoundref="graphs_8c" startline="694" endline="708">calc_arc</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structpie__data_163a9a5e6f1537e59becdebc9aeeb5f34" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int pie_data::my</definition>
+        <argsstring></argsstring>
+        <name>my</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/graphs.c" line="77" bodyfile="/home/r23/oosalizer/graphs.c" bodystart="77" bodyend="-1"/>
+        <referencedby refid="graphs_8c_1b831d5a0b0198ea523e0b116aaa20488" compoundref="graphs_8c" startline="694" endline="708">calc_arc</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/r23/oosalizer/graphs.c" line="76" bodyfile="/home/r23/oosalizer/graphs.c" bodystart="76" bodyend="77"/>
+    <listofallmembers>
+      <member refid="structpie__data_10234ef9030e27eae38d77037e17871f6" prot="public" virt="non-virtual"><scope>pie_data</scope><name>mx</name></member>
+      <member refid="structpie__data_163a9a5e6f1537e59becdebc9aeeb5f34" prot="public" virt="non-virtual"><scope>pie_data</scope><name>my</name></member>
+      <member refid="structpie__data_1eaf30870c955a292a0b2896b09bc4169" prot="public" virt="non-virtual"><scope>pie_data</scope><name>x</name></member>
+      <member refid="structpie__data_1016eb86e9e554387895e400c2b285b7d" prot="public" virt="non-virtual"><scope>pie_data</scope><name>y</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

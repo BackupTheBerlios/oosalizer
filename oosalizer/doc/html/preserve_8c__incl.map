@@ -1,0 +1,6 @@
+base referer
+rect $webalizer_8h.html 207,440 295,464
+rect $lang_8h.html 222,488 281,512
+rect $hashtab_8h.html 211,536 291,560
+rect $parser_8h.html 217,584 286,608
+rect $preserve_8h.html 209,632 294,656

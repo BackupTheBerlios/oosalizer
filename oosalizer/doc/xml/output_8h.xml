@@ -1,0 +1,223 @@
+<?xml version='1.0' encoding='iso-8859-1' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.4.6">
+  <compounddef id="output_8h" kind="file">
+    <compoundname>output.h</compoundname>
+    <includedby refid="output_8c" local="yes">oosalizer/output.c</includedby>
+    <includedby refid="webalizer_8c" local="yes">oosalizer/webalizer.c</includedby>
+    <invincdepgraph>
+      <node id="271">
+        <label>oosalizer/webalizer.c</label>
+        <link refid="webalizer_8c"/>
+      </node>
+      <node id="270">
+        <label>oosalizer/output.c</label>
+        <link refid="output_8c"/>
+      </node>
+      <node id="269">
+        <label>oosalizer/output.h</label>
+        <link refid="output.h"/>
+        <childnode refid="270" relation="include">
+        </childnode>
+        <childnode refid="271" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="output_8h_190b458b70bbeed91acc9ec79062f6ac7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int write_main_index</definition>
+        <argsstring>()</argsstring>
+        <name>write_main_index</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/output.h" line="4" bodyfile="/home/r23/oosalizer/output.c" bodystart="2450" bodyend="2591"/>
+        <references refid="webalizer_8c_109b4e72533ab279f7930a9a5e3ab050c" compoundref="webalizer_8c" startline="218">buffer</references>
+        <references refid="webalizer_8h_1eca034f67218340ecb2261a22c2f3dcd" compoundref="webalizer_8h" startline="16">BUFSIZE</references>
+        <references refid="preserve_8c_18dbdfde33bef98c2e3a8d2b8fab9143d" compoundref="preserve_8c" startline="69">hist_month</references>
+        <references refid="preserve_8c_1bd6905416f4fb7c9cc62053f1f952d32" compoundref="preserve_8c" startline="69">hist_year</references>
+        <references refid="webalizer_8c_1674a1f0ec86ffb26578c11999c89a3c0" compoundref="webalizer_8c" startline="130">hname</references>
+        <references refid="lang_8h_16e6be76001566785c2bcfcbab6dbca41">msg_gen_sum</references>
+        <references refid="lang_8h_1b0f683bbdd193f7ce1952965bed2a573">msg_main_us</references>
+        <references refid="webalizer_8c_10b2caeb4b6f130be43e5a2f0267dd453" compoundref="webalizer_8c" startline="108">verbose</references>
+      </memberdef>
+      <memberdef kind="function" id="output_8h_1a88c70787fac7e72d1f6509b38b6bcab" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int write_month_html</definition>
+        <argsstring>()</argsstring>
+        <name>write_month_html</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/output.h" line="5" bodyfile="/home/r23/oosalizer/output.c" bodystart="325" bodyend="531"/>
+        <references refid="output_8c_1087fc5e1d70a57bb687006545cd89b68" compoundref="output_8c" startline="137">a_array</references>
+        <references refid="output_8c_1e04d9715c55066e22dc7442b812c5d2c" compoundref="output_8c" startline="140">a_ctr</references>
+        <references refid="webalizer_8c_109b4e72533ab279f7930a9a5e3ab050c" compoundref="webalizer_8c" startline="218">buffer</references>
+        <references refid="webalizer_8h_1eca034f67218340ecb2261a22c2f3dcd" compoundref="webalizer_8h" startline="16">BUFSIZE</references>
+        <references refid="webalizer_8c_1d8ec6498bcc8d8eb82d92bc5c1aacc8d" compoundref="webalizer_8c" startline="171">cur_month</references>
+        <references refid="webalizer_8c_18447667f9dc8021c4f17284b9a12f776" compoundref="webalizer_8c" startline="171">cur_year</references>
+        <references refid="webalizer_8c_181ebc74fab71c6cde9eff752ad0b5974" compoundref="webalizer_8c" startline="115">daily_graph</references>
+        <references refid="webalizer_8c_14c83c5bd481ef466be0d92fd9ad6c8b1" compoundref="webalizer_8c" startline="116">daily_stats</references>
+        <references refid="output_8c_124968f52f4cb828c450b4357d0da9326" compoundref="output_8c" startline="804" endline="875">daily_total_table</references>
+        <references refid="graphs_8c_198296b41d7e2982e4b341e6ed18255ac" compoundref="graphs_8c" startline="503" endline="602">day_graph3</references>
+        <references refid="webalizer_8c_195b4dacf3a1c2e18715bfbd268726afb" compoundref="webalizer_8c" startline="165">dump_agents</references>
+        <references refid="output_8c_113b9a7e783dc0408ef406d95e9a347a8" compoundref="output_8c" startline="2332" endline="2365">dump_all_agents</references>
+        <references refid="output_8c_1246f33aca4a4783b5b9853d70aa44d61" compoundref="output_8c" startline="2293" endline="2326">dump_all_refs</references>
+        <references refid="output_8c_146280cc9688bd8a784859589d0ca588e" compoundref="output_8c" startline="2414" endline="2444">dump_all_search</references>
+        <references refid="output_8c_11ff4091dce5e22d1f8f4cc034a78afec" compoundref="output_8c" startline="2210" endline="2247">dump_all_sites</references>
+        <references refid="output_8c_1d1bfd511fab3836f3e1d1867384b425f" compoundref="output_8c" startline="2253" endline="2287">dump_all_urls</references>
+        <references refid="output_8c_1a519e8d866cad7c01f72636d749a9f57" compoundref="output_8c" startline="2371" endline="2408">dump_all_users</references>
+        <references refid="webalizer_8c_15e125d6b90581ab008f71bf272ec1aac" compoundref="webalizer_8c" startline="164">dump_refs</references>
+        <references refid="webalizer_8c_15acb64968750f92b0c7443ec44dde282" compoundref="webalizer_8c" startline="167">dump_search</references>
+        <references refid="webalizer_8c_154401b9d6a97a9951e2fb1bf09e83b2b" compoundref="webalizer_8c" startline="162">dump_sites</references>
+        <references refid="webalizer_8c_1a9f638a5b7e03638423ce8d5c3f5be6e" compoundref="webalizer_8c" startline="163">dump_urls</references>
+        <references refid="webalizer_8c_1a6b267f406cddbd150680fb2ce5260b1" compoundref="webalizer_8c" startline="166">dump_users</references>
+        <references refid="webalizer_8c_14637ce886571ae33e34d7d0ae8d50df8" compoundref="webalizer_8c" startline="203">f_day</references>
+        <references refid="output_8c_15264e215246a79cb95e196368866f1ef" compoundref="output_8c" startline="135">h_array</references>
+        <references refid="preserve_8c_1aa2fe5b00c099187be9c1aace6552a9c" compoundref="preserve_8c" startline="77">hist_fday</references>
+        <references refid="preserve_8c_15fce0b39aa3228d6b471e9294f1fed9d" compoundref="preserve_8c" startline="71">hist_files</references>
+        <references refid="preserve_8c_171b324074ec02105c3730f77c0ab3e50" compoundref="preserve_8c" startline="70">hist_hit</references>
+        <references refid="preserve_8c_1c1366de31d95191e4f8fe0894dabb4e2" compoundref="preserve_8c" startline="77">hist_lday</references>
+        <references refid="preserve_8c_18dbdfde33bef98c2e3a8d2b8fab9143d" compoundref="preserve_8c" startline="69">hist_month</references>
+        <references refid="preserve_8c_16885f98057e49be4b1a58cc1fea67b11" compoundref="preserve_8c" startline="74">hist_page</references>
+        <references refid="preserve_8c_195f554bfcd0bb37a1e90b29db92d2ffa" compoundref="preserve_8c" startline="72">hist_site</references>
+        <references refid="preserve_8c_1686df2d8a29e5dc08eddd9679fecc5ff" compoundref="preserve_8c" startline="75">hist_visit</references>
+        <references refid="preserve_8c_19258e499d6896ed681dbe7582d7047c4" compoundref="preserve_8c" startline="73">hist_xfer</references>
+        <references refid="preserve_8c_1bd6905416f4fb7c9cc62053f1f952d32" compoundref="preserve_8c" startline="69">hist_year</references>
+        <references refid="webalizer_8c_1ef88d69bc7f6d6214835f0f15ef4522a" compoundref="webalizer_8c" startline="113">hourly_graph</references>
+        <references refid="webalizer_8c_16359837576bb8bf34e8b6984cee1e53a" compoundref="webalizer_8c" startline="114">hourly_stats</references>
+        <references refid="output_8c_1bed9fdc7ecf13c9399e3e41bd583abd9" compoundref="output_8c" startline="881" endline="966">hourly_total_table</references>
+        <references refid="webalizer_8c_1ef5a49b05e1bff557f85797e61dcd23a" compoundref="webalizer_8c" startline="133">html_ext</references>
+        <references refid="output_8c_1ccdc7ee079826f4729bf0f653e9f29f1" compoundref="output_8c" startline="139">i_array</references>
+        <references refid="webalizer_8c_13322d751ac470f626bc34fb8b34c1759" compoundref="webalizer_8c" startline="203">l_day</references>
+        <references refid="lang_8h_1e75828f9450cccbb02d410d60a6caa1d">l_month</references>
+        <references refid="output_8c_1695c31f8c5d53bf9a1b112cccd36740f" compoundref="output_8c" startline="2819" endline="2837">load_agent_array</references>
+        <references refid="output_8c_178caf44e7545035a80e85f498cb9e471" compoundref="output_8c" startline="2867" endline="2885">load_ident_array</references>
+        <references refid="output_8c_14fe67ad14b790d3dabec4fc028e338c5" compoundref="output_8c" startline="2795" endline="2813">load_ref_array</references>
+        <references refid="output_8c_112790ed69b92f9024071f8e8ba312ee3" compoundref="output_8c" startline="2747" endline="2765">load_site_array</references>
+        <references refid="output_8c_1d3eb19f2c468e374066739cccec7d3d4" compoundref="output_8c" startline="2843" endline="2861">load_srch_array</references>
+        <references refid="output_8c_10d5c8398a3b959aa372077fda3f78fff" compoundref="output_8c" startline="2771" endline="2789">load_url_array</references>
+        <references refid="output_8c_1267f41fceee149a1e7eeb4ee30ee5f09" compoundref="output_8c" startline="715" endline="798">month_error_table</references>
+        <references refid="graphs_8c_17d33e4e14ae660bf05b5793f8e18d091" compoundref="graphs_8c" startline="298" endline="495">month_graph6</references>
+        <references refid="output_8c_188fc4fa78dab50f356e5daebd1c0efcb" compoundref="output_8c" startline="537" endline="565">month_links</references>
+        <references refid="output_8c_1f2c834f471b87d6264d3694c8257382c" compoundref="output_8c" startline="571" endline="709">month_total_table</references>
+        <references refid="lang_8h_15e34eccd1e2035aea1b7159063d915f8">msg_gen_rpt</references>
+        <references refid="lang_8h_1cab39528c85f8dbabed2e31bb5189b03">msg_hmth_du</references>
+        <references refid="lang_8h_1b80bdfb304ceb290c6072c62d86fe010">msg_hmth_hu</references>
+        <references refid="lang_8h_16e6ba456bc92e8ce0d6955c37f8ca9dd">msg_nomem_ta</references>
+        <references refid="lang_8h_112eac62ea5fd36e5ef1692197451fe16">msg_nomem_ti</references>
+        <references refid="lang_8h_123d055f2dae443bacaf9abc8e5d25dc7">msg_nomem_tr</references>
+        <references refid="lang_8h_1895dc95a6113902a3d50d9cc7402e958">msg_nomem_ts</references>
+        <references refid="lang_8h_18fa82c2055a9fa9ee57d49129758cf14">msg_nomem_tsr</references>
+        <references refid="lang_8h_10818c9fe28426f27e863c5d1d6971be7">msg_nomem_tu</references>
+        <references refid="webalizer_8c_109d5297ba12ba78e65bcb4679036de17" compoundref="webalizer_8c" startline="149">ntop_agents</references>
+        <references refid="webalizer_8c_1fcd390bd7df1e721799f33f0ac87fdaf" compoundref="webalizer_8c" startline="150">ntop_ctrys</references>
+        <references refid="webalizer_8c_1a573c7e2a32733a06a3b0dbb9430569f" compoundref="webalizer_8c" startline="146">ntop_entry</references>
+        <references refid="webalizer_8c_19d1968145275f8eb19935b5c6d5b2848" compoundref="webalizer_8c" startline="147">ntop_exit</references>
+        <references refid="webalizer_8c_1aae85fa49329c9361a901e52954764eb" compoundref="webalizer_8c" startline="153">ntop_notfound</references>
+        <references refid="webalizer_8c_178414d5060b40b23c1fbb95546fb74d3" compoundref="webalizer_8c" startline="148">ntop_refs</references>
+        <references refid="webalizer_8c_157e3ec40e1f85e8b2620950dc43b753f" compoundref="webalizer_8c" startline="151">ntop_search</references>
+        <references refid="webalizer_8c_157531d5f29d4cbdaac1f25e52f4a069d" compoundref="webalizer_8c" startline="142">ntop_sites</references>
+        <references refid="webalizer_8c_1a3069c260eedec99be29617d90fa687a" compoundref="webalizer_8c" startline="143">ntop_sitesK</references>
+        <references refid="webalizer_8c_1a450ef7a6e4e6148f9cb184144a7c8cc" compoundref="webalizer_8c" startline="144">ntop_urls</references>
+        <references refid="webalizer_8c_121acc4795c6bb4027a1bd2ad038fe3fa" compoundref="webalizer_8c" startline="145">ntop_urlsK</references>
+        <references refid="webalizer_8c_1958b818c79b6fa3f2d0ab1ca4bb3e97c" compoundref="webalizer_8c" startline="152">ntop_users</references>
+        <references refid="output_8c_1837e8afa754fafe8bf3e4e71da7db321" compoundref="output_8c" startline="2891" endline="2903">open_out_file</references>
+        <references refid="output_8c_1c061fe683531313d6071980df0f82611" compoundref="output_8c" startline="142">out_fp</references>
+        <references refid="output_8c_172a92b6a4155e75b035247485efacd27" compoundref="output_8c" startline="2702" endline="2711">qs_agnt_cmph</references>
+        <references refid="output_8c_1ab10c25bdfd5abd8dda51817fa9027cd" compoundref="output_8c" startline="2732" endline="2741">qs_ident_cmph</references>
+        <references refid="output_8c_19fcda824a6cb67eea93f6c873ce382e2" compoundref="output_8c" startline="2687" endline="2696">qs_ref_cmph</references>
+        <references refid="output_8c_1322ce92d71bc2e3c8d61c5edfa937b66" compoundref="output_8c" startline="2597" endline="2606">qs_site_cmph</references>
+        <references refid="output_8c_10fe214a5ca06da7ea31019f2491f690f" compoundref="output_8c" startline="2612" endline="2621">qs_site_cmpk</references>
+        <references refid="output_8c_1c696a3022740c5d7e16758e13cd6240d" compoundref="output_8c" startline="2717" endline="2726">qs_srch_cmph</references>
+        <references refid="output_8c_1aa5ed357df2c1098b3bf0d4fbbf020bb" compoundref="output_8c" startline="2627" endline="2636">qs_url_cmph</references>
+        <references refid="output_8c_1ba53a184207ad59b18a510a690d29b5d" compoundref="output_8c" startline="2642" endline="2651">qs_url_cmpk</references>
+        <references refid="output_8c_13b87c7768eed36e84a622e431b378942" compoundref="output_8c" startline="2657" endline="2666">qs_url_cmpn</references>
+        <references refid="output_8c_19fb87dcc576463c9ce98593782734d59" compoundref="output_8c" startline="2672" endline="2681">qs_url_cmpx</references>
+        <references refid="output_8c_1d45469c4cb26a6ad02b3b2e95132bfd7" compoundref="output_8c" startline="136">r_array</references>
+        <references refid="lang_8h_16fbb1449f14f39208f656061d49c280b">response</references>
+        <references refid="output_8c_19cc5723f216e0b1d0d8b497ca4117a40" compoundref="output_8c" startline="138">s_array</references>
+        <references refid="webalizer_8c_18d8f1b3ebaff4207130ee4e068a74578" compoundref="webalizer_8c" startline="184">t_file</references>
+        <references refid="webalizer_8c_14f0e430951167c36ff37f1373c453d40" compoundref="webalizer_8c" startline="184">t_hit</references>
+        <references refid="webalizer_8c_1dab177cb0d83726239072547f166262a" compoundref="webalizer_8c" startline="186">t_page</references>
+        <references refid="webalizer_8c_1e37f859c6ceb40434ecd96c6ba5d0565" compoundref="webalizer_8c" startline="184">t_site</references>
+        <references refid="webalizer_8c_1241257c2fb7477a7dc9191c01e8a155a" compoundref="webalizer_8c" startline="186">t_visit</references>
+        <references refid="webalizer_8c_11952e11824da591d81fdf3371627ae86" compoundref="webalizer_8c" startline="183">t_xfer</references>
+        <references refid="webalizer_8c_18d6ce1fa8aba3c7f1ed1c7e19ea0541c" compoundref="webalizer_8c" startline="198">th_file</references>
+        <references refid="webalizer_8c_12c634f4ff63cf16a5bb219632d9da1f5" compoundref="webalizer_8c" startline="198">th_hit</references>
+        <references refid="webalizer_8c_1cdb9ccdbdd487d188cd174056a7dcd80" compoundref="webalizer_8c" startline="198">th_page</references>
+        <references refid="webalizer_8c_1985c7f07bdd01aea04be87abba0d225b" compoundref="webalizer_8c" startline="190">tm_file</references>
+        <references refid="webalizer_8c_190b2c6f5c71d87e07a6aa0694651c7a8" compoundref="webalizer_8c" startline="190">tm_hit</references>
+        <references refid="webalizer_8c_12b0163914dcd84396a9d6dae48ee4a54" compoundref="webalizer_8c" startline="190">tm_page</references>
+        <references refid="webalizer_8c_13016395581c35bac86027a654deb0db5" compoundref="webalizer_8c" startline="190">tm_site</references>
+        <references refid="webalizer_8c_1f3d33c8d579ff7b3d41abb0e618f70a5" compoundref="webalizer_8c" startline="190">tm_visit</references>
+        <references refid="webalizer_8c_1d8577082542e8d61ae9d21b5cdc09de6" compoundref="webalizer_8c" startline="188">tm_xfer</references>
+        <references refid="output_8c_155f5637d81e4b2847ea889ac14cbcc6b" compoundref="output_8c" startline="1623" endline="1707">top_agents_table</references>
+        <references refid="output_8c_1c1ecb6ecbe9f7218b2e9ccae79cf2f5f" compoundref="output_8c" startline="2063" endline="2204">top_ctry_table</references>
+        <references refid="output_8c_172037da3c986417f62837bb8c96b60c0" compoundref="output_8c" startline="1359" endline="1455">top_entry_table</references>
+        <references refid="output_8c_1f175d11f499a6782ad34c4b21f6891e1" compoundref="output_8c" startline="1461" endline="1555">top_refs_table</references>
+        <references refid="output_8c_169ab2fc5b74afcb9c52ad9e0906cde88" compoundref="output_8c" startline="1775" endline="1840">top_search_table</references>
+        <references refid="output_8c_18459026bf062636220025d736ae99fa7" compoundref="output_8c" startline="972" endline="1079">top_sites_table</references>
+        <references refid="output_8c_167742ac3286c8dd6e07650560a96e228" compoundref="output_8c" startline="1158" endline="1284">top_urls_table</references>
+        <references refid="output_8c_12e8e6386a5b4fa3e5dafd4f2becfb3ce" compoundref="output_8c" startline="1888" endline="1984">top_users_table</references>
+        <references refid="output_8c_14551dad9d68c34d932485aa2e47be6f4" compoundref="output_8c" startline="134">u_array</references>
+        <references refid="webalizer_8c_10b2caeb4b6f130be43e5a2f0267dd453" compoundref="webalizer_8c" startline="108">verbose</references>
+        <references refid="output_8c_10bc1fdaca7513c4813773bef5529008e" compoundref="output_8c" startline="148" endline="254">write_html_head</references>
+        <references refid="output_8c_1b5fc0fbb03c2b6a431bef6bc473505e2" compoundref="output_8c" startline="260" endline="319">write_html_tail</references>
+      </memberdef>
+      <memberdef kind="function" id="output_8h_1e3a7ea5eb1ee0a6be7ae6e674102897c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>FILE *</type>
+        <definition>FILE* open_out_file</definition>
+        <argsstring>(char *)</argsstring>
+        <name>open_out_file</name>
+        <param>
+          <type>char *</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/output.h" line="6" bodyfile="/home/r23/oosalizer/output.c" bodystart="2891" bodyend="2903"/>
+        <references refid="lang_8h_1ec2af564e53fa3fd26d6c38709369ae7">msg_no_open</references>
+        <references refid="output_8c_1c061fe683531313d6071980df0f82611" compoundref="output_8c" startline="142">out_fp</references>
+        <references refid="webalizer_8c_10b2caeb4b6f130be43e5a2f0267dd453" compoundref="webalizer_8c" startline="108">verbose</references>
+        <referencedby refid="output_8c_14f27932d464425450d0c11106ae0c2fe" compoundref="output_8c" startline="1713" endline="1769">all_agents_page</referencedby>
+        <referencedby refid="output_8c_1ffa5d4248e6a8d3946f094e5a16c026e" compoundref="output_8c" startline="1561" endline="1617">all_refs_page</referencedby>
+        <referencedby refid="output_8c_1b218b4268390f2e5c00ef1f303d3baad" compoundref="output_8c" startline="1846" endline="1882">all_search_page</referencedby>
+        <referencedby refid="output_8c_1c4e6c9fc2562755c38403dd45bdab4e9" compoundref="output_8c" startline="1085" endline="1152">all_sites_page</referencedby>
+        <referencedby refid="output_8c_1510367124c184f22aac1331c1412c7d5" compoundref="output_8c" startline="1290" endline="1353">all_urls_page</referencedby>
+        <referencedby refid="output_8c_1b1313f0c59efbacd626ea5fb185f126e" compoundref="output_8c" startline="1990" endline="2057">all_users_page</referencedby>
+        <referencedby refid="output_8c_113b9a7e783dc0408ef406d95e9a347a8" compoundref="output_8c" startline="2332" endline="2365">dump_all_agents</referencedby>
+        <referencedby refid="output_8c_1246f33aca4a4783b5b9853d70aa44d61" compoundref="output_8c" startline="2293" endline="2326">dump_all_refs</referencedby>
+        <referencedby refid="output_8c_146280cc9688bd8a784859589d0ca588e" compoundref="output_8c" startline="2414" endline="2444">dump_all_search</referencedby>
+        <referencedby refid="output_8c_11ff4091dce5e22d1f8f4cc034a78afec" compoundref="output_8c" startline="2210" endline="2247">dump_all_sites</referencedby>
+        <referencedby refid="output_8c_1d1bfd511fab3836f3e1d1867384b425f" compoundref="output_8c" startline="2253" endline="2287">dump_all_urls</referencedby>
+        <referencedby refid="output_8c_1a519e8d866cad7c01f72636d749a9f57" compoundref="output_8c" startline="2371" endline="2408">dump_all_users</referencedby>
+        <referencedby refid="output_8h_1a88c70787fac7e72d1f6509b38b6bcab" compoundref="output_8c" startline="325" endline="531">write_month_html</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>_OUTPUT_H</highlight></codeline>
+<codeline lineno="2"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>_OUTPUT_H</highlight></codeline>
+<codeline lineno="3"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><ref refid="output_8c_190b458b70bbeed91acc9ec79062f6ac7" kindref="member">write_main_index</ref>();<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>produce<sp/>main<sp/>HTML<sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><ref refid="output_8c_1a88c70787fac7e72d1f6509b38b6bcab" kindref="member">write_month_html</ref>();<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>monthy<sp/>HTML<sp/>page<sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/>FILE<sp/><sp/>*<ref refid="output_8c_1837e8afa754fafe8bf3e4e71da7db321" kindref="member">open_out_file</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*);<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>open<sp/>output<sp/>file<sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/><sp/></highlight><highlight class="comment">/*<sp/>_OUTPUT_H<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/home/r23/oosalizer/output.h"/>
+  </compounddef>
+</doxygen>

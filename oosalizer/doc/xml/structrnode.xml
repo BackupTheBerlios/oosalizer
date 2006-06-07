@@ -1,0 +1,100 @@
+<?xml version='1.0' encoding='iso-8859-1' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.4.6">
+  <compounddef id="structrnode" kind="struct" prot="public">
+    <compoundname>rnode</compoundname>
+    <includes refid="hashtab_8h" local="no">hashtab.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structrnode_16709bc4db86e039dd874dede6175a4d1" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* rnode::string</definition>
+        <argsstring></argsstring>
+        <name>string</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/hashtab.h" line="45" bodyfile="/home/r23/oosalizer/hashtab.h" bodystart="45" bodyend="-1"/>
+        <referencedby refid="output_8c_1ffa5d4248e6a8d3946f094e5a16c026e" compoundref="output_8c" startline="1561" endline="1617">all_refs_page</referencedby>
+        <referencedby refid="hashtab_8h_166b8b1a1eb435b152cb668f00f545a77" compoundref="hashtab_8c" startline="529" endline="550">del_rlist</referencedby>
+        <referencedby refid="output_8c_1246f33aca4a4783b5b9853d70aa44d61" compoundref="output_8c" startline="2293" endline="2326">dump_all_refs</referencedby>
+        <referencedby refid="hashtab_8c_1b9cf53c565bbf77a87c29f745ef76a80" compoundref="hashtab_8c" startline="437" endline="465">new_rnode</referencedby>
+        <referencedby refid="hashtab_8h_1cba57da4379852348b455ce6e86ef96b" compoundref="hashtab_8c" startline="471" endline="523">put_rnode</referencedby>
+        <referencedby refid="output_8c_1f175d11f499a6782ad34c4b21f6891e1" compoundref="output_8c" startline="1461" endline="1555">top_refs_table</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structrnode_1d5613de994a7efcb74acdb20ac8c2913" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int rnode::flag</definition>
+        <argsstring></argsstring>
+        <name>flag</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/hashtab.h" line="46" bodyfile="/home/r23/oosalizer/hashtab.h" bodystart="46" bodyend="-1"/>
+        <referencedby refid="output_8c_1ffa5d4248e6a8d3946f094e5a16c026e" compoundref="output_8c" startline="1561" endline="1617">all_refs_page</referencedby>
+        <referencedby refid="output_8c_1246f33aca4a4783b5b9853d70aa44d61" compoundref="output_8c" startline="2293" endline="2326">dump_all_refs</referencedby>
+        <referencedby refid="hashtab_8c_1b9cf53c565bbf77a87c29f745ef76a80" compoundref="hashtab_8c" startline="437" endline="465">new_rnode</referencedby>
+        <referencedby refid="hashtab_8h_1cba57da4379852348b455ce6e86ef96b" compoundref="hashtab_8c" startline="471" endline="523">put_rnode</referencedby>
+        <referencedby refid="output_8c_1f175d11f499a6782ad34c4b21f6891e1" compoundref="output_8c" startline="1461" endline="1555">top_refs_table</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structrnode_14034f46036f5fa702a86b3609d7a557a" prot="public" static="no" mutable="no">
+        <type>u_long</type>
+        <definition>u_long rnode::count</definition>
+        <argsstring></argsstring>
+        <name>count</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/hashtab.h" line="47" bodyfile="/home/r23/oosalizer/hashtab.h" bodystart="47" bodyend="-1"/>
+        <referencedby refid="output_8c_1ffa5d4248e6a8d3946f094e5a16c026e" compoundref="output_8c" startline="1561" endline="1617">all_refs_page</referencedby>
+        <referencedby refid="output_8c_1246f33aca4a4783b5b9853d70aa44d61" compoundref="output_8c" startline="2293" endline="2326">dump_all_refs</referencedby>
+        <referencedby refid="hashtab_8c_1b9cf53c565bbf77a87c29f745ef76a80" compoundref="hashtab_8c" startline="437" endline="465">new_rnode</referencedby>
+        <referencedby refid="hashtab_8h_1cba57da4379852348b455ce6e86ef96b" compoundref="hashtab_8c" startline="471" endline="523">put_rnode</referencedby>
+        <referencedby refid="output_8c_1f175d11f499a6782ad34c4b21f6891e1" compoundref="output_8c" startline="1461" endline="1555">top_refs_table</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structrnode_192d155180af669f0207cd3682c132468" prot="public" static="no" mutable="no">
+        <type><ref refid="structrnode" kindref="compound">rnode</ref> *</type>
+        <definition>struct rnode* rnode::next</definition>
+        <argsstring></argsstring>
+        <name>next</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/hashtab.h" line="48" bodyfile="/home/r23/oosalizer/hashtab.h" bodystart="48" bodyend="-1"/>
+        <referencedby refid="hashtab_8h_166b8b1a1eb435b152cb668f00f545a77" compoundref="hashtab_8c" startline="529" endline="550">del_rlist</referencedby>
+        <referencedby refid="output_8c_14fe67ad14b790d3dabec4fc028e338c5" compoundref="output_8c" startline="2795" endline="2813">load_ref_array</referencedby>
+        <referencedby refid="hashtab_8h_1cba57da4379852348b455ce6e86ef96b" compoundref="hashtab_8c" startline="471" endline="523">put_rnode</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="51">
+        <label>rnode</label>
+        <link refid="structrnode"/>
+        <childnode refid="51" relation="usage">
+          <edgelabel>next</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/r23/oosalizer/hashtab.h" line="45" bodyfile="/home/r23/oosalizer/hashtab.h" bodystart="45" bodyend="48"/>
+    <listofallmembers>
+      <member refid="structrnode_14034f46036f5fa702a86b3609d7a557a" prot="public" virt="non-virtual"><scope>rnode</scope><name>count</name></member>
+      <member refid="structrnode_1d5613de994a7efcb74acdb20ac8c2913" prot="public" virt="non-virtual"><scope>rnode</scope><name>flag</name></member>
+      <member refid="structrnode_192d155180af669f0207cd3682c132468" prot="public" virt="non-virtual"><scope>rnode</scope><name>next</name></member>
+      <member refid="structrnode_16709bc4db86e039dd874dede6175a4d1" prot="public" virt="non-virtual"><scope>rnode</scope><name>string</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

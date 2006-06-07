@@ -1,0 +1,4 @@
+base referer
+rect $parser_8c.html 194,8 319,32
+rect $preserve_8c.html 186,56 327,80
+rect $webalizer_8c.html 185,104 329,128

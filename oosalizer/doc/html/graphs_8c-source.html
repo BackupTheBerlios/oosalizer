@@ -1,0 +1,785 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1">
+<title>OOS [Webalizer]: oosalizer/graphs.c Quellcode</title>
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+<link href="tabs.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Erzeugt von Doxygen 1.4.6 -->
+<div class="tabs">
+  <ul>
+    <li><a href="main.html"><span>Hauptseite</span></a></li>
+    <li><a href="annotated.html"><span>Datenstrukturen</span></a></li>
+    <li id="current"><a href="files.html"><span>Dateien</span></a></li>
+    <li>
+      <form action="search.php" method="get">
+        <table cellspacing="0" cellpadding="0" border="0">
+          <tr>
+            <td><label>&nbsp;<u>S</u>uchen&nbsp;nach&nbsp;</label></td>
+            <td><input type="text" name="query" value="" size="20" accesskey="s"/></td>
+          </tr>
+        </table>
+      </form>
+    </li>
+  </ul></div>
+<div class="tabs">
+  <ul>
+    <li><a href="files.html"><span>Auflistung&nbsp;der&nbsp;Dateien</span></a></li>
+    <li><a href="globals.html"><span>Datei-Elemente</span></a></li>
+  </ul></div>
+<h1>oosalizer/graphs.c</h1><a href="graphs_8c.html">gehe zur Dokumentation dieser Datei</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">/*</span>
+<a name="l00002"></a>00002 <span class="comment">    graphs.c  - produces graphs used by the Webalizer</span>
+<a name="l00003"></a>00003 <span class="comment"></span>
+<a name="l00004"></a>00004 <span class="comment">    Copyright (C) 1997-2001  Bradford L. Barrett (brad@mrunix.net)</span>
+<a name="l00005"></a>00005 <span class="comment"></span>
+<a name="l00006"></a>00006 <span class="comment">    This program is free software; you can redistribute it and/or modify</span>
+<a name="l00007"></a>00007 <span class="comment">    it under the terms of the GNU General Public License as published by</span>
+<a name="l00008"></a>00008 <span class="comment">    the Free Software Foundation; either version 2 of the License, or</span>
+<a name="l00009"></a>00009 <span class="comment">    (at your option) any later version, and provided that the above</span>
+<a name="l00010"></a>00010 <span class="comment">    copyright and permission notice is included with all distributed</span>
+<a name="l00011"></a>00011 <span class="comment">    copies of this or derived software.</span>
+<a name="l00012"></a>00012 <span class="comment"></span>
+<a name="l00013"></a>00013 <span class="comment">    This program is distributed in the hope that it will be useful,</span>
+<a name="l00014"></a>00014 <span class="comment">    but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+<a name="l00015"></a>00015 <span class="comment">    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span>
+<a name="l00016"></a>00016 <span class="comment">    GNU General Public License for more details.</span>
+<a name="l00017"></a>00017 <span class="comment"></span>
+<a name="l00018"></a>00018 <span class="comment">    You should have received a copy of the GNU General Public License</span>
+<a name="l00019"></a>00019 <span class="comment">    along with this program; if not, write to the Free Software</span>
+<a name="l00020"></a>00020 <span class="comment">    Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA</span>
+<a name="l00021"></a>00021 <span class="comment"></span>
+<a name="l00022"></a>00022 <span class="comment">    This software uses the gd graphics library, which is copyright by</span>
+<a name="l00023"></a>00023 <span class="comment">    Quest Protein Database Center, Cold Spring Harbor Labs.  Please</span>
+<a name="l00024"></a>00024 <span class="comment">    see the documentation supplied with the library for additional</span>
+<a name="l00025"></a>00025 <span class="comment">    information and license terms, or visit www.boutell.com/gd/ for the</span>
+<a name="l00026"></a>00026 <span class="comment">    most recent version of the library and supporting documentation.</span>
+<a name="l00027"></a>00027 <span class="comment">*/</span>
+<a name="l00028"></a>00028 
+<a name="l00029"></a>00029 <span class="preprocessor">#include &lt;math.h&gt;</span>
+<a name="l00030"></a>00030 <span class="preprocessor">#include &lt;stdio.h&gt;</span>
+<a name="l00031"></a>00031 <span class="preprocessor">#include &lt;string.h&gt;</span>
+<a name="l00032"></a>00032 <span class="preprocessor">#include &lt;sys/types.h&gt;</span>
+<a name="l00033"></a>00033 <span class="preprocessor">#include &lt;gd.h&gt;</span>
+<a name="l00034"></a>00034 <span class="preprocessor">#include &lt;gdfontt.h&gt;</span>
+<a name="l00035"></a>00035 <span class="preprocessor">#include &lt;gdfonts.h&gt;</span>
+<a name="l00036"></a>00036 <span class="preprocessor">#include &lt;gdfontmb.h&gt;</span>
+<a name="l00037"></a>00037 
+<a name="l00038"></a>00038 <span class="preprocessor">#include "<a class="code" href="webalizer_8h.html">webalizer.h</a>"</span>
+<a name="l00039"></a>00039 <span class="preprocessor">#include "<a class="code" href="lang_8h.html">lang.h</a>"</span>
+<a name="l00040"></a>00040 <span class="preprocessor">#include "<a class="code" href="graphs_8h.html">graphs.h</a>"</span>
+<a name="l00041"></a>00041 
+<a name="l00042"></a>00042 <span class="comment">/* Some systems don't define this */</span>
+<a name="l00043"></a>00043 <span class="preprocessor">#ifndef PI</span>
+<a name="l00044"></a><a class="code" href="graphs_8c.html#598a3330b3c21701223ee0ca14316eca">00044</a> <span class="preprocessor"></span><span class="preprocessor">#define PI 3.14159265358979323846</span>
+<a name="l00045"></a>00045 <span class="preprocessor"></span><span class="preprocessor">#endif</span>
+<a name="l00046"></a>00046 <span class="preprocessor"></span>
+<a name="l00047"></a><a class="code" href="graphs_8c.html#1169cd1b397420b29bd3b0153f047818">00047</a> <span class="preprocessor">#define COLOR1 green                       </span><span class="comment">/* graph color - hits  */</span>
+<a name="l00048"></a><a class="code" href="graphs_8c.html#609e0791889f4cde446ee0eb6efd369a">00048</a> <span class="preprocessor">#define COLOR2 blue                        </span><span class="comment">/* files               */</span>
+<a name="l00049"></a><a class="code" href="graphs_8c.html#299edc84540341c664cd7a183e8fc9bd">00049</a> <span class="preprocessor">#define COLOR3 orange                      </span><span class="comment">/* sites               */</span>
+<a name="l00050"></a><a class="code" href="graphs_8c.html#5b1074ec004e850c360022e0d433e475">00050</a> <span class="preprocessor">#define COLOR4 red                         </span><span class="comment">/* KBytes              */</span>
+<a name="l00051"></a><a class="code" href="graphs_8c.html#b1b154af4927f41dc0ac230992bf1a15">00051</a> <span class="preprocessor">#define COLOR5 cyan                        </span><span class="comment">/* Files               */</span>
+<a name="l00052"></a><a class="code" href="graphs_8c.html#8fd4fb399b4659d7aed1fcb5cc182ebb">00052</a> <span class="preprocessor">#define COLOR6 yellow                      </span><span class="comment">/* Visits              */</span>
+<a name="l00053"></a>00053 
+<a name="l00054"></a><a class="code" href="graphs_8c.html#0b4c12a5dc8490a3cff8385334db2d13">00054</a> <span class="preprocessor">#define CX 156                             </span><span class="comment">/* center x (for pie)  */</span>
+<a name="l00055"></a><a class="code" href="graphs_8c.html#c5bc792e372b15e7a1d3efe6daac9aec">00055</a> <span class="preprocessor">#define CY 150                             </span><span class="comment">/* center y  (chart)   */</span>
+<a name="l00056"></a><a class="code" href="graphs_8c.html#e1eec295ea8cd8f04c1f24b59110fcae">00056</a> <span class="preprocessor">#define XRAD 240                           </span><span class="comment">/* X-axis radius       */</span>
+<a name="l00057"></a><a class="code" href="graphs_8c.html#3eeb4d5b339574d992e5ac5b2c5cd8ff">00057</a> <span class="preprocessor">#define YRAD 200                           </span><span class="comment">/* Y-axis radius       */</span>
+<a name="l00058"></a>00058 
+<a name="l00059"></a>00059 <span class="comment">/* forward reference internal routines */</span>
+<a name="l00060"></a>00060 
+<a name="l00061"></a>00061 <span class="keywordtype">void</span>    <a class="code" href="graphs_8c.html#2040d817b934e470b4a2cdeb9811c097">init_graph</a>(<span class="keywordtype">char</span> *, <span class="keywordtype">int</span>, <span class="keywordtype">int</span>);
+<a name="l00062"></a>00062 <span class="keyword">struct  </span><a class="code" href="structpie__data.html">pie_data</a> *<a class="code" href="graphs_8c.html#b831d5a0b0198ea523e0b116aaa20488">calc_arc</a>(<span class="keywordtype">float</span>, <span class="keywordtype">float</span>);
+<a name="l00063"></a>00063 
+<a name="l00064"></a>00064 <span class="comment">/* common public declarations */</span>
+<a name="l00065"></a>00065 
+<a name="l00066"></a><a class="code" href="graphs_8c.html#d8920ceda92347671d37ba01be631d65">00066</a> <span class="keywordtype">char</span> *<a class="code" href="graphs_8c.html#d8920ceda92347671d37ba01be631d65">numchar</a>[] = { <span class="stringliteral">" 0"</span>,<span class="stringliteral">" 1"</span>,<span class="stringliteral">" 2"</span>,<span class="stringliteral">" 3"</span>,<span class="stringliteral">" 4"</span>,<span class="stringliteral">" 5"</span>,<span class="stringliteral">" 6"</span>,<span class="stringliteral">" 7"</span>,<span class="stringliteral">" 8"</span>,<span class="stringliteral">" 9"</span>,<span class="stringliteral">"10"</span>,
+<a name="l00067"></a>00067                     <span class="stringliteral">"11"</span>,<span class="stringliteral">"12"</span>,<span class="stringliteral">"13"</span>,<span class="stringliteral">"14"</span>,<span class="stringliteral">"15"</span>,<span class="stringliteral">"16"</span>,<span class="stringliteral">"17"</span>,<span class="stringliteral">"18"</span>,<span class="stringliteral">"19"</span>,<span class="stringliteral">"20"</span>,
+<a name="l00068"></a>00068                     <span class="stringliteral">"21"</span>,<span class="stringliteral">"22"</span>,<span class="stringliteral">"23"</span>,<span class="stringliteral">"24"</span>,<span class="stringliteral">"25"</span>,<span class="stringliteral">"26"</span>,<span class="stringliteral">"27"</span>,<span class="stringliteral">"28"</span>,<span class="stringliteral">"29"</span>,<span class="stringliteral">"30"</span>,<span class="stringliteral">"31"</span>};
+<a name="l00069"></a>00069 
+<a name="l00070"></a><a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">00070</a> gdImagePtr      <a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>;                        <span class="comment">/* image buffer        */</span>
+<a name="l00071"></a><a class="code" href="graphs_8c.html#1277960b5f2b37137fe9b0b5a1ea0beb">00071</a> FILE            *<a class="code" href="graphs_8c.html#1277960b5f2b37137fe9b0b5a1ea0beb">out</a>;                      <span class="comment">/* output file for PNG */</span>
+<a name="l00072"></a><a class="code" href="graphs_8c.html#3933b61d12d9878aa33d711259d94c5f">00072</a> <span class="keywordtype">char</span>            <a class="code" href="graphs_8c.html#3933b61d12d9878aa33d711259d94c5f">maxvaltxt</a>[32];             <span class="comment">/* graph values        */</span>
+<a name="l00073"></a><a class="code" href="graphs_8c.html#ac167f3972a2f244f4b32c8ee5b89364">00073</a> <span class="keywordtype">float</span>           <a class="code" href="graphs_8c.html#ac167f3972a2f244f4b32c8ee5b89364">percent</a>;                   <span class="comment">/* percent storage     */</span>
+<a name="l00074"></a><a class="code" href="graphs_8c.html#488cb40243821792a9a226ca1042b3e1">00074</a> u_long          <a class="code" href="graphs_8c.html#488cb40243821792a9a226ca1042b3e1">julday</a>;                    <span class="comment">/* julday value        */</span>
+<a name="l00075"></a>00075 
+<a name="l00076"></a><a class="code" href="structpie__data.html#016eb86e9e554387895e400c2b285b7d">00076</a> <span class="keyword">struct </span><a class="code" href="structpie__data.html">pie_data</a> { <span class="keywordtype">int</span> <a class="code" href="structpie__data.html#eaf30870c955a292a0b2896b09bc4169">x</a>; <span class="keywordtype">int</span> <a class="code" href="structpie__data.html#016eb86e9e554387895e400c2b285b7d">y</a>;            <span class="comment">/* line x,y            */</span>
+<a name="l00077"></a><a class="code" href="structpie__data.html#63a9a5e6f1537e59becdebc9aeeb5f34">00077</a>                   <span class="keywordtype">int</span> <a class="code" href="structpie__data.html#0234ef9030e27eae38d77037e17871f6">mx</a>; <span class="keywordtype">int</span> <a class="code" href="structpie__data.html#63a9a5e6f1537e59becdebc9aeeb5f34">my</a>; };       <span class="comment">/* midpoint x,y        */</span>
+<a name="l00078"></a>00078 <span class="comment">/* colors */</span>
+<a name="l00079"></a><a class="code" href="graphs_8c.html#34167711871149458e41ef5d3e3541fe">00079</a> <span class="keywordtype">int</span>             <a class="code" href="graphs_8c.html#8784d4f8ed73cff78355d2ed8e0c3a3b">black</a>, <a class="code" href="graphs_8c.html#52b8a1dc217164197e6e5ba60ec911bf">white</a>, <a class="code" href="graphs_8c.html#852d2c8c77477e510b44d799fdaaf1f9">grey</a>, <a class="code" href="graphs_8c.html#ee1005868568d9750214235693ba63e1">dkgrey</a>, <a class="code" href="graphs_8c.html#6761340706096510fd89edca40a63b9b">red</a>,
+<a name="l00080"></a>00080                 <a class="code" href="graphs_8c.html#16043f28bf0a6b55db852853f0683fc2">blue</a>, <a class="code" href="graphs_8c.html#d316f80317cb97c5ada72ac0e05bbf92">orange</a>, <a class="code" href="graphs_8c.html#6e208843f894f38fa7644608917a2a41">green</a>, <a class="code" href="graphs_8c.html#f6bc84de5c6f5361f222772133cf1ab8">cyan</a>, <a class="code" href="graphs_8c.html#34167711871149458e41ef5d3e3541fe">yellow</a>;
+<a name="l00081"></a>00081 
+<a name="l00082"></a>00082 <span class="comment">/*****************************************************************/</span>
+<a name="l00083"></a>00083 <span class="comment">/*                                                               */</span>
+<a name="l00084"></a>00084 <span class="comment">/* YEAR_GRAPH6x  - Year graph with six data sets                 */</span>
+<a name="l00085"></a>00085 <span class="comment">/*                                                               */</span>
+<a name="l00086"></a>00086 <span class="comment">/*****************************************************************/</span>
+<a name="l00087"></a>00087 
+<a name="l00088"></a><a class="code" href="graphs_8c.html#58eec29feb4d1c90de8813c8c59d4fcd">00088</a> <span class="keywordtype">int</span> <a class="code" href="graphs_8c.html#58eec29feb4d1c90de8813c8c59d4fcd">year_graph6x</a>(  <span class="keywordtype">char</span> *fname,            <span class="comment">/* file name use      */</span>
+<a name="l00089"></a>00089                    <span class="keywordtype">char</span> *title,            <span class="comment">/* title for graph    */</span>
+<a name="l00090"></a>00090                     <span class="keywordtype">int</span> fmonth,            <span class="comment">/* begin month number */</span>
+<a name="l00091"></a>00091                  u_long data1[12],         <span class="comment">/* data1 (hits)       */</span>
+<a name="l00092"></a>00092                  u_long data2[12],         <span class="comment">/* data2 (files)      */</span>
+<a name="l00093"></a>00093                  u_long data3[12],         <span class="comment">/* data3 (sites)      */</span>
+<a name="l00094"></a>00094                  <span class="keywordtype">double</span> data4[12],         <span class="comment">/* data4 (kbytes)     */</span>
+<a name="l00095"></a>00095                  u_long data5[12],         <span class="comment">/* data5 (views)      */</span>
+<a name="l00096"></a>00096                  u_long data6[12])         <span class="comment">/* data6 (visits)     */</span>
+<a name="l00097"></a>00097 {
+<a name="l00098"></a>00098 
+<a name="l00099"></a>00099    <span class="comment">/* local variables */</span>
+<a name="l00100"></a>00100    <span class="keywordtype">int</span> i,j,x1,y1,x2;
+<a name="l00101"></a>00101    <span class="keywordtype">int</span> s_mth;
+<a name="l00102"></a>00102 
+<a name="l00103"></a>00103    u_long maxval=1;
+<a name="l00104"></a>00104    <span class="keywordtype">double</span> fmaxval=0.0;
+<a name="l00105"></a>00105 
+<a name="l00106"></a>00106    <span class="comment">/* initalize the graph */</span>
+<a name="l00107"></a>00107    <a class="code" href="graphs_8c.html#2040d817b934e470b4a2cdeb9811c097">init_graph</a>(title,512,256);              <span class="comment">/* init as 512 x 256  */</span>
+<a name="l00108"></a>00108 
+<a name="l00109"></a>00109    gdImageLine(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>, 305,25,305,233,<a class="code" href="graphs_8c.html#8784d4f8ed73cff78355d2ed8e0c3a3b">black</a>);  <span class="comment">/* draw section lines */</span>
+<a name="l00110"></a>00110    gdImageLine(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>, 304,25,304,233,<a class="code" href="graphs_8c.html#52b8a1dc217164197e6e5ba60ec911bf">white</a>);
+<a name="l00111"></a>00111    gdImageLine(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>, 305,130,490,130,<a class="code" href="graphs_8c.html#8784d4f8ed73cff78355d2ed8e0c3a3b">black</a>);
+<a name="l00112"></a>00112    gdImageLine(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>, 305,129,490,129,<a class="code" href="graphs_8c.html#52b8a1dc217164197e6e5ba60ec911bf">white</a>);
+<a name="l00113"></a>00113 
+<a name="l00114"></a>00114    <span class="comment">/* index lines? */</span>
+<a name="l00115"></a>00115    <span class="keywordflow">if</span> (<a class="code" href="webalizer_8c.html#b0e6606dc823003635fbd6408bd03439">graph_lines</a>)
+<a name="l00116"></a>00116    {
+<a name="l00117"></a>00117       y1=210/(<a class="code" href="webalizer_8c.html#b0e6606dc823003635fbd6408bd03439">graph_lines</a>+1);
+<a name="l00118"></a>00118       <span class="keywordflow">for</span> (i=0;i&lt;<a class="code" href="webalizer_8c.html#b0e6606dc823003635fbd6408bd03439">graph_lines</a>;i++)
+<a name="l00119"></a>00119        gdImageLine(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>,21,((i+1)*y1)+25,303,((i+1)*y1)+25,<a class="code" href="graphs_8c.html#ee1005868568d9750214235693ba63e1">dkgrey</a>);
+<a name="l00120"></a>00120       y1=105/(graph_lines+1);
+<a name="l00121"></a>00121       <span class="keywordflow">for</span> (i=0;i&lt;graph_lines;i++)
+<a name="l00122"></a>00122        gdImageLine(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>,306,((i+1)*y1)+25,489,((i+1)*y1)+25,<a class="code" href="graphs_8c.html#ee1005868568d9750214235693ba63e1">dkgrey</a>);
+<a name="l00123"></a>00123       <span class="keywordflow">for</span> (i=0;i&lt;graph_lines;i++)
+<a name="l00124"></a>00124        gdImageLine(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>,306,((i+1)*y1)+130,489,((i+1)*y1)+130,<a class="code" href="graphs_8c.html#ee1005868568d9750214235693ba63e1">dkgrey</a>);
+<a name="l00125"></a>00125    }
+<a name="l00126"></a>00126 
+<a name="l00127"></a>00127    <span class="comment">/* x-axis legend */</span>
+<a name="l00128"></a>00128    s_mth = fmonth;
+<a name="l00129"></a>00129    <span class="keywordflow">for</span> (i=0;i&lt;12;i++)
+<a name="l00130"></a>00130    {
+<a name="l00131"></a>00131       gdImageString(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>,gdFontSmall,28+(i*23),             <span class="comment">/* use language   */</span>
+<a name="l00132"></a>00132                     238,<a class="code" href="lang_8h.html#9a0b242c466188c82510261247faf983">s_month</a>[s_mth-1],<a class="code" href="graphs_8c.html#8784d4f8ed73cff78355d2ed8e0c3a3b">black</a>);          <span class="comment">/* specific array */</span>
+<a name="l00133"></a>00133       s_mth++;
+<a name="l00134"></a>00134       <span class="keywordflow">if</span> (s_mth &gt; 12) s_mth = 1;
+<a name="l00135"></a>00135       <span class="keywordflow">if</span> (data1[i] &gt; maxval) maxval = data1[i];           <span class="comment">/* get max val    */</span>
+<a name="l00136"></a>00136       <span class="keywordflow">if</span> (data2[i] &gt; maxval) maxval = data2[i];
+<a name="l00137"></a>00137       <span class="keywordflow">if</span> (data5[i] &gt; maxval) maxval = data5[i];
+<a name="l00138"></a>00138    }
+<a name="l00139"></a>00139    <span class="keywordflow">if</span> (maxval &lt;= 0) maxval = 1;
+<a name="l00140"></a>00140    sprintf(<a class="code" href="graphs_8c.html#3933b61d12d9878aa33d711259d94c5f">maxvaltxt</a>, <span class="stringliteral">"%lu"</span>, maxval);
+<a name="l00141"></a>00141    gdImageStringUp(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>,gdFontSmall,8,26+(strlen(<a class="code" href="graphs_8c.html#3933b61d12d9878aa33d711259d94c5f">maxvaltxt</a>)*6),<a class="code" href="graphs_8c.html#3933b61d12d9878aa33d711259d94c5f">maxvaltxt</a>,<a class="code" href="graphs_8c.html#8784d4f8ed73cff78355d2ed8e0c3a3b">black</a>);
+<a name="l00142"></a>00142 
+<a name="l00143"></a>00143    <span class="keywordflow">if</span> (<a class="code" href="webalizer_8c.html#8209c1ed16bfdf4913b7837d8d0b8520">graph_legend</a>)                          <span class="comment">/* print color coded legends? */</span>
+<a name="l00144"></a>00144    {
+<a name="l00145"></a>00145       <span class="comment">/* Kbytes Legend */</span>
+<a name="l00146"></a>00146       i = (strlen(msg_h_xfer)*6);
+<a name="l00147"></a>00147       gdImageString(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>,gdFontSmall,491-i,239,msg_h_xfer,<a class="code" href="graphs_8c.html#ee1005868568d9750214235693ba63e1">dkgrey</a>);
+<a name="l00148"></a>00148       gdImageString(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>,gdFontSmall,490-i,238,msg_h_xfer,<a class="code" href="graphs_8c.html#5b1074ec004e850c360022e0d433e475">COLOR4</a>);
+<a name="l00149"></a>00149 
+<a name="l00150"></a>00150       <span class="comment">/* Sites/Visits Legend */</span>
+<a name="l00151"></a>00151       i = (strlen(msg_h_visits)*6);
+<a name="l00152"></a>00152       j = (strlen(msg_h_sites)*6);
+<a name="l00153"></a>00153       gdImageString(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>,gdFontSmall,491-i-j-12,11,msg_h_visits,<a class="code" href="graphs_8c.html#ee1005868568d9750214235693ba63e1">dkgrey</a>);
+<a name="l00154"></a>00154       gdImageString(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>,gdFontSmall,490-i-j-12,10,msg_h_visits,<a class="code" href="graphs_8c.html#8fd4fb399b4659d7aed1fcb5cc182ebb">COLOR6</a>);
+<a name="l00155"></a>00155       gdImageString(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>,gdFontSmall,491-j-9,11,<span class="stringliteral">"/"</span>,<a class="code" href="graphs_8c.html#ee1005868568d9750214235693ba63e1">dkgrey</a>);
+<a name="l00156"></a>00156       gdImageString(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>,gdFontSmall,490-j-9,10,<span class="stringliteral">"/"</span>,<a class="code" href="graphs_8c.html#8784d4f8ed73cff78355d2ed8e0c3a3b">black</a>);
+<a name="l00157"></a>00157       gdImageString(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>,gdFontSmall,491-j,11,msg_h_sites,<a class="code" href="graphs_8c.html#ee1005868568d9750214235693ba63e1">dkgrey</a>);
+<a name="l00158"></a>00158       gdImageString(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>,gdFontSmall,490-j,10,msg_h_sites,<a class="code" href="graphs_8c.html#299edc84540341c664cd7a183e8fc9bd">COLOR3</a>);
+<a name="l00159"></a>00159 
+<a name="l00160"></a>00160       <span class="comment">/* Hits/Files/Pages Legend */</span>
+<a name="l00161"></a>00161       i = (strlen(msg_h_pages)*6);
+<a name="l00162"></a>00162       j = (strlen(msg_h_files)*6);
+<a name="l00163"></a>00163       gdImageStringUp(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>,gdFontSmall,8,231,msg_h_pages,<a class="code" href="graphs_8c.html#ee1005868568d9750214235693ba63e1">dkgrey</a>);
+<a name="l00164"></a>00164       gdImageStringUp(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>,gdFontSmall,7,230,msg_h_pages,<a class="code" href="graphs_8c.html#b1b154af4927f41dc0ac230992bf1a15">COLOR5</a>);
+<a name="l00165"></a>00165       gdImageStringUp(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>,gdFontSmall,8,231-i-3,<span class="stringliteral">"/"</span>,<a class="code" href="graphs_8c.html#ee1005868568d9750214235693ba63e1">dkgrey</a>);
+<a name="l00166"></a>00166       gdImageStringUp(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>,gdFontSmall,7,230-i-3,<span class="stringliteral">"/"</span>,<a class="code" href="graphs_8c.html#8784d4f8ed73cff78355d2ed8e0c3a3b">black</a>);
+<a name="l00167"></a>00167       gdImageStringUp(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>,gdFontSmall,8,231-i-12,msg_h_files,<a class="code" href="graphs_8c.html#ee1005868568d9750214235693ba63e1">dkgrey</a>);
+<a name="l00168"></a>00168       gdImageStringUp(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>,gdFontSmall,7,230-i-12,msg_h_files,<a class="code" href="graphs_8c.html#609e0791889f4cde446ee0eb6efd369a">COLOR2</a>);
+<a name="l00169"></a>00169       gdImageStringUp(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>,gdFontSmall,8,231-i-j-15,<span class="stringliteral">"/"</span>,<a class="code" href="graphs_8c.html#ee1005868568d9750214235693ba63e1">dkgrey</a>);
+<a name="l00170"></a>00170       gdImageStringUp(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>,gdFontSmall,7,230-i-j-15,<span class="stringliteral">"/"</span>,<a class="code" href="graphs_8c.html#8784d4f8ed73cff78355d2ed8e0c3a3b">black</a>);
+<a name="l00171"></a>00171       gdImageStringUp(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>,gdFontSmall,8,231-i-j-24,msg_h_hits,<a class="code" href="graphs_8c.html#ee1005868568d9750214235693ba63e1">dkgrey</a>);
+<a name="l00172"></a>00172       gdImageStringUp(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>,gdFontSmall,7,230-i-j-24,msg_h_hits,<a class="code" href="graphs_8c.html#1169cd1b397420b29bd3b0153f047818">COLOR1</a>);
+<a name="l00173"></a>00173    }
+<a name="l00174"></a>00174 
+<a name="l00175"></a>00175    <span class="comment">/* data1 */</span>
+<a name="l00176"></a>00176    s_mth = fmonth;
+<a name="l00177"></a>00177    <span class="keywordflow">for</span> (i=0; i&lt;12; i++)
+<a name="l00178"></a>00178    {
+<a name="l00179"></a>00179       <span class="keywordflow">if</span> (s_mth &gt; 12) s_mth = 1;
+<a name="l00180"></a>00180       <a class="code" href="graphs_8c.html#ac167f3972a2f244f4b32c8ee5b89364">percent</a> = ((float)data1[s_mth++ -1] / (<span class="keywordtype">float</span>)maxval);
+<a name="l00181"></a>00181       <span class="keywordflow">if</span> (<a class="code" href="graphs_8c.html#ac167f3972a2f244f4b32c8ee5b89364">percent</a> &lt;= 0.0) <span class="keywordflow">continue</span>;
+<a name="l00182"></a>00182       x1 = 26 + (i*23);
+<a name="l00183"></a>00183       x2 = x1 + 13;
+<a name="l00184"></a>00184       y1 = 232 - (<a class="code" href="graphs_8c.html#ac167f3972a2f244f4b32c8ee5b89364">percent</a> * 203);
+<a name="l00185"></a>00185       gdImageFilledRectangle(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>, x1, y1, x2, 232, <a class="code" href="graphs_8c.html#1169cd1b397420b29bd3b0153f047818">COLOR1</a>);
+<a name="l00186"></a>00186       gdImageRectangle(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>, x1, y1, x2, 232, <a class="code" href="graphs_8c.html#8784d4f8ed73cff78355d2ed8e0c3a3b">black</a>);
+<a name="l00187"></a>00187    }
+<a name="l00188"></a>00188 
+<a name="l00189"></a>00189    <span class="comment">/* data2 */</span>
+<a name="l00190"></a>00190    s_mth = fmonth;
+<a name="l00191"></a>00191    <span class="keywordflow">for</span> (i=0; i&lt;12; i++)
+<a name="l00192"></a>00192    {
+<a name="l00193"></a>00193       <span class="keywordflow">if</span> (s_mth &gt; 12) s_mth = 1;
+<a name="l00194"></a>00194       <a class="code" href="graphs_8c.html#ac167f3972a2f244f4b32c8ee5b89364">percent</a> = ((float)data2[s_mth++ -1] / (<span class="keywordtype">float</span>)maxval);
+<a name="l00195"></a>00195       <span class="keywordflow">if</span> (<a class="code" href="graphs_8c.html#ac167f3972a2f244f4b32c8ee5b89364">percent</a> &lt;= 0.0) <span class="keywordflow">continue</span>;
+<a name="l00196"></a>00196       x1 = 29 + (i*23);
+<a name="l00197"></a>00197       x2 = x1 + 13;
+<a name="l00198"></a>00198       y1 = 232 - (<a class="code" href="graphs_8c.html#ac167f3972a2f244f4b32c8ee5b89364">percent</a> * 203);
+<a name="l00199"></a>00199       gdImageFilledRectangle(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>, x1, y1, x2, 232, <a class="code" href="graphs_8c.html#609e0791889f4cde446ee0eb6efd369a">COLOR2</a>);
+<a name="l00200"></a>00200       gdImageRectangle(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>, x1, y1, x2, 232, <a class="code" href="graphs_8c.html#8784d4f8ed73cff78355d2ed8e0c3a3b">black</a>);
+<a name="l00201"></a>00201    }
+<a name="l00202"></a>00202 
+<a name="l00203"></a>00203    <span class="comment">/* data5 */</span>
+<a name="l00204"></a>00204    s_mth = fmonth;
+<a name="l00205"></a>00205    <span class="keywordflow">for</span> (i=0; i&lt;12; i++)
+<a name="l00206"></a>00206    {
+<a name="l00207"></a>00207       <span class="keywordflow">if</span> (s_mth &gt; 12) s_mth = 1;
+<a name="l00208"></a>00208       <a class="code" href="graphs_8c.html#ac167f3972a2f244f4b32c8ee5b89364">percent</a> = ((float)data5[s_mth++ -1] / (<span class="keywordtype">float</span>)maxval);
+<a name="l00209"></a>00209       <span class="keywordflow">if</span> (<a class="code" href="graphs_8c.html#ac167f3972a2f244f4b32c8ee5b89364">percent</a> &lt;= 0.0) <span class="keywordflow">continue</span>;
+<a name="l00210"></a>00210       x1 = 32 + (i*23);
+<a name="l00211"></a>00211       x2 = x1 + 13;
+<a name="l00212"></a>00212       y1 = 232 - (<a class="code" href="graphs_8c.html#ac167f3972a2f244f4b32c8ee5b89364">percent</a> * 203);
+<a name="l00213"></a>00213       gdImageFilledRectangle(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>, x1, y1, x2, 232, <a class="code" href="graphs_8c.html#b1b154af4927f41dc0ac230992bf1a15">COLOR5</a>);
+<a name="l00214"></a>00214       gdImageRectangle(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>, x1, y1, x2, 232, <a class="code" href="graphs_8c.html#8784d4f8ed73cff78355d2ed8e0c3a3b">black</a>);
+<a name="l00215"></a>00215    }
+<a name="l00216"></a>00216 
+<a name="l00217"></a>00217    maxval=0;
+<a name="l00218"></a>00218    <span class="keywordflow">for</span> (i=0; i&lt;12; i++)
+<a name="l00219"></a>00219    {
+<a name="l00220"></a>00220        <span class="keywordflow">if</span> (data3[i] &gt; maxval) maxval = data3[i];           <span class="comment">/* get max val    */</span>
+<a name="l00221"></a>00221        <span class="keywordflow">if</span> (data6[i] &gt; maxval) maxval = data6[i];
+<a name="l00222"></a>00222    }
+<a name="l00223"></a>00223    <span class="keywordflow">if</span> (maxval &lt;= 0) maxval = 1;
+<a name="l00224"></a>00224    sprintf(<a class="code" href="graphs_8c.html#3933b61d12d9878aa33d711259d94c5f">maxvaltxt</a>, <span class="stringliteral">"%lu"</span>, maxval);
+<a name="l00225"></a>00225    gdImageStringUp(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>, gdFontSmall,493,26+(strlen(<a class="code" href="graphs_8c.html#3933b61d12d9878aa33d711259d94c5f">maxvaltxt</a>)*6),
+<a name="l00226"></a>00226                    <a class="code" href="graphs_8c.html#3933b61d12d9878aa33d711259d94c5f">maxvaltxt</a>, <a class="code" href="graphs_8c.html#8784d4f8ed73cff78355d2ed8e0c3a3b">black</a>);
+<a name="l00227"></a>00227 
+<a name="l00228"></a>00228    <span class="comment">/* data6 */</span>
+<a name="l00229"></a>00229    s_mth = fmonth;
+<a name="l00230"></a>00230    <span class="keywordflow">for</span> (i=0; i&lt;12; i++)
+<a name="l00231"></a>00231    {
+<a name="l00232"></a>00232       <span class="keywordflow">if</span> (s_mth &gt; 12) s_mth = 1;
+<a name="l00233"></a>00233       <a class="code" href="graphs_8c.html#ac167f3972a2f244f4b32c8ee5b89364">percent</a> = ((float)data6[s_mth++ -1] / (<span class="keywordtype">float</span>)maxval);
+<a name="l00234"></a>00234       <span class="keywordflow">if</span> (<a class="code" href="graphs_8c.html#ac167f3972a2f244f4b32c8ee5b89364">percent</a> &lt;= 0.0) <span class="keywordflow">continue</span>;
+<a name="l00235"></a>00235       x1 = 310 + (i*15);
+<a name="l00236"></a>00236       x2 = x1 + 8;
+<a name="l00237"></a>00237       y1 = 127 - (<a class="code" href="graphs_8c.html#ac167f3972a2f244f4b32c8ee5b89364">percent</a> * 98);
+<a name="l00238"></a>00238       gdImageFilledRectangle(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>, x1, y1, x2, 127, <a class="code" href="graphs_8c.html#8fd4fb399b4659d7aed1fcb5cc182ebb">COLOR6</a>);
+<a name="l00239"></a>00239       gdImageRectangle(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>, x1, y1, x2, 127, <a class="code" href="graphs_8c.html#8784d4f8ed73cff78355d2ed8e0c3a3b">black</a>);
+<a name="l00240"></a>00240    }
+<a name="l00241"></a>00241 
+<a name="l00242"></a>00242    <span class="comment">/* data3 */</span>
+<a name="l00243"></a>00243    s_mth = fmonth;
+<a name="l00244"></a>00244    <span class="keywordflow">for</span> (i=0; i&lt;12; i++)
+<a name="l00245"></a>00245    {
+<a name="l00246"></a>00246       <span class="keywordflow">if</span> (s_mth &gt; 12) s_mth = 1;
+<a name="l00247"></a>00247       <a class="code" href="graphs_8c.html#ac167f3972a2f244f4b32c8ee5b89364">percent</a> = ((float)data3[s_mth++ -1] / (<span class="keywordtype">float</span>)maxval);
+<a name="l00248"></a>00248       <span class="keywordflow">if</span> (<a class="code" href="graphs_8c.html#ac167f3972a2f244f4b32c8ee5b89364">percent</a> &lt;= 0.0) <span class="keywordflow">continue</span>;
+<a name="l00249"></a>00249       x1 = 314 + (i*15);
+<a name="l00250"></a>00250       x2 = x1 + 7;
+<a name="l00251"></a>00251       y1 = 127 - (<a class="code" href="graphs_8c.html#ac167f3972a2f244f4b32c8ee5b89364">percent</a> * 98);
+<a name="l00252"></a>00252       gdImageFilledRectangle(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>, x1, y1, x2, 127, <a class="code" href="graphs_8c.html#299edc84540341c664cd7a183e8fc9bd">COLOR3</a>);
+<a name="l00253"></a>00253       gdImageRectangle(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>, x1, y1, x2, 127, <a class="code" href="graphs_8c.html#8784d4f8ed73cff78355d2ed8e0c3a3b">black</a>);
+<a name="l00254"></a>00254    }
+<a name="l00255"></a>00255 
+<a name="l00256"></a>00256    fmaxval=0.0;
+<a name="l00257"></a>00257    <span class="keywordflow">for</span> (i=0; i&lt;12; i++)
+<a name="l00258"></a>00258        <span class="keywordflow">if</span> (data4[i] &gt; fmaxval) fmaxval = data4[i];         <span class="comment">/* get max val    */</span>
+<a name="l00259"></a>00259    <span class="keywordflow">if</span> (fmaxval &lt;= 0.0) fmaxval = 1.0;
+<a name="l00260"></a>00260    sprintf(<a class="code" href="graphs_8c.html#3933b61d12d9878aa33d711259d94c5f">maxvaltxt</a>, <span class="stringliteral">"%.0f"</span>, fmaxval);
+<a name="l00261"></a>00261    gdImageStringUp(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>, gdFontSmall,493,130+(strlen(<a class="code" href="graphs_8c.html#3933b61d12d9878aa33d711259d94c5f">maxvaltxt</a>)*6),
+<a name="l00262"></a>00262                    <a class="code" href="graphs_8c.html#3933b61d12d9878aa33d711259d94c5f">maxvaltxt</a>,<a class="code" href="graphs_8c.html#8784d4f8ed73cff78355d2ed8e0c3a3b">black</a>);
+<a name="l00263"></a>00263 
+<a name="l00264"></a>00264    <span class="comment">/* data4 */</span>
+<a name="l00265"></a>00265    s_mth = fmonth;
+<a name="l00266"></a>00266    <span class="keywordflow">for</span> (i=0; i&lt;12; i++)
+<a name="l00267"></a>00267    {
+<a name="l00268"></a>00268       <span class="keywordflow">if</span> (s_mth &gt; 12) s_mth = 1;
+<a name="l00269"></a>00269       <a class="code" href="graphs_8c.html#ac167f3972a2f244f4b32c8ee5b89364">percent</a> = ((float)data4[s_mth++ -1] / (<span class="keywordtype">float</span>)fmaxval);
+<a name="l00270"></a>00270       <span class="keywordflow">if</span> (<a class="code" href="graphs_8c.html#ac167f3972a2f244f4b32c8ee5b89364">percent</a> &lt;= 0.0) <span class="keywordflow">continue</span>;
+<a name="l00271"></a>00271       x1 = 311 + (i*15);
+<a name="l00272"></a>00272       x2 = x1 + 9;
+<a name="l00273"></a>00273       y1 = 232 - (<a class="code" href="graphs_8c.html#ac167f3972a2f244f4b32c8ee5b89364">percent</a> * 98);
+<a name="l00274"></a>00274       gdImageFilledRectangle(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>, x1, y1, x2, 232, <a class="code" href="graphs_8c.html#5b1074ec004e850c360022e0d433e475">COLOR4</a>);
+<a name="l00275"></a>00275       gdImageRectangle(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>, x1, y1, x2, 232, <a class="code" href="graphs_8c.html#8784d4f8ed73cff78355d2ed8e0c3a3b">black</a>);
+<a name="l00276"></a>00276    }
+<a name="l00277"></a>00277 
+<a name="l00278"></a>00278    <span class="comment">/* save png image */</span>
+<a name="l00279"></a>00279    <span class="keywordflow">if</span> ((<a class="code" href="graphs_8c.html#1277960b5f2b37137fe9b0b5a1ea0beb">out</a> = fopen(fname, <span class="stringliteral">"wb"</span>)) != NULL)
+<a name="l00280"></a>00280    {
+<a name="l00281"></a>00281       gdImagePng(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>, <a class="code" href="graphs_8c.html#1277960b5f2b37137fe9b0b5a1ea0beb">out</a>);
+<a name="l00282"></a>00282       fclose(<a class="code" href="graphs_8c.html#1277960b5f2b37137fe9b0b5a1ea0beb">out</a>);
+<a name="l00283"></a>00283    }
+<a name="l00284"></a>00284    <span class="comment">/* deallocate memory */</span>
+<a name="l00285"></a>00285    gdImageDestroy(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>);
+<a name="l00286"></a>00286 
+<a name="l00287"></a>00287    <span class="keywordflow">return</span> (0);
+<a name="l00288"></a>00288 }
+<a name="l00289"></a>00289 
+<a name="l00290"></a>00290 <span class="comment">/*****************************************************************/</span>
+<a name="l00291"></a>00291 <span class="comment">/*                                                               */</span>
+<a name="l00292"></a>00292 <span class="comment">/* MONTH_GRAPH6  - Month graph with six data sets                */</span>
+<a name="l00293"></a>00293 <span class="comment">/*                                                               */</span>
+<a name="l00294"></a>00294 <span class="comment">/*****************************************************************/</span>
+<a name="l00295"></a>00295 
+<a name="l00296"></a><a class="code" href="graphs_8c.html#faefa0d521156ca605f526c14d05e272">00296</a> <span class="preprocessor">#define YSIZE 400</span>
+<a name="l00297"></a>00297 <span class="preprocessor"></span>
+<a name="l00298"></a><a class="code" href="graphs_8c.html#7d33e4e14ae660bf05b5793f8e18d091">00298</a> <span class="keywordtype">int</span> <a class="code" href="graphs_8c.html#7d33e4e14ae660bf05b5793f8e18d091">month_graph6</a>(  <span class="keywordtype">char</span> *fname,            <span class="comment">/* filename           */</span>
+<a name="l00299"></a>00299                    <span class="keywordtype">char</span> *title,            <span class="comment">/* graph title        */</span>
+<a name="l00300"></a>00300                     <span class="keywordtype">int</span> month,             <span class="comment">/* graph month        */</span>
+<a name="l00301"></a>00301                     <span class="keywordtype">int</span> year,              <span class="comment">/* graph year         */</span>
+<a name="l00302"></a>00302                  u_long data1[31],         <span class="comment">/* data1 (hits)       */</span>
+<a name="l00303"></a>00303                  u_long data2[31],         <span class="comment">/* data2 (files)      */</span>
+<a name="l00304"></a>00304                  u_long data3[31],         <span class="comment">/* data3 (sites)      */</span>
+<a name="l00305"></a>00305                  <span class="keywordtype">double</span> data4[31],         <span class="comment">/* data4 (kbytes)     */</span>
+<a name="l00306"></a>00306                  u_long data5[31],         <span class="comment">/* data5 (views)      */</span>
+<a name="l00307"></a>00307                  u_long data6[31])         <span class="comment">/* data6 (visits)     */</span>
+<a name="l00308"></a>00308 {
+<a name="l00309"></a>00309 
+<a name="l00310"></a>00310    <span class="comment">/* local variables */</span>
+<a name="l00311"></a>00311    <span class="keywordtype">int</span> i,j,s,x1,y1,x2;
+<a name="l00312"></a>00312    u_long maxval=0;
+<a name="l00313"></a>00313    <span class="keywordtype">double</span> fmaxval=0.0;
+<a name="l00314"></a>00314 
+<a name="l00315"></a>00315    <span class="comment">/* calc julian date for month */</span>
+<a name="l00316"></a>00316    <a class="code" href="graphs_8c.html#488cb40243821792a9a226ca1042b3e1">julday</a> = (<a class="code" href="webalizer_8c.html#8fb8978d91b70fd80d00d381cb115731">jdate</a>(1, month,year) % 7);
+<a name="l00317"></a>00317 
+<a name="l00318"></a>00318    <span class="comment">/* initalize the graph */</span>
+<a name="l00319"></a>00319    <a class="code" href="graphs_8c.html#2040d817b934e470b4a2cdeb9811c097">init_graph</a>(title,512,400);
+<a name="l00320"></a>00320 
+<a name="l00321"></a>00321    gdImageLine(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>, 21, 180, 490, 180, <a class="code" href="graphs_8c.html#8784d4f8ed73cff78355d2ed8e0c3a3b">black</a>); <span class="comment">/* draw section lines */</span>
+<a name="l00322"></a>00322    gdImageLine(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>, 21, 179, 490, 179, <a class="code" href="graphs_8c.html#52b8a1dc217164197e6e5ba60ec911bf">white</a>);
+<a name="l00323"></a>00323    gdImageLine(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>, 21, 280, 490, 280, <a class="code" href="graphs_8c.html#8784d4f8ed73cff78355d2ed8e0c3a3b">black</a>);
+<a name="l00324"></a>00324    gdImageLine(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>, 21, 279, 490, 279, <a class="code" href="graphs_8c.html#52b8a1dc217164197e6e5ba60ec911bf">white</a>);
+<a name="l00325"></a>00325 
+<a name="l00326"></a>00326    <span class="comment">/* index lines? */</span>
+<a name="l00327"></a>00327    <span class="keywordflow">if</span> (<a class="code" href="webalizer_8c.html#b0e6606dc823003635fbd6408bd03439">graph_lines</a>)
+<a name="l00328"></a>00328    {
+<a name="l00329"></a>00329       y1=154/(<a class="code" href="webalizer_8c.html#b0e6606dc823003635fbd6408bd03439">graph_lines</a>+1);
+<a name="l00330"></a>00330       <span class="keywordflow">for</span> (i=0;i&lt;<a class="code" href="webalizer_8c.html#b0e6606dc823003635fbd6408bd03439">graph_lines</a>;i++)
+<a name="l00331"></a>00331        gdImageLine(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>,21,((i+1)*y1)+25,489,((i+1)*y1)+25,<a class="code" href="graphs_8c.html#ee1005868568d9750214235693ba63e1">dkgrey</a>);
+<a name="l00332"></a>00332       y1=100/(graph_lines+1);
+<a name="l00333"></a>00333       <span class="keywordflow">for</span> (i=0;i&lt;graph_lines;i++)
+<a name="l00334"></a>00334        gdImageLine(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>,21,((i+1)*y1)+180,489,((i+1)*y1)+180,<a class="code" href="graphs_8c.html#ee1005868568d9750214235693ba63e1">dkgrey</a>);
+<a name="l00335"></a>00335       <span class="keywordflow">for</span> (i=0;i&lt;graph_lines;i++)
+<a name="l00336"></a>00336        gdImageLine(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>,21,((i+1)*y1)+280,489,((i+1)*y1)+280,<a class="code" href="graphs_8c.html#ee1005868568d9750214235693ba63e1">dkgrey</a>);
+<a name="l00337"></a>00337    }
+<a name="l00338"></a>00338 
+<a name="l00339"></a>00339    <span class="comment">/* x-axis legend */</span>
+<a name="l00340"></a>00340    <span class="keywordflow">for</span> (i=0;i&lt;31;i++)
+<a name="l00341"></a>00341    {
+<a name="l00342"></a>00342       <span class="keywordflow">if</span> ((<a class="code" href="graphs_8c.html#488cb40243821792a9a226ca1042b3e1">julday</a> % 7 == 6) || (<a class="code" href="graphs_8c.html#488cb40243821792a9a226ca1042b3e1">julday</a> % 7 == 0))
+<a name="l00343"></a>00343        gdImageString(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>,gdFontSmall,25+(i*15),382,<a class="code" href="graphs_8c.html#d8920ceda92347671d37ba01be631d65">numchar</a>[i+1],<a class="code" href="graphs_8c.html#1169cd1b397420b29bd3b0153f047818">COLOR1</a>);
+<a name="l00344"></a>00344       <span class="keywordflow">else</span>
+<a name="l00345"></a>00345        gdImageString(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>,gdFontSmall,25+(i*15),382,<a class="code" href="graphs_8c.html#d8920ceda92347671d37ba01be631d65">numchar</a>[i+1],<a class="code" href="graphs_8c.html#8784d4f8ed73cff78355d2ed8e0c3a3b">black</a>);
+<a name="l00346"></a>00346       <a class="code" href="graphs_8c.html#488cb40243821792a9a226ca1042b3e1">julday</a>++;
+<a name="l00347"></a>00347    }
+<a name="l00348"></a>00348 
+<a name="l00349"></a>00349    <span class="comment">/* y-axis legend */</span>
+<a name="l00350"></a>00350    <span class="keywordflow">for</span> (i=0; i&lt;31; i++)
+<a name="l00351"></a>00351    {
+<a name="l00352"></a>00352        <span class="keywordflow">if</span> (data1[i] &gt; maxval) maxval = data1[i];           <span class="comment">/* get max val    */</span>
+<a name="l00353"></a>00353        <span class="keywordflow">if</span> (data2[i] &gt; maxval) maxval = data2[i];
+<a name="l00354"></a>00354        <span class="keywordflow">if</span> (data5[i] &gt; maxval) maxval = data5[i];
+<a name="l00355"></a>00355    }
+<a name="l00356"></a>00356    <span class="keywordflow">if</span> (maxval &lt;= 0) maxval = 1;
+<a name="l00357"></a>00357    sprintf(<a class="code" href="graphs_8c.html#3933b61d12d9878aa33d711259d94c5f">maxvaltxt</a>, <span class="stringliteral">"%lu"</span>, maxval);
+<a name="l00358"></a>00358    gdImageStringUp(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>, gdFontSmall,8,26+(strlen(<a class="code" href="graphs_8c.html#3933b61d12d9878aa33d711259d94c5f">maxvaltxt</a>)*6),
+<a name="l00359"></a>00359                    <a class="code" href="graphs_8c.html#3933b61d12d9878aa33d711259d94c5f">maxvaltxt</a>,<a class="code" href="graphs_8c.html#8784d4f8ed73cff78355d2ed8e0c3a3b">black</a>);
+<a name="l00360"></a>00360 
+<a name="l00361"></a>00361    <span class="keywordflow">if</span> (<a class="code" href="webalizer_8c.html#8209c1ed16bfdf4913b7837d8d0b8520">graph_legend</a>)                           <span class="comment">/* Print color coded legends? */</span>
+<a name="l00362"></a>00362    {
+<a name="l00363"></a>00363       <span class="comment">/* Kbytes Legend */</span>
+<a name="l00364"></a>00364       gdImageStringUp(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>,gdFontSmall,494,376,msg_h_xfer,<a class="code" href="graphs_8c.html#ee1005868568d9750214235693ba63e1">dkgrey</a>);
+<a name="l00365"></a>00365       gdImageStringUp(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>,gdFontSmall,493,375,msg_h_xfer,<a class="code" href="graphs_8c.html#5b1074ec004e850c360022e0d433e475">COLOR4</a>);
+<a name="l00366"></a>00366 
+<a name="l00367"></a>00367       <span class="comment">/* Sites/Visits Legend */</span>
+<a name="l00368"></a>00368       i = (strlen(msg_h_sites)*6);
+<a name="l00369"></a>00369       gdImageStringUp(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>,gdFontSmall,494,276,msg_h_sites,<a class="code" href="graphs_8c.html#ee1005868568d9750214235693ba63e1">dkgrey</a>);
+<a name="l00370"></a>00370       gdImageStringUp(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>,gdFontSmall,493,275,msg_h_sites,<a class="code" href="graphs_8c.html#299edc84540341c664cd7a183e8fc9bd">COLOR3</a>);
+<a name="l00371"></a>00371       gdImageStringUp(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>,gdFontSmall,494,276-i-3,<span class="stringliteral">"/"</span>,<a class="code" href="graphs_8c.html#ee1005868568d9750214235693ba63e1">dkgrey</a>);
+<a name="l00372"></a>00372       gdImageStringUp(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>,gdFontSmall,493,275-i-3,<span class="stringliteral">"/"</span>,<a class="code" href="graphs_8c.html#8784d4f8ed73cff78355d2ed8e0c3a3b">black</a>);
+<a name="l00373"></a>00373       gdImageStringUp(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>,gdFontSmall,494,276-i-12,msg_h_visits,<a class="code" href="graphs_8c.html#ee1005868568d9750214235693ba63e1">dkgrey</a>);
+<a name="l00374"></a>00374       gdImageStringUp(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>,gdFontSmall,493,275-i-12,msg_h_visits,<a class="code" href="graphs_8c.html#8fd4fb399b4659d7aed1fcb5cc182ebb">COLOR6</a>);
+<a name="l00375"></a>00375 
+<a name="l00376"></a>00376       <span class="comment">/* Pages/Files/Hits Legend */</span>
+<a name="l00377"></a>00377       s = ( i=(strlen(msg_h_pages)*6) )+
+<a name="l00378"></a>00378           ( j=(strlen(msg_h_files)*6) )+
+<a name="l00379"></a>00379           ( strlen(msg_h_hits)*6 )+ 52;
+<a name="l00380"></a>00380       gdImageStringUp(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>,gdFontSmall,494,s,msg_h_pages,<a class="code" href="graphs_8c.html#ee1005868568d9750214235693ba63e1">dkgrey</a>);
+<a name="l00381"></a>00381       gdImageStringUp(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>,gdFontSmall,493,s-1,msg_h_pages,<a class="code" href="graphs_8c.html#b1b154af4927f41dc0ac230992bf1a15">COLOR5</a>);
+<a name="l00382"></a>00382       gdImageStringUp(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>,gdFontSmall,494,s-i-3,<span class="stringliteral">"/"</span>,<a class="code" href="graphs_8c.html#ee1005868568d9750214235693ba63e1">dkgrey</a>);
+<a name="l00383"></a>00383       gdImageStringUp(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>,gdFontSmall,493,s-i-4,<span class="stringliteral">"/"</span>,<a class="code" href="graphs_8c.html#8784d4f8ed73cff78355d2ed8e0c3a3b">black</a>);
+<a name="l00384"></a>00384       gdImageStringUp(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>,gdFontSmall,494,s-i-12,msg_h_files,<a class="code" href="graphs_8c.html#ee1005868568d9750214235693ba63e1">dkgrey</a>);
+<a name="l00385"></a>00385       gdImageStringUp(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>,gdFontSmall,493,s-i-13,msg_h_files,<a class="code" href="graphs_8c.html#609e0791889f4cde446ee0eb6efd369a">COLOR2</a>);
+<a name="l00386"></a>00386       gdImageStringUp(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>,gdFontSmall,494,s-i-j-15,<span class="stringliteral">"/"</span>,<a class="code" href="graphs_8c.html#ee1005868568d9750214235693ba63e1">dkgrey</a>);
+<a name="l00387"></a>00387       gdImageStringUp(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>,gdFontSmall,493,s-i-j-16,<span class="stringliteral">"/"</span>,<a class="code" href="graphs_8c.html#8784d4f8ed73cff78355d2ed8e0c3a3b">black</a>);
+<a name="l00388"></a>00388       gdImageStringUp(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>,gdFontSmall,494,s-i-j-24,msg_h_hits,<a class="code" href="graphs_8c.html#ee1005868568d9750214235693ba63e1">dkgrey</a>);
+<a name="l00389"></a>00389       gdImageStringUp(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>,gdFontSmall,493,s-i-j-25,msg_h_hits,<a class="code" href="graphs_8c.html#1169cd1b397420b29bd3b0153f047818">COLOR1</a>);
+<a name="l00390"></a>00390    }
+<a name="l00391"></a>00391 
+<a name="l00392"></a>00392    <span class="comment">/* data1 */</span>
+<a name="l00393"></a>00393    <span class="keywordflow">for</span> (i=0; i&lt;31; i++)
+<a name="l00394"></a>00394    {
+<a name="l00395"></a>00395       <a class="code" href="graphs_8c.html#ac167f3972a2f244f4b32c8ee5b89364">percent</a> = ((<span class="keywordtype">float</span>)data1[i] / (<span class="keywordtype">float</span>)maxval);
+<a name="l00396"></a>00396       <span class="keywordflow">if</span> (<a class="code" href="graphs_8c.html#ac167f3972a2f244f4b32c8ee5b89364">percent</a> &lt;= 0.0) <span class="keywordflow">continue</span>;
+<a name="l00397"></a>00397       x1 = 25 + (i*15);
+<a name="l00398"></a>00398       x2 = x1 + 7;
+<a name="l00399"></a>00399       y1 = 176 - (<a class="code" href="graphs_8c.html#ac167f3972a2f244f4b32c8ee5b89364">percent</a> * 147);
+<a name="l00400"></a>00400       gdImageFilledRectangle(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>, x1, y1, x2, 176, <a class="code" href="graphs_8c.html#1169cd1b397420b29bd3b0153f047818">COLOR1</a>);
+<a name="l00401"></a>00401       gdImageRectangle(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>, x1, y1, x2, 176, <a class="code" href="graphs_8c.html#8784d4f8ed73cff78355d2ed8e0c3a3b">black</a>);
+<a name="l00402"></a>00402    }
+<a name="l00403"></a>00403 
+<a name="l00404"></a>00404    <span class="comment">/* data2 */</span>
+<a name="l00405"></a>00405    <span class="keywordflow">for</span> (i=0; i&lt;31; i++)
+<a name="l00406"></a>00406    {
+<a name="l00407"></a>00407       <a class="code" href="graphs_8c.html#ac167f3972a2f244f4b32c8ee5b89364">percent</a> = ((<span class="keywordtype">float</span>)data2[i] / (<span class="keywordtype">float</span>)maxval);
+<a name="l00408"></a>00408       <span class="keywordflow">if</span> (<a class="code" href="graphs_8c.html#ac167f3972a2f244f4b32c8ee5b89364">percent</a> &lt;= 0.0) <span class="keywordflow">continue</span>;
+<a name="l00409"></a>00409       x1 = 27 + (i*15);
+<a name="l00410"></a>00410       x2 = x1 + 7;
+<a name="l00411"></a>00411       y1 = 176 - (<a class="code" href="graphs_8c.html#ac167f3972a2f244f4b32c8ee5b89364">percent</a> * 147);
+<a name="l00412"></a>00412       gdImageFilledRectangle(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>, x1, y1, x2, 176, <a class="code" href="graphs_8c.html#609e0791889f4cde446ee0eb6efd369a">COLOR2</a>);
+<a name="l00413"></a>00413       gdImageRectangle(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>, x1, y1, x2, 176, <a class="code" href="graphs_8c.html#8784d4f8ed73cff78355d2ed8e0c3a3b">black</a>);
+<a name="l00414"></a>00414    }
+<a name="l00415"></a>00415 
+<a name="l00416"></a>00416    <span class="comment">/* data5 */</span>
+<a name="l00417"></a>00417    <span class="keywordflow">for</span> (i=0; i&lt;31; i++)
+<a name="l00418"></a>00418    {
+<a name="l00419"></a>00419       <span class="keywordflow">if</span> (data5[i]==0) <span class="keywordflow">continue</span>;
+<a name="l00420"></a>00420       <a class="code" href="graphs_8c.html#ac167f3972a2f244f4b32c8ee5b89364">percent</a> = ((float)data5[i] / (<span class="keywordtype">float</span>)maxval);
+<a name="l00421"></a>00421       <span class="keywordflow">if</span> (<a class="code" href="graphs_8c.html#ac167f3972a2f244f4b32c8ee5b89364">percent</a> &lt;= 0.0) <span class="keywordflow">continue</span>;
+<a name="l00422"></a>00422       x1 = 29 + (i*15);
+<a name="l00423"></a>00423       x2 = x1 + 7;
+<a name="l00424"></a>00424       y1 = 176 - (<a class="code" href="graphs_8c.html#ac167f3972a2f244f4b32c8ee5b89364">percent</a> * 147);
+<a name="l00425"></a>00425       gdImageFilledRectangle(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>, x1, y1, x2, 176, <a class="code" href="graphs_8c.html#b1b154af4927f41dc0ac230992bf1a15">COLOR5</a>);
+<a name="l00426"></a>00426       gdImageRectangle(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>, x1, y1, x2, 176, <a class="code" href="graphs_8c.html#8784d4f8ed73cff78355d2ed8e0c3a3b">black</a>);
+<a name="l00427"></a>00427    }
+<a name="l00428"></a>00428 
+<a name="l00429"></a>00429    <span class="comment">/* sites / visits */</span>
+<a name="l00430"></a>00430    maxval=0;
+<a name="l00431"></a>00431    <span class="keywordflow">for</span> (i=0; i&lt;31; i++)
+<a name="l00432"></a>00432    {
+<a name="l00433"></a>00433       <span class="keywordflow">if</span> (data3[i]&gt;maxval) maxval = data3[i];
+<a name="l00434"></a>00434       <span class="keywordflow">if</span> (data6[i]&gt;maxval) maxval = data6[i];
+<a name="l00435"></a>00435    }
+<a name="l00436"></a>00436    <span class="keywordflow">if</span> (maxval &lt;= 0) maxval = 1;
+<a name="l00437"></a>00437    sprintf(<a class="code" href="graphs_8c.html#3933b61d12d9878aa33d711259d94c5f">maxvaltxt</a>, <span class="stringliteral">"%lu"</span>, maxval);
+<a name="l00438"></a>00438    gdImageStringUp(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>, gdFontSmall,8,180+(strlen(<a class="code" href="graphs_8c.html#3933b61d12d9878aa33d711259d94c5f">maxvaltxt</a>)*6),
+<a name="l00439"></a>00439                    <a class="code" href="graphs_8c.html#3933b61d12d9878aa33d711259d94c5f">maxvaltxt</a>, <a class="code" href="graphs_8c.html#8784d4f8ed73cff78355d2ed8e0c3a3b">black</a>);
+<a name="l00440"></a>00440    
+<a name="l00441"></a>00441    <span class="comment">/* data 6 */</span>
+<a name="l00442"></a>00442    <span class="keywordflow">for</span> (i=0; i&lt;31; i++)
+<a name="l00443"></a>00443    {
+<a name="l00444"></a>00444       <a class="code" href="graphs_8c.html#ac167f3972a2f244f4b32c8ee5b89364">percent</a> = ((<span class="keywordtype">float</span>)data6[i] / (<span class="keywordtype">float</span>)maxval);
+<a name="l00445"></a>00445       <span class="keywordflow">if</span> (<a class="code" href="graphs_8c.html#ac167f3972a2f244f4b32c8ee5b89364">percent</a> &lt;= 0.0) <span class="keywordflow">continue</span>;
+<a name="l00446"></a>00446       x1 = 25 + (i*15);
+<a name="l00447"></a>00447       x2 = x1 + 8;
+<a name="l00448"></a>00448       y1 = 276 - (<a class="code" href="graphs_8c.html#ac167f3972a2f244f4b32c8ee5b89364">percent</a> * 92);
+<a name="l00449"></a>00449       gdImageFilledRectangle(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>, x1, y1, x2, 276, <a class="code" href="graphs_8c.html#8fd4fb399b4659d7aed1fcb5cc182ebb">COLOR6</a>);
+<a name="l00450"></a>00450       gdImageRectangle(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>, x1, y1, x2, 276, <a class="code" href="graphs_8c.html#8784d4f8ed73cff78355d2ed8e0c3a3b">black</a>);
+<a name="l00451"></a>00451    }
+<a name="l00452"></a>00452 
+<a name="l00453"></a>00453    <span class="comment">/* data 3 */</span>
+<a name="l00454"></a>00454    <span class="keywordflow">for</span> (i=0; i&lt;31; i++)
+<a name="l00455"></a>00455    {
+<a name="l00456"></a>00456       <a class="code" href="graphs_8c.html#ac167f3972a2f244f4b32c8ee5b89364">percent</a> = ((<span class="keywordtype">float</span>)data3[i] / (<span class="keywordtype">float</span>)maxval);
+<a name="l00457"></a>00457       <span class="keywordflow">if</span> (<a class="code" href="graphs_8c.html#ac167f3972a2f244f4b32c8ee5b89364">percent</a> &lt;= 0.0) <span class="keywordflow">continue</span>;
+<a name="l00458"></a>00458       x1 = 29 + (i*15);
+<a name="l00459"></a>00459       x2 = x1 + 7;
+<a name="l00460"></a>00460       y1 = 276 - (<a class="code" href="graphs_8c.html#ac167f3972a2f244f4b32c8ee5b89364">percent</a> * 92);
+<a name="l00461"></a>00461       gdImageFilledRectangle(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>, x1, y1, x2, 276, <a class="code" href="graphs_8c.html#299edc84540341c664cd7a183e8fc9bd">COLOR3</a>);
+<a name="l00462"></a>00462       gdImageRectangle(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>, x1, y1, x2, 276, <a class="code" href="graphs_8c.html#8784d4f8ed73cff78355d2ed8e0c3a3b">black</a>);
+<a name="l00463"></a>00463    }
+<a name="l00464"></a>00464 
+<a name="l00465"></a>00465    <span class="comment">/* data4 */</span>
+<a name="l00466"></a>00466    fmaxval=0.0;
+<a name="l00467"></a>00467    <span class="keywordflow">for</span> (i=0; i&lt;31; i++)
+<a name="l00468"></a>00468       <span class="keywordflow">if</span> (data4[i]&gt;fmaxval) fmaxval = data4[i];
+<a name="l00469"></a>00469    <span class="keywordflow">if</span> (fmaxval &lt;= 0.0) fmaxval = 1.0;
+<a name="l00470"></a>00470    sprintf(<a class="code" href="graphs_8c.html#3933b61d12d9878aa33d711259d94c5f">maxvaltxt</a>, <span class="stringliteral">"%.0f"</span>, fmaxval/1024);
+<a name="l00471"></a>00471    gdImageStringUp(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>, gdFontSmall,8,280+(strlen(<a class="code" href="graphs_8c.html#3933b61d12d9878aa33d711259d94c5f">maxvaltxt</a>)*6),
+<a name="l00472"></a>00472                    <a class="code" href="graphs_8c.html#3933b61d12d9878aa33d711259d94c5f">maxvaltxt</a>, <a class="code" href="graphs_8c.html#8784d4f8ed73cff78355d2ed8e0c3a3b">black</a>);
+<a name="l00473"></a>00473    
+<a name="l00474"></a>00474    <span class="keywordflow">for</span> (i=0; i&lt;31; i++)
+<a name="l00475"></a>00475    {
+<a name="l00476"></a>00476       <a class="code" href="graphs_8c.html#ac167f3972a2f244f4b32c8ee5b89364">percent</a> = data4[i] / fmaxval;
+<a name="l00477"></a>00477       <span class="keywordflow">if</span> (<a class="code" href="graphs_8c.html#ac167f3972a2f244f4b32c8ee5b89364">percent</a> &lt;= 0.0) <span class="keywordflow">continue</span>;
+<a name="l00478"></a>00478       x1 = 26 + (i*15);
+<a name="l00479"></a>00479       x2 = x1 + 10;
+<a name="l00480"></a>00480       y1 = 375 - ( <a class="code" href="graphs_8c.html#ac167f3972a2f244f4b32c8ee5b89364">percent</a> * 91 );
+<a name="l00481"></a>00481       gdImageFilledRectangle(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>, x1, y1, x2, 375, <a class="code" href="graphs_8c.html#5b1074ec004e850c360022e0d433e475">COLOR4</a>);
+<a name="l00482"></a>00482       gdImageRectangle(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>, x1, y1, x2, 375, <a class="code" href="graphs_8c.html#8784d4f8ed73cff78355d2ed8e0c3a3b">black</a>);
+<a name="l00483"></a>00483    }
+<a name="l00484"></a>00484 
+<a name="l00485"></a>00485    <span class="comment">/* open file for writing */</span>
+<a name="l00486"></a>00486    <span class="keywordflow">if</span> ((<a class="code" href="graphs_8c.html#1277960b5f2b37137fe9b0b5a1ea0beb">out</a> = fopen(fname, <span class="stringliteral">"wb"</span>)) != NULL)
+<a name="l00487"></a>00487    {
+<a name="l00488"></a>00488       gdImagePng(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>, <a class="code" href="graphs_8c.html#1277960b5f2b37137fe9b0b5a1ea0beb">out</a>);
+<a name="l00489"></a>00489       fclose(<a class="code" href="graphs_8c.html#1277960b5f2b37137fe9b0b5a1ea0beb">out</a>);
+<a name="l00490"></a>00490    }
+<a name="l00491"></a>00491    <span class="comment">/* deallocate memory */</span>
+<a name="l00492"></a>00492    gdImageDestroy(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>);
+<a name="l00493"></a>00493 
+<a name="l00494"></a>00494    <span class="keywordflow">return</span> (0);
+<a name="l00495"></a>00495 }
+<a name="l00496"></a>00496 
+<a name="l00497"></a>00497 <span class="comment">/*****************************************************************/</span>
+<a name="l00498"></a>00498 <span class="comment">/*                                                               */</span>
+<a name="l00499"></a>00499 <span class="comment">/* DAY_GRAPH3  - Day graph with three data sets                  */</span>
+<a name="l00500"></a>00500 <span class="comment">/*                                                               */</span>
+<a name="l00501"></a>00501 <span class="comment">/*****************************************************************/</span>
+<a name="l00502"></a>00502 
+<a name="l00503"></a><a class="code" href="graphs_8c.html#98296b41d7e2982e4b341e6ed18255ac">00503</a> <span class="keywordtype">int</span> <a class="code" href="graphs_8c.html#98296b41d7e2982e4b341e6ed18255ac">day_graph3</a>(  <span class="keywordtype">char</span> *fname,
+<a name="l00504"></a>00504                  <span class="keywordtype">char</span> *title,
+<a name="l00505"></a>00505                u_long data1[24],
+<a name="l00506"></a>00506                u_long data2[24],
+<a name="l00507"></a>00507                u_long data3[24])
+<a name="l00508"></a>00508 {
+<a name="l00509"></a>00509 
+<a name="l00510"></a>00510    <span class="comment">/* local variables */</span>
+<a name="l00511"></a>00511    <span class="keywordtype">int</span> i,j,s,x1,y1,x2;
+<a name="l00512"></a>00512    u_long maxval=0;
+<a name="l00513"></a>00513 
+<a name="l00514"></a>00514    <span class="comment">/* initalize the graph */</span>
+<a name="l00515"></a>00515    <a class="code" href="graphs_8c.html#2040d817b934e470b4a2cdeb9811c097">init_graph</a>(title,512,256);
+<a name="l00516"></a>00516 
+<a name="l00517"></a>00517    <span class="comment">/* index lines? */</span>
+<a name="l00518"></a>00518    <span class="keywordflow">if</span> (<a class="code" href="webalizer_8c.html#b0e6606dc823003635fbd6408bd03439">graph_lines</a>)
+<a name="l00519"></a>00519    {
+<a name="l00520"></a>00520       y1=210/(<a class="code" href="webalizer_8c.html#b0e6606dc823003635fbd6408bd03439">graph_lines</a>+1);
+<a name="l00521"></a>00521       <span class="keywordflow">for</span> (i=0;i&lt;<a class="code" href="webalizer_8c.html#b0e6606dc823003635fbd6408bd03439">graph_lines</a>;i++)
+<a name="l00522"></a>00522        gdImageLine(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>,21,((i+1)*y1)+25,489,((i+1)*y1)+25,<a class="code" href="graphs_8c.html#ee1005868568d9750214235693ba63e1">dkgrey</a>);
+<a name="l00523"></a>00523    }
+<a name="l00524"></a>00524 
+<a name="l00525"></a>00525    <span class="comment">/* x-axis legend */</span>
+<a name="l00526"></a>00526    <span class="keywordflow">for</span> (i=0;i&lt;24;i++)
+<a name="l00527"></a>00527    {
+<a name="l00528"></a>00528       gdImageString(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>,gdFontSmall,33+(i*19),238,<a class="code" href="graphs_8c.html#d8920ceda92347671d37ba01be631d65">numchar</a>[i],<a class="code" href="graphs_8c.html#8784d4f8ed73cff78355d2ed8e0c3a3b">black</a>);
+<a name="l00529"></a>00529       <span class="keywordflow">if</span> (data1[i] &gt; maxval) maxval = data1[i];           <span class="comment">/* get max val    */</span>
+<a name="l00530"></a>00530       <span class="keywordflow">if</span> (data2[i] &gt; maxval) maxval = data2[i];
+<a name="l00531"></a>00531       <span class="keywordflow">if</span> (data3[i] &gt; maxval) maxval = data3[i];
+<a name="l00532"></a>00532    }
+<a name="l00533"></a>00533    <span class="keywordflow">if</span> (maxval &lt;= 0) maxval = 1;
+<a name="l00534"></a>00534    sprintf(<a class="code" href="graphs_8c.html#3933b61d12d9878aa33d711259d94c5f">maxvaltxt</a>, <span class="stringliteral">"%lu"</span>, maxval);
+<a name="l00535"></a>00535    gdImageStringUp(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>, gdFontSmall, 8, 26+(strlen(<a class="code" href="graphs_8c.html#3933b61d12d9878aa33d711259d94c5f">maxvaltxt</a>)*6),
+<a name="l00536"></a>00536                    <a class="code" href="graphs_8c.html#3933b61d12d9878aa33d711259d94c5f">maxvaltxt</a>, <a class="code" href="graphs_8c.html#8784d4f8ed73cff78355d2ed8e0c3a3b">black</a>);
+<a name="l00537"></a>00537    
+<a name="l00538"></a>00538    <span class="keywordflow">if</span> (<a class="code" href="webalizer_8c.html#8209c1ed16bfdf4913b7837d8d0b8520">graph_legend</a>)                          <span class="comment">/* print color coded legends? */</span>
+<a name="l00539"></a>00539    {
+<a name="l00540"></a>00540       <span class="comment">/* Pages/Files/Hits Legend */</span>
+<a name="l00541"></a>00541       s = ( i=(strlen(msg_h_pages)*6) )+
+<a name="l00542"></a>00542           ( j=(strlen(msg_h_files)*6) )+
+<a name="l00543"></a>00543           ( strlen(msg_h_hits)*6 )+ 52;
+<a name="l00544"></a>00544       gdImageStringUp(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>,gdFontSmall,494,s,msg_h_pages,<a class="code" href="graphs_8c.html#ee1005868568d9750214235693ba63e1">dkgrey</a>);
+<a name="l00545"></a>00545       gdImageStringUp(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>,gdFontSmall,493,s-1,msg_h_pages,<a class="code" href="graphs_8c.html#b1b154af4927f41dc0ac230992bf1a15">COLOR5</a>);
+<a name="l00546"></a>00546       gdImageStringUp(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>,gdFontSmall,494,s-i-3,<span class="stringliteral">"/"</span>,<a class="code" href="graphs_8c.html#ee1005868568d9750214235693ba63e1">dkgrey</a>);
+<a name="l00547"></a>00547       gdImageStringUp(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>,gdFontSmall,493,s-i-4,<span class="stringliteral">"/"</span>,<a class="code" href="graphs_8c.html#8784d4f8ed73cff78355d2ed8e0c3a3b">black</a>);
+<a name="l00548"></a>00548       gdImageStringUp(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>,gdFontSmall,494,s-i-12,msg_h_files,<a class="code" href="graphs_8c.html#ee1005868568d9750214235693ba63e1">dkgrey</a>);
+<a name="l00549"></a>00549       gdImageStringUp(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>,gdFontSmall,493,s-i-13,msg_h_files,<a class="code" href="graphs_8c.html#609e0791889f4cde446ee0eb6efd369a">COLOR2</a>);
+<a name="l00550"></a>00550       gdImageStringUp(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>,gdFontSmall,494,s-i-j-15,<span class="stringliteral">"/"</span>,<a class="code" href="graphs_8c.html#ee1005868568d9750214235693ba63e1">dkgrey</a>);
+<a name="l00551"></a>00551       gdImageStringUp(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>,gdFontSmall,493,s-i-j-16,<span class="stringliteral">"/"</span>,<a class="code" href="graphs_8c.html#8784d4f8ed73cff78355d2ed8e0c3a3b">black</a>);
+<a name="l00552"></a>00552       gdImageStringUp(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>,gdFontSmall,494,s-i-j-24,msg_h_hits,<a class="code" href="graphs_8c.html#ee1005868568d9750214235693ba63e1">dkgrey</a>);
+<a name="l00553"></a>00553       gdImageStringUp(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>,gdFontSmall,493,s-i-j-25,msg_h_hits,<a class="code" href="graphs_8c.html#1169cd1b397420b29bd3b0153f047818">COLOR1</a>);
+<a name="l00554"></a>00554    }
+<a name="l00555"></a>00555 
+<a name="l00556"></a>00556    <span class="comment">/* data1 */</span>
+<a name="l00557"></a>00557    <span class="keywordflow">for</span> (i=0; i&lt;24; i++)
+<a name="l00558"></a>00558    {
+<a name="l00559"></a>00559       <a class="code" href="graphs_8c.html#ac167f3972a2f244f4b32c8ee5b89364">percent</a> = ((<span class="keywordtype">float</span>)data1[i] / (<span class="keywordtype">float</span>)maxval);  <span class="comment">/* percent of 100% */</span>
+<a name="l00560"></a>00560       <span class="keywordflow">if</span> (<a class="code" href="graphs_8c.html#ac167f3972a2f244f4b32c8ee5b89364">percent</a> &lt;= 0.0) <span class="keywordflow">continue</span>;
+<a name="l00561"></a>00561       x1 = 29 + (i*19);
+<a name="l00562"></a>00562       x2 = x1 + 10;
+<a name="l00563"></a>00563       y1 = 232 - (<a class="code" href="graphs_8c.html#ac167f3972a2f244f4b32c8ee5b89364">percent</a> * 203);
+<a name="l00564"></a>00564       gdImageFilledRectangle(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>, x1, y1, x2, 232, <a class="code" href="graphs_8c.html#1169cd1b397420b29bd3b0153f047818">COLOR1</a>);
+<a name="l00565"></a>00565       gdImageRectangle(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>, x1, y1, x2, 232, <a class="code" href="graphs_8c.html#8784d4f8ed73cff78355d2ed8e0c3a3b">black</a>);
+<a name="l00566"></a>00566    }
+<a name="l00567"></a>00567 
+<a name="l00568"></a>00568    <span class="comment">/* data2 */</span>
+<a name="l00569"></a>00569    <span class="keywordflow">for</span> (i=0; i&lt;24; i++)
+<a name="l00570"></a>00570    {
+<a name="l00571"></a>00571       <a class="code" href="graphs_8c.html#ac167f3972a2f244f4b32c8ee5b89364">percent</a> = ((<span class="keywordtype">float</span>)data2[i] / (<span class="keywordtype">float</span>)maxval);  <span class="comment">/* percent of 100% */</span>
+<a name="l00572"></a>00572       <span class="keywordflow">if</span> (<a class="code" href="graphs_8c.html#ac167f3972a2f244f4b32c8ee5b89364">percent</a> &lt;= 0.0) <span class="keywordflow">continue</span>;
+<a name="l00573"></a>00573       x1 = 32 + (i*19);
+<a name="l00574"></a>00574       x2 = x1 + 10;
+<a name="l00575"></a>00575       y1 = 232 - (<a class="code" href="graphs_8c.html#ac167f3972a2f244f4b32c8ee5b89364">percent</a> * 203);
+<a name="l00576"></a>00576       gdImageFilledRectangle(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>, x1, y1, x2, 232, <a class="code" href="graphs_8c.html#609e0791889f4cde446ee0eb6efd369a">COLOR2</a>);
+<a name="l00577"></a>00577       gdImageRectangle(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>, x1, y1, x2, 232, <a class="code" href="graphs_8c.html#8784d4f8ed73cff78355d2ed8e0c3a3b">black</a>);
+<a name="l00578"></a>00578    }
+<a name="l00579"></a>00579 
+<a name="l00580"></a>00580    <span class="comment">/* data3 */</span>
+<a name="l00581"></a>00581    <span class="keywordflow">for</span> (i=0; i&lt;24; i++)
+<a name="l00582"></a>00582    {
+<a name="l00583"></a>00583       <a class="code" href="graphs_8c.html#ac167f3972a2f244f4b32c8ee5b89364">percent</a> = ((<span class="keywordtype">float</span>)data3[i] / (<span class="keywordtype">float</span>)maxval);  <span class="comment">/* percent of 100% */</span>
+<a name="l00584"></a>00584       <span class="keywordflow">if</span> (<a class="code" href="graphs_8c.html#ac167f3972a2f244f4b32c8ee5b89364">percent</a> &lt;= 0.0) <span class="keywordflow">continue</span>;
+<a name="l00585"></a>00585       x1 = 35 + (i*19);
+<a name="l00586"></a>00586       x2 = x1 + 10;
+<a name="l00587"></a>00587       y1 = 232 - (<a class="code" href="graphs_8c.html#ac167f3972a2f244f4b32c8ee5b89364">percent</a> * 203);
+<a name="l00588"></a>00588       gdImageFilledRectangle(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>, x1, y1, x2, 232, <a class="code" href="graphs_8c.html#b1b154af4927f41dc0ac230992bf1a15">COLOR5</a>);
+<a name="l00589"></a>00589       gdImageRectangle(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>, x1, y1, x2, 232, <a class="code" href="graphs_8c.html#8784d4f8ed73cff78355d2ed8e0c3a3b">black</a>);
+<a name="l00590"></a>00590    }
+<a name="l00591"></a>00591 
+<a name="l00592"></a>00592    <span class="comment">/* save as png       file */</span>
+<a name="l00593"></a>00593    <span class="keywordflow">if</span> ( (<a class="code" href="graphs_8c.html#1277960b5f2b37137fe9b0b5a1ea0beb">out</a> = fopen(fname, <span class="stringliteral">"wb"</span>)) != NULL)
+<a name="l00594"></a>00594    {
+<a name="l00595"></a>00595       gdImagePng(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>, <a class="code" href="graphs_8c.html#1277960b5f2b37137fe9b0b5a1ea0beb">out</a>);
+<a name="l00596"></a>00596       fclose(<a class="code" href="graphs_8c.html#1277960b5f2b37137fe9b0b5a1ea0beb">out</a>);
+<a name="l00597"></a>00597    }
+<a name="l00598"></a>00598    <span class="comment">/* deallocate memory */</span>
+<a name="l00599"></a>00599    gdImageDestroy(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>);
+<a name="l00600"></a>00600 
+<a name="l00601"></a>00601    <span class="keywordflow">return</span> (0);
+<a name="l00602"></a>00602 }
+<a name="l00603"></a>00603 
+<a name="l00604"></a>00604 <span class="comment">/*****************************************************************/</span>
+<a name="l00605"></a>00605 <span class="comment">/*                                                               */</span>
+<a name="l00606"></a>00606 <span class="comment">/* PIE_CHART  - draw a pie chart (10 data items max)             */</span>
+<a name="l00607"></a>00607 <span class="comment">/*                                                               */</span>
+<a name="l00608"></a>00608 <span class="comment">/*****************************************************************/</span>
+<a name="l00609"></a>00609 
+<a name="l00610"></a><a class="code" href="graphs_8c.html#49e615d9104950eeb7a886df4301f7da">00610</a> <span class="keywordtype">int</span> <a class="code" href="graphs_8c.html#49e615d9104950eeb7a886df4301f7da">pie_chart</a>(<span class="keywordtype">char</span> *fname, <span class="keywordtype">char</span> *title, u_long t_val,
+<a name="l00611"></a>00611               u_long data1[], <span class="keywordtype">char</span> *legend[])
+<a name="l00612"></a>00612 {
+<a name="l00613"></a>00613    <span class="keywordtype">int</span> i,x,<a class="code" href="graphs_8c.html#ac167f3972a2f244f4b32c8ee5b89364">percent</a>,y=47;
+<a name="l00614"></a>00614    <span class="keywordtype">double</span> s_arc=0.0;
+<a name="l00615"></a>00615    <span class="keywordtype">int</span> purple, ltpurple, ltgreen, brown;
+<a name="l00616"></a>00616    <span class="keywordtype">char</span> <a class="code" href="webalizer_8c.html#09b4e72533ab279f7930a9a5e3ab050c">buffer</a>[128];
+<a name="l00617"></a>00617 
+<a name="l00618"></a>00618    <span class="keyword">struct </span><a class="code" href="structpie__data.html">pie_data</a> gdata;
+<a name="l00619"></a>00619 
+<a name="l00620"></a>00620    <span class="comment">/* init graph and colors */</span>
+<a name="l00621"></a>00621    <a class="code" href="graphs_8c.html#2040d817b934e470b4a2cdeb9811c097">init_graph</a>(title,512,300);
+<a name="l00622"></a>00622    purple  = gdImageColorAllocate(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>, 128, 0, 128);
+<a name="l00623"></a>00623    ltgreen = gdImageColorAllocate(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>, 128, 255, 192);
+<a name="l00624"></a>00624    ltpurple= gdImageColorAllocate(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>, 255, 0, 255);
+<a name="l00625"></a>00625    brown   = gdImageColorAllocate(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>, 255, 196, 128);
+<a name="l00626"></a>00626 
+<a name="l00627"></a>00627    <span class="comment">/* do the circle... */</span>
+<a name="l00628"></a>00628    gdImageArc(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>, <a class="code" href="graphs_8c.html#0b4c12a5dc8490a3cff8385334db2d13">CX</a>, <a class="code" href="graphs_8c.html#c5bc792e372b15e7a1d3efe6daac9aec">CY</a>, <a class="code" href="graphs_8c.html#e1eec295ea8cd8f04c1f24b59110fcae">XRAD</a>, <a class="code" href="graphs_8c.html#3eeb4d5b339574d992e5ac5b2c5cd8ff">YRAD</a>, 0, 360, <a class="code" href="graphs_8c.html#8784d4f8ed73cff78355d2ed8e0c3a3b">black</a>);
+<a name="l00629"></a>00629    gdImageArc(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>, <a class="code" href="graphs_8c.html#0b4c12a5dc8490a3cff8385334db2d13">CX</a>, <a class="code" href="graphs_8c.html#c5bc792e372b15e7a1d3efe6daac9aec">CY</a>+10, <a class="code" href="graphs_8c.html#e1eec295ea8cd8f04c1f24b59110fcae">XRAD</a>-2, <a class="code" href="graphs_8c.html#3eeb4d5b339574d992e5ac5b2c5cd8ff">YRAD</a>-2, 2, 178, <a class="code" href="graphs_8c.html#8784d4f8ed73cff78355d2ed8e0c3a3b">black</a>);
+<a name="l00630"></a>00630    gdImageFillToBorder(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>, <a class="code" href="graphs_8c.html#0b4c12a5dc8490a3cff8385334db2d13">CX</a>, <a class="code" href="graphs_8c.html#c5bc792e372b15e7a1d3efe6daac9aec">CY</a>+(<a class="code" href="graphs_8c.html#3eeb4d5b339574d992e5ac5b2c5cd8ff">YRAD</a>/2)+1, <a class="code" href="graphs_8c.html#8784d4f8ed73cff78355d2ed8e0c3a3b">black</a>, <a class="code" href="graphs_8c.html#8784d4f8ed73cff78355d2ed8e0c3a3b">black</a>);
+<a name="l00631"></a>00631 
+<a name="l00632"></a>00632    <span class="comment">/* slice the pie */</span>
+<a name="l00633"></a>00633    gdata=*<a class="code" href="graphs_8c.html#b831d5a0b0198ea523e0b116aaa20488">calc_arc</a>(0.0,0.0);
+<a name="l00634"></a>00634    gdImageLine(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>,<a class="code" href="graphs_8c.html#0b4c12a5dc8490a3cff8385334db2d13">CX</a>,<a class="code" href="graphs_8c.html#c5bc792e372b15e7a1d3efe6daac9aec">CY</a>,gdata.<a class="code" href="structpie__data.html#eaf30870c955a292a0b2896b09bc4169">x</a>,gdata.<a class="code" href="structpie__data.html#016eb86e9e554387895e400c2b285b7d">y</a>,<a class="code" href="graphs_8c.html#8784d4f8ed73cff78355d2ed8e0c3a3b">black</a>);  <span class="comment">/* inital line           */</span>
+<a name="l00635"></a>00635 
+<a name="l00636"></a>00636    <span class="keywordflow">for</span> (i=0;i&lt;10;i++)                      <span class="comment">/* run through data array      */</span>
+<a name="l00637"></a>00637    {
+<a name="l00638"></a>00638       <span class="keywordflow">if</span> ((data1[i]!=0)&amp;&amp;(s_arc&lt;1.0))      <span class="comment">/* make sure valid slice       */</span>
+<a name="l00639"></a>00639       {
+<a name="l00640"></a>00640          percent=(((<span class="keywordtype">double</span>)data1[i]/t_val)+0.005)*100.0;
+<a name="l00641"></a>00641          <span class="keywordflow">if</span> (percent&lt;1) <span class="keywordflow">break</span>;
+<a name="l00642"></a>00642 
+<a name="l00643"></a>00643          <span class="keywordflow">if</span> (s_arc+((<span class="keywordtype">double</span>)percent/100.0)&gt;=1.0)
+<a name="l00644"></a>00644          {
+<a name="l00645"></a>00645             gdata=*<a class="code" href="graphs_8c.html#b831d5a0b0198ea523e0b116aaa20488">calc_arc</a>(s_arc,1.0);
+<a name="l00646"></a>00646             s_arc=1.0;
+<a name="l00647"></a>00647          }
+<a name="l00648"></a>00648          <span class="keywordflow">else</span>
+<a name="l00649"></a>00649          {
+<a name="l00650"></a>00650             gdata=*<a class="code" href="graphs_8c.html#b831d5a0b0198ea523e0b116aaa20488">calc_arc</a>(s_arc,s_arc+((<span class="keywordtype">double</span>)<a class="code" href="graphs_8c.html#ac167f3972a2f244f4b32c8ee5b89364">percent</a>/100.0));
+<a name="l00651"></a>00651             s_arc+=(double)<a class="code" href="graphs_8c.html#ac167f3972a2f244f4b32c8ee5b89364">percent</a>/100.0;
+<a name="l00652"></a>00652          }
+<a name="l00653"></a>00653 
+<a name="l00654"></a>00654          gdImageLine(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>, <a class="code" href="graphs_8c.html#0b4c12a5dc8490a3cff8385334db2d13">CX</a>, <a class="code" href="graphs_8c.html#c5bc792e372b15e7a1d3efe6daac9aec">CY</a>, gdata.x, gdata.y, <a class="code" href="graphs_8c.html#8784d4f8ed73cff78355d2ed8e0c3a3b">black</a>);
+<a name="l00655"></a>00655          gdImageFill(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>, gdata.mx, gdata.my, i+4);
+<a name="l00656"></a>00656 
+<a name="l00657"></a>00657          snprintf(<a class="code" href="webalizer_8c.html#09b4e72533ab279f7930a9a5e3ab050c">buffer</a>, <span class="keyword">sizeof</span>(<a class="code" href="webalizer_8c.html#09b4e72533ab279f7930a9a5e3ab050c">buffer</a>),<span class="stringliteral">"%s (%d%%)"</span>,legend[i], <a class="code" href="graphs_8c.html#ac167f3972a2f244f4b32c8ee5b89364">percent</a>);
+<a name="l00658"></a>00658          <a class="code" href="structpie__data.html#eaf30870c955a292a0b2896b09bc4169">x</a>=480-(strlen(<a class="code" href="webalizer_8c.html#09b4e72533ab279f7930a9a5e3ab050c">buffer</a>)*7);
+<a name="l00659"></a>00659          gdImageString(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>,gdFontMediumBold, <a class="code" href="structpie__data.html#eaf30870c955a292a0b2896b09bc4169">x</a>+1, <a class="code" href="structpie__data.html#016eb86e9e554387895e400c2b285b7d">y</a>+1, <a class="code" href="webalizer_8c.html#09b4e72533ab279f7930a9a5e3ab050c">buffer</a>, <a class="code" href="graphs_8c.html#8784d4f8ed73cff78355d2ed8e0c3a3b">black</a>);
+<a name="l00660"></a>00660          gdImageString(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>,gdFontMediumBold, <a class="code" href="structpie__data.html#eaf30870c955a292a0b2896b09bc4169">x</a>, <a class="code" href="structpie__data.html#016eb86e9e554387895e400c2b285b7d">y</a>, <a class="code" href="webalizer_8c.html#09b4e72533ab279f7930a9a5e3ab050c">buffer</a>, i+4);
+<a name="l00661"></a>00661          <a class="code" href="structpie__data.html#016eb86e9e554387895e400c2b285b7d">y</a>+=20;
+<a name="l00662"></a>00662       }
+<a name="l00663"></a>00663    }
+<a name="l00664"></a>00664 
+<a name="l00665"></a>00665    <span class="keywordflow">if</span> (s_arc &lt; 1.0)                         <span class="comment">/* anything left over?        */</span>
+<a name="l00666"></a>00666    {
+<a name="l00667"></a>00667       gdata=*<a class="code" href="graphs_8c.html#b831d5a0b0198ea523e0b116aaa20488">calc_arc</a>(s_arc,1.0);
+<a name="l00668"></a>00668 
+<a name="l00669"></a>00669       gdImageFill(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>, gdata.mx, gdata.my, <a class="code" href="graphs_8c.html#52b8a1dc217164197e6e5ba60ec911bf">white</a>);
+<a name="l00670"></a>00670       snprintf(<a class="code" href="webalizer_8c.html#09b4e72533ab279f7930a9a5e3ab050c">buffer</a>, <span class="keyword">sizeof</span>(<a class="code" href="webalizer_8c.html#09b4e72533ab279f7930a9a5e3ab050c">buffer</a>),<span class="stringliteral">"%s (%d%%)"</span>,msg_h_other,100-(<span class="keywordtype">int</span>)(s_arc*100));
+<a name="l00671"></a>00671       <a class="code" href="structpie__data.html#eaf30870c955a292a0b2896b09bc4169">x</a>=480-(strlen(buffer)*7);
+<a name="l00672"></a>00672       gdImageString(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>,gdFontMediumBold, <a class="code" href="structpie__data.html#eaf30870c955a292a0b2896b09bc4169">x</a>+1, <a class="code" href="structpie__data.html#016eb86e9e554387895e400c2b285b7d">y</a>+1, buffer, <a class="code" href="graphs_8c.html#8784d4f8ed73cff78355d2ed8e0c3a3b">black</a>);
+<a name="l00673"></a>00673       gdImageString(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>,gdFontMediumBold, <a class="code" href="structpie__data.html#eaf30870c955a292a0b2896b09bc4169">x</a>, <a class="code" href="structpie__data.html#016eb86e9e554387895e400c2b285b7d">y</a>, buffer, <a class="code" href="graphs_8c.html#52b8a1dc217164197e6e5ba60ec911bf">white</a>);
+<a name="l00674"></a>00674    }
+<a name="l00675"></a>00675 
+<a name="l00676"></a>00676    <span class="comment">/* save png image */</span>
+<a name="l00677"></a>00677    <span class="keywordflow">if</span> ((<a class="code" href="graphs_8c.html#1277960b5f2b37137fe9b0b5a1ea0beb">out</a> = fopen(fname, <span class="stringliteral">"wb"</span>)) != NULL)
+<a name="l00678"></a>00678    {
+<a name="l00679"></a>00679       gdImagePng(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>, <a class="code" href="graphs_8c.html#1277960b5f2b37137fe9b0b5a1ea0beb">out</a>);
+<a name="l00680"></a>00680       fclose(<a class="code" href="graphs_8c.html#1277960b5f2b37137fe9b0b5a1ea0beb">out</a>);
+<a name="l00681"></a>00681    }
+<a name="l00682"></a>00682    <span class="comment">/* deallocate memory */</span>
+<a name="l00683"></a>00683    gdImageDestroy(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>);
+<a name="l00684"></a>00684 
+<a name="l00685"></a>00685    <span class="keywordflow">return</span> (0);
+<a name="l00686"></a>00686 }
+<a name="l00687"></a>00687 
+<a name="l00688"></a>00688 <span class="comment">/*****************************************************************/</span>
+<a name="l00689"></a>00689 <span class="comment">/*                                                               */</span>
+<a name="l00690"></a>00690 <span class="comment">/* CALC_ARC  - generate x,y coordinates for pie chart            */</span>
+<a name="l00691"></a>00691 <span class="comment">/*                                                               */</span>
+<a name="l00692"></a>00692 <span class="comment">/*****************************************************************/</span>
+<a name="l00693"></a>00693 
+<a name="l00694"></a><a class="code" href="graphs_8c.html#b831d5a0b0198ea523e0b116aaa20488">00694</a> <span class="keyword">struct </span><a class="code" href="structpie__data.html">pie_data</a> *<a class="code" href="graphs_8c.html#b831d5a0b0198ea523e0b116aaa20488">calc_arc</a>(<span class="keywordtype">float</span> min, <span class="keywordtype">float</span> max)
+<a name="l00695"></a>00695 {
+<a name="l00696"></a>00696    <span class="keyword">static</span> <span class="keyword">struct </span><a class="code" href="structpie__data.html">pie_data</a> data;
+<a name="l00697"></a>00697    <span class="keywordtype">double</span> d;
+<a name="l00698"></a>00698 
+<a name="l00699"></a>00699    <span class="comment">/* Calculate max line */</span>
+<a name="l00700"></a>00700    d=max;
+<a name="l00701"></a>00701    data.<a class="code" href="structpie__data.html#eaf30870c955a292a0b2896b09bc4169">x</a>=cos(d*(2*<a class="code" href="graphs_8c.html#598a3330b3c21701223ee0ca14316eca">PI</a>))*((<a class="code" href="graphs_8c.html#e1eec295ea8cd8f04c1f24b59110fcae">XRAD</a>-2)/2)+<a class="code" href="graphs_8c.html#0b4c12a5dc8490a3cff8385334db2d13">CX</a>;
+<a name="l00702"></a>00702    data.<a class="code" href="structpie__data.html#016eb86e9e554387895e400c2b285b7d">y</a>=sin(d*(2*PI))*((<a class="code" href="graphs_8c.html#3eeb4d5b339574d992e5ac5b2c5cd8ff">YRAD</a>-2)/2)+<a class="code" href="graphs_8c.html#c5bc792e372b15e7a1d3efe6daac9aec">CY</a>;
+<a name="l00703"></a>00703    <span class="comment">/* Now get mid-point  */</span>
+<a name="l00704"></a>00704    d=((min+max)/2);
+<a name="l00705"></a>00705    data.<a class="code" href="structpie__data.html#0234ef9030e27eae38d77037e17871f6">mx</a>=cos(d*(2*PI))*(<a class="code" href="graphs_8c.html#e1eec295ea8cd8f04c1f24b59110fcae">XRAD</a>/3)+<a class="code" href="graphs_8c.html#0b4c12a5dc8490a3cff8385334db2d13">CX</a>;
+<a name="l00706"></a>00706    data.<a class="code" href="structpie__data.html#63a9a5e6f1537e59becdebc9aeeb5f34">my</a>=sin(d*(2*PI))*(<a class="code" href="graphs_8c.html#3eeb4d5b339574d992e5ac5b2c5cd8ff">YRAD</a>/3)+<a class="code" href="graphs_8c.html#c5bc792e372b15e7a1d3efe6daac9aec">CY</a>;
+<a name="l00707"></a>00707    <span class="keywordflow">return</span> &amp;data;
+<a name="l00708"></a>00708 }
+<a name="l00709"></a>00709 
+<a name="l00710"></a>00710 <span class="comment">/*****************************************************************/</span>
+<a name="l00711"></a>00711 <span class="comment">/*                                                               */</span>
+<a name="l00712"></a>00712 <span class="comment">/* INIT_GRAPH  - initalize graph and draw borders                */</span>
+<a name="l00713"></a>00713 <span class="comment">/*                                                               */</span>
+<a name="l00714"></a>00714 <span class="comment">/*****************************************************************/</span>
+<a name="l00715"></a>00715 
+<a name="l00716"></a><a class="code" href="graphs_8c.html#2040d817b934e470b4a2cdeb9811c097">00716</a> <span class="keywordtype">void</span> <a class="code" href="graphs_8c.html#2040d817b934e470b4a2cdeb9811c097">init_graph</a>(<span class="keywordtype">char</span> *title, <span class="keywordtype">int</span> xsize, <span class="keywordtype">int</span> ysize)
+<a name="l00717"></a>00717 {
+<a name="l00718"></a>00718    <span class="keywordtype">int</span> i;
+<a name="l00719"></a>00719 
+<a name="l00720"></a>00720    <a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a> = gdImageCreate(xsize,ysize);
+<a name="l00721"></a>00721 
+<a name="l00722"></a>00722    <span class="comment">/* allocate color maps, background color first (grey) */</span>
+<a name="l00723"></a>00723    <a class="code" href="graphs_8c.html#852d2c8c77477e510b44d799fdaaf1f9">grey</a>    = gdImageColorAllocate(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>, 192, 192, 192);
+<a name="l00724"></a>00724    <a class="code" href="graphs_8c.html#ee1005868568d9750214235693ba63e1">dkgrey</a>  = gdImageColorAllocate(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>, 128, 128, 128);
+<a name="l00725"></a>00725    <a class="code" href="graphs_8c.html#8784d4f8ed73cff78355d2ed8e0c3a3b">black</a>   = gdImageColorAllocate(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>, 0, 0, 0);
+<a name="l00726"></a>00726    <a class="code" href="graphs_8c.html#52b8a1dc217164197e6e5ba60ec911bf">white</a>   = gdImageColorAllocate(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>, 255, 255, 255);
+<a name="l00727"></a>00727    <a class="code" href="graphs_8c.html#6e208843f894f38fa7644608917a2a41">green</a>   = gdImageColorAllocate(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>, 0, 128, 92);
+<a name="l00728"></a>00728    <a class="code" href="graphs_8c.html#d316f80317cb97c5ada72ac0e05bbf92">orange</a>  = gdImageColorAllocate(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>, 255, 128, 0);
+<a name="l00729"></a>00729    <a class="code" href="graphs_8c.html#16043f28bf0a6b55db852853f0683fc2">blue</a>    = gdImageColorAllocate(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>, 0, 0, 255);
+<a name="l00730"></a>00730    <a class="code" href="graphs_8c.html#6761340706096510fd89edca40a63b9b">red</a>     = gdImageColorAllocate(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>, 255, 0, 0);
+<a name="l00731"></a>00731    <a class="code" href="graphs_8c.html#f6bc84de5c6f5361f222772133cf1ab8">cyan</a>    = gdImageColorAllocate(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>, 0, 192, 255);
+<a name="l00732"></a>00732    <a class="code" href="graphs_8c.html#34167711871149458e41ef5d3e3541fe">yellow</a>  = gdImageColorAllocate(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>, 255, 255, 0);
+<a name="l00733"></a>00733 
+<a name="l00734"></a>00734    <span class="comment">/* make borders */</span>
+<a name="l00735"></a>00735 
+<a name="l00736"></a>00736    <span class="keywordflow">for</span> (i=0; i&lt;5 ;i++)          <span class="comment">/* do shadow effect */</span>
+<a name="l00737"></a>00737    {
+<a name="l00738"></a>00738       gdImageLine(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>, i, i, xsize-i, i, <a class="code" href="graphs_8c.html#52b8a1dc217164197e6e5ba60ec911bf">white</a>);
+<a name="l00739"></a>00739       gdImageLine(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>, i, i, i, ysize-i, <a class="code" href="graphs_8c.html#52b8a1dc217164197e6e5ba60ec911bf">white</a>);
+<a name="l00740"></a>00740       gdImageLine(im, i, ysize-i-1, xsize-i-1, ysize-i-1, <a class="code" href="graphs_8c.html#ee1005868568d9750214235693ba63e1">dkgrey</a>);
+<a name="l00741"></a>00741       gdImageLine(im, xsize-i-1, i, xsize-i-1, ysize-i-1, <a class="code" href="graphs_8c.html#ee1005868568d9750214235693ba63e1">dkgrey</a>);
+<a name="l00742"></a>00742    }
+<a name="l00743"></a>00743 
+<a name="l00744"></a>00744    gdImageRectangle(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>, 20, 25, xsize-21, ysize-21, <a class="code" href="graphs_8c.html#8784d4f8ed73cff78355d2ed8e0c3a3b">black</a>);
+<a name="l00745"></a>00745    gdImageRectangle(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>, 19, 24, xsize-22, ysize-22, <a class="code" href="graphs_8c.html#52b8a1dc217164197e6e5ba60ec911bf">white</a>);
+<a name="l00746"></a>00746    gdImageRectangle(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>, 0, 0, xsize-1, ysize-1, <a class="code" href="graphs_8c.html#8784d4f8ed73cff78355d2ed8e0c3a3b">black</a>);
+<a name="l00747"></a>00747 
+<a name="l00748"></a>00748    <span class="comment">/* display the graph title */</span>
+<a name="l00749"></a>00749    gdImageString(<a class="code" href="graphs_8c.html#0e84b6d886b70b0cf21c56e5e26f0ed9">im</a>, gdFontMediumBold, 20, 8, title, <a class="code" href="graphs_8c.html#16043f28bf0a6b55db852853f0683fc2">blue</a>);
+<a name="l00750"></a>00750 
+<a name="l00751"></a>00751    <span class="keywordflow">return</span>;
+<a name="l00752"></a>00752 }
+</pre></div><hr size="1"><address style="align: right;"><small>Erzeugt am Wed Jun 7 04:07:56 2006 für OOS [Webalizer] von&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.6 </small></address>
+</body>
+</html>

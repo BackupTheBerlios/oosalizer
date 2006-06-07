@@ -1,0 +1,185 @@
+<?xml version='1.0' encoding='iso-8859-1' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.4.6">
+  <compounddef id="graphs_8h" kind="file">
+    <compoundname>graphs.h</compoundname>
+    <includedby refid="graphs_8c" local="yes">oosalizer/graphs.c</includedby>
+    <includedby refid="output_8c" local="yes">oosalizer/output.c</includedby>
+    <invincdepgraph>
+      <node id="199">
+        <label>oosalizer/graphs.c</label>
+        <link refid="graphs_8c"/>
+      </node>
+      <node id="198">
+        <label>oosalizer/graphs.h</label>
+        <link refid="graphs.h"/>
+        <childnode refid="199" relation="include">
+        </childnode>
+        <childnode refid="200" relation="include">
+        </childnode>
+      </node>
+      <node id="200">
+        <label>oosalizer/output.c</label>
+        <link refid="output_8c"/>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="graphs_8h_15162657b4dcc3453169c3275c52932ea" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int month_graph6</definition>
+        <argsstring>(char *, char *, int, int, u_long *, u_long *, u_long *, double *, u_long *, u_long *)</argsstring>
+        <name>month_graph6</name>
+        <param>
+          <type>char *</type>
+        </param>
+        <param>
+          <type>char *</type>
+        </param>
+        <param>
+          <type>int</type>
+        </param>
+        <param>
+          <type>int</type>
+        </param>
+        <param>
+          <type>u_long *</type>
+        </param>
+        <param>
+          <type>u_long *</type>
+        </param>
+        <param>
+          <type>u_long *</type>
+        </param>
+        <param>
+          <type>double *</type>
+        </param>
+        <param>
+          <type>u_long *</type>
+        </param>
+        <param>
+          <type>u_long *</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/graphs.h" line="5"/>
+      </memberdef>
+      <memberdef kind="function" id="graphs_8h_1535fbbd777a3b3e4b015be7fe923c83a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int year_graph6x</definition>
+        <argsstring>(char *, char *, int, u_long *, u_long *, u_long *, double *, u_long *, u_long *)</argsstring>
+        <name>year_graph6x</name>
+        <param>
+          <type>char *</type>
+        </param>
+        <param>
+          <type>char *</type>
+        </param>
+        <param>
+          <type>int</type>
+        </param>
+        <param>
+          <type>u_long *</type>
+        </param>
+        <param>
+          <type>u_long *</type>
+        </param>
+        <param>
+          <type>u_long *</type>
+        </param>
+        <param>
+          <type>double *</type>
+        </param>
+        <param>
+          <type>u_long *</type>
+        </param>
+        <param>
+          <type>u_long *</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/graphs.h" line="7"/>
+      </memberdef>
+      <memberdef kind="function" id="graphs_8h_10aac6a5e38fa2280a1fc65b1387f3bbf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int day_graph3</definition>
+        <argsstring>(char *, char *, u_long *, u_long *, u_long *)</argsstring>
+        <name>day_graph3</name>
+        <param>
+          <type>char *</type>
+        </param>
+        <param>
+          <type>char *</type>
+        </param>
+        <param>
+          <type>u_long *</type>
+        </param>
+        <param>
+          <type>u_long *</type>
+        </param>
+        <param>
+          <type>u_long *</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/graphs.h" line="8"/>
+      </memberdef>
+      <memberdef kind="function" id="graphs_8h_159a8251be3cd0f8b093804b60c08111e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int pie_chart</definition>
+        <argsstring>(char *, char *, u_long, u_long *, char **)</argsstring>
+        <name>pie_chart</name>
+        <param>
+          <type>char *</type>
+        </param>
+        <param>
+          <type>char *</type>
+        </param>
+        <param>
+          <type>u_long</type>
+        </param>
+        <param>
+          <type>u_long *</type>
+        </param>
+        <param>
+          <type>char **</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/graphs.h" line="9"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>_GRAPHS_H</highlight></codeline>
+<codeline lineno="2"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>_GRAPHS_H</highlight></codeline>
+<codeline lineno="3"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><ref refid="graphs_8c_17d33e4e14ae660bf05b5793f8e18d091" kindref="member">month_graph6</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">,<sp/>u_long<sp/>*,</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>u_long<sp/>*,<sp/>u_long<sp/>*,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>*,<sp/>u_long<sp/>*,<sp/>u_long<sp/>*);</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><ref refid="graphs_8c_158eec29feb4d1c90de8813c8c59d4fcd" kindref="member">year_graph6x</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">,<sp/></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>u_long<sp/>*,<sp/>u_long<sp/>*,<sp/>u_long<sp/>*,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>*,<sp/>u_long<sp/>*,<sp/>u_long<sp/>*);</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><ref refid="graphs_8c_198296b41d7e2982e4b341e6ed18255ac" kindref="member">day_graph3</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*,<sp/>u_long<sp/>*,<sp/>u_long<sp/>*,<sp/>u_long<sp/>*);</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><ref refid="graphs_8c_149e615d9104950eeb7a886df4301f7da" kindref="member">pie_chart</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*,<sp/>u_long,<sp/>u_long<sp/>*,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>**);</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/><sp/></highlight><highlight class="comment">/*<sp/>_GRAPHS_H<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/home/r23/oosalizer/graphs.h"/>
+  </compounddef>
+</doxygen>

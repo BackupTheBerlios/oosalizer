@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='iso-8859-1' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.4.6">
+  <compounddef id="dir_097b33ca615cb7dfeb30c8c35a9165ee" kind="dir">
+    <compoundname>oosalizer/</compoundname>
+    <innerfile refid="dns__resolv_8c">dns_resolv.c</innerfile>
+    <innerfile refid="dns__resolv_8h">dns_resolv.h</innerfile>
+    <innerfile refid="graphs_8c">graphs.c</innerfile>
+    <innerfile refid="graphs_8h">graphs.h</innerfile>
+    <innerfile refid="hashtab_8c">hashtab.c</innerfile>
+    <innerfile refid="hashtab_8h">hashtab.h</innerfile>
+    <innerfile refid="lang_8h">lang.h</innerfile>
+    <innerfile refid="linklist_8c">linklist.c</innerfile>
+    <innerfile refid="linklist_8h">linklist.h</innerfile>
+    <innerfile refid="output_8c">output.c</innerfile>
+    <innerfile refid="output_8h">output.h</innerfile>
+    <innerfile refid="parser_8c">parser.c</innerfile>
+    <innerfile refid="parser_8h">parser.h</innerfile>
+    <innerfile refid="preserve_8c">preserve.c</innerfile>
+    <innerfile refid="preserve_8h">preserve.h</innerfile>
+    <innerfile refid="webalizer_8c">webalizer.c</innerfile>
+    <innerfile refid="webalizer_8h">webalizer.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/r23/oosalizer/"/>
+  </compounddef>
+</doxygen>

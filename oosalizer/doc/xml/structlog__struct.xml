@@ -1,0 +1,165 @@
+<?xml version='1.0' encoding='iso-8859-1' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.4.6">
+  <compounddef id="structlog__struct" kind="struct" prot="public">
+    <compoundname>log_struct</compoundname>
+    <includes refid="webalizer_8h" local="no">webalizer.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structlog__struct_18d92ed4a00d2d6b0f155bdbfcc551478" prot="public" static="no" mutable="no">
+        <type>char</type>
+        <definition>char log_struct::hostname[MAXHOST]</definition>
+        <argsstring>[MAXHOST]</argsstring>
+        <name>hostname</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/webalizer.h" line="151" bodyfile="/home/r23/oosalizer/webalizer.h" bodystart="151" bodyend="-1"/>
+        <referencedby refid="parser_8c_1630c3ac0dab48c2fba68649da4bb871e" compoundref="parser_8c" startline="134" endline="214">parse_record_ftp</referencedby>
+        <referencedby refid="parser_8c_12b00ce99cc8f1387d75aeb7193968b21" compoundref="parser_8c" startline="379" endline="502">parse_record_squid</referencedby>
+        <referencedby refid="parser_8c_1f79ff394bf86e83cffbcb560096f5052" compoundref="parser_8c" startline="220" endline="373">parse_record_web</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structlog__struct_11a6e77deebf410bb8fefe35aa02e384c" prot="public" static="no" mutable="no">
+        <type>char</type>
+        <definition>char log_struct::datetime[29]</definition>
+        <argsstring>[29]</argsstring>
+        <name>datetime</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/webalizer.h" line="152" bodyfile="/home/r23/oosalizer/webalizer.h" bodystart="152" bodyend="-1"/>
+        <referencedby refid="parser_8c_1630c3ac0dab48c2fba68649da4bb871e" compoundref="parser_8c" startline="134" endline="214">parse_record_ftp</referencedby>
+        <referencedby refid="parser_8c_12b00ce99cc8f1387d75aeb7193968b21" compoundref="parser_8c" startline="379" endline="502">parse_record_squid</referencedby>
+        <referencedby refid="parser_8c_1f79ff394bf86e83cffbcb560096f5052" compoundref="parser_8c" startline="220" endline="373">parse_record_web</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structlog__struct_1479e09f2dc389f8a0a57b9c3146d9d32" prot="public" static="no" mutable="no">
+        <type>char</type>
+        <definition>char log_struct::url[MAXURL]</definition>
+        <argsstring>[MAXURL]</argsstring>
+        <name>url</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/webalizer.h" line="153" bodyfile="/home/r23/oosalizer/webalizer.h" bodystart="153" bodyend="-1"/>
+        <referencedby refid="parser_8c_1630c3ac0dab48c2fba68649da4bb871e" compoundref="parser_8c" startline="134" endline="214">parse_record_ftp</referencedby>
+        <referencedby refid="parser_8c_12b00ce99cc8f1387d75aeb7193968b21" compoundref="parser_8c" startline="379" endline="502">parse_record_squid</referencedby>
+        <referencedby refid="parser_8c_1f79ff394bf86e83cffbcb560096f5052" compoundref="parser_8c" startline="220" endline="373">parse_record_web</referencedby>
+        <referencedby refid="hashtab_8h_1fe9c0e49a4926c7cba71b7f8db5db8cd" compoundref="hashtab_8c" startline="155" endline="277">put_hnode</referencedby>
+        <referencedby refid="hashtab_8h_162c7ecc5b3ae3851f5400e30734b8e9e" compoundref="hashtab_8c" startline="811" endline="912">put_inode</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structlog__struct_1b8db9826a57acc82a4c7d99948a9b89c" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int log_struct::resp_code</definition>
+        <argsstring></argsstring>
+        <name>resp_code</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/webalizer.h" line="154" bodyfile="/home/r23/oosalizer/webalizer.h" bodystart="154" bodyend="-1"/>
+        <referencedby refid="parser_8c_1630c3ac0dab48c2fba68649da4bb871e" compoundref="parser_8c" startline="134" endline="214">parse_record_ftp</referencedby>
+        <referencedby refid="parser_8c_12b00ce99cc8f1387d75aeb7193968b21" compoundref="parser_8c" startline="379" endline="502">parse_record_squid</referencedby>
+        <referencedby refid="parser_8c_1f79ff394bf86e83cffbcb560096f5052" compoundref="parser_8c" startline="220" endline="373">parse_record_web</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structlog__struct_18147dacfe44060fa40bb3caf79e3fdd1" prot="public" static="no" mutable="no">
+        <type>u_long</type>
+        <definition>u_long log_struct::xfer_size</definition>
+        <argsstring></argsstring>
+        <name>xfer_size</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/webalizer.h" line="155" bodyfile="/home/r23/oosalizer/webalizer.h" bodystart="155" bodyend="-1"/>
+        <referencedby refid="parser_8c_1630c3ac0dab48c2fba68649da4bb871e" compoundref="parser_8c" startline="134" endline="214">parse_record_ftp</referencedby>
+        <referencedby refid="parser_8c_12b00ce99cc8f1387d75aeb7193968b21" compoundref="parser_8c" startline="379" endline="502">parse_record_squid</referencedby>
+        <referencedby refid="parser_8c_1f79ff394bf86e83cffbcb560096f5052" compoundref="parser_8c" startline="220" endline="373">parse_record_web</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structlog__struct_1cb4f74246c1b97c518bbcc8a4823c0d4" prot="public" static="no" mutable="no">
+        <type>char</type>
+        <definition>char log_struct::refer[MAXREF]</definition>
+        <argsstring>[MAXREF]</argsstring>
+        <name>refer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/webalizer.h" line="159" bodyfile="/home/r23/oosalizer/webalizer.h" bodystart="159" bodyend="-1"/>
+        <referencedby refid="parser_8c_1f79ff394bf86e83cffbcb560096f5052" compoundref="parser_8c" startline="220" endline="373">parse_record_web</referencedby>
+        <referencedby refid="webalizer_8c_12b1002ec17d1cd1e6901514b8b6de058" compoundref="webalizer_8c" startline="1883" endline="1936">srch_string</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structlog__struct_1b512bdcfac62ef38139eaf1701994a4f" prot="public" static="no" mutable="no">
+        <type>char</type>
+        <definition>char log_struct::agent[MAXAGENT]</definition>
+        <argsstring>[MAXAGENT]</argsstring>
+        <name>agent</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/webalizer.h" line="160" bodyfile="/home/r23/oosalizer/webalizer.h" bodystart="160" bodyend="-1"/>
+        <referencedby refid="parser_8c_1f79ff394bf86e83cffbcb560096f5052" compoundref="parser_8c" startline="220" endline="373">parse_record_web</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structlog__struct_156f5b706fac667b9d9309ad128e5a102" prot="public" static="no" mutable="no">
+        <type>char</type>
+        <definition>char log_struct::srchstr[MAXSRCH]</definition>
+        <argsstring>[MAXSRCH]</argsstring>
+        <name>srchstr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/webalizer.h" line="161" bodyfile="/home/r23/oosalizer/webalizer.h" bodystart="161" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structlog__struct_1abac03796cba2fed0c5185a55e5578bd" prot="public" static="no" mutable="no">
+        <type>char</type>
+        <definition>char log_struct::ident[MAXIDENT]</definition>
+        <argsstring>[MAXIDENT]</argsstring>
+        <name>ident</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/webalizer.h" line="162" bodyfile="/home/r23/oosalizer/webalizer.h" bodystart="162" bodyend="-1"/>
+        <referencedby refid="parser_8c_1630c3ac0dab48c2fba68649da4bb871e" compoundref="parser_8c" startline="134" endline="214">parse_record_ftp</referencedby>
+        <referencedby refid="parser_8c_12b00ce99cc8f1387d75aeb7193968b21" compoundref="parser_8c" startline="379" endline="502">parse_record_squid</referencedby>
+        <referencedby refid="parser_8c_1f79ff394bf86e83cffbcb560096f5052" compoundref="parser_8c" startline="220" endline="373">parse_record_web</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/r23/oosalizer/webalizer.h" line="151" bodyfile="/home/r23/oosalizer/webalizer.h" bodystart="151" bodyend="162"/>
+    <listofallmembers>
+      <member refid="structlog__struct_1b512bdcfac62ef38139eaf1701994a4f" prot="public" virt="non-virtual"><scope>log_struct</scope><name>agent</name></member>
+      <member refid="structlog__struct_11a6e77deebf410bb8fefe35aa02e384c" prot="public" virt="non-virtual"><scope>log_struct</scope><name>datetime</name></member>
+      <member refid="structlog__struct_18d92ed4a00d2d6b0f155bdbfcc551478" prot="public" virt="non-virtual"><scope>log_struct</scope><name>hostname</name></member>
+      <member refid="structlog__struct_1abac03796cba2fed0c5185a55e5578bd" prot="public" virt="non-virtual"><scope>log_struct</scope><name>ident</name></member>
+      <member refid="structlog__struct_1cb4f74246c1b97c518bbcc8a4823c0d4" prot="public" virt="non-virtual"><scope>log_struct</scope><name>refer</name></member>
+      <member refid="structlog__struct_1b8db9826a57acc82a4c7d99948a9b89c" prot="public" virt="non-virtual"><scope>log_struct</scope><name>resp_code</name></member>
+      <member refid="structlog__struct_156f5b706fac667b9d9309ad128e5a102" prot="public" virt="non-virtual"><scope>log_struct</scope><name>srchstr</name></member>
+      <member refid="structlog__struct_1479e09f2dc389f8a0a57b9c3146d9d32" prot="public" virt="non-virtual"><scope>log_struct</scope><name>url</name></member>
+      <member refid="structlog__struct_18147dacfe44060fa40bb3caf79e3fdd1" prot="public" virt="non-virtual"><scope>log_struct</scope><name>xfer_size</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

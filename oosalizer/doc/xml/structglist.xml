@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='iso-8859-1' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.4.6">
+  <compounddef id="structglist" kind="struct" prot="public">
+    <compoundname>glist</compoundname>
+    <includes refid="linklist_8h" local="no">linklist.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structglist_136312d3b785bc51f116bd01aa2a3cf20" prot="public" static="no" mutable="no">
+        <type>char</type>
+        <definition>char glist::string[80]</definition>
+        <argsstring>[80]</argsstring>
+        <name>string</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/linklist.h" line="8" bodyfile="/home/r23/oosalizer/linklist.h" bodystart="8" bodyend="-1"/>
+        <referencedby refid="linklist_8h_104dff50c01cd9572b6a3d9dfbdb7cc07" compoundref="linklist_8c" startline="260" endline="271">isinglist</referencedby>
+        <referencedby refid="linklist_8c_1efe1a363b71eccafc7f2c8e31f8f2b05" compoundref="linklist_8c" startline="167" endline="184">new_glist</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structglist_1d3ebdbe9d3d9448d753a3aa95d232455" prot="public" static="no" mutable="no">
+        <type>char</type>
+        <definition>char glist::name[80]</definition>
+        <argsstring>[80]</argsstring>
+        <name>name</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/linklist.h" line="9" bodyfile="/home/r23/oosalizer/linklist.h" bodystart="9" bodyend="-1"/>
+        <referencedby refid="linklist_8h_104dff50c01cd9572b6a3d9dfbdb7cc07" compoundref="linklist_8c" startline="260" endline="271">isinglist</referencedby>
+        <referencedby refid="linklist_8c_1efe1a363b71eccafc7f2c8e31f8f2b05" compoundref="linklist_8c" startline="167" endline="184">new_glist</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structglist_1fcbd6d229e8a0ea95ed0532927a3bf85" prot="public" static="no" mutable="no">
+        <type><ref refid="structglist" kindref="compound">glist</ref> *</type>
+        <definition>struct glist* glist::next</definition>
+        <argsstring></argsstring>
+        <name>next</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/linklist.h" line="10" bodyfile="/home/r23/oosalizer/linklist.h" bodystart="10" bodyend="-1"/>
+        <referencedby refid="linklist_8h_1a17a4a0e1bebcb1f19644843920ef3ea" compoundref="linklist_8c" startline="190" endline="220">add_glist</referencedby>
+        <referencedby refid="linklist_8c_12db320536d6c5a8726da8e8e627af50c" compoundref="linklist_8c" startline="226" endline="237">del_glist</referencedby>
+        <referencedby refid="linklist_8h_104dff50c01cd9572b6a3d9dfbdb7cc07" compoundref="linklist_8c" startline="260" endline="271">isinglist</referencedby>
+        <referencedby refid="linklist_8c_1efe1a363b71eccafc7f2c8e31f8f2b05" compoundref="linklist_8c" startline="167" endline="184">new_glist</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="33">
+        <label>glist</label>
+        <link refid="structglist"/>
+        <childnode refid="33" relation="usage">
+          <edgelabel>next</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/r23/oosalizer/linklist.h" line="8" bodyfile="/home/r23/oosalizer/linklist.h" bodystart="8" bodyend="10"/>
+    <listofallmembers>
+      <member refid="structglist_1d3ebdbe9d3d9448d753a3aa95d232455" prot="public" virt="non-virtual"><scope>glist</scope><name>name</name></member>
+      <member refid="structglist_1fcbd6d229e8a0ea95ed0532927a3bf85" prot="public" virt="non-virtual"><scope>glist</scope><name>next</name></member>
+      <member refid="structglist_136312d3b785bc51f116bd01aa2a3cf20" prot="public" virt="non-virtual"><scope>glist</scope><name>string</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

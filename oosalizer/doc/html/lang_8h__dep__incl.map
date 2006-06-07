@@ -1,0 +1,7 @@
+base referer
+rect $graphs_8c.html 176,8 306,32
+rect $hashtab_8c.html 173,56 309,80
+rect $linklist_8c.html 178,104 304,128
+rect $output_8c.html 178,152 304,176
+rect $parser_8c.html 178,200 304,224
+rect $preserve_8c.html 170,248 312,272

@@ -1,0 +1,2537 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1">
+<title>OOS [Webalizer]: oosalizer/output.c-Dateireferenz</title>
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+<link href="tabs.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Erzeugt von Doxygen 1.4.6 -->
+<div class="tabs">
+  <ul>
+    <li><a href="main.html"><span>Hauptseite</span></a></li>
+    <li><a href="annotated.html"><span>Datenstrukturen</span></a></li>
+    <li id="current"><a href="files.html"><span>Dateien</span></a></li>
+    <li>
+      <form action="search.php" method="get">
+        <table cellspacing="0" cellpadding="0" border="0">
+          <tr>
+            <td><label>&nbsp;<u>S</u>uchen&nbsp;nach&nbsp;</label></td>
+            <td><input type="text" name="query" value="" size="20" accesskey="s"/></td>
+          </tr>
+        </table>
+      </form>
+    </li>
+  </ul></div>
+<div class="tabs">
+  <ul>
+    <li><a href="files.html"><span>Auflistung&nbsp;der&nbsp;Dateien</span></a></li>
+    <li><a href="globals.html"><span>Datei-Elemente</span></a></li>
+  </ul></div>
+<h1>oosalizer/output.c-Dateireferenz</h1><code>#include &lt;time.h&gt;</code><br>
+<code>#include &lt;stdio.h&gt;</code><br>
+<code>#include &lt;stdlib.h&gt;</code><br>
+<code>#include &lt;string.h&gt;</code><br>
+<code>#include &lt;unistd.h&gt;</code><br>
+<code>#include &lt;ctype.h&gt;</code><br>
+<code>#include &lt;sys/utsname.h&gt;</code><br>
+<code>#include &lt;sys/times.h&gt;</code><br>
+<code>#include &lt;sys/types.h&gt;</code><br>
+<code>#include &quot;<a class="el" href="webalizer_8h-source.html">webalizer.h</a>&quot;</code><br>
+<code>#include &quot;<a class="el" href="lang_8h-source.html">lang.h</a>&quot;</code><br>
+<code>#include &quot;<a class="el" href="hashtab_8h-source.html">hashtab.h</a>&quot;</code><br>
+<code>#include &quot;<a class="el" href="preserve_8h-source.html">preserve.h</a>&quot;</code><br>
+<code>#include &quot;<a class="el" href="linklist_8h-source.html">linklist.h</a>&quot;</code><br>
+<code>#include &quot;<a class="el" href="graphs_8h-source.html">graphs.h</a>&quot;</code><br>
+<code>#include &quot;<a class="el" href="output_8h-source.html">output.h</a>&quot;</code><br>
+
+<p>
+Include-Abhängigkeitsdiagramm für output.c:<p><center><img src="output_8c__incl.png" border="0" usemap="#oosalizer/output.c_map" alt=""></center>
+<map name="oosalizer/output.c_map">
+<area href="webalizer_8h.html" shape="rect" coords="194,440,282,464" alt="">
+<area href="lang_8h.html" shape="rect" coords="209,488,267,512" alt="">
+<area href="hashtab_8h.html" shape="rect" coords="198,536,278,560" alt="">
+<area href="preserve_8h.html" shape="rect" coords="195,584,281,608" alt="">
+<area href="linklist_8h.html" shape="rect" coords="203,632,273,656" alt="">
+<area href="graphs_8h.html" shape="rect" coords="201,680,275,704" alt="">
+<area href="output_8h.html" shape="rect" coords="203,728,273,752" alt="">
+</map>
+
+<p>
+<a href="output_8c-source.html">gehe zum Quellcode dieser Datei</a><table border="0" cellpadding="0" cellspacing="0">
+<tr><td></td></tr>
+<tr><td colspan="2"><br><h2>Makrodefinitionen</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="output_8c.html#03df76d1f70664d745ca8de2864e39b3">CLK_TCK</a>&nbsp;&nbsp;&nbsp;_SC_CLK_TCK</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="output_8c.html#87b537f5fa5c109d3c05c13d6b18f382">WHITE</a>&nbsp;&nbsp;&nbsp;&quot;#FFFFFF&quot;</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="output_8c.html#7b3b25cba33b07c303f3060fe41887f6">BLACK</a>&nbsp;&nbsp;&nbsp;&quot;#000000&quot;</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="output_8c.html#8d23feea868a983c8c2b661e1e16972f">RED</a>&nbsp;&nbsp;&nbsp;&quot;#FF0000&quot;</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="output_8c.html#c5b6e19bf06822021f35602c59658de3">ORANGE</a>&nbsp;&nbsp;&nbsp;&quot;#FF8000&quot;</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="output_8c.html#1a13e2f5e41385c6b4ce64b8b683e5d2">LTBLUE</a>&nbsp;&nbsp;&nbsp;&quot;#0080FF&quot;</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="output_8c.html#79d10e672abb49ad63eeaa8aaef57c38">BLUE</a>&nbsp;&nbsp;&nbsp;&quot;#0000FF&quot;</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="output_8c.html#cfbc006ea433ad708fdee3e82996e721">GREEN</a>&nbsp;&nbsp;&nbsp;&quot;#00FF00&quot;</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="output_8c.html#70a867a7d5bd5ff0aa67003c99b93a8f">DKGREEN</a>&nbsp;&nbsp;&nbsp;&quot;#008040&quot;</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="output_8c.html#dce122f566c88a1eceeb79a635afa964">GREY</a>&nbsp;&nbsp;&nbsp;&quot;#C0C0C0&quot;</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="output_8c.html#0ffe2221c8690dc80b5f9553474dd096">LTGREY</a>&nbsp;&nbsp;&nbsp;&quot;#E8E8E8&quot;</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="output_8c.html#bf681265909adf3d3e8116c93c0ba179">YELLOW</a>&nbsp;&nbsp;&nbsp;&quot;#FFFF00&quot;</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="output_8c.html#0bb0b009e7a7390473ace4d98bd843c0">PURPLE</a>&nbsp;&nbsp;&nbsp;&quot;#FF00FF&quot;</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="output_8c.html#d243f93c16bc4c1d3e0a13b84421d760">CYAN</a>&nbsp;&nbsp;&nbsp;&quot;#00E0FF&quot;</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="output_8c.html#d3d0166d909c5f2c8461b42d87f1f778">GRPCOLOR</a>&nbsp;&nbsp;&nbsp;&quot;#D0D0E0&quot;</td></tr>
+
+<tr><td colspan="2"><br><h2>Funktionen</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="output_8c.html#0bc1fdaca7513c4813773bef5529008e">write_html_head</a> (char *, FILE *)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="output_8c.html#b5fc0fbb03c2b6a431bef6bc473505e2">write_html_tail</a> (FILE *)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="output_8c.html#88fc4fa78dab50f356e5daebd1c0efcb">month_links</a> ()</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="output_8c.html#f2c834f471b87d6264d3694c8257382c">month_total_table</a> ()</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="output_8c.html#267f41fceee149a1e7eeb4ee30ee5f09">month_error_table</a> ()</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="output_8c.html#24968f52f4cb828c450b4357d0da9326">daily_total_table</a> ()</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="output_8c.html#bed9fdc7ecf13c9399e3e41bd583abd9">hourly_total_table</a> ()</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="output_8c.html#8459026bf062636220025d736ae99fa7">top_sites_table</a> (int)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="output_8c.html#67742ac3286c8dd6e07650560a96e228">top_urls_table</a> (int)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="output_8c.html#72037da3c986417f62837bb8c96b60c0">top_entry_table</a> (int)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="output_8c.html#f175d11f499a6782ad34c4b21f6891e1">top_refs_table</a> ()</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="output_8c.html#55f5637d81e4b2847ea889ac14cbcc6b">top_agents_table</a> ()</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="output_8c.html#c1ecb6ecbe9f7218b2e9ccae79cf2f5f">top_ctry_table</a> ()</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="output_8c.html#69ab2fc5b74afcb9c52ad9e0906cde88">top_search_table</a> ()</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="output_8c.html#2e8e6386a5b4fa3e5dafd4f2becfb3ce">top_users_table</a> ()</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">u_long&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="output_8c.html#0d5c8398a3b959aa372077fda3f78fff">load_url_array</a> (<a class="el" href="structunode.html">UNODEPTR</a> *)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">u_long&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="output_8c.html#12790ed69b92f9024071f8e8ba312ee3">load_site_array</a> (<a class="el" href="structhnode.html">HNODEPTR</a> *)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">u_long&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="output_8c.html#4fe67ad14b790d3dabec4fc028e338c5">load_ref_array</a> (<a class="el" href="structrnode.html">RNODEPTR</a> *)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">u_long&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="output_8c.html#695c31f8c5d53bf9a1b112cccd36740f">load_agent_array</a> (<a class="el" href="structanode.html">ANODEPTR</a> *)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">u_long&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="output_8c.html#d3eb19f2c468e374066739cccec7d3d4">load_srch_array</a> (<a class="el" href="structsnode.html">SNODEPTR</a> *)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">u_long&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="output_8c.html#78caf44e7545035a80e85f498cb9e471">load_ident_array</a> (<a class="el" href="structinode.html">INODEPTR</a> *)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="output_8c.html#aa5ed357df2c1098b3bf0d4fbbf020bb">qs_url_cmph</a> (const void *, const void *)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="output_8c.html#ba53a184207ad59b18a510a690d29b5d">qs_url_cmpk</a> (const void *, const void *)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="output_8c.html#3b87c7768eed36e84a622e431b378942">qs_url_cmpn</a> (const void *, const void *)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="output_8c.html#9fb87dcc576463c9ce98593782734d59">qs_url_cmpx</a> (const void *, const void *)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="output_8c.html#322ce92d71bc2e3c8d61c5edfa937b66">qs_site_cmph</a> (const void *, const void *)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="output_8c.html#0fe214a5ca06da7ea31019f2491f690f">qs_site_cmpk</a> (const void *, const void *)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="output_8c.html#9fcda824a6cb67eea93f6c873ce382e2">qs_ref_cmph</a> (const void *, const void *)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="output_8c.html#72a92b6a4155e75b035247485efacd27">qs_agnt_cmph</a> (const void *, const void *)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="output_8c.html#c696a3022740c5d7e16758e13cd6240d">qs_srch_cmph</a> (const void *, const void *)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="output_8c.html#ab10c25bdfd5abd8dda51817fa9027cd">qs_ident_cmph</a> (const void *, const void *)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="output_8c.html#629673e2af2406711232e87efa863b16">qs_ident_cmpk</a> (const void *, const void *)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="output_8c.html#c4e6c9fc2562755c38403dd45bdab4e9">all_sites_page</a> (u_long, u_long)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="output_8c.html#510367124c184f22aac1331c1412c7d5">all_urls_page</a> (u_long, u_long)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="output_8c.html#ffa5d4248e6a8d3946f094e5a16c026e">all_refs_page</a> (u_long, u_long)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="output_8c.html#4f27932d464425450d0c11106ae0c2fe">all_agents_page</a> (u_long, u_long)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="output_8c.html#b218b4268390f2e5c00ef1f303d3baad">all_search_page</a> (u_long, u_long)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="output_8c.html#b1313f0c59efbacd626ea5fb185f126e">all_users_page</a> (u_long, u_long)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="output_8c.html#1ff4091dce5e22d1f8f4cc034a78afec">dump_all_sites</a> ()</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="output_8c.html#d1bfd511fab3836f3e1d1867384b425f">dump_all_urls</a> ()</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="output_8c.html#246f33aca4a4783b5b9853d70aa44d61">dump_all_refs</a> ()</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="output_8c.html#13b9a7e783dc0408ef406d95e9a347a8">dump_all_agents</a> ()</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="output_8c.html#a519e8d866cad7c01f72636d749a9f57">dump_all_users</a> ()</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="output_8c.html#46280cc9688bd8a784859589d0ca588e">dump_all_search</a> ()</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="output_8c.html#a88c70787fac7e72d1f6509b38b6bcab">write_month_html</a> ()</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="output_8c.html#90b458b70bbeed91acc9ec79062f6ac7">write_main_index</a> ()</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">FILE *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="output_8c.html#837e8afa754fafe8bf3e4e71da7db321">open_out_file</a> (char *filename)</td></tr>
+
+<tr><td colspan="2"><br><h2>Variablen</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="structunode.html">UNODEPTR</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="output_8c.html#4551dad9d68c34d932485aa2e47be6f4">u_array</a> = NULL</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="structhnode.html">HNODEPTR</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="output_8c.html#5264e215246a79cb95e196368866f1ef">h_array</a> = NULL</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="structrnode.html">RNODEPTR</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="output_8c.html#d45469c4cb26a6ad02b3b2e95132bfd7">r_array</a> = NULL</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="structanode.html">ANODEPTR</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="output_8c.html#087fc5e1d70a57bb687006545cd89b68">a_array</a> = NULL</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="structsnode.html">SNODEPTR</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="output_8c.html#9cc5723f216e0b1d0d8b497ca4117a40">s_array</a> = NULL</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="structinode.html">INODEPTR</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="output_8c.html#ccdc7ee079826f4729bf0f653e9f29f1">i_array</a> = NULL</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">u_long&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="output_8c.html#e04d9715c55066e22dc7442b812c5d2c">a_ctr</a> = 0</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">FILE *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="output_8c.html#c061fe683531313d6071980df0f82611">out_fp</a></td></tr>
+
+</table>
+<hr><h2>Makro-Dokumentation</h2>
+<a class="anchor" name="7b3b25cba33b07c303f3060fe41887f6"></a><!-- doxytag: member="output.c::BLACK" ref="7b3b25cba33b07c303f3060fe41887f6" args="" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">#define BLACK&nbsp;&nbsp;&nbsp;&quot;#000000&quot;          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="output_8c-source.html#l00119">119</a> der Datei <a class="el" href="output_8c-source.html">output.c</a>.
+<p>
+Wird benutzt von <a class="el" href="output_8c-source.html#l00148">write_html_head()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="79d10e672abb49ad63eeaa8aaef57c38"></a><!-- doxytag: member="output.c::BLUE" ref="79d10e672abb49ad63eeaa8aaef57c38" args="" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">#define BLUE&nbsp;&nbsp;&nbsp;&quot;#0000FF&quot;          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="output_8c-source.html#l00123">123</a> der Datei <a class="el" href="output_8c-source.html">output.c</a>.
+<p>
+Wird benutzt von <a class="el" href="output_8c-source.html#l00148">write_html_head()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="03df76d1f70664d745ca8de2864e39b3"></a><!-- doxytag: member="output.c::CLK_TCK" ref="03df76d1f70664d745ca8de2864e39b3" args="" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">#define CLK_TCK&nbsp;&nbsp;&nbsp;_SC_CLK_TCK          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="output_8c-source.html#l00059">59</a> der Datei <a class="el" href="output_8c-source.html">output.c</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="d243f93c16bc4c1d3e0a13b84421d760"></a><!-- doxytag: member="output.c::CYAN" ref="d243f93c16bc4c1d3e0a13b84421d760" args="" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">#define CYAN&nbsp;&nbsp;&nbsp;&quot;#00E0FF&quot;          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="output_8c-source.html#l00130">130</a> der Datei <a class="el" href="output_8c-source.html">output.c</a>.
+<p>
+Wird benutzt von <a class="el" href="output_8c-source.html#l00804">daily_total_table()</a>, <a class="el" href="output_8c-source.html#l00881">hourly_total_table()</a>, <a class="el" href="output_8c-source.html#l01623">top_agents_table()</a>, <a class="el" href="output_8c-source.html#l01359">top_entry_table()</a>, <a class="el" href="output_8c-source.html#l01461">top_refs_table()</a>, <a class="el" href="output_8c-source.html#l01775">top_search_table()</a>, <a class="el" href="output_8c-source.html#l00972">top_sites_table()</a>, <a class="el" href="output_8c-source.html#l01158">top_urls_table()</a> und <a class="el" href="output_8c-source.html#l01888">top_users_table()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="70a867a7d5bd5ff0aa67003c99b93a8f"></a><!-- doxytag: member="output.c::DKGREEN" ref="70a867a7d5bd5ff0aa67003c99b93a8f" args="" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">#define DKGREEN&nbsp;&nbsp;&nbsp;&quot;#008040&quot;          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="output_8c-source.html#l00125">125</a> der Datei <a class="el" href="output_8c-source.html">output.c</a>.
+<p>
+Wird benutzt von <a class="el" href="output_8c-source.html#l00804">daily_total_table()</a>, <a class="el" href="output_8c-source.html#l00881">hourly_total_table()</a>, <a class="el" href="output_8c-source.html#l01623">top_agents_table()</a>, <a class="el" href="output_8c-source.html#l01359">top_entry_table()</a>, <a class="el" href="output_8c-source.html#l01461">top_refs_table()</a>, <a class="el" href="output_8c-source.html#l01775">top_search_table()</a>, <a class="el" href="output_8c-source.html#l00972">top_sites_table()</a>, <a class="el" href="output_8c-source.html#l01158">top_urls_table()</a> und <a class="el" href="output_8c-source.html#l01888">top_users_table()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="cfbc006ea433ad708fdee3e82996e721"></a><!-- doxytag: member="output.c::GREEN" ref="cfbc006ea433ad708fdee3e82996e721" args="" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">#define GREEN&nbsp;&nbsp;&nbsp;&quot;#00FF00&quot;          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="output_8c-source.html#l00124">124</a> der Datei <a class="el" href="output_8c-source.html">output.c</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="dce122f566c88a1eceeb79a635afa964"></a><!-- doxytag: member="output.c::GREY" ref="dce122f566c88a1eceeb79a635afa964" args="" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">#define GREY&nbsp;&nbsp;&nbsp;&quot;#C0C0C0&quot;          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="output_8c-source.html#l00126">126</a> der Datei <a class="el" href="output_8c-source.html">output.c</a>.
+<p>
+Wird benutzt von <a class="el" href="output_8c-source.html#l00804">daily_total_table()</a>, <a class="el" href="output_8c-source.html#l00881">hourly_total_table()</a>, <a class="el" href="output_8c-source.html#l01623">top_agents_table()</a>, <a class="el" href="output_8c-source.html#l01359">top_entry_table()</a>, <a class="el" href="output_8c-source.html#l01461">top_refs_table()</a>, <a class="el" href="output_8c-source.html#l01775">top_search_table()</a>, <a class="el" href="output_8c-source.html#l00972">top_sites_table()</a>, <a class="el" href="output_8c-source.html#l01158">top_urls_table()</a> und <a class="el" href="output_8c-source.html#l01888">top_users_table()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="d3d0166d909c5f2c8461b42d87f1f778"></a><!-- doxytag: member="output.c::GRPCOLOR" ref="d3d0166d909c5f2c8461b42d87f1f778" args="" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">#define GRPCOLOR&nbsp;&nbsp;&nbsp;&quot;#D0D0E0&quot;          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="output_8c-source.html#l00131">131</a> der Datei <a class="el" href="output_8c-source.html">output.c</a>.
+<p>
+Wird benutzt von <a class="el" href="output_8c-source.html#l01623">top_agents_table()</a>, <a class="el" href="output_8c-source.html#l01461">top_refs_table()</a>, <a class="el" href="output_8c-source.html#l01775">top_search_table()</a>, <a class="el" href="output_8c-source.html#l00972">top_sites_table()</a>, <a class="el" href="output_8c-source.html#l01158">top_urls_table()</a> und <a class="el" href="output_8c-source.html#l01888">top_users_table()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="1a13e2f5e41385c6b4ce64b8b683e5d2"></a><!-- doxytag: member="output.c::LTBLUE" ref="1a13e2f5e41385c6b4ce64b8b683e5d2" args="" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">#define LTBLUE&nbsp;&nbsp;&nbsp;&quot;#0080FF&quot;          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="output_8c-source.html#l00122">122</a> der Datei <a class="el" href="output_8c-source.html">output.c</a>.
+<p>
+Wird benutzt von <a class="el" href="output_8c-source.html#l00804">daily_total_table()</a>, <a class="el" href="output_8c-source.html#l00881">hourly_total_table()</a>, <a class="el" href="output_8c-source.html#l00972">top_sites_table()</a> und <a class="el" href="output_8c-source.html#l01888">top_users_table()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="0ffe2221c8690dc80b5f9553474dd096"></a><!-- doxytag: member="output.c::LTGREY" ref="0ffe2221c8690dc80b5f9553474dd096" args="" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">#define LTGREY&nbsp;&nbsp;&nbsp;&quot;#E8E8E8&quot;          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="output_8c-source.html#l00127">127</a> der Datei <a class="el" href="output_8c-source.html">output.c</a>.
+<p>
+Wird benutzt von <a class="el" href="output_8c-source.html#l00148">write_html_head()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="c5b6e19bf06822021f35602c59658de3"></a><!-- doxytag: member="output.c::ORANGE" ref="c5b6e19bf06822021f35602c59658de3" args="" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">#define ORANGE&nbsp;&nbsp;&nbsp;&quot;#FF8000&quot;          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="output_8c-source.html#l00121">121</a> der Datei <a class="el" href="output_8c-source.html">output.c</a>.
+<p>
+Wird benutzt von <a class="el" href="output_8c-source.html#l00804">daily_total_table()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="0bb0b009e7a7390473ace4d98bd843c0"></a><!-- doxytag: member="output.c::PURPLE" ref="0bb0b009e7a7390473ace4d98bd843c0" args="" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">#define PURPLE&nbsp;&nbsp;&nbsp;&quot;#FF00FF&quot;          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="output_8c-source.html#l00129">129</a> der Datei <a class="el" href="output_8c-source.html">output.c</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="8d23feea868a983c8c2b661e1e16972f"></a><!-- doxytag: member="output.c::RED" ref="8d23feea868a983c8c2b661e1e16972f" args="" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">#define RED&nbsp;&nbsp;&nbsp;&quot;#FF0000&quot;          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="output_8c-source.html#l00120">120</a> der Datei <a class="el" href="output_8c-source.html">output.c</a>.
+<p>
+Wird benutzt von <a class="el" href="output_8c-source.html#l00804">daily_total_table()</a>, <a class="el" href="output_8c-source.html#l00881">hourly_total_table()</a>, <a class="el" href="output_8c-source.html#l00972">top_sites_table()</a>, <a class="el" href="output_8c-source.html#l01158">top_urls_table()</a>, <a class="el" href="output_8c-source.html#l01888">top_users_table()</a> und <a class="el" href="output_8c-source.html#l00148">write_html_head()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="87b537f5fa5c109d3c05c13d6b18f382"></a><!-- doxytag: member="output.c::WHITE" ref="87b537f5fa5c109d3c05c13d6b18f382" args="" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">#define WHITE&nbsp;&nbsp;&nbsp;&quot;#FFFFFF&quot;          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="output_8c-source.html#l00118">118</a> der Datei <a class="el" href="output_8c-source.html">output.c</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="bf681265909adf3d3e8116c93c0ba179"></a><!-- doxytag: member="output.c::YELLOW" ref="bf681265909adf3d3e8116c93c0ba179" args="" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">#define YELLOW&nbsp;&nbsp;&nbsp;&quot;#FFFF00&quot;          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="output_8c-source.html#l00128">128</a> der Datei <a class="el" href="output_8c-source.html">output.c</a>.
+<p>
+Wird benutzt von <a class="el" href="output_8c-source.html#l00804">daily_total_table()</a>, <a class="el" href="output_8c-source.html#l01359">top_entry_table()</a>, <a class="el" href="output_8c-source.html#l00972">top_sites_table()</a> und <a class="el" href="output_8c-source.html#l01888">top_users_table()</a>.    </td>
+  </tr>
+</table>
+<hr><h2>Dokumentation der Funktionen</h2>
+<a class="anchor" name="4f27932d464425450d0c11106ae0c2fe"></a><!-- doxytag: member="output.c::all_agents_page" ref="4f27932d464425450d0c11106ae0c2fe" args="(u_long, u_long)" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">int all_agents_page           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top">u_long&nbsp;</td>
+          <td class="mdname" nowrap>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>u_long&nbsp;</td>
+          <td class="mdname" nowrap></td>
+        </tr>
+        <tr>
+          <td class="md"></td>
+          <td class="md">)&nbsp;</td>
+          <td class="md" colspan="2"></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="output_8c-source.html#l01713">1713</a> der Datei <a class="el" href="output_8c-source.html">output.c</a>.
+<p>
+Benutzt <a class="el" href="output_8c-source.html#l00137">a_array</a>, <a class="el" href="webalizer_8c-source.html#l00218">buffer</a>, <a class="el" href="hashtab_8h-source.html#l00052">anode::count</a>, <a class="el" href="webalizer_8c-source.html#l00171">cur_month</a>, <a class="el" href="webalizer_8c-source.html#l00171">cur_year</a>, <a class="el" href="hashtab_8h-source.html#l00051">anode::flag</a>, <a class="el" href="webalizer_8c-source.html#l00133">html_ext</a>, <a class="el" href="lang_8h.html#e75828f9450cccbb02d410d60a6caa1d">l_month</a>, <a class="el" href="lang_8h.html#88ef492f810cce55301b0422c8c135ec">msg_h_agent</a>, <a class="el" href="lang_8h.html#529f40f7939bbf363a37235b1b209b62">msg_h_hits</a>, <a class="el" href="hashtab_8h-source.html#l00017">OBJ_GRP</a>, <a class="el" href="hashtab_8h-source.html#l00015">OBJ_REG</a>, <a class="el" href="output_8c-source.html#l02891">open_out_file()</a>, <a class="el" href="output_8c-source.html#l00142">out_fp</a>, <a class="el" href="hashtab_8h-source.html#l00050">anode::string</a>, <a class="el" href="webalizer_8c-source.html#l00184">t_hit</a>, <a class="el" href="output_8c-source.html#l00148">write_html_head()</a> und <a class="el" href="output_8c-source.html#l00260">write_html_tail()</a>.
+<p>
+Wird benutzt von <a class="el" href="output_8c-source.html#l01623">top_agents_table()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="ffa5d4248e6a8d3946f094e5a16c026e"></a><!-- doxytag: member="output.c::all_refs_page" ref="ffa5d4248e6a8d3946f094e5a16c026e" args="(u_long, u_long)" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">int all_refs_page           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top">u_long&nbsp;</td>
+          <td class="mdname" nowrap>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>u_long&nbsp;</td>
+          <td class="mdname" nowrap></td>
+        </tr>
+        <tr>
+          <td class="md"></td>
+          <td class="md">)&nbsp;</td>
+          <td class="md" colspan="2"></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="output_8c-source.html#l01561">1561</a> der Datei <a class="el" href="output_8c-source.html">output.c</a>.
+<p>
+Benutzt <a class="el" href="webalizer_8c-source.html#l00218">buffer</a>, <a class="el" href="hashtab_8h-source.html#l00047">rnode::count</a>, <a class="el" href="webalizer_8c-source.html#l00171">cur_month</a>, <a class="el" href="webalizer_8c-source.html#l00171">cur_year</a>, <a class="el" href="hashtab_8h-source.html#l00046">rnode::flag</a>, <a class="el" href="webalizer_8c-source.html#l00133">html_ext</a>, <a class="el" href="lang_8h.html#e75828f9450cccbb02d410d60a6caa1d">l_month</a>, <a class="el" href="lang_8h.html#529f40f7939bbf363a37235b1b209b62">msg_h_hits</a>, <a class="el" href="lang_8h.html#044f17c6b922b4c62fcd9d60dc5743b6">msg_h_ref</a>, <a class="el" href="hashtab_8h-source.html#l00017">OBJ_GRP</a>, <a class="el" href="hashtab_8h-source.html#l00015">OBJ_REG</a>, <a class="el" href="output_8c-source.html#l02891">open_out_file()</a>, <a class="el" href="output_8c-source.html#l00142">out_fp</a>, <a class="el" href="output_8c-source.html#l00136">r_array</a>, <a class="el" href="hashtab_8h-source.html#l00045">rnode::string</a>, <a class="el" href="webalizer_8c-source.html#l00184">t_hit</a>, <a class="el" href="output_8c-source.html#l00148">write_html_head()</a> und <a class="el" href="output_8c-source.html#l00260">write_html_tail()</a>.
+<p>
+Wird benutzt von <a class="el" href="output_8c-source.html#l01461">top_refs_table()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="b218b4268390f2e5c00ef1f303d3baad"></a><!-- doxytag: member="output.c::all_search_page" ref="b218b4268390f2e5c00ef1f303d3baad" args="(u_long, u_long)" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">int all_search_page           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top">u_long&nbsp;</td>
+          <td class="mdname" nowrap>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>u_long&nbsp;</td>
+          <td class="mdname" nowrap></td>
+        </tr>
+        <tr>
+          <td class="md"></td>
+          <td class="md">)&nbsp;</td>
+          <td class="md" colspan="2"></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="output_8c-source.html#l01846">1846</a> der Datei <a class="el" href="output_8c-source.html">output.c</a>.
+<p>
+Benutzt <a class="el" href="webalizer_8c-source.html#l00218">buffer</a>, <a class="el" href="hashtab_8h-source.html#l00056">snode::count</a>, <a class="el" href="webalizer_8c-source.html#l00171">cur_month</a>, <a class="el" href="webalizer_8c-source.html#l00171">cur_year</a>, <a class="el" href="webalizer_8c-source.html#l00133">html_ext</a>, <a class="el" href="lang_8h.html#e75828f9450cccbb02d410d60a6caa1d">l_month</a>, <a class="el" href="lang_8h.html#529f40f7939bbf363a37235b1b209b62">msg_h_hits</a>, <a class="el" href="lang_8h.html#a60f1bd74d1fb88de31964981fc8d0d6">msg_h_search</a>, <a class="el" href="output_8c-source.html#l02891">open_out_file()</a>, <a class="el" href="output_8c-source.html#l00142">out_fp</a>, <a class="el" href="output_8c-source.html#l00138">s_array</a>, <a class="el" href="hashtab_8h-source.html#l00055">snode::string</a>, <a class="el" href="output_8c-source.html#l00148">write_html_head()</a> und <a class="el" href="output_8c-source.html#l00260">write_html_tail()</a>.
+<p>
+Wird benutzt von <a class="el" href="output_8c-source.html#l01775">top_search_table()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="c4e6c9fc2562755c38403dd45bdab4e9"></a><!-- doxytag: member="output.c::all_sites_page" ref="c4e6c9fc2562755c38403dd45bdab4e9" args="(u_long, u_long)" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">int all_sites_page           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top">u_long&nbsp;</td>
+          <td class="mdname" nowrap>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>u_long&nbsp;</td>
+          <td class="mdname" nowrap></td>
+        </tr>
+        <tr>
+          <td class="md"></td>
+          <td class="md">)&nbsp;</td>
+          <td class="md" colspan="2"></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="output_8c-source.html#l01085">1085</a> der Datei <a class="el" href="output_8c-source.html">output.c</a>.
+<p>
+Benutzt <a class="el" href="webalizer_8c-source.html#l00218">buffer</a>, <a class="el" href="hashtab_8h-source.html#l00028">hnode::count</a>, <a class="el" href="webalizer_8c-source.html#l00171">cur_month</a>, <a class="el" href="webalizer_8c-source.html#l00171">cur_year</a>, <a class="el" href="hashtab_8h-source.html#l00029">hnode::files</a>, <a class="el" href="hashtab_8h-source.html#l00027">hnode::flag</a>, <a class="el" href="output_8c-source.html#l00135">h_array</a>, <a class="el" href="webalizer_8c-source.html#l00129">hide_sites</a>, <a class="el" href="webalizer_8c-source.html#l00133">html_ext</a>, <a class="el" href="lang_8h.html#e75828f9450cccbb02d410d60a6caa1d">l_month</a>, <a class="el" href="lang_8h.html#17cdd1238613c58645be27ec86da138c">msg_h_files</a>, <a class="el" href="lang_8h.html#529f40f7939bbf363a37235b1b209b62">msg_h_hits</a>, <a class="el" href="lang_8h.html#389648e11c07ae97a6c19e049401a01f">msg_h_hname</a>, <a class="el" href="lang_8h.html#40421f6c86f03b581ec81e010c8d0086">msg_h_sites</a>, <a class="el" href="lang_8h.html#daf199b209b9dd7996804b6018b8539f">msg_h_visits</a>, <a class="el" href="lang_8h.html#b193be580f6d1d61bb87dfb4e9f8547c">msg_h_xfer</a>, <a class="el" href="hashtab_8h-source.html#l00017">OBJ_GRP</a>, <a class="el" href="hashtab_8h-source.html#l00015">OBJ_REG</a>, <a class="el" href="output_8c-source.html#l02891">open_out_file()</a>, <a class="el" href="output_8c-source.html#l00142">out_fp</a>, <a class="el" href="hashtab_8h-source.html#l00026">hnode::string</a>, <a class="el" href="webalizer_8c-source.html#l00184">t_file</a>, <a class="el" href="webalizer_8c-source.html#l00184">t_hit</a>, <a class="el" href="webalizer_8c-source.html#l00186">t_visit</a>, <a class="el" href="webalizer_8c-source.html#l00183">t_xfer</a>, <a class="el" href="hashtab_8h-source.html#l00030">hnode::visit</a>, <a class="el" href="output_8c-source.html#l00148">write_html_head()</a>, <a class="el" href="output_8c-source.html#l00260">write_html_tail()</a> und <a class="el" href="hashtab_8h-source.html#l00033">hnode::xfer</a>.
+<p>
+Wird benutzt von <a class="el" href="output_8c-source.html#l00972">top_sites_table()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="510367124c184f22aac1331c1412c7d5"></a><!-- doxytag: member="output.c::all_urls_page" ref="510367124c184f22aac1331c1412c7d5" args="(u_long, u_long)" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">int all_urls_page           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top">u_long&nbsp;</td>
+          <td class="mdname" nowrap>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>u_long&nbsp;</td>
+          <td class="mdname" nowrap></td>
+        </tr>
+        <tr>
+          <td class="md"></td>
+          <td class="md">)&nbsp;</td>
+          <td class="md" colspan="2"></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="output_8c-source.html#l01290">1290</a> der Datei <a class="el" href="output_8c-source.html">output.c</a>.
+<p>
+Benutzt <a class="el" href="webalizer_8c-source.html#l00218">buffer</a>, <a class="el" href="hashtab_8h-source.html#l00038">unode::count</a>, <a class="el" href="webalizer_8c-source.html#l00171">cur_month</a>, <a class="el" href="webalizer_8c-source.html#l00171">cur_year</a>, <a class="el" href="hashtab_8h-source.html#l00037">unode::flag</a>, <a class="el" href="webalizer_8c-source.html#l00133">html_ext</a>, <a class="el" href="lang_8h.html#e75828f9450cccbb02d410d60a6caa1d">l_month</a>, <a class="el" href="lang_8h.html#529f40f7939bbf363a37235b1b209b62">msg_h_hits</a>, <a class="el" href="lang_8h.html#c2422ae6f0a2e8bdc0caa4fc75645f4b">msg_h_url</a>, <a class="el" href="lang_8h.html#b193be580f6d1d61bb87dfb4e9f8547c">msg_h_xfer</a>, <a class="el" href="hashtab_8h-source.html#l00017">OBJ_GRP</a>, <a class="el" href="hashtab_8h-source.html#l00015">OBJ_REG</a>, <a class="el" href="output_8c-source.html#l02891">open_out_file()</a>, <a class="el" href="output_8c-source.html#l00142">out_fp</a>, <a class="el" href="hashtab_8h-source.html#l00036">unode::string</a>, <a class="el" href="webalizer_8c-source.html#l00184">t_hit</a>, <a class="el" href="webalizer_8c-source.html#l00183">t_xfer</a>, <a class="el" href="output_8c-source.html#l00134">u_array</a>, <a class="el" href="output_8c-source.html#l00148">write_html_head()</a>, <a class="el" href="output_8c-source.html#l00260">write_html_tail()</a> und <a class="el" href="hashtab_8h-source.html#l00042">unode::xfer</a>.
+<p>
+Wird benutzt von <a class="el" href="output_8c-source.html#l01158">top_urls_table()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="b1313f0c59efbacd626ea5fb185f126e"></a><!-- doxytag: member="output.c::all_users_page" ref="b1313f0c59efbacd626ea5fb185f126e" args="(u_long, u_long)" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">int all_users_page           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top">u_long&nbsp;</td>
+          <td class="mdname" nowrap>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>u_long&nbsp;</td>
+          <td class="mdname" nowrap></td>
+        </tr>
+        <tr>
+          <td class="md"></td>
+          <td class="md">)&nbsp;</td>
+          <td class="md" colspan="2"></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="output_8c-source.html#l01990">1990</a> der Datei <a class="el" href="output_8c-source.html">output.c</a>.
+<p>
+Benutzt <a class="el" href="webalizer_8c-source.html#l00218">buffer</a>, <a class="el" href="hashtab_8h-source.html#l00061">inode::count</a>, <a class="el" href="webalizer_8c-source.html#l00171">cur_month</a>, <a class="el" href="webalizer_8c-source.html#l00171">cur_year</a>, <a class="el" href="hashtab_8h-source.html#l00062">inode::files</a>, <a class="el" href="hashtab_8h-source.html#l00060">inode::flag</a>, <a class="el" href="webalizer_8c-source.html#l00133">html_ext</a>, <a class="el" href="output_8c-source.html#l00139">i_array</a>, <a class="el" href="lang_8h.html#e75828f9450cccbb02d410d60a6caa1d">l_month</a>, <a class="el" href="lang_8h.html#17cdd1238613c58645be27ec86da138c">msg_h_files</a>, <a class="el" href="lang_8h.html#529f40f7939bbf363a37235b1b209b62">msg_h_hits</a>, <a class="el" href="lang_8h.html#04b9008a2c6d6752de424ad84772f803">msg_h_uname</a>, <a class="el" href="lang_8h.html#daf199b209b9dd7996804b6018b8539f">msg_h_visits</a>, <a class="el" href="lang_8h.html#b193be580f6d1d61bb87dfb4e9f8547c">msg_h_xfer</a>, <a class="el" href="hashtab_8h-source.html#l00017">OBJ_GRP</a>, <a class="el" href="hashtab_8h-source.html#l00015">OBJ_REG</a>, <a class="el" href="output_8c-source.html#l02891">open_out_file()</a>, <a class="el" href="output_8c-source.html#l00142">out_fp</a>, <a class="el" href="hashtab_8h-source.html#l00059">inode::string</a>, <a class="el" href="webalizer_8c-source.html#l00184">t_file</a>, <a class="el" href="webalizer_8c-source.html#l00184">t_hit</a>, <a class="el" href="webalizer_8c-source.html#l00186">t_visit</a>, <a class="el" href="webalizer_8c-source.html#l00183">t_xfer</a>, <a class="el" href="hashtab_8h-source.html#l00063">inode::visit</a>, <a class="el" href="output_8c-source.html#l00148">write_html_head()</a>, <a class="el" href="output_8c-source.html#l00260">write_html_tail()</a> und <a class="el" href="hashtab_8h-source.html#l00065">inode::xfer</a>.
+<p>
+Wird benutzt von <a class="el" href="output_8c-source.html#l01888">top_users_table()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="24968f52f4cb828c450b4357d0da9326"></a><!-- doxytag: member="output.c::daily_total_table" ref="24968f52f4cb828c450b4357d0da9326" args="()" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">void daily_total_table           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>          </td>
+          <td class="md" valign="top">&nbsp;)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="output_8c-source.html#l00804">804</a> der Datei <a class="el" href="output_8c-source.html">output.c</a>.
+<p>
+Benutzt <a class="el" href="webalizer_8c-source.html#l00171">cur_month</a>, <a class="el" href="webalizer_8c-source.html#l00171">cur_year</a>, <a class="el" href="output_8c-source.html#l00130">CYAN</a>, <a class="el" href="output_8c-source.html#l00125">DKGREEN</a>, <a class="el" href="output_8c-source.html#l00126">GREY</a>, <a class="el" href="preserve_8c-source.html#l00077">hist_lday</a>, <a class="el" href="lang_8h.html#e75828f9450cccbb02d410d60a6caa1d">l_month</a>, <a class="el" href="output_8c-source.html#l00122">LTBLUE</a>, <a class="el" href="lang_8h.html#05ed4ddbb649bb7506fc41d1607127ae">msg_dtot_ds</a>, <a class="el" href="lang_8h.html#4ea7eb5797dae19227edd460213b7b0a">msg_h_day</a>, <a class="el" href="lang_8h.html#17cdd1238613c58645be27ec86da138c">msg_h_files</a>, <a class="el" href="lang_8h.html#529f40f7939bbf363a37235b1b209b62">msg_h_hits</a>, <a class="el" href="lang_8h.html#db4c9ee2d878d68d50a008b354042927">msg_h_pages</a>, <a class="el" href="lang_8h.html#40421f6c86f03b581ec81e010c8d0086">msg_h_sites</a>, <a class="el" href="lang_8h.html#daf199b209b9dd7996804b6018b8539f">msg_h_visits</a>, <a class="el" href="lang_8h.html#b193be580f6d1d61bb87dfb4e9f8547c">msg_h_xfer</a>, <a class="el" href="output_8c-source.html#l00121">ORANGE</a>, <a class="el" href="output_8c-source.html#l00142">out_fp</a>, <a class="el" href="webalizer_8h-source.html#l00004">PCENT</a>, <a class="el" href="output_8c-source.html#l00120">RED</a>, <a class="el" href="webalizer_8c-source.html#l00184">t_file</a>, <a class="el" href="webalizer_8c-source.html#l00184">t_hit</a>, <a class="el" href="webalizer_8c-source.html#l00186">t_page</a>, <a class="el" href="webalizer_8c-source.html#l00184">t_site</a>, <a class="el" href="webalizer_8c-source.html#l00186">t_visit</a>, <a class="el" href="webalizer_8c-source.html#l00183">t_xfer</a>, <a class="el" href="webalizer_8c-source.html#l00190">tm_file</a>, <a class="el" href="webalizer_8c-source.html#l00190">tm_hit</a>, <a class="el" href="webalizer_8c-source.html#l00190">tm_page</a>, <a class="el" href="webalizer_8c-source.html#l00190">tm_site</a>, <a class="el" href="webalizer_8c-source.html#l00190">tm_visit</a>, <a class="el" href="webalizer_8c-source.html#l00188">tm_xfer</a> und <a class="el" href="output_8c-source.html#l00128">YELLOW</a>.
+<p>
+Wird benutzt von <a class="el" href="output_8c-source.html#l00325">write_month_html()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="13b9a7e783dc0408ef406d95e9a347a8"></a><!-- doxytag: member="output.c::dump_all_agents" ref="13b9a7e783dc0408ef406d95e9a347a8" args="()" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">void dump_all_agents           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>          </td>
+          <td class="md" valign="top">&nbsp;)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="output_8c-source.html#l02332">2332</a> der Datei <a class="el" href="output_8c-source.html">output.c</a>.
+<p>
+Benutzt <a class="el" href="output_8c-source.html#l00137">a_array</a>, <a class="el" href="output_8c-source.html#l00140">a_ctr</a>, <a class="el" href="hashtab_8h-source.html#l00052">anode::count</a>, <a class="el" href="webalizer_8c-source.html#l00171">cur_month</a>, <a class="el" href="webalizer_8c-source.html#l00171">cur_year</a>, <a class="el" href="webalizer_8c-source.html#l00134">dump_ext</a>, <a class="el" href="webalizer_8c-source.html#l00168">dump_header</a>, <a class="el" href="webalizer_8c-source.html#l00169">dump_path</a>, <a class="el" href="hashtab_8h-source.html#l00051">anode::flag</a>, <a class="el" href="lang_8h.html#88ef492f810cce55301b0422c8c135ec">msg_h_agent</a>, <a class="el" href="lang_8h.html#529f40f7939bbf363a37235b1b209b62">msg_h_hits</a>, <a class="el" href="hashtab_8h-source.html#l00017">OBJ_GRP</a>, <a class="el" href="output_8c-source.html#l02891">open_out_file()</a>, <a class="el" href="output_8c-source.html#l00142">out_fp</a> und <a class="el" href="hashtab_8h-source.html#l00050">anode::string</a>.
+<p>
+Wird benutzt von <a class="el" href="output_8c-source.html#l00325">write_month_html()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="246f33aca4a4783b5b9853d70aa44d61"></a><!-- doxytag: member="output.c::dump_all_refs" ref="246f33aca4a4783b5b9853d70aa44d61" args="()" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">void dump_all_refs           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>          </td>
+          <td class="md" valign="top">&nbsp;)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="output_8c-source.html#l02293">2293</a> der Datei <a class="el" href="output_8c-source.html">output.c</a>.
+<p>
+Benutzt <a class="el" href="output_8c-source.html#l00140">a_ctr</a>, <a class="el" href="hashtab_8h-source.html#l00047">rnode::count</a>, <a class="el" href="webalizer_8c-source.html#l00171">cur_month</a>, <a class="el" href="webalizer_8c-source.html#l00171">cur_year</a>, <a class="el" href="webalizer_8c-source.html#l00134">dump_ext</a>, <a class="el" href="webalizer_8c-source.html#l00168">dump_header</a>, <a class="el" href="webalizer_8c-source.html#l00169">dump_path</a>, <a class="el" href="hashtab_8h-source.html#l00046">rnode::flag</a>, <a class="el" href="lang_8h.html#529f40f7939bbf363a37235b1b209b62">msg_h_hits</a>, <a class="el" href="lang_8h.html#044f17c6b922b4c62fcd9d60dc5743b6">msg_h_ref</a>, <a class="el" href="hashtab_8h-source.html#l00017">OBJ_GRP</a>, <a class="el" href="output_8c-source.html#l02891">open_out_file()</a>, <a class="el" href="output_8c-source.html#l00142">out_fp</a>, <a class="el" href="output_8c-source.html#l00136">r_array</a> und <a class="el" href="hashtab_8h-source.html#l00045">rnode::string</a>.
+<p>
+Wird benutzt von <a class="el" href="output_8c-source.html#l00325">write_month_html()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="46280cc9688bd8a784859589d0ca588e"></a><!-- doxytag: member="output.c::dump_all_search" ref="46280cc9688bd8a784859589d0ca588e" args="()" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">void dump_all_search           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>          </td>
+          <td class="md" valign="top">&nbsp;)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="output_8c-source.html#l02414">2414</a> der Datei <a class="el" href="output_8c-source.html">output.c</a>.
+<p>
+Benutzt <a class="el" href="output_8c-source.html#l00140">a_ctr</a>, <a class="el" href="hashtab_8h-source.html#l00056">snode::count</a>, <a class="el" href="webalizer_8c-source.html#l00171">cur_month</a>, <a class="el" href="webalizer_8c-source.html#l00171">cur_year</a>, <a class="el" href="webalizer_8c-source.html#l00134">dump_ext</a>, <a class="el" href="webalizer_8c-source.html#l00168">dump_header</a>, <a class="el" href="webalizer_8c-source.html#l00169">dump_path</a>, <a class="el" href="lang_8h.html#529f40f7939bbf363a37235b1b209b62">msg_h_hits</a>, <a class="el" href="lang_8h.html#a60f1bd74d1fb88de31964981fc8d0d6">msg_h_search</a>, <a class="el" href="output_8c-source.html#l02891">open_out_file()</a>, <a class="el" href="output_8c-source.html#l00142">out_fp</a>, <a class="el" href="output_8c-source.html#l00138">s_array</a> und <a class="el" href="hashtab_8h-source.html#l00055">snode::string</a>.
+<p>
+Wird benutzt von <a class="el" href="output_8c-source.html#l00325">write_month_html()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="1ff4091dce5e22d1f8f4cc034a78afec"></a><!-- doxytag: member="output.c::dump_all_sites" ref="1ff4091dce5e22d1f8f4cc034a78afec" args="()" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">void dump_all_sites           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>          </td>
+          <td class="md" valign="top">&nbsp;)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="output_8c-source.html#l02210">2210</a> der Datei <a class="el" href="output_8c-source.html">output.c</a>.
+<p>
+Benutzt <a class="el" href="output_8c-source.html#l00140">a_ctr</a>, <a class="el" href="hashtab_8h-source.html#l00028">hnode::count</a>, <a class="el" href="webalizer_8c-source.html#l00171">cur_month</a>, <a class="el" href="webalizer_8c-source.html#l00171">cur_year</a>, <a class="el" href="webalizer_8c-source.html#l00134">dump_ext</a>, <a class="el" href="webalizer_8c-source.html#l00168">dump_header</a>, <a class="el" href="webalizer_8c-source.html#l00169">dump_path</a>, <a class="el" href="hashtab_8h-source.html#l00029">hnode::files</a>, <a class="el" href="hashtab_8h-source.html#l00027">hnode::flag</a>, <a class="el" href="output_8c-source.html#l00135">h_array</a>, <a class="el" href="lang_8h.html#17cdd1238613c58645be27ec86da138c">msg_h_files</a>, <a class="el" href="lang_8h.html#529f40f7939bbf363a37235b1b209b62">msg_h_hits</a>, <a class="el" href="lang_8h.html#389648e11c07ae97a6c19e049401a01f">msg_h_hname</a>, <a class="el" href="lang_8h.html#daf199b209b9dd7996804b6018b8539f">msg_h_visits</a>, <a class="el" href="lang_8h.html#b193be580f6d1d61bb87dfb4e9f8547c">msg_h_xfer</a>, <a class="el" href="hashtab_8h-source.html#l00017">OBJ_GRP</a>, <a class="el" href="output_8c-source.html#l02891">open_out_file()</a>, <a class="el" href="output_8c-source.html#l00142">out_fp</a>, <a class="el" href="hashtab_8h-source.html#l00026">hnode::string</a>, <a class="el" href="hashtab_8h-source.html#l00030">hnode::visit</a> und <a class="el" href="hashtab_8h-source.html#l00033">hnode::xfer</a>.
+<p>
+Wird benutzt von <a class="el" href="output_8c-source.html#l00325">write_month_html()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="d1bfd511fab3836f3e1d1867384b425f"></a><!-- doxytag: member="output.c::dump_all_urls" ref="d1bfd511fab3836f3e1d1867384b425f" args="()" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">void dump_all_urls           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>          </td>
+          <td class="md" valign="top">&nbsp;)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="output_8c-source.html#l02253">2253</a> der Datei <a class="el" href="output_8c-source.html">output.c</a>.
+<p>
+Benutzt <a class="el" href="output_8c-source.html#l00140">a_ctr</a>, <a class="el" href="hashtab_8h-source.html#l00038">unode::count</a>, <a class="el" href="webalizer_8c-source.html#l00171">cur_month</a>, <a class="el" href="webalizer_8c-source.html#l00171">cur_year</a>, <a class="el" href="webalizer_8c-source.html#l00134">dump_ext</a>, <a class="el" href="webalizer_8c-source.html#l00168">dump_header</a>, <a class="el" href="webalizer_8c-source.html#l00169">dump_path</a>, <a class="el" href="hashtab_8h-source.html#l00037">unode::flag</a>, <a class="el" href="lang_8h.html#529f40f7939bbf363a37235b1b209b62">msg_h_hits</a>, <a class="el" href="lang_8h.html#c2422ae6f0a2e8bdc0caa4fc75645f4b">msg_h_url</a>, <a class="el" href="lang_8h.html#b193be580f6d1d61bb87dfb4e9f8547c">msg_h_xfer</a>, <a class="el" href="hashtab_8h-source.html#l00017">OBJ_GRP</a>, <a class="el" href="output_8c-source.html#l02891">open_out_file()</a>, <a class="el" href="output_8c-source.html#l00142">out_fp</a>, <a class="el" href="hashtab_8h-source.html#l00036">unode::string</a>, <a class="el" href="output_8c-source.html#l00134">u_array</a> und <a class="el" href="hashtab_8h-source.html#l00042">unode::xfer</a>.
+<p>
+Wird benutzt von <a class="el" href="output_8c-source.html#l00325">write_month_html()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="a519e8d866cad7c01f72636d749a9f57"></a><!-- doxytag: member="output.c::dump_all_users" ref="a519e8d866cad7c01f72636d749a9f57" args="()" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">void dump_all_users           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>          </td>
+          <td class="md" valign="top">&nbsp;)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="output_8c-source.html#l02371">2371</a> der Datei <a class="el" href="output_8c-source.html">output.c</a>.
+<p>
+Benutzt <a class="el" href="output_8c-source.html#l00140">a_ctr</a>, <a class="el" href="hashtab_8h-source.html#l00061">inode::count</a>, <a class="el" href="webalizer_8c-source.html#l00171">cur_month</a>, <a class="el" href="webalizer_8c-source.html#l00171">cur_year</a>, <a class="el" href="webalizer_8c-source.html#l00134">dump_ext</a>, <a class="el" href="webalizer_8c-source.html#l00168">dump_header</a>, <a class="el" href="webalizer_8c-source.html#l00169">dump_path</a>, <a class="el" href="hashtab_8h-source.html#l00062">inode::files</a>, <a class="el" href="hashtab_8h-source.html#l00060">inode::flag</a>, <a class="el" href="output_8c-source.html#l00139">i_array</a>, <a class="el" href="lang_8h.html#17cdd1238613c58645be27ec86da138c">msg_h_files</a>, <a class="el" href="lang_8h.html#529f40f7939bbf363a37235b1b209b62">msg_h_hits</a>, <a class="el" href="lang_8h.html#04b9008a2c6d6752de424ad84772f803">msg_h_uname</a>, <a class="el" href="lang_8h.html#daf199b209b9dd7996804b6018b8539f">msg_h_visits</a>, <a class="el" href="lang_8h.html#b193be580f6d1d61bb87dfb4e9f8547c">msg_h_xfer</a>, <a class="el" href="hashtab_8h-source.html#l00017">OBJ_GRP</a>, <a class="el" href="output_8c-source.html#l02891">open_out_file()</a>, <a class="el" href="output_8c-source.html#l00142">out_fp</a>, <a class="el" href="hashtab_8h-source.html#l00059">inode::string</a>, <a class="el" href="hashtab_8h-source.html#l00063">inode::visit</a> und <a class="el" href="hashtab_8h-source.html#l00065">inode::xfer</a>.
+<p>
+Wird benutzt von <a class="el" href="output_8c-source.html#l00325">write_month_html()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="bed9fdc7ecf13c9399e3e41bd583abd9"></a><!-- doxytag: member="output.c::hourly_total_table" ref="bed9fdc7ecf13c9399e3e41bd583abd9" args="()" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">void hourly_total_table           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>          </td>
+          <td class="md" valign="top">&nbsp;)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="output_8c-source.html#l00881">881</a> der Datei <a class="el" href="output_8c-source.html">output.c</a>.
+<p>
+Benutzt <a class="el" href="webalizer_8c-source.html#l00171">cur_month</a>, <a class="el" href="webalizer_8c-source.html#l00171">cur_year</a>, <a class="el" href="output_8c-source.html#l00130">CYAN</a>, <a class="el" href="output_8c-source.html#l00125">DKGREEN</a>, <a class="el" href="webalizer_8c-source.html#l00203">f_day</a>, <a class="el" href="output_8c-source.html#l00126">GREY</a>, <a class="el" href="webalizer_8c-source.html#l00203">l_day</a>, <a class="el" href="lang_8h.html#e75828f9450cccbb02d410d60a6caa1d">l_month</a>, <a class="el" href="output_8c-source.html#l00122">LTBLUE</a>, <a class="el" href="lang_8h.html#41aae7d7f619d71ff5b47f541d3c8dfd">msg_h_avg</a>, <a class="el" href="lang_8h.html#17cdd1238613c58645be27ec86da138c">msg_h_files</a>, <a class="el" href="lang_8h.html#529f40f7939bbf363a37235b1b209b62">msg_h_hits</a>, <a class="el" href="lang_8h.html#75d18a9846e48af78b39df85c88b425e">msg_h_hour</a>, <a class="el" href="lang_8h.html#db4c9ee2d878d68d50a008b354042927">msg_h_pages</a>, <a class="el" href="lang_8h.html#55b57954b9d1fe93bc7ddd126a839db0">msg_h_total</a>, <a class="el" href="lang_8h.html#b193be580f6d1d61bb87dfb4e9f8547c">msg_h_xfer</a>, <a class="el" href="lang_8h.html#5b672337bba98d0ce3e3f0b458bb764e">msg_htot_hs</a>, <a class="el" href="output_8c-source.html#l00142">out_fp</a>, <a class="el" href="webalizer_8h-source.html#l00004">PCENT</a>, <a class="el" href="output_8c-source.html#l00120">RED</a>, <a class="el" href="webalizer_8c-source.html#l00184">t_file</a>, <a class="el" href="webalizer_8c-source.html#l00184">t_hit</a>, <a class="el" href="webalizer_8c-source.html#l00186">t_page</a>, <a class="el" href="webalizer_8c-source.html#l00183">t_xfer</a>, <a class="el" href="webalizer_8c-source.html#l00198">th_file</a>, <a class="el" href="webalizer_8c-source.html#l00198">th_hit</a>, <a class="el" href="webalizer_8c-source.html#l00198">th_page</a> und <a class="el" href="webalizer_8c-source.html#l00201">th_xfer</a>.
+<p>
+Wird benutzt von <a class="el" href="output_8c-source.html#l00325">write_month_html()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="695c31f8c5d53bf9a1b112cccd36740f"></a><!-- doxytag: member="output.c::load_agent_array" ref="695c31f8c5d53bf9a1b112cccd36740f" args="(ANODEPTR *)" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">u_long load_agent_array           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="structanode.html">ANODEPTR</a> *&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>          </td>
+          <td class="md" valign="top">&nbsp;)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="output_8c-source.html#l02819">2819</a> der Datei <a class="el" href="output_8c-source.html">output.c</a>.
+<p>
+Benutzt <a class="el" href="hashtab_8c-source.html#l00090">am_htab</a>, <a class="el" href="webalizer_8h-source.html#l00015">MAXHASH</a> und <a class="el" href="hashtab_8h-source.html#l00053">anode::next</a>.
+<p>
+Wird benutzt von <a class="el" href="output_8c-source.html#l00325">write_month_html()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="78caf44e7545035a80e85f498cb9e471"></a><!-- doxytag: member="output.c::load_ident_array" ref="78caf44e7545035a80e85f498cb9e471" args="(INODEPTR *)" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">u_long load_ident_array           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="structinode.html">INODEPTR</a> *&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>          </td>
+          <td class="md" valign="top">&nbsp;)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="output_8c-source.html#l02867">2867</a> der Datei <a class="el" href="output_8c-source.html">output.c</a>.
+<p>
+Benutzt <a class="el" href="hashtab_8c-source.html#l00092">im_htab</a>, <a class="el" href="webalizer_8h-source.html#l00015">MAXHASH</a> und <a class="el" href="hashtab_8h-source.html#l00066">inode::next</a>.
+<p>
+Wird benutzt von <a class="el" href="output_8c-source.html#l00325">write_month_html()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="4fe67ad14b790d3dabec4fc028e338c5"></a><!-- doxytag: member="output.c::load_ref_array" ref="4fe67ad14b790d3dabec4fc028e338c5" args="(RNODEPTR *)" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">u_long load_ref_array           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="structrnode.html">RNODEPTR</a> *&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>          </td>
+          <td class="md" valign="top">&nbsp;)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="output_8c-source.html#l02795">2795</a> der Datei <a class="el" href="output_8c-source.html">output.c</a>.
+<p>
+Benutzt <a class="el" href="webalizer_8h-source.html#l00015">MAXHASH</a>, <a class="el" href="hashtab_8h-source.html#l00048">rnode::next</a> und <a class="el" href="hashtab_8c-source.html#l00089">rm_htab</a>.
+<p>
+Wird benutzt von <a class="el" href="output_8c-source.html#l00325">write_month_html()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="12790ed69b92f9024071f8e8ba312ee3"></a><!-- doxytag: member="output.c::load_site_array" ref="12790ed69b92f9024071f8e8ba312ee3" args="(HNODEPTR *)" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">u_long load_site_array           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="structhnode.html">HNODEPTR</a> *&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>          </td>
+          <td class="md" valign="top">&nbsp;)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="output_8c-source.html#l02747">2747</a> der Datei <a class="el" href="output_8c-source.html">output.c</a>.
+<p>
+Benutzt <a class="el" href="webalizer_8h-source.html#l00015">MAXHASH</a>, <a class="el" href="hashtab_8h-source.html#l00034">hnode::next</a> und <a class="el" href="hashtab_8c-source.html#l00086">sm_htab</a>.
+<p>
+Wird benutzt von <a class="el" href="output_8c-source.html#l00325">write_month_html()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="d3eb19f2c468e374066739cccec7d3d4"></a><!-- doxytag: member="output.c::load_srch_array" ref="d3eb19f2c468e374066739cccec7d3d4" args="(SNODEPTR *)" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">u_long load_srch_array           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="structsnode.html">SNODEPTR</a> *&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>          </td>
+          <td class="md" valign="top">&nbsp;)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="output_8c-source.html#l02843">2843</a> der Datei <a class="el" href="output_8c-source.html">output.c</a>.
+<p>
+Benutzt <a class="el" href="webalizer_8h-source.html#l00015">MAXHASH</a>, <a class="el" href="hashtab_8h-source.html#l00057">snode::next</a> und <a class="el" href="hashtab_8c-source.html#l00091">sr_htab</a>.
+<p>
+Wird benutzt von <a class="el" href="output_8c-source.html#l00325">write_month_html()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="0d5c8398a3b959aa372077fda3f78fff"></a><!-- doxytag: member="output.c::load_url_array" ref="0d5c8398a3b959aa372077fda3f78fff" args="(UNODEPTR *)" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">u_long load_url_array           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="structunode.html">UNODEPTR</a> *&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>          </td>
+          <td class="md" valign="top">&nbsp;)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="output_8c-source.html#l02771">2771</a> der Datei <a class="el" href="output_8c-source.html">output.c</a>.
+<p>
+Benutzt <a class="el" href="webalizer_8h-source.html#l00015">MAXHASH</a>, <a class="el" href="hashtab_8h-source.html#l00043">unode::next</a> und <a class="el" href="hashtab_8c-source.html#l00088">um_htab</a>.
+<p>
+Wird benutzt von <a class="el" href="output_8c-source.html#l00325">write_month_html()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="267f41fceee149a1e7eeb4ee30ee5f09"></a><!-- doxytag: member="output.c::month_error_table" ref="267f41fceee149a1e7eeb4ee30ee5f09" args="()" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">void month_error_table           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>          </td>
+          <td class="md" valign="top">&nbsp;)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="output_8c-source.html#l00715">715</a> der Datei <a class="el" href="output_8c-source.html">output.c</a>.
+<p>
+Benutzt <a class="el" href="webalizer_8h-source.html#l00134">response_url::count</a>, <a class="el" href="webalizer_8h-source.html#l00137">responsetmp_url::count</a>, <a class="el" href="webalizer_8h-source.html#l00139">resp_counter</a>, <a class="el" href="webalizer_8h-source.html#l00135">respnotfound</a>, <a class="el" href="webalizer_8h-source.html#l00138">respnotfoundtmp</a>, <a class="el" href="webalizer_8h-source.html#l00133">response_url::respurl</a> und <a class="el" href="webalizer_8h-source.html#l00136">responsetmp_url::respurl</a>.
+<p>
+Wird benutzt von <a class="el" href="output_8c-source.html#l00325">write_month_html()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="88fc4fa78dab50f356e5daebd1c0efcb"></a><!-- doxytag: member="output.c::month_links" ref="88fc4fa78dab50f356e5daebd1c0efcb" args="()" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">void month_links           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>          </td>
+          <td class="md" valign="top">&nbsp;)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="output_8c-source.html#l00537">537</a> der Datei <a class="el" href="output_8c-source.html">output.c</a>.
+<p>
+Benutzt <a class="el" href="webalizer_8c-source.html#l00115">daily_graph</a>, <a class="el" href="webalizer_8c-source.html#l00116">daily_stats</a>, <a class="el" href="webalizer_8c-source.html#l00113">hourly_graph</a>, <a class="el" href="webalizer_8c-source.html#l00114">hourly_stats</a>, <a class="el" href="lang_8h.html#63bc4c24fa58aadfe6b07847a5385727">msg_hlnk_a</a>, <a class="el" href="lang_8h.html#db006844c6196bd298ae047e146032c6">msg_hlnk_c</a>, <a class="el" href="lang_8h.html#f477d45ee4c0a42dd8e2badd00583eb3">msg_hlnk_ds</a>, <a class="el" href="lang_8h.html#cfa5f6db28bff540ecfe2ee1f05323c2">msg_hlnk_en</a>, <a class="el" href="lang_8h.html#295cbfa997b35a310627cd5efd8e6634">msg_hlnk_ex</a>, <a class="el" href="lang_8h.html#eae96628c726d260b32e2d22d1d37960">msg_hlnk_hs</a>, <a class="el" href="lang_8h.html#20fdd1ef12a927f7b070c9fe5b21fe8a">msg_hlnk_i</a>, <a class="el" href="lang_8h.html#97ec2c175568d35b3720480b56bc5e5e">msg_hlnk_r</a>, <a class="el" href="lang_8h.html#cfaa06480a2bdd2784ddd82913829eb5">msg_hlnk_s</a>, <a class="el" href="lang_8h.html#6dfdb6f431662bebeaab6328c39c6193">msg_hlnk_sr</a>, <a class="el" href="lang_8h.html#f4980dbff649e1801ea68f5dbd556ab5">msg_hlnk_u</a>, <a class="el" href="webalizer_8c-source.html#l00149">ntop_agents</a>, <a class="el" href="webalizer_8c-source.html#l00150">ntop_ctrys</a>, <a class="el" href="webalizer_8c-source.html#l00146">ntop_entry</a>, <a class="el" href="webalizer_8c-source.html#l00147">ntop_exit</a>, <a class="el" href="webalizer_8c-source.html#l00153">ntop_notfound</a>, <a class="el" href="webalizer_8c-source.html#l00148">ntop_refs</a>, <a class="el" href="webalizer_8c-source.html#l00151">ntop_search</a>, <a class="el" href="webalizer_8c-source.html#l00142">ntop_sites</a>, <a class="el" href="webalizer_8c-source.html#l00143">ntop_sitesK</a>, <a class="el" href="webalizer_8c-source.html#l00144">ntop_urls</a>, <a class="el" href="webalizer_8c-source.html#l00145">ntop_urlsK</a>, <a class="el" href="webalizer_8c-source.html#l00152">ntop_users</a>, <a class="el" href="output_8c-source.html#l00142">out_fp</a>, <a class="el" href="lang_8h.html#6fbb1449f14f39208f656061d49c280b">response</a>, <a class="el" href="webalizer_8c-source.html#l00185">t_agent</a>, <a class="el" href="webalizer_8c-source.html#l00185">t_ref</a> und <a class="el" href="webalizer_8c-source.html#l00186">t_user</a>.
+<p>
+Wird benutzt von <a class="el" href="output_8c-source.html#l00325">write_month_html()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="f2c834f471b87d6264d3694c8257382c"></a><!-- doxytag: member="output.c::month_total_table" ref="f2c834f471b87d6264d3694c8257382c" args="()" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">void month_total_table           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>          </td>
+          <td class="md" valign="top">&nbsp;)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="output_8c-source.html#l00571">571</a> der Datei <a class="el" href="output_8c-source.html">output.c</a>.
+<p>
+Benutzt <a class="el" href="webalizer_8c-source.html#l00203">f_day</a>, <a class="el" href="webalizer_8c-source.html#l00203">l_day</a>, <a class="el" href="webalizer_8c-source.html#l00190">tm_file</a>, <a class="el" href="webalizer_8c-source.html#l00190">tm_hit</a>, <a class="el" href="webalizer_8c-source.html#l00190">tm_page</a>, <a class="el" href="webalizer_8c-source.html#l00190">tm_visit</a> und <a class="el" href="webalizer_8c-source.html#l00188">tm_xfer</a>.
+<p>
+Wird benutzt von <a class="el" href="output_8c-source.html#l00325">write_month_html()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="837e8afa754fafe8bf3e4e71da7db321"></a><!-- doxytag: member="output.c::open_out_file" ref="837e8afa754fafe8bf3e4e71da7db321" args="(char *filename)" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">FILE* open_out_file           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top">char *&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap> <em>filename</em>          </td>
+          <td class="md" valign="top">&nbsp;)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="output_8c-source.html#l02891">2891</a> der Datei <a class="el" href="output_8c-source.html">output.c</a>.
+<p>
+Benutzt <a class="el" href="lang_8h.html#ec2af564e53fa3fd26d6c38709369ae7">msg_no_open</a>, <a class="el" href="output_8c-source.html#l00142">out_fp</a> und <a class="el" href="webalizer_8c-source.html#l00108">verbose</a>.
+<p>
+Wird benutzt von <a class="el" href="output_8c-source.html#l01713">all_agents_page()</a>, <a class="el" href="output_8c-source.html#l01561">all_refs_page()</a>, <a class="el" href="output_8c-source.html#l01846">all_search_page()</a>, <a class="el" href="output_8c-source.html#l01085">all_sites_page()</a>, <a class="el" href="output_8c-source.html#l01290">all_urls_page()</a>, <a class="el" href="output_8c-source.html#l01990">all_users_page()</a>, <a class="el" href="output_8c-source.html#l02332">dump_all_agents()</a>, <a class="el" href="output_8c-source.html#l02293">dump_all_refs()</a>, <a class="el" href="output_8c-source.html#l02414">dump_all_search()</a>, <a class="el" href="output_8c-source.html#l02210">dump_all_sites()</a>, <a class="el" href="output_8c-source.html#l02253">dump_all_urls()</a>, <a class="el" href="output_8c-source.html#l02371">dump_all_users()</a> und <a class="el" href="output_8c-source.html#l00325">write_month_html()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="72a92b6a4155e75b035247485efacd27"></a><!-- doxytag: member="output.c::qs_agnt_cmph" ref="72a92b6a4155e75b035247485efacd27" args="(const void *, const void *)" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">int qs_agnt_cmph           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top">const void *&nbsp;</td>
+          <td class="mdname" nowrap>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>const void *&nbsp;</td>
+          <td class="mdname" nowrap></td>
+        </tr>
+        <tr>
+          <td class="md"></td>
+          <td class="md">)&nbsp;</td>
+          <td class="md" colspan="2"></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="output_8c-source.html#l02702">2702</a> der Datei <a class="el" href="output_8c-source.html">output.c</a>.
+<p>
+Wird benutzt von <a class="el" href="output_8c-source.html#l00325">write_month_html()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="ab10c25bdfd5abd8dda51817fa9027cd"></a><!-- doxytag: member="output.c::qs_ident_cmph" ref="ab10c25bdfd5abd8dda51817fa9027cd" args="(const void *, const void *)" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">int qs_ident_cmph           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top">const void *&nbsp;</td>
+          <td class="mdname" nowrap>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>const void *&nbsp;</td>
+          <td class="mdname" nowrap></td>
+        </tr>
+        <tr>
+          <td class="md"></td>
+          <td class="md">)&nbsp;</td>
+          <td class="md" colspan="2"></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="output_8c-source.html#l02732">2732</a> der Datei <a class="el" href="output_8c-source.html">output.c</a>.
+<p>
+Wird benutzt von <a class="el" href="output_8c-source.html#l00325">write_month_html()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="629673e2af2406711232e87efa863b16"></a><!-- doxytag: member="output.c::qs_ident_cmpk" ref="629673e2af2406711232e87efa863b16" args="(const void *, const void *)" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">int qs_ident_cmpk           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top">const void *&nbsp;</td>
+          <td class="mdname" nowrap>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>const void *&nbsp;</td>
+          <td class="mdname" nowrap></td>
+        </tr>
+        <tr>
+          <td class="md"></td>
+          <td class="md">)&nbsp;</td>
+          <td class="md" colspan="2"></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+    </td>
+  </tr>
+</table>
+<a class="anchor" name="9fcda824a6cb67eea93f6c873ce382e2"></a><!-- doxytag: member="output.c::qs_ref_cmph" ref="9fcda824a6cb67eea93f6c873ce382e2" args="(const void *, const void *)" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">int qs_ref_cmph           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top">const void *&nbsp;</td>
+          <td class="mdname" nowrap>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>const void *&nbsp;</td>
+          <td class="mdname" nowrap></td>
+        </tr>
+        <tr>
+          <td class="md"></td>
+          <td class="md">)&nbsp;</td>
+          <td class="md" colspan="2"></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="output_8c-source.html#l02687">2687</a> der Datei <a class="el" href="output_8c-source.html">output.c</a>.
+<p>
+Wird benutzt von <a class="el" href="output_8c-source.html#l00325">write_month_html()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="322ce92d71bc2e3c8d61c5edfa937b66"></a><!-- doxytag: member="output.c::qs_site_cmph" ref="322ce92d71bc2e3c8d61c5edfa937b66" args="(const void *, const void *)" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">int qs_site_cmph           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top">const void *&nbsp;</td>
+          <td class="mdname" nowrap>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>const void *&nbsp;</td>
+          <td class="mdname" nowrap></td>
+        </tr>
+        <tr>
+          <td class="md"></td>
+          <td class="md">)&nbsp;</td>
+          <td class="md" colspan="2"></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="output_8c-source.html#l02597">2597</a> der Datei <a class="el" href="output_8c-source.html">output.c</a>.
+<p>
+Wird benutzt von <a class="el" href="output_8c-source.html#l00972">top_sites_table()</a> und <a class="el" href="output_8c-source.html#l00325">write_month_html()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="0fe214a5ca06da7ea31019f2491f690f"></a><!-- doxytag: member="output.c::qs_site_cmpk" ref="0fe214a5ca06da7ea31019f2491f690f" args="(const void *, const void *)" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">int qs_site_cmpk           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top">const void *&nbsp;</td>
+          <td class="mdname" nowrap>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>const void *&nbsp;</td>
+          <td class="mdname" nowrap></td>
+        </tr>
+        <tr>
+          <td class="md"></td>
+          <td class="md">)&nbsp;</td>
+          <td class="md" colspan="2"></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="output_8c-source.html#l02612">2612</a> der Datei <a class="el" href="output_8c-source.html">output.c</a>.
+<p>
+Wird benutzt von <a class="el" href="output_8c-source.html#l00325">write_month_html()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="c696a3022740c5d7e16758e13cd6240d"></a><!-- doxytag: member="output.c::qs_srch_cmph" ref="c696a3022740c5d7e16758e13cd6240d" args="(const void *, const void *)" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">int qs_srch_cmph           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top">const void *&nbsp;</td>
+          <td class="mdname" nowrap>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>const void *&nbsp;</td>
+          <td class="mdname" nowrap></td>
+        </tr>
+        <tr>
+          <td class="md"></td>
+          <td class="md">)&nbsp;</td>
+          <td class="md" colspan="2"></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="output_8c-source.html#l02717">2717</a> der Datei <a class="el" href="output_8c-source.html">output.c</a>.
+<p>
+Wird benutzt von <a class="el" href="output_8c-source.html#l00325">write_month_html()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="aa5ed357df2c1098b3bf0d4fbbf020bb"></a><!-- doxytag: member="output.c::qs_url_cmph" ref="aa5ed357df2c1098b3bf0d4fbbf020bb" args="(const void *, const void *)" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">int qs_url_cmph           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top">const void *&nbsp;</td>
+          <td class="mdname" nowrap>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>const void *&nbsp;</td>
+          <td class="mdname" nowrap></td>
+        </tr>
+        <tr>
+          <td class="md"></td>
+          <td class="md">)&nbsp;</td>
+          <td class="md" colspan="2"></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="output_8c-source.html#l02627">2627</a> der Datei <a class="el" href="output_8c-source.html">output.c</a>.
+<p>
+Wird benutzt von <a class="el" href="output_8c-source.html#l01158">top_urls_table()</a> und <a class="el" href="output_8c-source.html#l00325">write_month_html()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="ba53a184207ad59b18a510a690d29b5d"></a><!-- doxytag: member="output.c::qs_url_cmpk" ref="ba53a184207ad59b18a510a690d29b5d" args="(const void *, const void *)" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">int qs_url_cmpk           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top">const void *&nbsp;</td>
+          <td class="mdname" nowrap>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>const void *&nbsp;</td>
+          <td class="mdname" nowrap></td>
+        </tr>
+        <tr>
+          <td class="md"></td>
+          <td class="md">)&nbsp;</td>
+          <td class="md" colspan="2"></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="output_8c-source.html#l02642">2642</a> der Datei <a class="el" href="output_8c-source.html">output.c</a>.
+<p>
+Wird benutzt von <a class="el" href="output_8c-source.html#l00325">write_month_html()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="3b87c7768eed36e84a622e431b378942"></a><!-- doxytag: member="output.c::qs_url_cmpn" ref="3b87c7768eed36e84a622e431b378942" args="(const void *, const void *)" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">int qs_url_cmpn           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top">const void *&nbsp;</td>
+          <td class="mdname" nowrap>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>const void *&nbsp;</td>
+          <td class="mdname" nowrap></td>
+        </tr>
+        <tr>
+          <td class="md"></td>
+          <td class="md">)&nbsp;</td>
+          <td class="md" colspan="2"></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="output_8c-source.html#l02657">2657</a> der Datei <a class="el" href="output_8c-source.html">output.c</a>.
+<p>
+Wird benutzt von <a class="el" href="output_8c-source.html#l00325">write_month_html()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="9fb87dcc576463c9ce98593782734d59"></a><!-- doxytag: member="output.c::qs_url_cmpx" ref="9fb87dcc576463c9ce98593782734d59" args="(const void *, const void *)" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">int qs_url_cmpx           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top">const void *&nbsp;</td>
+          <td class="mdname" nowrap>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>const void *&nbsp;</td>
+          <td class="mdname" nowrap></td>
+        </tr>
+        <tr>
+          <td class="md"></td>
+          <td class="md">)&nbsp;</td>
+          <td class="md" colspan="2"></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="output_8c-source.html#l02672">2672</a> der Datei <a class="el" href="output_8c-source.html">output.c</a>.
+<p>
+Wird benutzt von <a class="el" href="output_8c-source.html#l00325">write_month_html()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="55f5637d81e4b2847ea889ac14cbcc6b"></a><!-- doxytag: member="output.c::top_agents_table" ref="55f5637d81e4b2847ea889ac14cbcc6b" args="()" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">void top_agents_table           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>          </td>
+          <td class="md" valign="top">&nbsp;)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="output_8c-source.html#l01623">1623</a> der Datei <a class="el" href="output_8c-source.html">output.c</a>.
+<p>
+Benutzt <a class="el" href="output_8c-source.html#l00137">a_array</a>, <a class="el" href="output_8c-source.html#l00140">a_ctr</a>, <a class="el" href="webalizer_8c-source.html#l00158">all_agents</a>, <a class="el" href="output_8c-source.html#l01713">all_agents_page()</a>, <a class="el" href="hashtab_8h-source.html#l00052">anode::count</a>, <a class="el" href="webalizer_8c-source.html#l00171">cur_month</a>, <a class="el" href="webalizer_8c-source.html#l00171">cur_year</a>, <a class="el" href="output_8c-source.html#l00130">CYAN</a>, <a class="el" href="output_8c-source.html#l00125">DKGREEN</a>, <a class="el" href="hashtab_8h-source.html#l00051">anode::flag</a>, <a class="el" href="output_8c-source.html#l00126">GREY</a>, <a class="el" href="output_8c-source.html#l00131">GRPCOLOR</a>, <a class="el" href="webalizer_8c-source.html#l00119">hlite_groups</a>, <a class="el" href="webalizer_8c-source.html#l00133">html_ext</a>, <a class="el" href="lang_8h.html#88ef492f810cce55301b0422c8c135ec">msg_h_agent</a>, <a class="el" href="lang_8h.html#529f40f7939bbf363a37235b1b209b62">msg_h_hits</a>, <a class="el" href="lang_8h.html#11ec258902060597b0beb56257c32dd0">msg_top_a</a>, <a class="el" href="lang_8h.html#b3bbb0a05acd36a0ca6f294ddedf5576">msg_top_of</a>, <a class="el" href="lang_8h.html#ccd25ad9dd7b9fb588071f55d6a3c98c">msg_top_top</a>, <a class="el" href="lang_8h.html#e4c3f02df2f45e19ffab7bd99d0169d2">msg_v_agents</a>, <a class="el" href="webalizer_8c-source.html#l00149">ntop_agents</a>, <a class="el" href="hashtab_8h-source.html#l00017">OBJ_GRP</a>, <a class="el" href="hashtab_8h-source.html#l00016">OBJ_HIDE</a>, <a class="el" href="hashtab_8h-source.html#l00015">OBJ_REG</a>, <a class="el" href="output_8c-source.html#l00142">out_fp</a>, <a class="el" href="webalizer_8c-source.html#l00118">shade_groups</a>, <a class="el" href="hashtab_8h-source.html#l00050">anode::string</a>, <a class="el" href="webalizer_8c-source.html#l00185">t_agent</a> und <a class="el" href="webalizer_8c-source.html#l00184">t_hit</a>.
+<p>
+Wird benutzt von <a class="el" href="output_8c-source.html#l00325">write_month_html()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="c1ecb6ecbe9f7218b2e9ccae79cf2f5f"></a><!-- doxytag: member="output.c::top_ctry_table" ref="c1ecb6ecbe9f7218b2e9ccae79cf2f5f" args="()" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">void top_ctry_table           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>          </td>
+          <td class="md" valign="top">&nbsp;)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="output_8c-source.html#l02063">2063</a> der Datei <a class="el" href="output_8c-source.html">output.c</a>.
+<p>
+Benutzt <a class="el" href="hashtab_8h-source.html#l00028">hnode::count</a>, <a class="el" href="webalizer_8h-source.html#l00137">responsetmp_url::count</a>, <a class="el" href="lang_8h.html#2da4e4ffd517ae749587bd8692434663">ctry</a>, <a class="el" href="webalizer_8c-source.html#l00117">ctry_graph</a>, <a class="el" href="hashtab_8h-source.html#l00029">hnode::files</a>, <a class="el" href="webalizer_8h-source.html#l00145">country_code::files</a>, <a class="el" href="hashtab_8h-source.html#l00027">hnode::flag</a>, <a class="el" href="webalizer_8h-source.html#l00015">MAXHASH</a>, <a class="el" href="hashtab_8h-source.html#l00017">OBJ_GRP</a>, <a class="el" href="hashtab_8c-source.html#l00086">sm_htab</a>, <a class="el" href="hashtab_8h-source.html#l00026">hnode::string</a>, <a class="el" href="hashtab_8h-source.html#l00033">hnode::xfer</a> und <a class="el" href="webalizer_8h-source.html#l00146">country_code::xfer</a>.
+<p>
+Wird benutzt von <a class="el" href="output_8c-source.html#l00325">write_month_html()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="72037da3c986417f62837bb8c96b60c0"></a><!-- doxytag: member="output.c::top_entry_table" ref="72037da3c986417f62837bb8c96b60c0" args="(int)" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">void top_entry_table           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top">int&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>          </td>
+          <td class="md" valign="top">&nbsp;)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="output_8c-source.html#l01359">1359</a> der Datei <a class="el" href="output_8c-source.html">output.c</a>.
+<p>
+Benutzt <a class="el" href="output_8c-source.html#l00140">a_ctr</a>, <a class="el" href="hashtab_8h-source.html#l00038">unode::count</a>, <a class="el" href="output_8c-source.html#l00130">CYAN</a>, <a class="el" href="output_8c-source.html#l00125">DKGREEN</a>, <a class="el" href="hashtab_8h-source.html#l00040">unode::entry</a>, <a class="el" href="hashtab_8h-source.html#l00041">unode::exit</a>, <a class="el" href="hashtab_8h-source.html#l00037">unode::flag</a>, <a class="el" href="output_8c-source.html#l00126">GREY</a>, <a class="el" href="webalizer_8c-source.html#l00130">hname</a>, <a class="el" href="lang_8h.html#529f40f7939bbf363a37235b1b209b62">msg_h_hits</a>, <a class="el" href="lang_8h.html#c2422ae6f0a2e8bdc0caa4fc75645f4b">msg_h_url</a>, <a class="el" href="lang_8h.html#daf199b209b9dd7996804b6018b8539f">msg_h_visits</a>, <a class="el" href="lang_8h.html#8a3ac5eed2948b107c70b2d89b9c8605">msg_top_en</a>, <a class="el" href="lang_8h.html#12234dbbb8a0a93eb2f2b43ea58e07d9">msg_top_ex</a>, <a class="el" href="lang_8h.html#b3bbb0a05acd36a0ca6f294ddedf5576">msg_top_of</a>, <a class="el" href="lang_8h.html#ccd25ad9dd7b9fb588071f55d6a3c98c">msg_top_top</a>, <a class="el" href="webalizer_8c-source.html#l00146">ntop_entry</a>, <a class="el" href="webalizer_8c-source.html#l00147">ntop_exit</a>, <a class="el" href="hashtab_8h-source.html#l00016">OBJ_HIDE</a>, <a class="el" href="hashtab_8h-source.html#l00015">OBJ_REG</a>, <a class="el" href="output_8c-source.html#l00142">out_fp</a>, <a class="el" href="hashtab_8h-source.html#l00036">unode::string</a>, <a class="el" href="webalizer_8c-source.html#l00184">t_hit</a>, <a class="el" href="output_8c-source.html#l00134">u_array</a>, <a class="el" href="webalizer_8c-source.html#l00122">use_https</a> und <a class="el" href="output_8c-source.html#l00128">YELLOW</a>.
+<p>
+Wird benutzt von <a class="el" href="output_8c-source.html#l00325">write_month_html()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="f175d11f499a6782ad34c4b21f6891e1"></a><!-- doxytag: member="output.c::top_refs_table" ref="f175d11f499a6782ad34c4b21f6891e1" args="()" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">void top_refs_table           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>          </td>
+          <td class="md" valign="top">&nbsp;)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="output_8c-source.html#l01461">1461</a> der Datei <a class="el" href="output_8c-source.html">output.c</a>.
+<p>
+Benutzt <a class="el" href="output_8c-source.html#l00140">a_ctr</a>, <a class="el" href="webalizer_8c-source.html#l00157">all_refs</a>, <a class="el" href="output_8c-source.html#l01561">all_refs_page()</a>, <a class="el" href="hashtab_8h-source.html#l00047">rnode::count</a>, <a class="el" href="webalizer_8c-source.html#l00171">cur_month</a>, <a class="el" href="webalizer_8c-source.html#l00171">cur_year</a>, <a class="el" href="output_8c-source.html#l00130">CYAN</a>, <a class="el" href="output_8c-source.html#l00125">DKGREEN</a>, <a class="el" href="hashtab_8h-source.html#l00046">rnode::flag</a>, <a class="el" href="output_8c-source.html#l00126">GREY</a>, <a class="el" href="output_8c-source.html#l00131">GRPCOLOR</a>, <a class="el" href="webalizer_8c-source.html#l00119">hlite_groups</a>, <a class="el" href="webalizer_8c-source.html#l00133">html_ext</a>, <a class="el" href="lang_8h.html#529f40f7939bbf363a37235b1b209b62">msg_h_hits</a>, <a class="el" href="lang_8h.html#044f17c6b922b4c62fcd9d60dc5743b6">msg_h_ref</a>, <a class="el" href="lang_8h.html#b3bbb0a05acd36a0ca6f294ddedf5576">msg_top_of</a>, <a class="el" href="lang_8h.html#83e30a010661cb0cfce5f54890d50b56">msg_top_r</a>, <a class="el" href="lang_8h.html#ccd25ad9dd7b9fb588071f55d6a3c98c">msg_top_top</a>, <a class="el" href="lang_8h.html#26ccd1f09cf35a65c0ad152c9d44be8a">msg_v_refs</a>, <a class="el" href="webalizer_8c-source.html#l00148">ntop_refs</a>, <a class="el" href="hashtab_8h-source.html#l00017">OBJ_GRP</a>, <a class="el" href="hashtab_8h-source.html#l00016">OBJ_HIDE</a>, <a class="el" href="hashtab_8h-source.html#l00015">OBJ_REG</a>, <a class="el" href="output_8c-source.html#l00142">out_fp</a>, <a class="el" href="output_8c-source.html#l00136">r_array</a>, <a class="el" href="webalizer_8c-source.html#l00118">shade_groups</a>, <a class="el" href="hashtab_8h-source.html#l00045">rnode::string</a>, <a class="el" href="webalizer_8c-source.html#l00184">t_hit</a> und <a class="el" href="webalizer_8c-source.html#l00185">t_ref</a>.
+<p>
+Wird benutzt von <a class="el" href="output_8c-source.html#l00325">write_month_html()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="69ab2fc5b74afcb9c52ad9e0906cde88"></a><!-- doxytag: member="output.c::top_search_table" ref="69ab2fc5b74afcb9c52ad9e0906cde88" args="()" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">void top_search_table           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>          </td>
+          <td class="md" valign="top">&nbsp;)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="output_8c-source.html#l01775">1775</a> der Datei <a class="el" href="output_8c-source.html">output.c</a>.
+<p>
+Benutzt <a class="el" href="output_8c-source.html#l00140">a_ctr</a>, <a class="el" href="webalizer_8c-source.html#l00159">all_search</a>, <a class="el" href="output_8c-source.html#l01846">all_search_page()</a>, <a class="el" href="hashtab_8h-source.html#l00056">snode::count</a>, <a class="el" href="webalizer_8c-source.html#l00171">cur_month</a>, <a class="el" href="webalizer_8c-source.html#l00171">cur_year</a>, <a class="el" href="output_8c-source.html#l00130">CYAN</a>, <a class="el" href="output_8c-source.html#l00125">DKGREEN</a>, <a class="el" href="output_8c-source.html#l00126">GREY</a>, <a class="el" href="output_8c-source.html#l00131">GRPCOLOR</a>, <a class="el" href="webalizer_8c-source.html#l00133">html_ext</a>, <a class="el" href="lang_8h.html#529f40f7939bbf363a37235b1b209b62">msg_h_hits</a>, <a class="el" href="lang_8h.html#a60f1bd74d1fb88de31964981fc8d0d6">msg_h_search</a>, <a class="el" href="lang_8h.html#b3bbb0a05acd36a0ca6f294ddedf5576">msg_top_of</a>, <a class="el" href="lang_8h.html#ac25e2239379aa97235561ba1b44c6ef">msg_top_sr</a>, <a class="el" href="lang_8h.html#ccd25ad9dd7b9fb588071f55d6a3c98c">msg_top_top</a>, <a class="el" href="lang_8h.html#0565fe1151bc9dd5de181b2d1de42350">msg_v_search</a>, <a class="el" href="webalizer_8c-source.html#l00151">ntop_search</a>, <a class="el" href="output_8c-source.html#l00142">out_fp</a>, <a class="el" href="output_8c-source.html#l00138">s_array</a>, <a class="el" href="hashtab_8h-source.html#l00055">snode::string</a> und <a class="el" href="webalizer_8c-source.html#l00185">t_ref</a>.
+<p>
+Wird benutzt von <a class="el" href="output_8c-source.html#l00325">write_month_html()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="8459026bf062636220025d736ae99fa7"></a><!-- doxytag: member="output.c::top_sites_table" ref="8459026bf062636220025d736ae99fa7" args="(int)" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">void top_sites_table           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top">int&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>          </td>
+          <td class="md" valign="top">&nbsp;)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="output_8c-source.html#l00972">972</a> der Datei <a class="el" href="output_8c-source.html">output.c</a>.
+<p>
+Benutzt <a class="el" href="output_8c-source.html#l00140">a_ctr</a>, <a class="el" href="webalizer_8c-source.html#l00155">all_sites</a>, <a class="el" href="output_8c-source.html#l01085">all_sites_page()</a>, <a class="el" href="hashtab_8h-source.html#l00028">hnode::count</a>, <a class="el" href="webalizer_8c-source.html#l00171">cur_month</a>, <a class="el" href="webalizer_8c-source.html#l00171">cur_year</a>, <a class="el" href="output_8c-source.html#l00130">CYAN</a>, <a class="el" href="output_8c-source.html#l00125">DKGREEN</a>, <a class="el" href="hashtab_8h-source.html#l00029">hnode::files</a>, <a class="el" href="hashtab_8h-source.html#l00027">hnode::flag</a>, <a class="el" href="output_8c-source.html#l00126">GREY</a>, <a class="el" href="output_8c-source.html#l00131">GRPCOLOR</a>, <a class="el" href="output_8c-source.html#l00135">h_array</a>, <a class="el" href="webalizer_8c-source.html#l00119">hlite_groups</a>, <a class="el" href="webalizer_8c-source.html#l00133">html_ext</a>, <a class="el" href="output_8c-source.html#l00122">LTBLUE</a>, <a class="el" href="lang_8h.html#445f2712cd567c8d33b7fb797843dea0">msg_h_by</a>, <a class="el" href="lang_8h.html#17cdd1238613c58645be27ec86da138c">msg_h_files</a>, <a class="el" href="lang_8h.html#529f40f7939bbf363a37235b1b209b62">msg_h_hits</a>, <a class="el" href="lang_8h.html#389648e11c07ae97a6c19e049401a01f">msg_h_hname</a>, <a class="el" href="lang_8h.html#daf199b209b9dd7996804b6018b8539f">msg_h_visits</a>, <a class="el" href="lang_8h.html#b193be580f6d1d61bb87dfb4e9f8547c">msg_h_xfer</a>, <a class="el" href="lang_8h.html#b3bbb0a05acd36a0ca6f294ddedf5576">msg_top_of</a>, <a class="el" href="lang_8h.html#56698ea4f9c0b356cf97ee37ff53ff2f">msg_top_s</a>, <a class="el" href="lang_8h.html#ccd25ad9dd7b9fb588071f55d6a3c98c">msg_top_top</a>, <a class="el" href="lang_8h.html#7bbd861b776a38bd532d4f29b0735a50">msg_v_sites</a>, <a class="el" href="webalizer_8c-source.html#l00142">ntop_sites</a>, <a class="el" href="webalizer_8c-source.html#l00143">ntop_sitesK</a>, <a class="el" href="hashtab_8h-source.html#l00017">OBJ_GRP</a>, <a class="el" href="hashtab_8h-source.html#l00016">OBJ_HIDE</a>, <a class="el" href="hashtab_8h-source.html#l00015">OBJ_REG</a>, <a class="el" href="output_8c-source.html#l00142">out_fp</a>, <a class="el" href="output_8c-source.html#l02597">qs_site_cmph()</a>, <a class="el" href="output_8c-source.html#l00120">RED</a>, <a class="el" href="webalizer_8c-source.html#l00118">shade_groups</a>, <a class="el" href="hashtab_8h-source.html#l00026">hnode::string</a>, <a class="el" href="webalizer_8c-source.html#l00184">t_file</a>, <a class="el" href="webalizer_8c-source.html#l00184">t_hit</a>, <a class="el" href="webalizer_8c-source.html#l00184">t_site</a>, <a class="el" href="webalizer_8c-source.html#l00186">t_visit</a>, <a class="el" href="webalizer_8c-source.html#l00183">t_xfer</a>, <a class="el" href="hashtab_8h-source.html#l00030">hnode::visit</a>, <a class="el" href="hashtab_8h-source.html#l00033">hnode::xfer</a> und <a class="el" href="output_8c-source.html#l00128">YELLOW</a>.
+<p>
+Wird benutzt von <a class="el" href="output_8c-source.html#l00325">write_month_html()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="67742ac3286c8dd6e07650560a96e228"></a><!-- doxytag: member="output.c::top_urls_table" ref="67742ac3286c8dd6e07650560a96e228" args="(int)" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">void top_urls_table           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top">int&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>          </td>
+          <td class="md" valign="top">&nbsp;)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="output_8c-source.html#l01158">1158</a> der Datei <a class="el" href="output_8c-source.html">output.c</a>.
+<p>
+Benutzt <a class="el" href="output_8c-source.html#l00140">a_ctr</a>, <a class="el" href="webalizer_8c-source.html#l00156">all_urls</a>, <a class="el" href="output_8c-source.html#l01290">all_urls_page()</a>, <a class="el" href="hashtab_8h-source.html#l00038">unode::count</a>, <a class="el" href="webalizer_8c-source.html#l00171">cur_month</a>, <a class="el" href="webalizer_8c-source.html#l00171">cur_year</a>, <a class="el" href="output_8c-source.html#l00130">CYAN</a>, <a class="el" href="output_8c-source.html#l00125">DKGREEN</a>, <a class="el" href="hashtab_8h-source.html#l00037">unode::flag</a>, <a class="el" href="output_8c-source.html#l00126">GREY</a>, <a class="el" href="output_8c-source.html#l00131">GRPCOLOR</a>, <a class="el" href="webalizer_8c-source.html#l00119">hlite_groups</a>, <a class="el" href="webalizer_8c-source.html#l00130">hname</a>, <a class="el" href="webalizer_8c-source.html#l00133">html_ext</a>, <a class="el" href="webalizer_8h-source.html#l00032">LOG_FTP</a>, <a class="el" href="webalizer_8c-source.html#l00127">log_type</a>, <a class="el" href="lang_8h.html#445f2712cd567c8d33b7fb797843dea0">msg_h_by</a>, <a class="el" href="lang_8h.html#529f40f7939bbf363a37235b1b209b62">msg_h_hits</a>, <a class="el" href="lang_8h.html#c2422ae6f0a2e8bdc0caa4fc75645f4b">msg_h_url</a>, <a class="el" href="lang_8h.html#b193be580f6d1d61bb87dfb4e9f8547c">msg_h_xfer</a>, <a class="el" href="lang_8h.html#b3bbb0a05acd36a0ca6f294ddedf5576">msg_top_of</a>, <a class="el" href="lang_8h.html#ccd25ad9dd7b9fb588071f55d6a3c98c">msg_top_top</a>, <a class="el" href="lang_8h.html#7231f924432df2c0d2e056d15b7919ad">msg_top_u</a>, <a class="el" href="lang_8h.html#f9cbd6a1a6ac705c14326ed3d64fd1c0">msg_v_urls</a>, <a class="el" href="webalizer_8c-source.html#l00144">ntop_urls</a>, <a class="el" href="webalizer_8c-source.html#l00145">ntop_urlsK</a>, <a class="el" href="hashtab_8h-source.html#l00017">OBJ_GRP</a>, <a class="el" href="hashtab_8h-source.html#l00016">OBJ_HIDE</a>, <a class="el" href="hashtab_8h-source.html#l00015">OBJ_REG</a>, <a class="el" href="output_8c-source.html#l00142">out_fp</a>, <a class="el" href="output_8c-source.html#l02627">qs_url_cmph()</a>, <a class="el" href="output_8c-source.html#l00120">RED</a>, <a class="el" href="webalizer_8c-source.html#l00118">shade_groups</a>, <a class="el" href="hashtab_8h-source.html#l00036">unode::string</a>, <a class="el" href="webalizer_8c-source.html#l00184">t_hit</a>, <a class="el" href="webalizer_8c-source.html#l00185">t_url</a>, <a class="el" href="webalizer_8c-source.html#l00183">t_xfer</a>, <a class="el" href="output_8c-source.html#l00134">u_array</a>, <a class="el" href="webalizer_8c-source.html#l00122">use_https</a> und <a class="el" href="hashtab_8h-source.html#l00042">unode::xfer</a>.
+<p>
+Wird benutzt von <a class="el" href="output_8c-source.html#l00325">write_month_html()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="2e8e6386a5b4fa3e5dafd4f2becfb3ce"></a><!-- doxytag: member="output.c::top_users_table" ref="2e8e6386a5b4fa3e5dafd4f2becfb3ce" args="()" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">void top_users_table           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>          </td>
+          <td class="md" valign="top">&nbsp;)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="output_8c-source.html#l01888">1888</a> der Datei <a class="el" href="output_8c-source.html">output.c</a>.
+<p>
+Benutzt <a class="el" href="output_8c-source.html#l00140">a_ctr</a>, <a class="el" href="webalizer_8c-source.html#l00160">all_users</a>, <a class="el" href="output_8c-source.html#l01990">all_users_page()</a>, <a class="el" href="hashtab_8h-source.html#l00061">inode::count</a>, <a class="el" href="webalizer_8c-source.html#l00171">cur_month</a>, <a class="el" href="webalizer_8c-source.html#l00171">cur_year</a>, <a class="el" href="output_8c-source.html#l00130">CYAN</a>, <a class="el" href="output_8c-source.html#l00125">DKGREEN</a>, <a class="el" href="hashtab_8h-source.html#l00062">inode::files</a>, <a class="el" href="hashtab_8h-source.html#l00060">inode::flag</a>, <a class="el" href="output_8c-source.html#l00126">GREY</a>, <a class="el" href="output_8c-source.html#l00131">GRPCOLOR</a>, <a class="el" href="webalizer_8c-source.html#l00119">hlite_groups</a>, <a class="el" href="webalizer_8c-source.html#l00133">html_ext</a>, <a class="el" href="output_8c-source.html#l00139">i_array</a>, <a class="el" href="output_8c-source.html#l00122">LTBLUE</a>, <a class="el" href="lang_8h.html#17cdd1238613c58645be27ec86da138c">msg_h_files</a>, <a class="el" href="lang_8h.html#529f40f7939bbf363a37235b1b209b62">msg_h_hits</a>, <a class="el" href="lang_8h.html#04b9008a2c6d6752de424ad84772f803">msg_h_uname</a>, <a class="el" href="lang_8h.html#daf199b209b9dd7996804b6018b8539f">msg_h_visits</a>, <a class="el" href="lang_8h.html#b193be580f6d1d61bb87dfb4e9f8547c">msg_h_xfer</a>, <a class="el" href="lang_8h.html#41943ef3550158b5d1b0eaa79bad301a">msg_top_i</a>, <a class="el" href="lang_8h.html#b3bbb0a05acd36a0ca6f294ddedf5576">msg_top_of</a>, <a class="el" href="lang_8h.html#ccd25ad9dd7b9fb588071f55d6a3c98c">msg_top_top</a>, <a class="el" href="lang_8h.html#bf4cb5cbd2d88d3791abfb27cdb883f9">msg_v_users</a>, <a class="el" href="webalizer_8c-source.html#l00152">ntop_users</a>, <a class="el" href="hashtab_8h-source.html#l00017">OBJ_GRP</a>, <a class="el" href="hashtab_8h-source.html#l00016">OBJ_HIDE</a>, <a class="el" href="hashtab_8h-source.html#l00015">OBJ_REG</a>, <a class="el" href="output_8c-source.html#l00142">out_fp</a>, <a class="el" href="output_8c-source.html#l00120">RED</a>, <a class="el" href="webalizer_8c-source.html#l00118">shade_groups</a>, <a class="el" href="hashtab_8h-source.html#l00059">inode::string</a>, <a class="el" href="webalizer_8c-source.html#l00184">t_file</a>, <a class="el" href="webalizer_8c-source.html#l00184">t_hit</a>, <a class="el" href="webalizer_8c-source.html#l00186">t_user</a>, <a class="el" href="webalizer_8c-source.html#l00186">t_visit</a>, <a class="el" href="webalizer_8c-source.html#l00183">t_xfer</a>, <a class="el" href="hashtab_8h-source.html#l00063">inode::visit</a>, <a class="el" href="hashtab_8h-source.html#l00065">inode::xfer</a> und <a class="el" href="output_8c-source.html#l00128">YELLOW</a>.
+<p>
+Wird benutzt von <a class="el" href="output_8c-source.html#l00325">write_month_html()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="0bc1fdaca7513c4813773bef5529008e"></a><!-- doxytag: member="output.c::write_html_head" ref="0bc1fdaca7513c4813773bef5529008e" args="(char *, FILE *)" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">void write_html_head           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top">char *&nbsp;</td>
+          <td class="mdname" nowrap>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>FILE *&nbsp;</td>
+          <td class="mdname" nowrap></td>
+        </tr>
+        <tr>
+          <td class="md"></td>
+          <td class="md">)&nbsp;</td>
+          <td class="md" colspan="2"></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="output_8c-source.html#l00148">148</a> der Datei <a class="el" href="output_8c-source.html">output.c</a>.
+<p>
+Benutzt <a class="el" href="output_8c-source.html#l00119">BLACK</a>, <a class="el" href="output_8c-source.html#l00123">BLUE</a>, <a class="el" href="webalizer_8c-source.html#l01783">cur_time()</a>, <a class="el" href="webalizer_8c-source.html#l00104">editlvl</a>, <a class="el" href="webalizer_8c-source.html#l00130">hname</a>, <a class="el" href="linklist_8c-source.html#l00100">html_body</a>, <a class="el" href="linklist_8c-source.html#l00099">html_head</a>, <a class="el" href="linklist_8c-source.html#l00101">html_post</a>, <a class="el" href="linklist_8c-source.html#l00098">html_pre</a>, <a class="el" href="output_8c-source.html#l00127">LTGREY</a>, <a class="el" href="lang_8h.html#2b9f2f69e665448e249b8ce01055196e">msg_hhdr_gt</a>, <a class="el" href="lang_8h.html#3d3b7751d6e494d468adb748ca65167c">msg_hhdr_sp</a>, <a class="el" href="lang_8h.html#56970821c884da0e4d8fd75e51bc37d9">msg_title</a>, <a class="el" href="linklist_8h-source.html#l00005">nlist::next</a>, <a class="el" href="output_8c-source.html#l00120">RED</a>, <a class="el" href="linklist_8h-source.html#l00004">nlist::string</a> und <a class="el" href="webalizer_8c-source.html#l00103">version</a>.
+<p>
+Wird benutzt von <a class="el" href="output_8c-source.html#l01713">all_agents_page()</a>, <a class="el" href="output_8c-source.html#l01561">all_refs_page()</a>, <a class="el" href="output_8c-source.html#l01846">all_search_page()</a>, <a class="el" href="output_8c-source.html#l01085">all_sites_page()</a>, <a class="el" href="output_8c-source.html#l01290">all_urls_page()</a>, <a class="el" href="output_8c-source.html#l01990">all_users_page()</a> und <a class="el" href="output_8c-source.html#l00325">write_month_html()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="b5fc0fbb03c2b6a431bef6bc473505e2"></a><!-- doxytag: member="output.c::write_html_tail" ref="b5fc0fbb03c2b6a431bef6bc473505e2" args="(FILE *)" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">void write_html_tail           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top">FILE *&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>          </td>
+          <td class="md" valign="top">&nbsp;)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="output_8c-source.html#l00260">260</a> der Datei <a class="el" href="output_8c-source.html">output.c</a>.
+<p>
+Benutzt <a class="el" href="webalizer_8c-source.html#l00104">editlvl</a>, <a class="el" href="linklist_8c-source.html#l00103">html_end</a>, <a class="el" href="linklist_8c-source.html#l00102">html_tail</a>, <a class="el" href="webalizer_8c-source.html#l00105">moddate</a>, <a class="el" href="linklist_8h-source.html#l00005">nlist::next</a>, <a class="el" href="linklist_8h-source.html#l00004">nlist::string</a> und <a class="el" href="webalizer_8c-source.html#l00103">version</a>.
+<p>
+Wird benutzt von <a class="el" href="output_8c-source.html#l01713">all_agents_page()</a>, <a class="el" href="output_8c-source.html#l01561">all_refs_page()</a>, <a class="el" href="output_8c-source.html#l01846">all_search_page()</a>, <a class="el" href="output_8c-source.html#l01085">all_sites_page()</a>, <a class="el" href="output_8c-source.html#l01290">all_urls_page()</a>, <a class="el" href="output_8c-source.html#l01990">all_users_page()</a> und <a class="el" href="output_8c-source.html#l00325">write_month_html()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="90b458b70bbeed91acc9ec79062f6ac7"></a><!-- doxytag: member="output.c::write_main_index" ref="90b458b70bbeed91acc9ec79062f6ac7" args="()" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">int write_main_index           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>          </td>
+          <td class="md" valign="top">&nbsp;)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="output_8c-source.html#l02450">2450</a> der Datei <a class="el" href="output_8c-source.html">output.c</a>.
+<p>
+Benutzt <a class="el" href="webalizer_8c-source.html#l00218">buffer</a>, <a class="el" href="webalizer_8h-source.html#l00016">BUFSIZE</a>, <a class="el" href="preserve_8c-source.html#l00069">hist_month</a>, <a class="el" href="preserve_8c-source.html#l00069">hist_year</a>, <a class="el" href="webalizer_8c-source.html#l00130">hname</a>, <a class="el" href="lang_8h.html#6e6be76001566785c2bcfcbab6dbca41">msg_gen_sum</a>, <a class="el" href="lang_8h.html#b0f683bbdd193f7ce1952965bed2a573">msg_main_us</a> und <a class="el" href="webalizer_8c-source.html#l00108">verbose</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="a88c70787fac7e72d1f6509b38b6bcab"></a><!-- doxytag: member="output.c::write_month_html" ref="a88c70787fac7e72d1f6509b38b6bcab" args="()" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">int write_month_html           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>          </td>
+          <td class="md" valign="top">&nbsp;)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="output_8c-source.html#l00325">325</a> der Datei <a class="el" href="output_8c-source.html">output.c</a>.
+<p>
+Benutzt <a class="el" href="output_8c-source.html#l00137">a_array</a>, <a class="el" href="output_8c-source.html#l00140">a_ctr</a>, <a class="el" href="webalizer_8c-source.html#l00218">buffer</a>, <a class="el" href="webalizer_8h-source.html#l00016">BUFSIZE</a>, <a class="el" href="webalizer_8c-source.html#l00171">cur_month</a>, <a class="el" href="webalizer_8c-source.html#l00171">cur_year</a>, <a class="el" href="webalizer_8c-source.html#l00115">daily_graph</a>, <a class="el" href="webalizer_8c-source.html#l00116">daily_stats</a>, <a class="el" href="output_8c-source.html#l00804">daily_total_table()</a>, <a class="el" href="graphs_8c-source.html#l00503">day_graph3()</a>, <a class="el" href="webalizer_8c-source.html#l00165">dump_agents</a>, <a class="el" href="output_8c-source.html#l02332">dump_all_agents()</a>, <a class="el" href="output_8c-source.html#l02293">dump_all_refs()</a>, <a class="el" href="output_8c-source.html#l02414">dump_all_search()</a>, <a class="el" href="output_8c-source.html#l02210">dump_all_sites()</a>, <a class="el" href="output_8c-source.html#l02253">dump_all_urls()</a>, <a class="el" href="output_8c-source.html#l02371">dump_all_users()</a>, <a class="el" href="webalizer_8c-source.html#l00164">dump_refs</a>, <a class="el" href="webalizer_8c-source.html#l00167">dump_search</a>, <a class="el" href="webalizer_8c-source.html#l00162">dump_sites</a>, <a class="el" href="webalizer_8c-source.html#l00163">dump_urls</a>, <a class="el" href="webalizer_8c-source.html#l00166">dump_users</a>, <a class="el" href="webalizer_8c-source.html#l00203">f_day</a>, <a class="el" href="output_8c-source.html#l00135">h_array</a>, <a class="el" href="preserve_8c-source.html#l00077">hist_fday</a>, <a class="el" href="preserve_8c-source.html#l00071">hist_files</a>, <a class="el" href="preserve_8c-source.html#l00070">hist_hit</a>, <a class="el" href="preserve_8c-source.html#l00077">hist_lday</a>, <a class="el" href="preserve_8c-source.html#l00069">hist_month</a>, <a class="el" href="preserve_8c-source.html#l00074">hist_page</a>, <a class="el" href="preserve_8c-source.html#l00072">hist_site</a>, <a class="el" href="preserve_8c-source.html#l00075">hist_visit</a>, <a class="el" href="preserve_8c-source.html#l00073">hist_xfer</a>, <a class="el" href="preserve_8c-source.html#l00069">hist_year</a>, <a class="el" href="webalizer_8c-source.html#l00113">hourly_graph</a>, <a class="el" href="webalizer_8c-source.html#l00114">hourly_stats</a>, <a class="el" href="output_8c-source.html#l00881">hourly_total_table()</a>, <a class="el" href="webalizer_8c-source.html#l00133">html_ext</a>, <a class="el" href="output_8c-source.html#l00139">i_array</a>, <a class="el" href="webalizer_8c-source.html#l00203">l_day</a>, <a class="el" href="lang_8h.html#e75828f9450cccbb02d410d60a6caa1d">l_month</a>, <a class="el" href="output_8c-source.html#l02819">load_agent_array()</a>, <a class="el" href="output_8c-source.html#l02867">load_ident_array()</a>, <a class="el" href="output_8c-source.html#l02795">load_ref_array()</a>, <a class="el" href="output_8c-source.html#l02747">load_site_array()</a>, <a class="el" href="output_8c-source.html#l02843">load_srch_array()</a>, <a class="el" href="output_8c-source.html#l02771">load_url_array()</a>, <a class="el" href="output_8c-source.html#l00715">month_error_table()</a>, <a class="el" href="graphs_8c-source.html#l00298">month_graph6()</a>, <a class="el" href="output_8c-source.html#l00537">month_links()</a>, <a class="el" href="output_8c-source.html#l00571">month_total_table()</a>, <a class="el" href="lang_8h.html#5e34eccd1e2035aea1b7159063d915f8">msg_gen_rpt</a>, <a class="el" href="lang_8h.html#cab39528c85f8dbabed2e31bb5189b03">msg_hmth_du</a>, <a class="el" href="lang_8h.html#b80bdfb304ceb290c6072c62d86fe010">msg_hmth_hu</a>, <a class="el" href="lang_8h.html#6e6ba456bc92e8ce0d6955c37f8ca9dd">msg_nomem_ta</a>, <a class="el" href="lang_8h.html#12eac62ea5fd36e5ef1692197451fe16">msg_nomem_ti</a>, <a class="el" href="lang_8h.html#23d055f2dae443bacaf9abc8e5d25dc7">msg_nomem_tr</a>, <a class="el" href="lang_8h.html#895dc95a6113902a3d50d9cc7402e958">msg_nomem_ts</a>, <a class="el" href="lang_8h.html#8fa82c2055a9fa9ee57d49129758cf14">msg_nomem_tsr</a>, <a class="el" href="lang_8h.html#0818c9fe28426f27e863c5d1d6971be7">msg_nomem_tu</a>, <a class="el" href="webalizer_8c-source.html#l00149">ntop_agents</a>, <a class="el" href="webalizer_8c-source.html#l00150">ntop_ctrys</a>, <a class="el" href="webalizer_8c-source.html#l00146">ntop_entry</a>, <a class="el" href="webalizer_8c-source.html#l00147">ntop_exit</a>, <a class="el" href="webalizer_8c-source.html#l00153">ntop_notfound</a>, <a class="el" href="webalizer_8c-source.html#l00148">ntop_refs</a>, <a class="el" href="webalizer_8c-source.html#l00151">ntop_search</a>, <a class="el" href="webalizer_8c-source.html#l00142">ntop_sites</a>, <a class="el" href="webalizer_8c-source.html#l00143">ntop_sitesK</a>, <a class="el" href="webalizer_8c-source.html#l00144">ntop_urls</a>, <a class="el" href="webalizer_8c-source.html#l00145">ntop_urlsK</a>, <a class="el" href="webalizer_8c-source.html#l00152">ntop_users</a>, <a class="el" href="output_8c-source.html#l02891">open_out_file()</a>, <a class="el" href="output_8c-source.html#l00142">out_fp</a>, <a class="el" href="output_8c-source.html#l02702">qs_agnt_cmph()</a>, <a class="el" href="output_8c-source.html#l02732">qs_ident_cmph()</a>, <a class="el" href="output_8c-source.html#l02687">qs_ref_cmph()</a>, <a class="el" href="output_8c-source.html#l02597">qs_site_cmph()</a>, <a class="el" href="output_8c-source.html#l02612">qs_site_cmpk()</a>, <a class="el" href="output_8c-source.html#l02717">qs_srch_cmph()</a>, <a class="el" href="output_8c-source.html#l02627">qs_url_cmph()</a>, <a class="el" href="output_8c-source.html#l02642">qs_url_cmpk()</a>, <a class="el" href="output_8c-source.html#l02657">qs_url_cmpn()</a>, <a class="el" href="output_8c-source.html#l02672">qs_url_cmpx()</a>, <a class="el" href="output_8c-source.html#l00136">r_array</a>, <a class="el" href="lang_8h.html#6fbb1449f14f39208f656061d49c280b">response</a>, <a class="el" href="output_8c-source.html#l00138">s_array</a>, <a class="el" href="webalizer_8c-source.html#l00184">t_file</a>, <a class="el" href="webalizer_8c-source.html#l00184">t_hit</a>, <a class="el" href="webalizer_8c-source.html#l00186">t_page</a>, <a class="el" href="webalizer_8c-source.html#l00184">t_site</a>, <a class="el" href="webalizer_8c-source.html#l00186">t_visit</a>, <a class="el" href="webalizer_8c-source.html#l00183">t_xfer</a>, <a class="el" href="webalizer_8c-source.html#l00198">th_file</a>, <a class="el" href="webalizer_8c-source.html#l00198">th_hit</a>, <a class="el" href="webalizer_8c-source.html#l00198">th_page</a>, <a class="el" href="webalizer_8c-source.html#l00190">tm_file</a>, <a class="el" href="webalizer_8c-source.html#l00190">tm_hit</a>, <a class="el" href="webalizer_8c-source.html#l00190">tm_page</a>, <a class="el" href="webalizer_8c-source.html#l00190">tm_site</a>, <a class="el" href="webalizer_8c-source.html#l00190">tm_visit</a>, <a class="el" href="webalizer_8c-source.html#l00188">tm_xfer</a>, <a class="el" href="output_8c-source.html#l01623">top_agents_table()</a>, <a class="el" href="output_8c-source.html#l02063">top_ctry_table()</a>, <a class="el" href="output_8c-source.html#l01359">top_entry_table()</a>, <a class="el" href="output_8c-source.html#l01461">top_refs_table()</a>, <a class="el" href="output_8c-source.html#l01775">top_search_table()</a>, <a class="el" href="output_8c-source.html#l00972">top_sites_table()</a>, <a class="el" href="output_8c-source.html#l01158">top_urls_table()</a>, <a class="el" href="output_8c-source.html#l01888">top_users_table()</a>, <a class="el" href="output_8c-source.html#l00134">u_array</a>, <a class="el" href="webalizer_8c-source.html#l00108">verbose</a>, <a class="el" href="output_8c-source.html#l00148">write_html_head()</a> und <a class="el" href="output_8c-source.html#l00260">write_html_tail()</a>.    </td>
+  </tr>
+</table>
+<hr><h2>Variablen-Dokumentation</h2>
+<a class="anchor" name="087fc5e1d70a57bb687006545cd89b68"></a><!-- doxytag: member="output.c::a_array" ref="087fc5e1d70a57bb687006545cd89b68" args="" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"><a class="el" href="structanode.html">ANODEPTR</a>* <a class="el" href="output_8c.html#087fc5e1d70a57bb687006545cd89b68">a_array</a> = NULL          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="output_8c-source.html#l00137">137</a> der Datei <a class="el" href="output_8c-source.html">output.c</a>.
+<p>
+Wird benutzt von <a class="el" href="output_8c-source.html#l01713">all_agents_page()</a>, <a class="el" href="output_8c-source.html#l02332">dump_all_agents()</a>, <a class="el" href="output_8c-source.html#l01623">top_agents_table()</a> und <a class="el" href="output_8c-source.html#l00325">write_month_html()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="e04d9715c55066e22dc7442b812c5d2c"></a><!-- doxytag: member="output.c::a_ctr" ref="e04d9715c55066e22dc7442b812c5d2c" args="" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">u_long <a class="el" href="output_8c.html#e04d9715c55066e22dc7442b812c5d2c">a_ctr</a> = 0          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="output_8c-source.html#l00140">140</a> der Datei <a class="el" href="output_8c-source.html">output.c</a>.
+<p>
+Wird benutzt von <a class="el" href="output_8c-source.html#l02332">dump_all_agents()</a>, <a class="el" href="output_8c-source.html#l02293">dump_all_refs()</a>, <a class="el" href="output_8c-source.html#l02414">dump_all_search()</a>, <a class="el" href="output_8c-source.html#l02210">dump_all_sites()</a>, <a class="el" href="output_8c-source.html#l02253">dump_all_urls()</a>, <a class="el" href="output_8c-source.html#l02371">dump_all_users()</a>, <a class="el" href="output_8c-source.html#l01623">top_agents_table()</a>, <a class="el" href="output_8c-source.html#l01359">top_entry_table()</a>, <a class="el" href="output_8c-source.html#l01461">top_refs_table()</a>, <a class="el" href="output_8c-source.html#l01775">top_search_table()</a>, <a class="el" href="output_8c-source.html#l00972">top_sites_table()</a>, <a class="el" href="output_8c-source.html#l01158">top_urls_table()</a>, <a class="el" href="output_8c-source.html#l01888">top_users_table()</a> und <a class="el" href="output_8c-source.html#l00325">write_month_html()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="5264e215246a79cb95e196368866f1ef"></a><!-- doxytag: member="output.c::h_array" ref="5264e215246a79cb95e196368866f1ef" args="" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"><a class="el" href="structhnode.html">HNODEPTR</a>* <a class="el" href="output_8c.html#5264e215246a79cb95e196368866f1ef">h_array</a> = NULL          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="output_8c-source.html#l00135">135</a> der Datei <a class="el" href="output_8c-source.html">output.c</a>.
+<p>
+Wird benutzt von <a class="el" href="output_8c-source.html#l01085">all_sites_page()</a>, <a class="el" href="output_8c-source.html#l02210">dump_all_sites()</a>, <a class="el" href="output_8c-source.html#l00972">top_sites_table()</a> und <a class="el" href="output_8c-source.html#l00325">write_month_html()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="ccdc7ee079826f4729bf0f653e9f29f1"></a><!-- doxytag: member="output.c::i_array" ref="ccdc7ee079826f4729bf0f653e9f29f1" args="" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"><a class="el" href="structinode.html">INODEPTR</a>* <a class="el" href="output_8c.html#ccdc7ee079826f4729bf0f653e9f29f1">i_array</a> = NULL          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="output_8c-source.html#l00139">139</a> der Datei <a class="el" href="output_8c-source.html">output.c</a>.
+<p>
+Wird benutzt von <a class="el" href="output_8c-source.html#l01990">all_users_page()</a>, <a class="el" href="output_8c-source.html#l02371">dump_all_users()</a>, <a class="el" href="output_8c-source.html#l01888">top_users_table()</a> und <a class="el" href="output_8c-source.html#l00325">write_month_html()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="c061fe683531313d6071980df0f82611"></a><!-- doxytag: member="output.c::out_fp" ref="c061fe683531313d6071980df0f82611" args="" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">FILE* <a class="el" href="output_8c.html#c061fe683531313d6071980df0f82611">out_fp</a>          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="output_8c-source.html#l00142">142</a> der Datei <a class="el" href="output_8c-source.html">output.c</a>.
+<p>
+Wird benutzt von <a class="el" href="output_8c-source.html#l01713">all_agents_page()</a>, <a class="el" href="output_8c-source.html#l01561">all_refs_page()</a>, <a class="el" href="output_8c-source.html#l01846">all_search_page()</a>, <a class="el" href="output_8c-source.html#l01085">all_sites_page()</a>, <a class="el" href="output_8c-source.html#l01290">all_urls_page()</a>, <a class="el" href="output_8c-source.html#l01990">all_users_page()</a>, <a class="el" href="output_8c-source.html#l00804">daily_total_table()</a>, <a class="el" href="output_8c-source.html#l02332">dump_all_agents()</a>, <a class="el" href="output_8c-source.html#l02293">dump_all_refs()</a>, <a class="el" href="output_8c-source.html#l02414">dump_all_search()</a>, <a class="el" href="output_8c-source.html#l02210">dump_all_sites()</a>, <a class="el" href="output_8c-source.html#l02253">dump_all_urls()</a>, <a class="el" href="output_8c-source.html#l02371">dump_all_users()</a>, <a class="el" href="output_8c-source.html#l00881">hourly_total_table()</a>, <a class="el" href="output_8c-source.html#l00537">month_links()</a>, <a class="el" href="output_8c-source.html#l02891">open_out_file()</a>, <a class="el" href="output_8c-source.html#l01623">top_agents_table()</a>, <a class="el" href="output_8c-source.html#l01359">top_entry_table()</a>, <a class="el" href="output_8c-source.html#l01461">top_refs_table()</a>, <a class="el" href="output_8c-source.html#l01775">top_search_table()</a>, <a class="el" href="output_8c-source.html#l00972">top_sites_table()</a>, <a class="el" href="output_8c-source.html#l01158">top_urls_table()</a>, <a class="el" href="output_8c-source.html#l01888">top_users_table()</a> und <a class="el" href="output_8c-source.html#l00325">write_month_html()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="d45469c4cb26a6ad02b3b2e95132bfd7"></a><!-- doxytag: member="output.c::r_array" ref="d45469c4cb26a6ad02b3b2e95132bfd7" args="" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"><a class="el" href="structrnode.html">RNODEPTR</a>* <a class="el" href="output_8c.html#d45469c4cb26a6ad02b3b2e95132bfd7">r_array</a> = NULL          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="output_8c-source.html#l00136">136</a> der Datei <a class="el" href="output_8c-source.html">output.c</a>.
+<p>
+Wird benutzt von <a class="el" href="output_8c-source.html#l01561">all_refs_page()</a>, <a class="el" href="output_8c-source.html#l02293">dump_all_refs()</a>, <a class="el" href="output_8c-source.html#l01461">top_refs_table()</a> und <a class="el" href="output_8c-source.html#l00325">write_month_html()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="9cc5723f216e0b1d0d8b497ca4117a40"></a><!-- doxytag: member="output.c::s_array" ref="9cc5723f216e0b1d0d8b497ca4117a40" args="" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"><a class="el" href="structsnode.html">SNODEPTR</a>* <a class="el" href="output_8c.html#9cc5723f216e0b1d0d8b497ca4117a40">s_array</a> = NULL          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="output_8c-source.html#l00138">138</a> der Datei <a class="el" href="output_8c-source.html">output.c</a>.
+<p>
+Wird benutzt von <a class="el" href="output_8c-source.html#l01846">all_search_page()</a>, <a class="el" href="output_8c-source.html#l02414">dump_all_search()</a>, <a class="el" href="output_8c-source.html#l01775">top_search_table()</a> und <a class="el" href="output_8c-source.html#l00325">write_month_html()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="4551dad9d68c34d932485aa2e47be6f4"></a><!-- doxytag: member="output.c::u_array" ref="4551dad9d68c34d932485aa2e47be6f4" args="" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"><a class="el" href="structunode.html">UNODEPTR</a>* <a class="el" href="output_8c.html#4551dad9d68c34d932485aa2e47be6f4">u_array</a> = NULL          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="output_8c-source.html#l00134">134</a> der Datei <a class="el" href="output_8c-source.html">output.c</a>.
+<p>
+Wird benutzt von <a class="el" href="output_8c-source.html#l01290">all_urls_page()</a>, <a class="el" href="output_8c-source.html#l02253">dump_all_urls()</a>, <a class="el" href="output_8c-source.html#l01359">top_entry_table()</a>, <a class="el" href="output_8c-source.html#l01158">top_urls_table()</a> und <a class="el" href="output_8c-source.html#l00325">write_month_html()</a>.    </td>
+  </tr>
+</table>
+<hr size="1"><address style="align: right;"><small>Erzeugt am Wed Jun 7 04:08:05 2006 für OOS [Webalizer] von&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.6 </small></address>
+</body>
+</html>

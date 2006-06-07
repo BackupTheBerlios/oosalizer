@@ -1,0 +1,139 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1">
+<title>OOS [Webalizer]: oosalizer/hashtab.h Quellcode</title>
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+<link href="tabs.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Erzeugt von Doxygen 1.4.6 -->
+<div class="tabs">
+  <ul>
+    <li><a href="main.html"><span>Hauptseite</span></a></li>
+    <li><a href="annotated.html"><span>Datenstrukturen</span></a></li>
+    <li id="current"><a href="files.html"><span>Dateien</span></a></li>
+    <li>
+      <form action="search.php" method="get">
+        <table cellspacing="0" cellpadding="0" border="0">
+          <tr>
+            <td><label>&nbsp;<u>S</u>uchen&nbsp;nach&nbsp;</label></td>
+            <td><input type="text" name="query" value="" size="20" accesskey="s"/></td>
+          </tr>
+        </table>
+      </form>
+    </li>
+  </ul></div>
+<div class="tabs">
+  <ul>
+    <li><a href="files.html"><span>Auflistung&nbsp;der&nbsp;Dateien</span></a></li>
+    <li><a href="globals.html"><span>Datei-Elemente</span></a></li>
+  </ul></div>
+<h1>oosalizer/hashtab.h</h1><a href="hashtab_8h.html">gehe zur Dokumentation dieser Datei</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef _HASHTAB_H</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define _HASHTAB_H</span>
+<a name="l00003"></a>00003 <span class="preprocessor"></span>
+<a name="l00004"></a><a class="code" href="hashtab_8h.html#6e6c936395602fb2683ed0599131927b">00004</a> <span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structhnode.html">hnode</a> *<a class="code" href="structhnode.html">HNODEPTR</a>;            <span class="comment">/* site node (host) pointer     */</span>
+<a name="l00005"></a><a class="code" href="hashtab_8h.html#0d24805080edbea320fb2c2ec31b229a">00005</a> <span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structunode.html">unode</a> *<a class="code" href="structunode.html">UNODEPTR</a>;            <span class="comment">/* url node pointer             */</span>
+<a name="l00006"></a><a class="code" href="hashtab_8h.html#f93974994603709dc7ef7a9c6798fa23">00006</a> <span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structrnode.html">rnode</a> *<a class="code" href="structrnode.html">RNODEPTR</a>;            <span class="comment">/* referrer node                */</span>
+<a name="l00007"></a><a class="code" href="hashtab_8h.html#54e9f1564bf40998b62838a2b06f7798">00007</a> <span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structanode.html">anode</a> *<a class="code" href="structanode.html">ANODEPTR</a>;            <span class="comment">/* user agent node pointer      */</span>
+<a name="l00008"></a><a class="code" href="hashtab_8h.html#ba5bd50dc4074b21b1f1cfac70bb1fd5">00008</a> <span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structsnode.html">snode</a> *<a class="code" href="structsnode.html">SNODEPTR</a>;            <span class="comment">/* Search string node pointer   */</span>
+<a name="l00009"></a><a class="code" href="hashtab_8h.html#e88293572818a449e95993c4ccdba0a8">00009</a> <span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structinode.html">inode</a> *<a class="code" href="structinode.html">INODEPTR</a>;            <span class="comment">/* user (ident) node pointer    */</span>
+<a name="l00010"></a>00010 <span class="preprocessor">#ifdef USE_DNS</span>
+<a name="l00011"></a>00011 <span class="preprocessor"></span><span class="keyword">typedef</span> <span class="keyword">struct </span>dnode *DNODEPTR;            <span class="comment">/* DNS hash table node struct   */</span>
+<a name="l00012"></a>00012 <span class="preprocessor">#endif</span>
+<a name="l00013"></a>00013 <span class="preprocessor"></span>
+<a name="l00014"></a>00014 <span class="comment">/* Object flags */</span>
+<a name="l00015"></a><a class="code" href="hashtab_8h.html#468764de892a2303272613f54f955b0b">00015</a> <span class="preprocessor">#define OBJ_REG  0                         </span><span class="comment">/* Regular object               */</span>
+<a name="l00016"></a><a class="code" href="hashtab_8h.html#dc29d672dac67a96fe49e055dce78bff">00016</a> <span class="preprocessor">#define OBJ_HIDE 1                         </span><span class="comment">/* Hidden object                */</span>
+<a name="l00017"></a><a class="code" href="hashtab_8h.html#b2fd3e100a904891f4c27eb46e87140f">00017</a> <span class="preprocessor">#define OBJ_GRP  2                         </span><span class="comment">/* Grouped object               */</span>
+<a name="l00018"></a>00018 
+<a name="l00019"></a>00019 <span class="preprocessor">#ifdef USE_DNS</span>
+<a name="l00020"></a>00020 <span class="preprocessor"></span><span class="keyword">struct </span>dnode {  <span class="keywordtype">char</span> *string;              <span class="comment">/* DNS node hash table struct   */</span>
+<a name="l00021"></a>00021               <span class="keyword">struct </span>in_addr  addr;
+<a name="l00022"></a>00022               <span class="keyword">struct </span>dnode    *llist;
+<a name="l00023"></a>00023               <span class="keyword">struct </span>dnode    *next; };
+<a name="l00024"></a>00024 <span class="preprocessor">#endif</span>
+<a name="l00025"></a>00025 <span class="preprocessor"></span>
+<a name="l00026"></a><a class="code" href="structhnode.html#eb54894424f88ea691ce2739a7b7ce80">00026</a> <span class="keyword">struct </span><a class="code" href="structhnode.html">hnode</a> {  <span class="keywordtype">char</span> *<a class="code" href="structhnode.html#eb54894424f88ea691ce2739a7b7ce80">string</a>;              <span class="comment">/* host hash table structure    */</span>
+<a name="l00027"></a><a class="code" href="structhnode.html#821441b6ed6dd23ac11a37d932461b03">00027</a>                  <span class="keywordtype">int</span> <a class="code" href="structhnode.html#821441b6ed6dd23ac11a37d932461b03">flag</a>;
+<a name="l00028"></a><a class="code" href="structhnode.html#ea12ded28f814b621ae07ab94aaa1f4e">00028</a>               u_long <a class="code" href="structhnode.html#ea12ded28f814b621ae07ab94aaa1f4e">count</a>;
+<a name="l00029"></a><a class="code" href="structhnode.html#afa2fd08fe9e22e6f183759b01a0e5c4">00029</a>               u_long <a class="code" href="structhnode.html#afa2fd08fe9e22e6f183759b01a0e5c4">files</a>;
+<a name="l00030"></a><a class="code" href="structhnode.html#e55f7c9efab364555b1fee0a61deb229">00030</a>               u_long <a class="code" href="structhnode.html#e55f7c9efab364555b1fee0a61deb229">visit</a>;                <span class="comment">/* visit information            */</span>
+<a name="l00031"></a><a class="code" href="structhnode.html#e02fb87d76b57ad488493862bdd54f1e">00031</a>               u_long <a class="code" href="structhnode.html#e02fb87d76b57ad488493862bdd54f1e">tstamp</a>;
+<a name="l00032"></a><a class="code" href="structhnode.html#d025a4c0d49fa093181202d2a91eb524">00032</a>                 <span class="keywordtype">char</span> *<a class="code" href="structhnode.html#d025a4c0d49fa093181202d2a91eb524">lasturl</a>;
+<a name="l00033"></a><a class="code" href="structhnode.html#8069d0fba422f3b79fdeef1e263f7141">00033</a>               <span class="keywordtype">double</span> <a class="code" href="structhnode.html#8069d0fba422f3b79fdeef1e263f7141">xfer</a>;
+<a name="l00034"></a><a class="code" href="structhnode.html#da1ebcc2a224afb85778f07ff89c9e23">00034</a>               <span class="keyword">struct </span><a class="code" href="structhnode.html">hnode</a> *<a class="code" href="structhnode.html#da1ebcc2a224afb85778f07ff89c9e23">next</a>; };
+<a name="l00035"></a>00035 
+<a name="l00036"></a><a class="code" href="structunode.html#7e4e6f981e97f717739e1844247456a0">00036</a> <span class="keyword">struct </span><a class="code" href="structunode.html">unode</a> {  <span class="keywordtype">char</span> *<a class="code" href="structunode.html#7e4e6f981e97f717739e1844247456a0">string</a>;              <span class="comment">/* url hash table structure     */</span>
+<a name="l00037"></a><a class="code" href="structunode.html#172c31b32a93663cdde52fba42c0343d">00037</a>                  <span class="keywordtype">int</span> <a class="code" href="structunode.html#172c31b32a93663cdde52fba42c0343d">flag</a>;                 <span class="comment">/* Object type (REG, HIDE, GRP) */</span>
+<a name="l00038"></a><a class="code" href="structunode.html#3c9d9be50f4911615af8e7de965a7435">00038</a>               u_long <a class="code" href="structunode.html#3c9d9be50f4911615af8e7de965a7435">count</a>;                <span class="comment">/* requests counter             */</span>
+<a name="l00039"></a><a class="code" href="structunode.html#e804f1505713967ff89aae41783c6be1">00039</a>               u_long <a class="code" href="structunode.html#e804f1505713967ff89aae41783c6be1">files</a>;                <span class="comment">/* files counter                */</span>
+<a name="l00040"></a><a class="code" href="structunode.html#8799c3c150906874e134a2cc3ccce10d">00040</a>               u_long <a class="code" href="structunode.html#8799c3c150906874e134a2cc3ccce10d">entry</a>;                <span class="comment">/* entry page counter           */</span>
+<a name="l00041"></a><a class="code" href="structunode.html#60177f74305a04d4aac550c6b24f8549">00041</a>               u_long <a class="code" href="structunode.html#60177f74305a04d4aac550c6b24f8549">exit</a>;                 <span class="comment">/* exit page counter            */</span>
+<a name="l00042"></a><a class="code" href="structunode.html#b0e69efc030906335d50a264aa2d2878">00042</a>               <span class="keywordtype">double</span> <a class="code" href="structunode.html#b0e69efc030906335d50a264aa2d2878">xfer</a>;                 <span class="comment">/* xfer size in bytes           */</span>
+<a name="l00043"></a><a class="code" href="structunode.html#84a3ee805e5f7a6011c4c9c5866a27b6">00043</a>               <span class="keyword">struct </span><a class="code" href="structunode.html">unode</a> *<a class="code" href="structunode.html#84a3ee805e5f7a6011c4c9c5866a27b6">next</a>; };       <span class="comment">/* pointer to next node         */</span>
+<a name="l00044"></a>00044 
+<a name="l00045"></a><a class="code" href="structrnode.html#6709bc4db86e039dd874dede6175a4d1">00045</a> <span class="keyword">struct </span><a class="code" href="structrnode.html">rnode</a> {  <span class="keywordtype">char</span> *<a class="code" href="structrnode.html#6709bc4db86e039dd874dede6175a4d1">string</a>;              <span class="comment">/* referrer hash table struct   */</span>
+<a name="l00046"></a><a class="code" href="structrnode.html#d5613de994a7efcb74acdb20ac8c2913">00046</a>                  <span class="keywordtype">int</span> <a class="code" href="structrnode.html#d5613de994a7efcb74acdb20ac8c2913">flag</a>;
+<a name="l00047"></a><a class="code" href="structrnode.html#4034f46036f5fa702a86b3609d7a557a">00047</a>               u_long <a class="code" href="structrnode.html#4034f46036f5fa702a86b3609d7a557a">count</a>;
+<a name="l00048"></a><a class="code" href="structrnode.html#92d155180af669f0207cd3682c132468">00048</a>               <span class="keyword">struct </span><a class="code" href="structrnode.html">rnode</a> *<a class="code" href="structrnode.html#92d155180af669f0207cd3682c132468">next</a>; };
+<a name="l00049"></a>00049 
+<a name="l00050"></a><a class="code" href="structanode.html#8fa6d7969583389ae6d535866f9fd914">00050</a> <span class="keyword">struct </span><a class="code" href="structanode.html">anode</a> {  <span class="keywordtype">char</span> *<a class="code" href="structanode.html#8fa6d7969583389ae6d535866f9fd914">string</a>;
+<a name="l00051"></a><a class="code" href="structanode.html#f9635cb5d8af6707a8bfab885f6d556b">00051</a>                  <span class="keywordtype">int</span> <a class="code" href="structanode.html#f9635cb5d8af6707a8bfab885f6d556b">flag</a>;
+<a name="l00052"></a><a class="code" href="structanode.html#358dd30d63b3ecf448451988c0139fcf">00052</a>               u_long <a class="code" href="structanode.html#358dd30d63b3ecf448451988c0139fcf">count</a>;
+<a name="l00053"></a><a class="code" href="structanode.html#834db38618dba5e74b8a738441e861d9">00053</a>               <span class="keyword">struct </span><a class="code" href="structanode.html">anode</a> *<a class="code" href="structanode.html#834db38618dba5e74b8a738441e861d9">next</a>; };
+<a name="l00054"></a>00054 
+<a name="l00055"></a><a class="code" href="structsnode.html#4917005c761d2dfdb653d88a2eb5aa58">00055</a> <span class="keyword">struct </span><a class="code" href="structsnode.html">snode</a> {  <span class="keywordtype">char</span> *<a class="code" href="structsnode.html#4917005c761d2dfdb653d88a2eb5aa58">string</a>;                 <span class="comment">/* search string struct      */</span>
+<a name="l00056"></a><a class="code" href="structsnode.html#af14980bcdb9d5e9543507adee3fd803">00056</a>               u_long <a class="code" href="structsnode.html#af14980bcdb9d5e9543507adee3fd803">count</a>;
+<a name="l00057"></a><a class="code" href="structsnode.html#91a76319ab431b979edd96540899a605">00057</a>               <span class="keyword">struct </span><a class="code" href="structsnode.html">snode</a> *<a class="code" href="structsnode.html#91a76319ab431b979edd96540899a605">next</a>; };
+<a name="l00058"></a>00058 
+<a name="l00059"></a><a class="code" href="structinode.html#5883f2056e6f135990b1ba4be0d6017c">00059</a> <span class="keyword">struct </span><a class="code" href="structinode.html">inode</a> {  <span class="keywordtype">char</span> *<a class="code" href="structinode.html#5883f2056e6f135990b1ba4be0d6017c">string</a>;                 <span class="comment">/* host hash table struct    */</span>
+<a name="l00060"></a><a class="code" href="structinode.html#86565f81a8353154619812e7317b1e2d">00060</a>                  <span class="keywordtype">int</span> <a class="code" href="structinode.html#86565f81a8353154619812e7317b1e2d">flag</a>;
+<a name="l00061"></a><a class="code" href="structinode.html#8579979bc170cd8cceafabe3208cfb3c">00061</a>               u_long <a class="code" href="structinode.html#8579979bc170cd8cceafabe3208cfb3c">count</a>;
+<a name="l00062"></a><a class="code" href="structinode.html#16b7ee518b4af2b7cf436840aff1cc8c">00062</a>               u_long <a class="code" href="structinode.html#16b7ee518b4af2b7cf436840aff1cc8c">files</a>;
+<a name="l00063"></a><a class="code" href="structinode.html#23fbc8ae83e74cc1ba882eef7b2a6948">00063</a>               u_long <a class="code" href="structinode.html#23fbc8ae83e74cc1ba882eef7b2a6948">visit</a>;
+<a name="l00064"></a><a class="code" href="structinode.html#737deeb7e731e4f9db70427fd0854dfd">00064</a>               u_long <a class="code" href="structinode.html#737deeb7e731e4f9db70427fd0854dfd">tstamp</a>;
+<a name="l00065"></a><a class="code" href="structinode.html#a3dee5fe9d1b73fa4dfffc800e8a3cdf">00065</a>               <span class="keywordtype">double</span> <a class="code" href="structinode.html#a3dee5fe9d1b73fa4dfffc800e8a3cdf">xfer</a>;
+<a name="l00066"></a><a class="code" href="structinode.html#ff3eec0bab3bda5c998d29251bb4d877">00066</a>               <span class="keyword">struct </span><a class="code" href="structinode.html">inode</a> *<a class="code" href="structinode.html#ff3eec0bab3bda5c998d29251bb4d877">next</a>; };
+<a name="l00067"></a>00067 
+<a name="l00068"></a>00068 <span class="keyword">extern</span> <a class="code" href="hashtab_8h.html#6e6c936395602fb2683ed0599131927b">HNODEPTR</a> <a class="code" href="hashtab_8c.html#408742678920fdb90b2926c215e8e19c">sm_htab</a>[<a class="code" href="webalizer_8h.html#381dfed3a446e2b49171f4593a701df8">MAXHASH</a>];             <span class="comment">/* hash tables               */</span>
+<a name="l00069"></a>00069 <span class="keyword">extern</span> <a class="code" href="hashtab_8h.html#6e6c936395602fb2683ed0599131927b">HNODEPTR</a> <a class="code" href="hashtab_8c.html#e5ddad8435a9d403e79f4bd320fea151">sd_htab</a>[<a class="code" href="webalizer_8h.html#381dfed3a446e2b49171f4593a701df8">MAXHASH</a>];
+<a name="l00070"></a>00070 <span class="keyword">extern</span> <a class="code" href="hashtab_8h.html#0d24805080edbea320fb2c2ec31b229a">UNODEPTR</a> <a class="code" href="hashtab_8c.html#2f99d64abd1711a4b10ee71d070811a7">um_htab</a>[<a class="code" href="webalizer_8h.html#381dfed3a446e2b49171f4593a701df8">MAXHASH</a>];             <span class="comment">/* for hits, sites,          */</span>
+<a name="l00071"></a>00071 <span class="keyword">extern</span> <a class="code" href="hashtab_8h.html#f93974994603709dc7ef7a9c6798fa23">RNODEPTR</a> <a class="code" href="hashtab_8c.html#4b36877a2219872c641eb9a58ae45ce8">rm_htab</a>[<a class="code" href="webalizer_8h.html#381dfed3a446e2b49171f4593a701df8">MAXHASH</a>];             <span class="comment">/* referrers and agents...   */</span>
+<a name="l00072"></a>00072 <span class="keyword">extern</span> <a class="code" href="hashtab_8h.html#54e9f1564bf40998b62838a2b06f7798">ANODEPTR</a> <a class="code" href="hashtab_8c.html#4886dbd661ad553906dc83e1a8031316">am_htab</a>[<a class="code" href="webalizer_8h.html#381dfed3a446e2b49171f4593a701df8">MAXHASH</a>];
+<a name="l00073"></a>00073 <span class="keyword">extern</span> <a class="code" href="hashtab_8h.html#ba5bd50dc4074b21b1f1cfac70bb1fd5">SNODEPTR</a> <a class="code" href="hashtab_8c.html#e9a8ef54a4b421e3d16dc313f162ccff">sr_htab</a>[<a class="code" href="webalizer_8h.html#381dfed3a446e2b49171f4593a701df8">MAXHASH</a>];             <span class="comment">/* search string table       */</span>
+<a name="l00074"></a>00074 <span class="keyword">extern</span> <a class="code" href="hashtab_8h.html#e88293572818a449e95993c4ccdba0a8">INODEPTR</a> <a class="code" href="hashtab_8c.html#1a7bfe1ecf3b78722bcee9d08e8178a1">im_htab</a>[<a class="code" href="webalizer_8h.html#381dfed3a446e2b49171f4593a701df8">MAXHASH</a>];             <span class="comment">/* ident table (username)    */</span>
+<a name="l00075"></a>00075 <span class="preprocessor">#ifdef USE_DNS</span>
+<a name="l00076"></a>00076 <span class="preprocessor"></span><span class="keyword">extern</span> DNODEPTR host_table[<a class="code" href="webalizer_8h.html#381dfed3a446e2b49171f4593a701df8">MAXHASH</a>];          <span class="comment">/* DNS resolver table        */</span>
+<a name="l00077"></a>00077 <span class="preprocessor">#endif</span>
+<a name="l00078"></a>00078 <span class="preprocessor"></span>
+<a name="l00079"></a>00079 <span class="keyword">extern</span> <span class="keywordtype">int</span>    <a class="code" href="hashtab_8c.html#f2f25ed90b609c69446b8446454ca7a0">put_hnode</a>(<span class="keywordtype">char</span> *, <span class="keywordtype">int</span>, u_long, u_long, <span class="keywordtype">double</span>, u_long *,
+<a name="l00080"></a>00080                         u_long, u_long, <span class="keywordtype">char</span> *, <a class="code" href="hashtab_8h.html#6e6c936395602fb2683ed0599131927b">HNODEPTR</a> *);
+<a name="l00081"></a>00081 <span class="keyword">extern</span> <span class="keywordtype">int</span>    <a class="code" href="hashtab_8c.html#c4f10ed3d908404570fa30fae460b7d0">put_unode</a>(<span class="keywordtype">char</span> *, <span class="keywordtype">int</span>, u_long, <span class="keywordtype">double</span>, u_long *,
+<a name="l00082"></a>00082                         u_long, u_long, <a class="code" href="hashtab_8h.html#0d24805080edbea320fb2c2ec31b229a">UNODEPTR</a> *);
+<a name="l00083"></a>00083 <span class="keyword">extern</span> <span class="keywordtype">int</span>    <a class="code" href="hashtab_8c.html#9febd80a08973165c09cd1f42f429838">put_inode</a>(<span class="keywordtype">char</span> *, <span class="keywordtype">int</span>, u_long, u_long, <span class="keywordtype">double</span>, u_long *,
+<a name="l00084"></a>00084                         u_long, u_long, <a class="code" href="hashtab_8h.html#e88293572818a449e95993c4ccdba0a8">INODEPTR</a> *);
+<a name="l00085"></a>00085 <span class="keyword">extern</span> <span class="keywordtype">int</span>    <a class="code" href="hashtab_8c.html#b4002d9ddebb92b4a979361424d2e51b">put_rnode</a>(<span class="keywordtype">char</span> *, <span class="keywordtype">int</span>, u_long, u_long *, <a class="code" href="hashtab_8h.html#f93974994603709dc7ef7a9c6798fa23">RNODEPTR</a> *);
+<a name="l00086"></a>00086 <span class="keyword">extern</span> <span class="keywordtype">int</span>    <a class="code" href="hashtab_8c.html#696c253a54bee8d869c852d86c1f145e">put_anode</a>(<span class="keywordtype">char</span> *, <span class="keywordtype">int</span>, u_long, u_long *, <a class="code" href="hashtab_8h.html#54e9f1564bf40998b62838a2b06f7798">ANODEPTR</a> *);
+<a name="l00087"></a>00087 <span class="keyword">extern</span> <span class="keywordtype">int</span>    <a class="code" href="hashtab_8c.html#53bf7691f858a503c77b657b22cec782">put_snode</a>(<span class="keywordtype">char</span> *, u_long, <a class="code" href="hashtab_8h.html#ba5bd50dc4074b21b1f1cfac70bb1fd5">SNODEPTR</a> *);
+<a name="l00088"></a>00088 
+<a name="l00089"></a>00089 <span class="preprocessor">#ifdef USE_DNS</span>
+<a name="l00090"></a>00090 <span class="preprocessor"></span><span class="keyword">extern</span> <span class="keywordtype">int</span>    put_dnode(<span class="keywordtype">char</span> *, <span class="keyword">struct</span> in_addr *, DNODEPTR *);
+<a name="l00091"></a>00091 <span class="keyword">extern</span> <span class="keywordtype">void</span>   del_dlist(DNODEPTR *);
+<a name="l00092"></a>00092 <span class="preprocessor">#endif</span>
+<a name="l00093"></a>00093 <span class="preprocessor"></span>
+<a name="l00094"></a>00094 <span class="keyword">extern</span> <span class="keywordtype">void</span>   <a class="code" href="hashtab_8c.html#f9fcdad76e91434fe5f0728f3a79ae74">del_htabs</a>();                    <span class="comment">/* delete hash tables        */</span>
+<a name="l00095"></a>00095 <span class="keyword">extern</span> <span class="keywordtype">void</span>   <a class="code" href="hashtab_8c.html#306d5a1540d43fa136c10272cb2f0a4a">del_hlist</a>(<a class="code" href="hashtab_8h.html#6e6c936395602fb2683ed0599131927b">HNODEPTR</a> *);          <span class="comment">/* delete host htab          */</span>
+<a name="l00096"></a>00096 <span class="keyword">extern</span> <span class="keywordtype">void</span>   <a class="code" href="hashtab_8c.html#d270fa129a86e1f21e04f6863eb443c4">del_ulist</a>(<a class="code" href="hashtab_8h.html#0d24805080edbea320fb2c2ec31b229a">UNODEPTR</a> *);          <span class="comment">/* delete url htab           */</span>
+<a name="l00097"></a>00097 <span class="keyword">extern</span> <span class="keywordtype">void</span>   <a class="code" href="hashtab_8c.html#99589c545676162533a82708505580c6">del_rlist</a>(<a class="code" href="hashtab_8h.html#f93974994603709dc7ef7a9c6798fa23">RNODEPTR</a> *);          <span class="comment">/* delete referrer htab      */</span>
+<a name="l00098"></a>00098 <span class="keyword">extern</span> <span class="keywordtype">void</span>   <a class="code" href="hashtab_8c.html#ebb84eee637f50db17ab93d1050e8bd1">del_alist</a>(<a class="code" href="hashtab_8h.html#54e9f1564bf40998b62838a2b06f7798">ANODEPTR</a> *);          <span class="comment">/* delete host htab          */</span>
+<a name="l00099"></a>00099 <span class="keyword">extern</span> <span class="keywordtype">void</span>   <a class="code" href="hashtab_8c.html#d526188ebf65c97a2ed3cb521c6e0089">del_slist</a>(<a class="code" href="hashtab_8h.html#ba5bd50dc4074b21b1f1cfac70bb1fd5">SNODEPTR</a> *);          <span class="comment">/* delete host htab          */</span>
+<a name="l00100"></a>00100 <span class="keyword">extern</span> <span class="keywordtype">void</span>   <a class="code" href="hashtab_8c.html#d859897805bb7fc6479703fd3bcf493a">del_ilist</a>(<a class="code" href="hashtab_8h.html#e88293572818a449e95993c4ccdba0a8">INODEPTR</a> *);          <span class="comment">/* delete host htab          */</span>
+<a name="l00101"></a>00101 
+<a name="l00102"></a>00102 <span class="keyword">extern</span> <span class="keywordtype">void</span>   <a class="code" href="hashtab_8c.html#8bd37405a172f7642453f9a1fae7438f">month_update_exit</a>(u_long);
+<a name="l00103"></a>00103 <span class="keyword">extern</span> u_long <a class="code" href="hashtab_8c.html#c7baccdb17212972eee28ccc861dd307">tot_visit</a>(<a class="code" href="hashtab_8h.html#6e6c936395602fb2683ed0599131927b">HNODEPTR</a> *);
+<a name="l00104"></a>00104 <span class="keyword">extern</span> <span class="keywordtype">char</span>   *<a class="code" href="hashtab_8c.html#6028851c0bddbe6cfc35b4092a62e5e5">find_url</a>(<span class="keywordtype">char</span> *);
+<a name="l00105"></a>00105 
+<a name="l00106"></a>00106 <span class="preprocessor">#endif  </span><span class="comment">/* _HASHTAB_H */</span>
+</pre></div><hr size="1"><address style="align: right;"><small>Erzeugt am Wed Jun 7 04:07:56 2006 für OOS [Webalizer] von&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.6 </small></address>
+</body>
+</html>

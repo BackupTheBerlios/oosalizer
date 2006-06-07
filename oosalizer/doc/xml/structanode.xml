@@ -1,0 +1,100 @@
+<?xml version='1.0' encoding='iso-8859-1' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.4.6">
+  <compounddef id="structanode" kind="struct" prot="public">
+    <compoundname>anode</compoundname>
+    <includes refid="hashtab_8h" local="no">hashtab.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structanode_18fa6d7969583389ae6d535866f9fd914" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* anode::string</definition>
+        <argsstring></argsstring>
+        <name>string</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/hashtab.h" line="50" bodyfile="/home/r23/oosalizer/hashtab.h" bodystart="50" bodyend="-1"/>
+        <referencedby refid="output_8c_14f27932d464425450d0c11106ae0c2fe" compoundref="output_8c" startline="1713" endline="1769">all_agents_page</referencedby>
+        <referencedby refid="hashtab_8h_1f22586d044db71a37c6df4e122019504" compoundref="hashtab_8c" startline="645" endline="666">del_alist</referencedby>
+        <referencedby refid="output_8c_113b9a7e783dc0408ef406d95e9a347a8" compoundref="output_8c" startline="2332" endline="2365">dump_all_agents</referencedby>
+        <referencedby refid="hashtab_8c_177e03d0d91a9f6365711aed781c218f2" compoundref="hashtab_8c" startline="556" endline="584">new_anode</referencedby>
+        <referencedby refid="hashtab_8h_14d9f66275e1a624931142f32f046dd13" compoundref="hashtab_8c" startline="590" endline="639">put_anode</referencedby>
+        <referencedby refid="output_8c_155f5637d81e4b2847ea889ac14cbcc6b" compoundref="output_8c" startline="1623" endline="1707">top_agents_table</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structanode_1f9635cb5d8af6707a8bfab885f6d556b" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int anode::flag</definition>
+        <argsstring></argsstring>
+        <name>flag</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/hashtab.h" line="51" bodyfile="/home/r23/oosalizer/hashtab.h" bodystart="51" bodyend="-1"/>
+        <referencedby refid="output_8c_14f27932d464425450d0c11106ae0c2fe" compoundref="output_8c" startline="1713" endline="1769">all_agents_page</referencedby>
+        <referencedby refid="output_8c_113b9a7e783dc0408ef406d95e9a347a8" compoundref="output_8c" startline="2332" endline="2365">dump_all_agents</referencedby>
+        <referencedby refid="hashtab_8c_177e03d0d91a9f6365711aed781c218f2" compoundref="hashtab_8c" startline="556" endline="584">new_anode</referencedby>
+        <referencedby refid="hashtab_8h_14d9f66275e1a624931142f32f046dd13" compoundref="hashtab_8c" startline="590" endline="639">put_anode</referencedby>
+        <referencedby refid="output_8c_155f5637d81e4b2847ea889ac14cbcc6b" compoundref="output_8c" startline="1623" endline="1707">top_agents_table</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structanode_1358dd30d63b3ecf448451988c0139fcf" prot="public" static="no" mutable="no">
+        <type>u_long</type>
+        <definition>u_long anode::count</definition>
+        <argsstring></argsstring>
+        <name>count</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/hashtab.h" line="52" bodyfile="/home/r23/oosalizer/hashtab.h" bodystart="52" bodyend="-1"/>
+        <referencedby refid="output_8c_14f27932d464425450d0c11106ae0c2fe" compoundref="output_8c" startline="1713" endline="1769">all_agents_page</referencedby>
+        <referencedby refid="output_8c_113b9a7e783dc0408ef406d95e9a347a8" compoundref="output_8c" startline="2332" endline="2365">dump_all_agents</referencedby>
+        <referencedby refid="hashtab_8c_177e03d0d91a9f6365711aed781c218f2" compoundref="hashtab_8c" startline="556" endline="584">new_anode</referencedby>
+        <referencedby refid="hashtab_8h_14d9f66275e1a624931142f32f046dd13" compoundref="hashtab_8c" startline="590" endline="639">put_anode</referencedby>
+        <referencedby refid="output_8c_155f5637d81e4b2847ea889ac14cbcc6b" compoundref="output_8c" startline="1623" endline="1707">top_agents_table</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structanode_1834db38618dba5e74b8a738441e861d9" prot="public" static="no" mutable="no">
+        <type><ref refid="structanode" kindref="compound">anode</ref> *</type>
+        <definition>struct anode* anode::next</definition>
+        <argsstring></argsstring>
+        <name>next</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/hashtab.h" line="53" bodyfile="/home/r23/oosalizer/hashtab.h" bodystart="53" bodyend="-1"/>
+        <referencedby refid="hashtab_8h_1f22586d044db71a37c6df4e122019504" compoundref="hashtab_8c" startline="645" endline="666">del_alist</referencedby>
+        <referencedby refid="output_8c_1695c31f8c5d53bf9a1b112cccd36740f" compoundref="output_8c" startline="2819" endline="2837">load_agent_array</referencedby>
+        <referencedby refid="hashtab_8h_14d9f66275e1a624931142f32f046dd13" compoundref="hashtab_8c" startline="590" endline="639">put_anode</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="29">
+        <label>anode</label>
+        <link refid="structanode"/>
+        <childnode refid="29" relation="usage">
+          <edgelabel>next</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/r23/oosalizer/hashtab.h" line="50" bodyfile="/home/r23/oosalizer/hashtab.h" bodystart="50" bodyend="53"/>
+    <listofallmembers>
+      <member refid="structanode_1358dd30d63b3ecf448451988c0139fcf" prot="public" virt="non-virtual"><scope>anode</scope><name>count</name></member>
+      <member refid="structanode_1f9635cb5d8af6707a8bfab885f6d556b" prot="public" virt="non-virtual"><scope>anode</scope><name>flag</name></member>
+      <member refid="structanode_1834db38618dba5e74b8a738441e861d9" prot="public" virt="non-virtual"><scope>anode</scope><name>next</name></member>
+      <member refid="structanode_18fa6d7969583389ae6d535866f9fd914" prot="public" virt="non-virtual"><scope>anode</scope><name>string</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

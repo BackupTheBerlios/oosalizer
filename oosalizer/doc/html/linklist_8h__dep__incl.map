@@ -1,0 +1,5 @@
+base referer
+rect $hashtab_8c.html 189,8 325,32
+rect $linklist_8c.html 194,56 319,80
+rect $output_8c.html 194,104 319,128
+rect $webalizer_8c.html 185,152 329,176

@@ -1,0 +1,366 @@
+<?xml version='1.0' encoding='iso-8859-1' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.4.6">
+  <compounddef id="preserve_8h" kind="file">
+    <compoundname>preserve.h</compoundname>
+    <includedby refid="output_8c" local="yes">oosalizer/output.c</includedby>
+    <includedby refid="preserve_8c" local="yes">oosalizer/preserve.c</includedby>
+    <includedby refid="webalizer_8c" local="yes">oosalizer/webalizer.c</includedby>
+    <invincdepgraph>
+      <node id="310">
+        <label>oosalizer/preserve.c</label>
+        <link refid="preserve_8c"/>
+      </node>
+      <node id="308">
+        <label>oosalizer/preserve.h</label>
+        <link refid="preserve.h"/>
+        <childnode refid="309" relation="include">
+        </childnode>
+        <childnode refid="310" relation="include">
+        </childnode>
+        <childnode refid="311" relation="include">
+        </childnode>
+      </node>
+      <node id="311">
+        <label>oosalizer/webalizer.c</label>
+        <link refid="webalizer_8c"/>
+      </node>
+      <node id="309">
+        <label>oosalizer/output.c</label>
+        <link refid="output_8c"/>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="preserve_8h_1d7ce84df67f8fe6fb2ae68f70445e3ff" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void get_history</definition>
+        <argsstring>()</argsstring>
+        <name>get_history</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/preserve.h" line="4" bodyfile="/home/r23/oosalizer/preserve.c" bodystart="83" bodyend="134"/>
+        <references refid="webalizer_8c_109b4e72533ab279f7930a9a5e3ab050c" compoundref="webalizer_8c" startline="218">buffer</references>
+        <references refid="webalizer_8h_1eca034f67218340ecb2261a22c2f3dcd" compoundref="webalizer_8h" startline="16">BUFSIZE</references>
+        <references refid="preserve_8c_1aa2fe5b00c099187be9c1aace6552a9c" compoundref="preserve_8c" startline="77">hist_fday</references>
+        <references refid="preserve_8c_15fce0b39aa3228d6b471e9294f1fed9d" compoundref="preserve_8c" startline="71">hist_files</references>
+        <references refid="preserve_8c_171b324074ec02105c3730f77c0ab3e50" compoundref="preserve_8c" startline="70">hist_hit</references>
+        <references refid="preserve_8c_1c1366de31d95191e4f8fe0894dabb4e2" compoundref="preserve_8c" startline="77">hist_lday</references>
+        <references refid="preserve_8c_18dbdfde33bef98c2e3a8d2b8fab9143d" compoundref="preserve_8c" startline="69">hist_month</references>
+        <references refid="preserve_8c_16885f98057e49be4b1a58cc1fea67b11" compoundref="preserve_8c" startline="74">hist_page</references>
+        <references refid="preserve_8c_195f554bfcd0bb37a1e90b29db92d2ffa" compoundref="preserve_8c" startline="72">hist_site</references>
+        <references refid="preserve_8c_1686df2d8a29e5dc08eddd9679fecc5ff" compoundref="preserve_8c" startline="75">hist_visit</references>
+        <references refid="preserve_8c_19258e499d6896ed681dbe7582d7047c4" compoundref="preserve_8c" startline="73">hist_xfer</references>
+        <references refid="preserve_8c_1bd6905416f4fb7c9cc62053f1f952d32" compoundref="preserve_8c" startline="69">hist_year</references>
+      </memberdef>
+      <memberdef kind="function" id="preserve_8h_10725425e14f501da1e2fc612d7854c01" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void put_history</definition>
+        <argsstring>()</argsstring>
+        <name>put_history</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/preserve.h" line="5" bodyfile="/home/r23/oosalizer/preserve.c" bodystart="140" bodyend="172"/>
+        <references refid="preserve_8c_1aa2fe5b00c099187be9c1aace6552a9c" compoundref="preserve_8c" startline="77">hist_fday</references>
+        <references refid="preserve_8c_15fce0b39aa3228d6b471e9294f1fed9d" compoundref="preserve_8c" startline="71">hist_files</references>
+        <references refid="webalizer_8c_1196026e726faa9db510409f5d895d7a3" compoundref="webalizer_8c" startline="132">hist_fname</references>
+        <references refid="preserve_8c_171b324074ec02105c3730f77c0ab3e50" compoundref="preserve_8c" startline="70">hist_hit</references>
+        <references refid="preserve_8c_1c1366de31d95191e4f8fe0894dabb4e2" compoundref="preserve_8c" startline="77">hist_lday</references>
+        <references refid="preserve_8c_18dbdfde33bef98c2e3a8d2b8fab9143d" compoundref="preserve_8c" startline="69">hist_month</references>
+        <references refid="preserve_8c_16885f98057e49be4b1a58cc1fea67b11" compoundref="preserve_8c" startline="74">hist_page</references>
+        <references refid="preserve_8c_195f554bfcd0bb37a1e90b29db92d2ffa" compoundref="preserve_8c" startline="72">hist_site</references>
+        <references refid="preserve_8c_1686df2d8a29e5dc08eddd9679fecc5ff" compoundref="preserve_8c" startline="75">hist_visit</references>
+        <references refid="preserve_8c_19258e499d6896ed681dbe7582d7047c4" compoundref="preserve_8c" startline="73">hist_xfer</references>
+        <references refid="preserve_8c_1bd6905416f4fb7c9cc62053f1f952d32" compoundref="preserve_8c" startline="69">hist_year</references>
+        <references refid="lang_8h_172324582cd40a329d7d29f6a2ca9738e">msg_put_hist</references>
+        <references refid="webalizer_8c_10b2caeb4b6f130be43e5a2f0267dd453" compoundref="webalizer_8c" startline="108">verbose</references>
+      </memberdef>
+      <memberdef kind="function" id="preserve_8h_130d384683c4584a041792cf314051fa3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int save_state</definition>
+        <argsstring>()</argsstring>
+        <name>save_state</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/preserve.h" line="6" bodyfile="/home/r23/oosalizer/preserve.c" bodystart="178" bodyend="399"/>
+        <references refid="webalizer_8c_109b4e72533ab279f7930a9a5e3ab050c" compoundref="webalizer_8c" startline="218">buffer</references>
+        <references refid="webalizer_8h_1eca034f67218340ecb2261a22c2f3dcd" compoundref="webalizer_8h" startline="16">BUFSIZE</references>
+        <references refid="webalizer_8c_16edfa42467177fc02002d61038a98f39" compoundref="webalizer_8c" startline="172">cur_day</references>
+        <references refid="webalizer_8c_1ae0bcd47798b959a96cb28082a0f151b" compoundref="webalizer_8c" startline="172">cur_hour</references>
+        <references refid="webalizer_8c_1726c08db04038ffbeffd72a3181ac519" compoundref="webalizer_8c" startline="173">cur_min</references>
+        <references refid="webalizer_8c_1d8ec6498bcc8d8eb82d92bc5c1aacc8d" compoundref="webalizer_8c" startline="171">cur_month</references>
+        <references refid="webalizer_8c_1a2131c365f9da2fb93a57aed95b563d8" compoundref="webalizer_8c" startline="173">cur_sec</references>
+        <references refid="webalizer_8c_18447667f9dc8021c4f17284b9a12f776" compoundref="webalizer_8c" startline="171">cur_year</references>
+        <references refid="webalizer_8c_1f80cf0d40e63789f26cf6ee643eb3b4c" compoundref="webalizer_8c" startline="194">dt_site</references>
+        <references refid="webalizer_8c_159179d90a91f573f3c081592845ee19c" compoundref="webalizer_8c" startline="104">editlvl</references>
+        <references refid="webalizer_8c_14637ce886571ae33e34d7d0ae8d50df8" compoundref="webalizer_8c" startline="203">f_day</references>
+        <references refid="webalizer_8c_114a295f77051b0898135267236453dd6" compoundref="webalizer_8c" startline="196">ht_hit</references>
+        <references refid="webalizer_8c_13322d751ac470f626bc34fb8b34c1759" compoundref="webalizer_8c" startline="203">l_day</references>
+        <references refid="webalizer_8c_10fbe52a528ae909f4058a35bdab8d034" compoundref="webalizer_8c" startline="196">mh_hit</references>
+        <references refid="lang_8h_1b9771714bf044067d9c69fe0e7490bb4">msg_put_data</references>
+        <references refid="webalizer_8c_1bc6083147b471a6df297cc5851057771" compoundref="webalizer_8c" startline="131">state_fname</references>
+        <references refid="webalizer_8c_1681645a12ff433a6d191ac4eabbb265d" compoundref="webalizer_8c" startline="185">t_agent</references>
+        <references refid="webalizer_8c_18d8f1b3ebaff4207130ee4e068a74578" compoundref="webalizer_8c" startline="184">t_file</references>
+        <references refid="webalizer_8c_14f0e430951167c36ff37f1373c453d40" compoundref="webalizer_8c" startline="184">t_hit</references>
+        <references refid="webalizer_8c_1dab177cb0d83726239072547f166262a" compoundref="webalizer_8c" startline="186">t_page</references>
+        <references refid="webalizer_8c_154f4adcbb2769b5082a138f23c9bb07e" compoundref="webalizer_8c" startline="185">t_ref</references>
+        <references refid="webalizer_8c_1e37f859c6ceb40434ecd96c6ba5d0565" compoundref="webalizer_8c" startline="184">t_site</references>
+        <references refid="webalizer_8c_1593eb26715b7f629074c61861d8dd8b3" compoundref="webalizer_8c" startline="185">t_url</references>
+        <references refid="webalizer_8c_1196ee522ca1e09cef5b8962a7c63e4e2" compoundref="webalizer_8c" startline="186">t_user</references>
+        <references refid="webalizer_8c_1241257c2fb7477a7dc9191c01e8a155a" compoundref="webalizer_8c" startline="186">t_visit</references>
+        <references refid="webalizer_8c_11952e11824da591d81fdf3371627ae86" compoundref="webalizer_8c" startline="183">t_xfer</references>
+        <references refid="webalizer_8c_1985c7f07bdd01aea04be87abba0d225b" compoundref="webalizer_8c" startline="190">tm_file</references>
+        <references refid="webalizer_8c_190b2c6f5c71d87e07a6aa0694651c7a8" compoundref="webalizer_8c" startline="190">tm_hit</references>
+        <references refid="webalizer_8c_12b0163914dcd84396a9d6dae48ee4a54" compoundref="webalizer_8c" startline="190">tm_page</references>
+        <references refid="webalizer_8c_13016395581c35bac86027a654deb0db5" compoundref="webalizer_8c" startline="190">tm_site</references>
+        <references refid="webalizer_8c_1f3d33c8d579ff7b3d41abb0e618f70a5" compoundref="webalizer_8c" startline="190">tm_visit</references>
+        <references refid="webalizer_8c_1d8577082542e8d61ae9d21b5cdc09de6" compoundref="webalizer_8c" startline="188">tm_xfer</references>
+        <references refid="webalizer_8c_10b2caeb4b6f130be43e5a2f0267dd453" compoundref="webalizer_8c" startline="108">verbose</references>
+        <references refid="webalizer_8c_156abfaab87c46691c1ef3ad0df23e864" compoundref="webalizer_8c" startline="103">version</references>
+      </memberdef>
+      <memberdef kind="function" id="preserve_8h_187684b62a3f6bfdc76f25d5fb679c901" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int restore_state</definition>
+        <argsstring>()</argsstring>
+        <name>restore_state</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/preserve.h" line="7" bodyfile="/home/r23/oosalizer/preserve.c" bodystart="405" bodyend="758"/>
+        <references refid="webalizer_8h_1eca034f67218340ecb2261a22c2f3dcd" compoundref="webalizer_8h" startline="16">BUFSIZE</references>
+        <references refid="webalizer_8c_16edfa42467177fc02002d61038a98f39" compoundref="webalizer_8c" startline="172">cur_day</references>
+        <references refid="webalizer_8c_1ae0bcd47798b959a96cb28082a0f151b" compoundref="webalizer_8c" startline="172">cur_hour</references>
+        <references refid="webalizer_8c_1726c08db04038ffbeffd72a3181ac519" compoundref="webalizer_8c" startline="173">cur_min</references>
+        <references refid="webalizer_8c_1d8ec6498bcc8d8eb82d92bc5c1aacc8d" compoundref="webalizer_8c" startline="171">cur_month</references>
+        <references refid="webalizer_8c_1a2131c365f9da2fb93a57aed95b563d8" compoundref="webalizer_8c" startline="173">cur_sec</references>
+        <references refid="webalizer_8c_14327980462d3207e34bf99fce007b511" compoundref="webalizer_8c" startline="175">cur_tstamp</references>
+        <references refid="webalizer_8c_18447667f9dc8021c4f17284b9a12f776" compoundref="webalizer_8c" startline="171">cur_year</references>
+        <references refid="webalizer_8c_171f3fc3b6564ee11c34ff02cee2a3e05" compoundref="webalizer_8c" startline="178">epoch</references>
+        <references refid="webalizer_8c_18fb8978d91b70fd80d00d381cb115731" compoundref="webalizer_8c" startline="2009" endline="2028">jdate</references>
+        <references refid="lang_8h_12911108863867222d664581ddfa69db0">msg_get_data</references>
+        <references refid="lang_8h_1b6bff39e242fa874be2f2473bc87cd3f">msg_no_data</references>
+        <references refid="webalizer_8c_1bc6083147b471a6df297cc5851057771" compoundref="webalizer_8c" startline="131">state_fname</references>
+        <references refid="webalizer_8c_1681645a12ff433a6d191ac4eabbb265d" compoundref="webalizer_8c" startline="185">t_agent</references>
+        <references refid="webalizer_8c_18d8f1b3ebaff4207130ee4e068a74578" compoundref="webalizer_8c" startline="184">t_file</references>
+        <references refid="webalizer_8c_14f0e430951167c36ff37f1373c453d40" compoundref="webalizer_8c" startline="184">t_hit</references>
+        <references refid="webalizer_8c_1dab177cb0d83726239072547f166262a" compoundref="webalizer_8c" startline="186">t_page</references>
+        <references refid="webalizer_8c_154f4adcbb2769b5082a138f23c9bb07e" compoundref="webalizer_8c" startline="185">t_ref</references>
+        <references refid="webalizer_8c_1e37f859c6ceb40434ecd96c6ba5d0565" compoundref="webalizer_8c" startline="184">t_site</references>
+        <references refid="webalizer_8c_1593eb26715b7f629074c61861d8dd8b3" compoundref="webalizer_8c" startline="185">t_url</references>
+        <references refid="webalizer_8c_1196ee522ca1e09cef5b8962a7c63e4e2" compoundref="webalizer_8c" startline="186">t_user</references>
+        <references refid="webalizer_8c_1241257c2fb7477a7dc9191c01e8a155a" compoundref="webalizer_8c" startline="186">t_visit</references>
+        <references refid="webalizer_8c_11952e11824da591d81fdf3371627ae86" compoundref="webalizer_8c" startline="183">t_xfer</references>
+        <references refid="webalizer_8c_1ee9788649de43fb36bc42d15b1c829ff" compoundref="webalizer_8c" startline="219">tmp_buf</references>
+        <references refid="webalizer_8c_1e29a508fc80a24e71cc41101f6bf9039" compoundref="webalizer_8c" startline="207">ul_bogus</references>
+        <references refid="webalizer_8c_10b2caeb4b6f130be43e5a2f0267dd453" compoundref="webalizer_8c" startline="108">verbose</references>
+        <references refid="webalizer_8c_156abfaab87c46691c1ef3ad0df23e864" compoundref="webalizer_8c" startline="103">version</references>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="preserve_8h_18dbdfde33bef98c2e3a8d2b8fab9143d" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int hist_month[12]</definition>
+        <argsstring>[12]</argsstring>
+        <name>hist_month</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/preserve.h" line="9" bodyfile="/home/r23/oosalizer/preserve.c" bodystart="69" bodyend="-1"/>
+        <referencedby refid="preserve_8h_1d7ce84df67f8fe6fb2ae68f70445e3ff" compoundref="preserve_8c" startline="83" endline="134">get_history</referencedby>
+        <referencedby refid="preserve_8h_10725425e14f501da1e2fc612d7854c01" compoundref="preserve_8c" startline="140" endline="172">put_history</referencedby>
+        <referencedby refid="output_8h_190b458b70bbeed91acc9ec79062f6ac7" compoundref="output_8c" startline="2450" endline="2591">write_main_index</referencedby>
+        <referencedby refid="output_8h_1a88c70787fac7e72d1f6509b38b6bcab" compoundref="output_8c" startline="325" endline="531">write_month_html</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="preserve_8h_1bd6905416f4fb7c9cc62053f1f952d32" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int hist_year[12]</definition>
+        <argsstring>[12]</argsstring>
+        <name>hist_year</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/preserve.h" line="10" bodyfile="/home/r23/oosalizer/preserve.c" bodystart="69" bodyend="-1"/>
+        <referencedby refid="preserve_8h_1d7ce84df67f8fe6fb2ae68f70445e3ff" compoundref="preserve_8c" startline="83" endline="134">get_history</referencedby>
+        <referencedby refid="preserve_8h_10725425e14f501da1e2fc612d7854c01" compoundref="preserve_8c" startline="140" endline="172">put_history</referencedby>
+        <referencedby refid="output_8h_190b458b70bbeed91acc9ec79062f6ac7" compoundref="output_8c" startline="2450" endline="2591">write_main_index</referencedby>
+        <referencedby refid="output_8h_1a88c70787fac7e72d1f6509b38b6bcab" compoundref="output_8c" startline="325" endline="531">write_month_html</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="preserve_8h_171b324074ec02105c3730f77c0ab3e50" prot="public" static="no" mutable="no">
+        <type>u_long</type>
+        <definition>u_long hist_hit[12]</definition>
+        <argsstring>[12]</argsstring>
+        <name>hist_hit</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/preserve.h" line="11" bodyfile="/home/r23/oosalizer/preserve.c" bodystart="70" bodyend="-1"/>
+        <referencedby refid="preserve_8h_1d7ce84df67f8fe6fb2ae68f70445e3ff" compoundref="preserve_8c" startline="83" endline="134">get_history</referencedby>
+        <referencedby refid="preserve_8h_10725425e14f501da1e2fc612d7854c01" compoundref="preserve_8c" startline="140" endline="172">put_history</referencedby>
+        <referencedby refid="output_8h_1a88c70787fac7e72d1f6509b38b6bcab" compoundref="output_8c" startline="325" endline="531">write_month_html</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="preserve_8h_15fce0b39aa3228d6b471e9294f1fed9d" prot="public" static="no" mutable="no">
+        <type>u_long</type>
+        <definition>u_long hist_files[12]</definition>
+        <argsstring>[12]</argsstring>
+        <name>hist_files</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/preserve.h" line="12" bodyfile="/home/r23/oosalizer/preserve.c" bodystart="71" bodyend="-1"/>
+        <referencedby refid="preserve_8h_1d7ce84df67f8fe6fb2ae68f70445e3ff" compoundref="preserve_8c" startline="83" endline="134">get_history</referencedby>
+        <referencedby refid="preserve_8h_10725425e14f501da1e2fc612d7854c01" compoundref="preserve_8c" startline="140" endline="172">put_history</referencedby>
+        <referencedby refid="output_8h_1a88c70787fac7e72d1f6509b38b6bcab" compoundref="output_8c" startline="325" endline="531">write_month_html</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="preserve_8h_195f554bfcd0bb37a1e90b29db92d2ffa" prot="public" static="no" mutable="no">
+        <type>u_long</type>
+        <definition>u_long hist_site[12]</definition>
+        <argsstring>[12]</argsstring>
+        <name>hist_site</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/preserve.h" line="13" bodyfile="/home/r23/oosalizer/preserve.c" bodystart="72" bodyend="-1"/>
+        <referencedby refid="preserve_8h_1d7ce84df67f8fe6fb2ae68f70445e3ff" compoundref="preserve_8c" startline="83" endline="134">get_history</referencedby>
+        <referencedby refid="preserve_8h_10725425e14f501da1e2fc612d7854c01" compoundref="preserve_8c" startline="140" endline="172">put_history</referencedby>
+        <referencedby refid="output_8h_1a88c70787fac7e72d1f6509b38b6bcab" compoundref="output_8c" startline="325" endline="531">write_month_html</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="preserve_8h_19258e499d6896ed681dbe7582d7047c4" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double hist_xfer[12]</definition>
+        <argsstring>[12]</argsstring>
+        <name>hist_xfer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/preserve.h" line="14" bodyfile="/home/r23/oosalizer/preserve.c" bodystart="73" bodyend="-1"/>
+        <referencedby refid="preserve_8h_1d7ce84df67f8fe6fb2ae68f70445e3ff" compoundref="preserve_8c" startline="83" endline="134">get_history</referencedby>
+        <referencedby refid="preserve_8h_10725425e14f501da1e2fc612d7854c01" compoundref="preserve_8c" startline="140" endline="172">put_history</referencedby>
+        <referencedby refid="output_8h_1a88c70787fac7e72d1f6509b38b6bcab" compoundref="output_8c" startline="325" endline="531">write_month_html</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="preserve_8h_16885f98057e49be4b1a58cc1fea67b11" prot="public" static="no" mutable="no">
+        <type>u_long</type>
+        <definition>u_long hist_page[12]</definition>
+        <argsstring>[12]</argsstring>
+        <name>hist_page</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/preserve.h" line="15" bodyfile="/home/r23/oosalizer/preserve.c" bodystart="74" bodyend="-1"/>
+        <referencedby refid="preserve_8h_1d7ce84df67f8fe6fb2ae68f70445e3ff" compoundref="preserve_8c" startline="83" endline="134">get_history</referencedby>
+        <referencedby refid="preserve_8h_10725425e14f501da1e2fc612d7854c01" compoundref="preserve_8c" startline="140" endline="172">put_history</referencedby>
+        <referencedby refid="output_8h_1a88c70787fac7e72d1f6509b38b6bcab" compoundref="output_8c" startline="325" endline="531">write_month_html</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="preserve_8h_1686df2d8a29e5dc08eddd9679fecc5ff" prot="public" static="no" mutable="no">
+        <type>u_long</type>
+        <definition>u_long hist_visit[12]</definition>
+        <argsstring>[12]</argsstring>
+        <name>hist_visit</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/preserve.h" line="16" bodyfile="/home/r23/oosalizer/preserve.c" bodystart="75" bodyend="-1"/>
+        <referencedby refid="preserve_8h_1d7ce84df67f8fe6fb2ae68f70445e3ff" compoundref="preserve_8c" startline="83" endline="134">get_history</referencedby>
+        <referencedby refid="preserve_8h_10725425e14f501da1e2fc612d7854c01" compoundref="preserve_8c" startline="140" endline="172">put_history</referencedby>
+        <referencedby refid="output_8h_1a88c70787fac7e72d1f6509b38b6bcab" compoundref="output_8c" startline="325" endline="531">write_month_html</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="preserve_8h_1aa2fe5b00c099187be9c1aace6552a9c" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int hist_fday[12]</definition>
+        <argsstring>[12]</argsstring>
+        <name>hist_fday</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/preserve.h" line="18" bodyfile="/home/r23/oosalizer/preserve.c" bodystart="77" bodyend="-1"/>
+        <referencedby refid="preserve_8h_1d7ce84df67f8fe6fb2ae68f70445e3ff" compoundref="preserve_8c" startline="83" endline="134">get_history</referencedby>
+        <referencedby refid="preserve_8h_10725425e14f501da1e2fc612d7854c01" compoundref="preserve_8c" startline="140" endline="172">put_history</referencedby>
+        <referencedby refid="output_8h_1a88c70787fac7e72d1f6509b38b6bcab" compoundref="output_8c" startline="325" endline="531">write_month_html</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="preserve_8h_1c1366de31d95191e4f8fe0894dabb4e2" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int hist_lday[12]</definition>
+        <argsstring>[12]</argsstring>
+        <name>hist_lday</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/preserve.h" line="19" bodyfile="/home/r23/oosalizer/preserve.c" bodystart="77" bodyend="-1"/>
+        <referencedby refid="output_8c_124968f52f4cb828c450b4357d0da9326" compoundref="output_8c" startline="804" endline="875">daily_total_table</referencedby>
+        <referencedby refid="preserve_8h_1d7ce84df67f8fe6fb2ae68f70445e3ff" compoundref="preserve_8c" startline="83" endline="134">get_history</referencedby>
+        <referencedby refid="preserve_8h_10725425e14f501da1e2fc612d7854c01" compoundref="preserve_8c" startline="140" endline="172">put_history</referencedby>
+        <referencedby refid="output_8h_1a88c70787fac7e72d1f6509b38b6bcab" compoundref="output_8c" startline="325" endline="531">write_month_html</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>_PRESERVE_H</highlight></codeline>
+<codeline lineno="2"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>_PRESERVE_H</highlight></codeline>
+<codeline lineno="3"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="preserve_8c_1d7ce84df67f8fe6fb2ae68f70445e3ff" kindref="member">get_history</ref>();<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>load<sp/>history<sp/>file<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="preserve_8c_10725425e14f501da1e2fc612d7854c01" kindref="member">put_history</ref>();<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>save<sp/>history<sp/>file<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><ref refid="preserve_8c_130d384683c4584a041792cf314051fa3" kindref="member">save_state</ref>();<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>save<sp/>run<sp/>state<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><ref refid="preserve_8c_187684b62a3f6bfdc76f25d5fb679c901" kindref="member">restore_state</ref>();<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>restore<sp/>run<sp/>state<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><ref refid="preserve_8c_18dbdfde33bef98c2e3a8d2b8fab9143d" kindref="member">hist_month</ref>[12];<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>arrays<sp/>for<sp/>monthly<sp/>total<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><ref refid="preserve_8c_1bd6905416f4fb7c9cc62053f1f952d32" kindref="member">hist_year</ref>[12];</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/>u_long<sp/><sp/><ref refid="preserve_8c_171b324074ec02105c3730f77c0ab3e50" kindref="member">hist_hit</ref>[12];<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>calculations:<sp/>used<sp/>to<sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/>u_long<sp/><sp/><ref refid="preserve_8c_15fce0b39aa3228d6b471e9294f1fed9d" kindref="member">hist_files</ref>[12];<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>produce<sp/>index.html<sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/>u_long<sp/><sp/><ref refid="preserve_8c_195f554bfcd0bb37a1e90b29db92d2ffa" kindref="member">hist_site</ref>[12];<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>these<sp/>are<sp/>read<sp/>and<sp/>saved<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><sp/><ref refid="preserve_8c_19258e499d6896ed681dbe7582d7047c4" kindref="member">hist_xfer</ref>[12];<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>in<sp/>the<sp/>history<sp/>file<sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/>u_long<sp/><sp/><ref refid="preserve_8c_16885f98057e49be4b1a58cc1fea67b11" kindref="member">hist_page</ref>[12];</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/>u_long<sp/><sp/><ref refid="preserve_8c_1686df2d8a29e5dc08eddd9679fecc5ff" kindref="member">hist_visit</ref>[12];</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><ref refid="preserve_8c_1aa2fe5b00c099187be9c1aace6552a9c" kindref="member">hist_fday</ref>[12];<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>first/last<sp/>day<sp/>arrays<sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><ref refid="preserve_8c_1c1366de31d95191e4f8fe0894dabb4e2" kindref="member">hist_lday</ref>[12];</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/><sp/></highlight><highlight class="comment">/*<sp/>_PRESERVE_H<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/home/r23/oosalizer/preserve.h"/>
+  </compounddef>
+</doxygen>

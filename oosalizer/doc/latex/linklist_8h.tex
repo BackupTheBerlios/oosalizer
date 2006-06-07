@@ -1,0 +1,393 @@
+\section{oosalizer/linklist.h-Dateireferenz}
+\label{linklist_8h}\index{oosalizer/linklist.h@{oosalizer/linklist.h}}
+
+
+Dieser Graph zeigt, welche Datei direkt oder indirekt diese Datei enth\"{a}lt:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=139pt]{linklist_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Datenstrukturen}
+\begin{CompactItemize}
+\item 
+struct {\bf nlist}
+\item 
+struct {\bf glist}
+\end{CompactItemize}
+\subsection*{Typdefinitionen}
+\begin{CompactItemize}
+\item 
+typedef {\bf nlist} $\ast$ {\bf NLISTPTR}
+\item 
+typedef {\bf glist} $\ast$ {\bf GLISTPTR}
+\end{CompactItemize}
+\subsection*{Funktionen}
+\begin{CompactItemize}
+\item 
+char $\ast$ {\bf isinlist} ({\bf NLISTPTR}, char $\ast$)
+\item 
+char $\ast$ {\bf isinglist} ({\bf GLISTPTR}, char $\ast$)
+\item 
+int {\bf add\_\-nlist} (char $\ast$, {\bf NLISTPTR} $\ast$)
+\item 
+int {\bf add\_\-glist} (char $\ast$, {\bf GLISTPTR} $\ast$)
+\end{CompactItemize}
+\subsection*{Variablen}
+\begin{CompactItemize}
+\item 
+{\bf GLISTPTR} {\bf group\_\-sites}
+\item 
+{\bf GLISTPTR} {\bf group\_\-urls}
+\item 
+{\bf GLISTPTR} {\bf group\_\-refs}
+\item 
+{\bf GLISTPTR} {\bf group\_\-agents}
+\item 
+{\bf GLISTPTR} {\bf group\_\-users}
+\item 
+{\bf NLISTPTR} {\bf hidden\_\-sites}
+\item 
+{\bf NLISTPTR} {\bf hidden\_\-urls}
+\item 
+{\bf NLISTPTR} {\bf hidden\_\-refs}
+\item 
+{\bf NLISTPTR} {\bf hidden\_\-agents}
+\item 
+{\bf NLISTPTR} {\bf hidden\_\-users}
+\item 
+{\bf NLISTPTR} {\bf ignored\_\-sites}
+\item 
+{\bf NLISTPTR} {\bf ignored\_\-urls}
+\item 
+{\bf NLISTPTR} {\bf ignored\_\-refs}
+\item 
+{\bf NLISTPTR} {\bf ignored\_\-agents}
+\item 
+{\bf NLISTPTR} {\bf ignored\_\-users}
+\item 
+{\bf NLISTPTR} {\bf include\_\-sites}
+\item 
+{\bf NLISTPTR} {\bf include\_\-urls}
+\item 
+{\bf NLISTPTR} {\bf include\_\-refs}
+\item 
+{\bf NLISTPTR} {\bf include\_\-agents}
+\item 
+{\bf NLISTPTR} {\bf include\_\-users}
+\item 
+{\bf NLISTPTR} {\bf index\_\-alias}
+\item 
+{\bf NLISTPTR} {\bf html\_\-pre}
+\item 
+{\bf NLISTPTR} {\bf html\_\-head}
+\item 
+{\bf NLISTPTR} {\bf html\_\-body}
+\item 
+{\bf NLISTPTR} {\bf html\_\-post}
+\item 
+{\bf NLISTPTR} {\bf html\_\-tail}
+\item 
+{\bf NLISTPTR} {\bf html\_\-end}
+\item 
+{\bf NLISTPTR} {\bf page\_\-type}
+\item 
+{\bf GLISTPTR} {\bf search\_\-list}
+\end{CompactItemize}
+
+
+\subsection{Dokumentation der benutzerdefinierten Typen}
+\index{linklist.h@{linklist.h}!GLISTPTR@{GLISTPTR}}
+\index{GLISTPTR@{GLISTPTR}!linklist.h@{linklist.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf glist}$\ast$ {\bf GLISTPTR}}\label{linklist_8h_8ba38064a5a49a77b788338c8aab0ce9}
+
+
+
+
+Definiert in Zeile 11 der Datei linklist.h.\index{linklist.h@{linklist.h}!NLISTPTR@{NLISTPTR}}
+\index{NLISTPTR@{NLISTPTR}!linklist.h@{linklist.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf nlist}$\ast$ {\bf NLISTPTR}}\label{linklist_8h_a24a845f5406aa82c81d3d1b74fa7c87}
+
+
+
+
+Definiert in Zeile 6 der Datei linklist.h.
+
+\subsection{Dokumentation der Funktionen}
+\index{linklist.h@{linklist.h}!add_glist@{add\_\-glist}}
+\index{add_glist@{add\_\-glist}!linklist.h@{linklist.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int add\_\-glist (char $\ast$, {\bf GLISTPTR} $\ast$)}\label{linklist_8h_a17a4a0e1bebcb1f19644843920ef3ea}
+
+
+
+
+Definiert in Zeile 190 der Datei linklist.c.
+
+Benutzt new\_\-glist() und glist::next.\index{linklist.h@{linklist.h}!add_nlist@{add\_\-nlist}}
+\index{add_nlist@{add\_\-nlist}!linklist.h@{linklist.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int add\_\-nlist (char $\ast$, {\bf NLISTPTR} $\ast$)}\label{linklist_8h_5ff4c7ffc3201d64048a6921c866c937}
+
+
+
+
+Definiert in Zeile 129 der Datei linklist.c.
+
+Benutzt new\_\-nlist() und nlist::next.
+
+Wird benutzt von main().\index{linklist.h@{linklist.h}!isinglist@{isinglist}}
+\index{isinglist@{isinglist}!linklist.h@{linklist.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ isinglist ({\bf GLISTPTR}, char $\ast$)}\label{linklist_8h_04dff50c01cd9572b6a3d9dfbdb7cc07}
+
+
+
+
+Definiert in Zeile 260 der Datei linklist.c.
+
+Benutzt isinstr(), glist::name, glist::next und glist::string.
+
+Wird benutzt von srch\_\-string().\index{linklist.h@{linklist.h}!isinlist@{isinlist}}
+\index{isinlist@{isinlist}!linklist.h@{linklist.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ isinlist ({\bf NLISTPTR}, char $\ast$)}\label{linklist_8h_3568dfb8e887fc7a6c38ca8f900c721c}
+
+
+
+
+Definiert in Zeile 243 der Datei linklist.c.
+
+Benutzt isinstr(), nlist::next und nlist::string.
+
+Wird benutzt von ispage(), main(), put\_\-anode(), put\_\-hnode(), put\_\-inode(), put\_\-rnode() und put\_\-unode().
+
+\subsection{Variablen-Dokumentation}
+\index{linklist.h@{linklist.h}!group_agents@{group\_\-agents}}
+\index{group_agents@{group\_\-agents}!linklist.h@{linklist.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf GLISTPTR} {\bf group\_\-agents}}\label{linklist_8h_2acbebab9914d67a3cea0f3716324fe2}
+
+
+
+
+Definiert in Zeile 80 der Datei linklist.c.\index{linklist.h@{linklist.h}!group_refs@{group\_\-refs}}
+\index{group_refs@{group\_\-refs}!linklist.h@{linklist.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf GLISTPTR} {\bf group\_\-refs}}\label{linklist_8h_73820e36830211218e9c911bc6ea6273}
+
+
+
+
+Definiert in Zeile 79 der Datei linklist.c.\index{linklist.h@{linklist.h}!group_sites@{group\_\-sites}}
+\index{group_sites@{group\_\-sites}!linklist.h@{linklist.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf GLISTPTR} {\bf group\_\-sites}}\label{linklist_8h_cda3597076ed2d11c457ee98bb89caa7}
+
+
+
+
+Definiert in Zeile 77 der Datei linklist.c.\index{linklist.h@{linklist.h}!group_urls@{group\_\-urls}}
+\index{group_urls@{group\_\-urls}!linklist.h@{linklist.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf GLISTPTR} {\bf group\_\-urls}}\label{linklist_8h_2b91bf4fd34380ee9673b57513dbff01}
+
+
+
+
+Definiert in Zeile 78 der Datei linklist.c.\index{linklist.h@{linklist.h}!group_users@{group\_\-users}}
+\index{group_users@{group\_\-users}!linklist.h@{linklist.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf GLISTPTR} {\bf group\_\-users}}\label{linklist_8h_5589f953a1673e7a2f3891d321794340}
+
+
+
+
+Definiert in Zeile 81 der Datei linklist.c.\index{linklist.h@{linklist.h}!hidden_agents@{hidden\_\-agents}}
+\index{hidden_agents@{hidden\_\-agents}!linklist.h@{linklist.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf NLISTPTR} {\bf hidden\_\-agents}}\label{linklist_8h_89feb23799329906fbd4a3d47a303027}
+
+
+
+
+Definiert in Zeile 85 der Datei linklist.c.
+
+Wird benutzt von main() und put\_\-anode().\index{linklist.h@{linklist.h}!hidden_refs@{hidden\_\-refs}}
+\index{hidden_refs@{hidden\_\-refs}!linklist.h@{linklist.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf NLISTPTR} {\bf hidden\_\-refs}}\label{linklist_8h_7f8ec975eaff8227a3e09efb17d3e064}
+
+
+
+
+Definiert in Zeile 84 der Datei linklist.c.
+
+Wird benutzt von main() und put\_\-rnode().\index{linklist.h@{linklist.h}!hidden_sites@{hidden\_\-sites}}
+\index{hidden_sites@{hidden\_\-sites}!linklist.h@{linklist.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf NLISTPTR} {\bf hidden\_\-sites}}\label{linklist_8h_96bde86b735761b0b2b03d057d7bddfd}
+
+
+
+
+Definiert in Zeile 82 der Datei linklist.c.
+
+Wird benutzt von main() und put\_\-hnode().\index{linklist.h@{linklist.h}!hidden_urls@{hidden\_\-urls}}
+\index{hidden_urls@{hidden\_\-urls}!linklist.h@{linklist.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf NLISTPTR} {\bf hidden\_\-urls}}\label{linklist_8h_fb86638f144a8726901b06185e2415af}
+
+
+
+
+Definiert in Zeile 83 der Datei linklist.c.
+
+Wird benutzt von main() und put\_\-unode().\index{linklist.h@{linklist.h}!hidden_users@{hidden\_\-users}}
+\index{hidden_users@{hidden\_\-users}!linklist.h@{linklist.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf NLISTPTR} {\bf hidden\_\-users}}\label{linklist_8h_c328ffff94e0ce5d57817ee1197767aa}
+
+
+
+
+Definiert in Zeile 86 der Datei linklist.c.
+
+Wird benutzt von put\_\-inode().\index{linklist.h@{linklist.h}!html_body@{html\_\-body}}
+\index{html_body@{html\_\-body}!linklist.h@{linklist.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf NLISTPTR} {\bf html\_\-body}}\label{linklist_8h_4bb0bd1db8f0b3cc89d509d8c5daddde}
+
+
+
+
+Definiert in Zeile 100 der Datei linklist.c.
+
+Wird benutzt von write\_\-html\_\-head().\index{linklist.h@{linklist.h}!html_end@{html\_\-end}}
+\index{html_end@{html\_\-end}!linklist.h@{linklist.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf NLISTPTR} {\bf html\_\-end}}\label{linklist_8h_d7f0906501b524d986d95f8efddb48e5}
+
+
+
+
+Definiert in Zeile 103 der Datei linklist.c.
+
+Wird benutzt von write\_\-html\_\-tail().\index{linklist.h@{linklist.h}!html_head@{html\_\-head}}
+\index{html_head@{html\_\-head}!linklist.h@{linklist.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf NLISTPTR} {\bf html\_\-head}}\label{linklist_8h_1811e9595e278ef4ac307d06cd3a4eed}
+
+
+
+
+Definiert in Zeile 99 der Datei linklist.c.
+
+Wird benutzt von write\_\-html\_\-head().\index{linklist.h@{linklist.h}!html_post@{html\_\-post}}
+\index{html_post@{html\_\-post}!linklist.h@{linklist.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf NLISTPTR} {\bf html\_\-post}}\label{linklist_8h_fd6de839e46d75632279853537235e7c}
+
+
+
+
+Definiert in Zeile 101 der Datei linklist.c.
+
+Wird benutzt von write\_\-html\_\-head().\index{linklist.h@{linklist.h}!html_pre@{html\_\-pre}}
+\index{html_pre@{html\_\-pre}!linklist.h@{linklist.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf NLISTPTR} {\bf html\_\-pre}}\label{linklist_8h_cea32428cfbcce0e252dd3613586d0f3}
+
+
+
+
+Definiert in Zeile 98 der Datei linklist.c.
+
+Wird benutzt von write\_\-html\_\-head().\index{linklist.h@{linklist.h}!html_tail@{html\_\-tail}}
+\index{html_tail@{html\_\-tail}!linklist.h@{linklist.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf NLISTPTR} {\bf html\_\-tail}}\label{linklist_8h_7d3b981f0cda9084a93c191ab80637da}
+
+
+
+
+Definiert in Zeile 102 der Datei linklist.c.
+
+Wird benutzt von write\_\-html\_\-tail().\index{linklist.h@{linklist.h}!ignored_agents@{ignored\_\-agents}}
+\index{ignored_agents@{ignored\_\-agents}!linklist.h@{linklist.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf NLISTPTR} {\bf ignored\_\-agents}}\label{linklist_8h_60013ce10d008e9eb74a4b6f28959729}
+
+
+
+
+Definiert in Zeile 90 der Datei linklist.c.\index{linklist.h@{linklist.h}!ignored_refs@{ignored\_\-refs}}
+\index{ignored_refs@{ignored\_\-refs}!linklist.h@{linklist.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf NLISTPTR} {\bf ignored\_\-refs}}\label{linklist_8h_761639dc29cca53d524007b9fb4a6e65}
+
+
+
+
+Definiert in Zeile 89 der Datei linklist.c.\index{linklist.h@{linklist.h}!ignored_sites@{ignored\_\-sites}}
+\index{ignored_sites@{ignored\_\-sites}!linklist.h@{linklist.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf NLISTPTR} {\bf ignored\_\-sites}}\label{linklist_8h_9df089ae5b8931353b2e79b9a33c70e6}
+
+
+
+
+Definiert in Zeile 87 der Datei linklist.c.\index{linklist.h@{linklist.h}!ignored_urls@{ignored\_\-urls}}
+\index{ignored_urls@{ignored\_\-urls}!linklist.h@{linklist.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf NLISTPTR} {\bf ignored\_\-urls}}\label{linklist_8h_9a30b4cfe3e814caad5864bf70683264}
+
+
+
+
+Definiert in Zeile 88 der Datei linklist.c.\index{linklist.h@{linklist.h}!ignored_users@{ignored\_\-users}}
+\index{ignored_users@{ignored\_\-users}!linklist.h@{linklist.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf NLISTPTR} {\bf ignored\_\-users}}\label{linklist_8h_c61949a50def3ceeaf32f93f01d1ea16}
+
+
+
+
+Definiert in Zeile 91 der Datei linklist.c.\index{linklist.h@{linklist.h}!include_agents@{include\_\-agents}}
+\index{include_agents@{include\_\-agents}!linklist.h@{linklist.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf NLISTPTR} {\bf include\_\-agents}}\label{linklist_8h_29034f7c35846ae0399bd7b358be1d94}
+
+
+
+
+Definiert in Zeile 95 der Datei linklist.c.\index{linklist.h@{linklist.h}!include_refs@{include\_\-refs}}
+\index{include_refs@{include\_\-refs}!linklist.h@{linklist.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf NLISTPTR} {\bf include\_\-refs}}\label{linklist_8h_72e046ed2702acb3b3cc2aa444f861b0}
+
+
+
+
+Definiert in Zeile 94 der Datei linklist.c.\index{linklist.h@{linklist.h}!include_sites@{include\_\-sites}}
+\index{include_sites@{include\_\-sites}!linklist.h@{linklist.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf NLISTPTR} {\bf include\_\-sites}}\label{linklist_8h_54c446a5497d9c6f94704e50f3ab099f}
+
+
+
+
+Definiert in Zeile 92 der Datei linklist.c.\index{linklist.h@{linklist.h}!include_urls@{include\_\-urls}}
+\index{include_urls@{include\_\-urls}!linklist.h@{linklist.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf NLISTPTR} {\bf include\_\-urls}}\label{linklist_8h_10e92b92241988092187d4a28d95d057}
+
+
+
+
+Definiert in Zeile 93 der Datei linklist.c.\index{linklist.h@{linklist.h}!include_users@{include\_\-users}}
+\index{include_users@{include\_\-users}!linklist.h@{linklist.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf NLISTPTR} {\bf include\_\-users}}\label{linklist_8h_4301d92f7f72fdda0af03033d967155b}
+
+
+
+
+Definiert in Zeile 96 der Datei linklist.c.\index{linklist.h@{linklist.h}!index_alias@{index\_\-alias}}
+\index{index_alias@{index\_\-alias}!linklist.h@{linklist.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf NLISTPTR} {\bf index\_\-alias}}\label{linklist_8h_a35b4fc28f26c83f77336185f9aa7175}
+
+
+
+
+Definiert in Zeile 97 der Datei linklist.c.
+
+Wird benutzt von main().\index{linklist.h@{linklist.h}!page_type@{page\_\-type}}
+\index{page_type@{page\_\-type}!linklist.h@{linklist.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf NLISTPTR} {\bf page\_\-type}}\label{linklist_8h_556b3c90c27ba5b38626945734914353}
+
+
+
+
+Definiert in Zeile 104 der Datei linklist.c.
+
+Wird benutzt von ispage() und main().\index{linklist.h@{linklist.h}!search_list@{search\_\-list}}
+\index{search_list@{search\_\-list}!linklist.h@{linklist.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf GLISTPTR} {\bf search\_\-list}}\label{linklist_8h_d93c06cbf86de996601e602d07da3663}
+
+
+
+
+Definiert in Zeile 105 der Datei linklist.c.
+
+Wird benutzt von srch\_\-string().

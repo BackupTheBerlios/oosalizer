@@ -1,0 +1,89 @@
+<?xml version='1.0' encoding='iso-8859-1' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.4.6">
+  <compounddef id="structcountry__code" kind="struct" prot="public">
+    <compoundname>country_code</compoundname>
+    <includes refid="webalizer_8h" local="no">webalizer.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structcountry__code_18b77525096037f6830210dc03728c88a" prot="public" static="no" mutable="no">
+        <type>u_long</type>
+        <definition>u_long country_code::idx</definition>
+        <argsstring></argsstring>
+        <name>idx</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/webalizer.h" line="142" bodyfile="/home/r23/oosalizer/webalizer.h" bodystart="142" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structcountry__code_1835c53390df57142797eae431d0d7a8b" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* country_code::desc</definition>
+        <argsstring></argsstring>
+        <name>desc</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/webalizer.h" line="143" bodyfile="/home/r23/oosalizer/webalizer.h" bodystart="143" bodyend="-1"/>
+        <referencedby refid="webalizer_8c_10ddf1224851353fc92bfbff6f499fa97" compoundref="webalizer_8c" startline="232" endline="1437">main</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structcountry__code_11998a168a8ea9025323f7ca7080b7ad7" prot="public" static="no" mutable="no">
+        <type>u_long</type>
+        <definition>u_long country_code::count</definition>
+        <argsstring></argsstring>
+        <name>count</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/webalizer.h" line="144" bodyfile="/home/r23/oosalizer/webalizer.h" bodystart="144" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structcountry__code_1ecff0cb1d546cd8375ca6ed45a75867c" prot="public" static="no" mutable="no">
+        <type>u_long</type>
+        <definition>u_long country_code::files</definition>
+        <argsstring></argsstring>
+        <name>files</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/webalizer.h" line="145" bodyfile="/home/r23/oosalizer/webalizer.h" bodystart="145" bodyend="-1"/>
+        <referencedby refid="output_8c_1c1ecb6ecbe9f7218b2e9ccae79cf2f5f" compoundref="output_8c" startline="2063" endline="2204">top_ctry_table</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structcountry__code_1c2f451d6198d10eb266d7cdadf117a1e" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double country_code::xfer</definition>
+        <argsstring></argsstring>
+        <name>xfer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/r23/oosalizer/webalizer.h" line="146" bodyfile="/home/r23/oosalizer/webalizer.h" bodystart="146" bodyend="-1"/>
+        <referencedby refid="output_8c_1c1ecb6ecbe9f7218b2e9ccae79cf2f5f" compoundref="output_8c" startline="2063" endline="2204">top_ctry_table</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/r23/oosalizer/webalizer.h" line="142" bodyfile="/home/r23/oosalizer/webalizer.h" bodystart="142" bodyend="146"/>
+    <listofallmembers>
+      <member refid="structcountry__code_11998a168a8ea9025323f7ca7080b7ad7" prot="public" virt="non-virtual"><scope>country_code</scope><name>count</name></member>
+      <member refid="structcountry__code_1835c53390df57142797eae431d0d7a8b" prot="public" virt="non-virtual"><scope>country_code</scope><name>desc</name></member>
+      <member refid="structcountry__code_1ecff0cb1d546cd8375ca6ed45a75867c" prot="public" virt="non-virtual"><scope>country_code</scope><name>files</name></member>
+      <member refid="structcountry__code_18b77525096037f6830210dc03728c88a" prot="public" virt="non-virtual"><scope>country_code</scope><name>idx</name></member>
+      <member refid="structcountry__code_1c2f451d6198d10eb266d7cdadf117a1e" prot="public" virt="non-virtual"><scope>country_code</scope><name>xfer</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
