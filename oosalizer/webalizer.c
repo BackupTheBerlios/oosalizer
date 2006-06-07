@@ -369,9 +369,13 @@ int main(int argc, char *argv[])
       if (search_list==NULL)
       {
          /* If no search engines defined, define some :) */
+         add_glist("google.de      q="      ,&search_list);
+         add_glist("google.at      q="      ,&search_list);
+         add_glist("google.ch      q="      ,&search_list);
+         add_glist("google.com     q="      ,&search_list);
+         add_glist("yahoo.de       p="      ,&search_list);
          add_glist("yahoo.com      p="      ,&search_list);
          add_glist("altavista.com  q="      ,&search_list);
-         add_glist("google.com     q="      ,&search_list);
          add_glist("eureka.com     q="      ,&search_list);
          add_glist("lycos.com      query="  ,&search_list);
          add_glist("hotbot.com     MT="     ,&search_list);
@@ -383,6 +387,7 @@ int main(int argc, char *argv[])
          add_glist("mamma.com      query="  ,&search_list);
          add_glist("alltheweb.com  query="  ,&search_list);
          add_glist("northernlight.com qr="  ,&search_list);
+
       }
    }
 
@@ -404,9 +409,10 @@ int main(int argc, char *argv[])
    if (verbose>1)
    {
       uname(&system_info);
-      printf("Webalizer V%s-%s (%s %s) %s\n",
+      printf("OOS [Webalizer] V%s-%s (%s %s) %s\n",
               version,editlvl,system_info.sysname,
               system_info.release,language);
+      printf("Webalizer V2.01-10 (Linux 2.6.13-15-default) German \n");
       printf("Webalizer Xtended RB13 patch implemented (22-May-2006)\n");
    }
 
@@ -414,6 +420,8 @@ int main(int argc, char *argv[])
    if (strstr(argv[0],"webazolver")!=0)
    {
       printf("DNS support not present, aborting...\n");
+      printf("Webalizer Xtended RB13 patch implemented (22-May-2006)\n");
+
       exit(1);
    }
 #endif  /* USE_DNS */
@@ -1753,6 +1761,7 @@ void print_version()
     version,editlvl,
     system_info.sysname,system_info.release,
     language,copyright);
+
  if (debug_mode)
  {
     printf("Mod date: %s  Options: ",moddate);
