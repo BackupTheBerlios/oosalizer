@@ -1,13 +1,13 @@
-# Doxyfile 1.4.1-KDevelop
+# Doxyfile 1.4.6
 
 #---------------------------------------------------------------------------
 # Project related configuration options
 #---------------------------------------------------------------------------
-PROJECT_NAME           = oosalizer.kdevelop
-PROJECT_NUMBER         = $VERSION$
-OUTPUT_DIRECTORY       = 
+PROJECT_NAME           = "OOS [Webalizer]"
+PROJECT_NUMBER         = "-dev 06.06.2006"
+OUTPUT_DIRECTORY       = /home/r23/oosalizer/doc/
 CREATE_SUBDIRS         = NO
-OUTPUT_LANGUAGE        = English
+OUTPUT_LANGUAGE        = German
 USE_WINDOWS_ENCODING   = NO
 BRIEF_MEMBER_DESC      = YES
 REPEAT_BRIEF           = YES
@@ -25,18 +25,20 @@ ABBREVIATE_BRIEF       = "The $name class" \
 ALWAYS_DETAILED_SEC    = NO
 INLINE_INHERITED_MEMB  = NO
 FULL_PATH_NAMES        = YES
-STRIP_FROM_PATH        = /home/r23/arrbiet_oosbalizer/
+STRIP_FROM_PATH        = /home/r23/
 STRIP_FROM_INC_PATH    = 
 SHORT_NAMES            = NO
 JAVADOC_AUTOBRIEF      = NO
 MULTILINE_CPP_IS_BRIEF = NO
 DETAILS_AT_TOP         = NO
 INHERIT_DOCS           = YES
-DISTRIBUTE_GROUP_DOC   = NO
+SEPARATE_MEMBER_PAGES  = NO
 TAB_SIZE               = 8
 ALIASES                = 
 OPTIMIZE_OUTPUT_FOR_C  = YES
 OPTIMIZE_OUTPUT_JAVA   = NO
+BUILTIN_STL_SUPPORT    = NO
+DISTRIBUTE_GROUP_DOC   = NO
 SUBGROUPING            = YES
 #---------------------------------------------------------------------------
 # Build related configuration options
@@ -80,12 +82,13 @@ WARN_LOGFILE           =
 #---------------------------------------------------------------------------
 # configuration options related to the input files
 #---------------------------------------------------------------------------
-INPUT                  = /home/r23/oosalizer
+INPUT                  = 
 FILE_PATTERNS          = *.c \
                          *.cc \
                          *.cxx \
                          *.cpp \
                          *.c++ \
+                         *.d \
                          *.java \
                          *.ii \
                          *.ixx \
@@ -106,6 +109,7 @@ FILE_PATTERNS          = *.c \
                          *.m \
                          *.mm \
                          *.dox \
+                         *.py \
                          *.C \
                          *.CC \
                          *.C++ \
@@ -119,15 +123,8 @@ FILE_PATTERNS          = *.c \
                          *.PHP3 \
                          *.M \
                          *.MM \
-                         *.C \
-                         *.H \
-                         *.tlh \
-                         *.diff \
-                         *.patch \
-                         *.moc \
-                         *.xpm \
-                         *.dox
-RECURSIVE              = yes
+                         *.PY
+RECURSIVE              = YES
 EXCLUDE                = 
 EXCLUDE_SYMLINKS       = NO
 EXCLUDE_PATTERNS       = 
@@ -141,12 +138,13 @@ FILTER_SOURCE_FILES    = NO
 #---------------------------------------------------------------------------
 # configuration options related to source browsing
 #---------------------------------------------------------------------------
-SOURCE_BROWSER         = NO
+SOURCE_BROWSER         = YES
 INLINE_SOURCES         = NO
 STRIP_CODE_COMMENTS    = YES
-REFERENCED_BY_RELATION = NO
-REFERENCES_RELATION    = NO
-VERBATIM_HEADERS       = NO
+REFERENCED_BY_RELATION = YES
+REFERENCES_RELATION    = YES
+USE_HTAGS              = NO
+VERBATIM_HEADERS       = YES
 #---------------------------------------------------------------------------
 # configuration options related to the alphabetical class index
 #---------------------------------------------------------------------------
@@ -207,7 +205,7 @@ MAN_LINKS              = NO
 #---------------------------------------------------------------------------
 # configuration options related to the XML output
 #---------------------------------------------------------------------------
-GENERATE_XML           = yes
+GENERATE_XML           = YES
 XML_OUTPUT             = xml
 XML_SCHEMA             = 
 XML_DTD                = 
@@ -239,7 +237,7 @@ SKIP_FUNCTION_MACROS   = YES
 # Configuration::additions related to external references   
 #---------------------------------------------------------------------------
 TAGFILES               = 
-GENERATE_TAGFILE       = oosalizer.tag
+GENERATE_TAGFILE       = 
 ALLEXTERNALS           = NO
 EXTERNAL_GROUPS        = YES
 PERL_PATH              = /usr/bin/perl
@@ -272,4 +270,4 @@ DOT_CLEANUP            = YES
 #---------------------------------------------------------------------------
 # Configuration::additions related to the search engine   
 #---------------------------------------------------------------------------
-SEARCHENGINE           = NO
+SEARCHENGINE           = YES
